@@ -1,0 +1,14 @@
+{
+  "name": "zengarden",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "npm run scss-compile",
+    "scss-compile": "node-sass scss/ -o assets/css",
+    "watch": "node-sass -w scss/ -o assets/css"
+  },
+  "author": "",
+  "license": "ISC"
+}

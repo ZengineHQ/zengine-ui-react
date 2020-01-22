@@ -1,0 +1,70 @@
+@import "../variables/colors";
+
+button {
+    background-color: $color-white;
+    border-radius: px(6);
+    padding: px(12, 20);
+    border: $color-dark-grey solid px(2);
+    color: $color-dark-grey;
+    font-size: px(14);
+    cursor: pointer;
+    white-space: nowrap;
+
+    @include hover() {
+        border-color: $color-primary;
+        color: $color-primary;
+        box-shadow: px(0,4,4,0) rgba(0, 0, 0, 0.25);
+    }
+
+    @include focus() {
+        border-color: $color-primary;
+        color: $color-primary;
+        box-shadow: px(0,0,4,4) rgba(69, 122, 178, 0.5);
+    }
+
+    @include active() {
+        border-color: $color-primary;
+        color: $color-primary;
+        box-shadow: inset px(0,4,4,0) rgba(0, 0, 0, 0.25);
+    }
+
+    @include disabled() {
+        &:hover {
+            box-shadow: none;
+        }
+        border-color: $color-primary-disabled;
+        color: $color-primary-disabled;
+        cursor: default;
+    }
+}
+
+button.primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border: $color-primary solid px(2);
+
+    @include disabled() {
+        background: $color-primary-disabled;
+    }
+}
+
+button.slim {
+    background-color: transparent;
+    color: $color-dark-grey;
+    border: transparent solid px(2);
+
+    @include hover() {
+        border-color: $color-dark-grey;
+    }
+    @include focus() {
+        border-color: $color-dark-grey;
+    }
+    @include active() {
+        border-color: $color-dark-grey;
+    }
+
+    @include disabled() {
+        border-color: $color-dark-grey-disabled;
+        color: $color-dark-grey-disabled;
+    }
+}
