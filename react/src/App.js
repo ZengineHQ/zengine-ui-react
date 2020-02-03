@@ -2,9 +2,6 @@ import React from 'react';
 
 import Button from './atoms/Button/Button';
 
-// @TODO figure out how we're going to add styles in locally
-import './assets/css/style-guide.css';
-
 function App() {
   return (
     <div className="App">
