@@ -3,12 +3,12 @@ import { render } from '@testing-library/react';
 
 import Label from './Label';
 
-test('Renders Label component with specified text', () => {
+test('Renders with specified text', () => {
   const { getByText } = render(<Label>Hello</Label>);
   expect(getByText('Hello')).toBeTruthy()
 });
 
-test('Adds an asterisk when the label is required', () => {
+test('Adds an asterisk when required', () => {
   const { getByText } = render(<Label required={ true }>Hello</Label>);
   expect(getByText('*Hello')).toBeTruthy()
 });
