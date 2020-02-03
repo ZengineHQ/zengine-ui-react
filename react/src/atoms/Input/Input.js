@@ -11,12 +11,14 @@ const Input = function (props) {
       placeholder={ props.placeholder }
       disabled={ props.disabled }
       aria-disabled={ props.disabled && props.disabled }
+      id={ props.id }
     />
   );
 };
 
 Input.propTypes = exact({
   disabled: PropTypes.bool,
+  id: PropTypes.string,
   required: PropTypes.bool,
   placeholder: PropTypes.string,
   type: PropTypes.string,
