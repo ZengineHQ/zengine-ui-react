@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from './atoms/Button/Button';
+
 // @TODO figure out how we're going to add styles in locally
 import './assets/css/style-guide.css';
 
@@ -32,19 +34,19 @@ function App() {
               Default
             </td>
             <td>
-              <button>Button 1</button>
+              <Button>Button 1</Button>
             </td>
             <td>
-              <button className="hover">Button 1</button>
+              <Button class="hover">Button 1</Button>
             </td>
             <td>
-              <button className="focus">Button 1</button>
+              <Button class="focus">Button 1</Button>
             </td>
             <td>
-              <button className="active">Button 1</button>
+              <Button class="active">Button 1</Button>
             </td>
             <td>
-              <button disabled="disabled">Button 1</button>
+              <Button disabled>Button 1</Button>
             </td>
           </tr>
           <tr>
@@ -52,39 +54,39 @@ function App() {
               Primary
             </td>
             <td>
-              <button className="primary">Button 1</button>
+              <Button theme="primary">Button 1</Button>
             </td>
             <td>
-              <button className="primary hover">Button 1</button>
+              <Button class="hover" theme="primary">Button 1</Button>
             </td>
             <td>
-              <button className="primary focus">Button 1</button>
+              <Button class="focus" theme="primary">Button 1</Button>
             </td>
             <td>
-              <button className="primary active">Button 1</button>
+              <Button class="active" theme="primary">Button 1</Button>
             </td>
             <td>
-              <button disabled="disabled" className="primary">Button 1</button>
+              <Button disabled theme="primary">Button 1</Button>
             </td>
           </tr>
           <tr>
             <td>
-              Subdude
+              Subdued
             </td>
             <td>
-              <button className="slim">Button 1</button>
+              <Button theme="subdued">Button 1</Button>
             </td>
             <td>
-              <button className="slim hover">Button 1</button>
+              <Button class="hover" theme="subdued">Button 1</Button>
             </td>
             <td>
-              <button className="slim focus">Button 1</button>
+              <Button class="focus" theme="subdued">Button 1</Button>
             </td>
             <td>
-              <button className="slim active">Button 1</button>
+              <Button class="active" theme="subdued">Button 1</Button>
             </td>
             <td>
-              <button disabled="disabled" className="slim">Button 1</button>
+              <Button disabled theme="subdued">Button 1</Button>
             </td>
           </tr>
           </tbody>

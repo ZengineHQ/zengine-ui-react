@@ -10,10 +10,10 @@ const Button = function (props) {
       onClick={ props.onClick }
       className={cc({
         primary: props.theme === 'primary',
-        subdued: props.theme === 'subdued',
+        slim: props.theme === 'subdued',
       })}
       disabled={ props.disabled }
-      aria-disabled={ props.disabled && props.disabled }
+      aria-disabled={ props.disabled }
     >
       { props.children }
     </button>
@@ -22,7 +22,13 @@ const Button = function (props) {
 
 Button.propTypes = exact({
   children: PropTypes.string,
+  /*
+   * Please work
+   **/
   disabled: PropTypes.bool,
+  /**
+   * Please work
+   **/
   onClick: PropTypes.func,
   theme: PropTypes.oneOf([
     '',
