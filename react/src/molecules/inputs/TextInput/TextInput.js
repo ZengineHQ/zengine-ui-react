@@ -8,7 +8,7 @@ import Label from "../../../atoms/Label/Label";
 const TextInput = function (props) {
   return (
     <div className="form-input">
-      { props.label && (<Label>{ props.label }</Label>) }
+      { props.label && (<Label required={ props.required }>{ props.label }</Label>) }
       <Input type="text" required={ props.required }/>
     </div>
   );
