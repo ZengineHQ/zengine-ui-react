@@ -21,3 +21,9 @@ export const Subdued = () => (
     Subdued Button
   </Button>
 );
+
+export const Disabled = () => (
+  <Button disabled={true}>
+    Disabled Button
+  </Button>
+);
