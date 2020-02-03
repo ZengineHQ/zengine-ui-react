@@ -4,7 +4,11 @@ import exact from 'prop-types-exact';
 
 const Input = function (props) {
   return (
-    <input type={ props.type } required={ props.required } aria-required={ props.required }/>
+    <input
+      type={ props.type }
+      required={ props.required }
+      aria-required={ props.required }
+    />
   );
 };
 
@@ -14,7 +18,8 @@ Input.propTypes = exact({
 });
 
 Input.defaultProps = {
-  required: false,
+  // Leaving this to explicitly false results in attribute pollution for aria-required when not required.
+  // required: false,
   type: 'text',
 };
 

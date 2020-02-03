@@ -8,3 +8,5 @@ export default {
 };
 
 export const Default = () => <Input></Input>;
+
+export const Required = () => <Input required={ true }></Input>;

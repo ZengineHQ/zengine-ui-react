@@ -5,3 +5,7 @@ This directory contains "Molecules" for Yidhra, following the Atom Design princi
 Atoms -> *Molecules* -> Organisms -> Templates -> Pages
 
 RTFM: http://atomicdesign.bradfrost.com/
+
+### List of Molecules
+
+- TextInput
