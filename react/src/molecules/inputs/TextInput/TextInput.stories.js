@@ -2,7 +2,6 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import TextInput from './TextInput';
-import Input from "../../../atoms/Input/Input";
 
 export default {
   title: 'Molecules/Inputs/TextInput',

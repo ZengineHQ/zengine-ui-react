@@ -27,7 +27,7 @@ export const Subdued = () => (
 );
 
 export const Disabled = () => (
-  <Button disabled={true}>
+  <Button disabled={true} onClick={action('clicked')}>
     Disabled Button
   </Button>
 );
@@ -43,6 +43,7 @@ export const Playground = () => {
     <Button
       disabled={boolean('Disabled', false)}
       theme={select('Theme', themeOpts, '')}
+      onClick={action('clicked')}
     >
       {text("Label", "Hello Friend")}
     </Button>
