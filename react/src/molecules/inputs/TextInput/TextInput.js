@@ -9,20 +9,27 @@ const TextInput = function (props) {
   return (
     <div className="form-input">
       { props.label && (<Label required={ props.required }>{ props.label }</Label>) }
-      <Input type="text" required={ props.required } />
+      <Input
+        type="text"
+        disabled={ props.disabled }
+        required={ props.required }
+        placeholder={ props.placeholder }
+      />
     </div>
   );
 };
 
 TextInput.propTypes = exact({
+  disabled: PropTypes.bool,
   label: PropTypes.string,
+  placeholder: PropTypes.string,
   required: PropTypes.bool,
 });
 
 TextInput.defaultProps = {
+  disabled: false,
   label: '',
-  // Leaving this to explicitly false results in attribute pollution for aria-required when not required.
-  // required: false,
+  required: false,
 };
 
 export default TextInput;

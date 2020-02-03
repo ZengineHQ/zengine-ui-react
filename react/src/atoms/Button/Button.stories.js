@@ -1,5 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Button from './Button';
 
@@ -30,3 +31,20 @@ export const Disabled = () => (
     Disabled Button
   </Button>
 );
+
+export const Playground = () => {
+  const themeOpts = {
+    Default: '',
+    Primary: 'primary',
+    Subdued: 'subdued',
+  };
+
+  return (
+    <Button
+      disabled={boolean('Disabled', false)}
+      theme={select('Theme', themeOpts, '')}
+    >
+      {text("Label", "Hello Friend")}
+    </Button>
+  );
+};

@@ -13,7 +13,7 @@ const Button = function (props) {
         subdued: props.theme === 'subdued',
       })}
       disabled={ props.disabled }
-      aria-disabled={ props.disabled }
+      aria-disabled={ props.disabled && props.disabled }
     >
       { props.children }
     </button>
@@ -25,7 +25,7 @@ Button.propTypes = exact({
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   theme: PropTypes.oneOf([
-    'default',
+    '',
     'primary',
     'subdued',
   ]),
@@ -37,8 +37,7 @@ Button.propTypes = exact({
 });
 
 Button.defaultProps = {
-  // Leaving this to explicitly false results in attribute pollution for aria-disabled when not disabled.
-  // disabled: false,
+  disabled: false,
   onClick: () => null,
   theme: '',
   type: 'button',

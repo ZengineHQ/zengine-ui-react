@@ -7,19 +7,24 @@ const Input = function (props) {
     <input
       type={ props.type }
       required={ props.required }
-      aria-required={ props.required }
+      aria-required={ props.required && props.required }
+      placeholder={ props.placeholder }
+      disabled={ props.disabled }
+      aria-disabled={ props.disabled && props.disabled }
     />
   );
 };
 
 Input.propTypes = exact({
+  disabled: PropTypes.bool,
   required: PropTypes.bool,
+  placeholder: PropTypes.string,
   type: PropTypes.string,
 });
 
 Input.defaultProps = {
-  // Leaving this to explicitly false results in attribute pollution for aria-required when not required.
-  // required: false,
+  disabled: false,
+  required: false,
   type: 'text',
 };
 
