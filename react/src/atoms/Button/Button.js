@@ -40,7 +40,7 @@ Button.defaultProps = {
   // Leaving this to explicitly false results in attribute pollution for aria-disabled when not disabled.
   // disabled: false,
   onClick: () => null,
-  theme: 'primary',
+  theme: '',
   type: 'button',
 };
 

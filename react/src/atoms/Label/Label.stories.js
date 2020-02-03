@@ -1,10 +1,15 @@
 import React from 'react';
+import { withInfo } from '@storybook/addon-info';
 
 import Label from './Label';
 
 export default {
   title: 'Atoms/Label',
   component: Label,
+  decorators: [withInfo],
+  parameters: {
+    notes: 'This is a standard HTML label',
+  },
 };
 
 export const Default = () => <Label>Default Label</Label>;
