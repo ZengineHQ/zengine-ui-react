@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import exact from 'prop-types-exact';
 
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
@@ -24,13 +23,28 @@ const TextInput = function (props) {
   );
 };
 
-TextInput.propTypes = exact({
+TextInput.propTypes = {
+  /**
+   * Disables the input.
+   **/
   disabled: PropTypes.bool,
+  /**
+   * HTML element id.
+   **/
   id: PropTypes.string,
+  /**
+   * Input label.
+   **/
   label: PropTypes.string,
+  /**
+   * HTML placeholder.
+   **/
   placeholder: PropTypes.string,
+  /**
+   * Marks the input as required.
+   **/
   required: PropTypes.bool,
-});
+};
 
 TextInput.defaultProps = {
   disabled: false,

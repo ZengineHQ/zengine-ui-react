@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import exact from 'prop-types-exact';
 
 const Input = function (props) {
   return (
@@ -16,13 +15,28 @@ const Input = function (props) {
   );
 };
 
-Input.propTypes = exact({
+Input.propTypes = {
+  /**
+   * Disables the input.
+   **/
   disabled: PropTypes.bool,
+  /**
+   * HTML element id.
+   **/
   id: PropTypes.string,
+  /**
+   * Marks the input as required.
+   **/
   required: PropTypes.bool,
+  /**
+   * HTML placeholder.
+   **/
   placeholder: PropTypes.string,
+  /**
+   * HTML input type.
+   **/
   type: PropTypes.string,
-});
+};
 
 Input.defaultProps = {
   disabled: false,

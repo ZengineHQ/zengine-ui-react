@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import exact from 'prop-types-exact';
 import cc from 'classcat';
 
 const Button = function (props) {
@@ -20,27 +19,36 @@ const Button = function (props) {
   );
 };
 
-Button.propTypes = exact({
+Button.propTypes = {
+  /**
+   * Only text may be passed as a child to be used as the button label.
+   **/
   children: PropTypes.string,
-  /*
-   * Please work
+  /**
+   * Disables the button.
    **/
   disabled: PropTypes.bool,
   /**
-   * Please work
+   * Click handler.
    **/
   onClick: PropTypes.func,
+  /**
+   * Button theme.
+   **/
   theme: PropTypes.oneOf([
     '',
     'primary',
     'subdued',
   ]),
+  /**
+   * HTML button type.
+   **/
   type: PropTypes.oneOf([
     'button',
     'reset',
     'submit'
   ]),
-});
+};
 
 Button.defaultProps = {
   disabled: false,
