@@ -10,10 +10,10 @@ npm install @zenginehq/yidhra-react
 ## Usage
 
 ```
-// @TODO cleanup export so we can ommit dist from paths
-import 'yidhra/dist/yihdra.css'
+// @TODO clean up the path export
+import '@zenginehq/yidhra/assets/css/style.css';
 
-import { Button, TextInput, NumberInput } from 'yidhra-react/dist';
+import { Button, TextInput, NumberInput } from '@zenginehq/yidhra-react';
 ```
 
 -----
