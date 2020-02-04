@@ -1,0 +1,99 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: "Open Sans"; }
+
+button {
+  background-color: #fff;
+  border-radius: 0.6rem;
+  padding: 1.2rem 2rem;
+  border: #5A5854 solid 0.2rem;
+  color: #5A5854;
+  font-size: 1.4rem;
+  cursor: pointer;
+  white-space: nowrap; }
+  button:hover {
+    border-color: #457AB2;
+    color: #457AB2;
+    box-shadow: 0rem 0.4rem 0.4rem 0rem rgba(0, 0, 0, 0.25); }
+  button:focus {
+    border-color: #457AB2;
+    color: #457AB2;
+    box-shadow: 0rem 0rem 0.4rem 0.4rem rgba(69, 122, 178, 0.5); }
+  button:active {
+    border-color: #457AB2;
+    color: #457AB2;
+    box-shadow: inset 0rem 0.4rem 0.4rem 0rem rgba(0, 0, 0, 0.25); }
+  button:disabled {
+    border-color: rgba(69, 122, 178, 0.3);
+    color: rgba(69, 122, 178, 0.3);
+    cursor: default; }
+    button:disabled:hover {
+      box-shadow: none; }
+
+button.primary {
+  background-color: #457AB2;
+  color: #fff;
+  border: #457AB2 solid 0.2rem; }
+  button.primary:disabled {
+    background: rgba(69, 122, 178, 0.3); }
+
+button.slim {
+  background-color: transparent;
+  color: #5A5854;
+  border: transparent solid 0.2rem; }
+  button.slim:hover {
+    border-color: #5A5854; }
+  button.slim:focus {
+    border-color: #5A5854; }
+  button.slim:active {
+    border-color: #5A5854; }
+  button.slim:disabled {
+    border-color: rgba(90, 88, 84, 0.3);
+    color: rgba(90, 88, 84, 0.3); }
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem; }
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem; }
