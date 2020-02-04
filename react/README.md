@@ -1,3 +1,24 @@
+# Yidhra React Components
+
+## Installation
+
+```
+npm install @zenginehq/yidhra
+npm install @zenginehq/yidhra-react
+```
+
+## Usage
+
+```
+// @TODO cleanup export so we can ommit dist from paths
+import 'yidhra/dist/yihdra.css'
+
+import { Button, TextInput, NumberInput } from 'yidhra-react/dist';
+```
+
+-----
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
