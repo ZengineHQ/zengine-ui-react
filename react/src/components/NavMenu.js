@@ -10,6 +10,9 @@ const NavMenu = () => (
       <li style={{display: 'inline-block', marginLeft: '1rem'}}>
         <Link to="/style-guide">Style Guide</Link>
       </li>
+      <li style={{display: 'inline-block', marginLeft: '1rem'}}>
+        <Link to="/forms">Forms</Link>
+      </li>
     </ul>
   </div>
 );

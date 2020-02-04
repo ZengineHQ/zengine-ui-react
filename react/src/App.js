@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import NavMenu from './components/NavMenu';
 
 const Home = lazy(() => import('./pages/Home'));
+const FormsDemo = lazy(() => import('./pages/Forms'));
 const PageNotFound = lazy(() => import('./pages/NotFound'));
 const StyleGuide = lazy(() => import('./pages/StyleGuide'));
 
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/style-guide" component={ StyleGuide } />
+            <Route exact path="/forms" component={ FormsDemo } />
 
             <Route component={ PageNotFound } />
           </Switch>
