@@ -1,96 +1,30 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Button from './atoms/Button/Button';
+import ErrorBoundary from './components/ErrorBoundary';
+import Loader from './components/Loader';
+import NavMenu from './components/NavMenu';
+
+const Home = lazy(() => import('./pages/Home'));
+const PageNotFound = lazy(() => import('./pages/NotFound'));
+const StyleGuide = lazy(() => import('./pages/StyleGuide'));
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Wizehive V2 Style Guide
-      </h1>
+    <Router>
+      <NavMenu></NavMenu>
 
-      <section className="guide">
-        <header>
-          <h2>Buttons</h2>
-        </header>
+      <ErrorBoundary>
+        <Suspense fallback={ <Loader /> }>
+          <Switch>
+            <Route exact path="/" component={ Home } />
+            <Route exact path="/style-guide" component={ StyleGuide } />
 
-        <table className="guide">
-          <thead>
-          <tr>
-            <td></td>
-            <th>Default</th>
-            <th>Hover</th>
-            <th>Focus</th>
-            <th>Active</th>
-            <th>Disabled</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              Default
-            </td>
-            <td>
-              <Button>Button 1</Button>
-            </td>
-            <td>
-              <Button class="hover">Button 1</Button>
-            </td>
-            <td>
-              <Button class="focus">Button 1</Button>
-            </td>
-            <td>
-              <Button class="active">Button 1</Button>
-            </td>
-            <td>
-              <Button disabled>Button 1</Button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Primary
-            </td>
-            <td>
-              <Button theme="primary">Button 1</Button>
-            </td>
-            <td>
-              <Button class="hover" theme="primary">Button 1</Button>
-            </td>
-            <td>
-              <Button class="focus" theme="primary">Button 1</Button>
-            </td>
-            <td>
-              <Button class="active" theme="primary">Button 1</Button>
-            </td>
-            <td>
-              <Button disabled theme="primary">Button 1</Button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Subdued
-            </td>
-            <td>
-              <Button theme="subdued">Button 1</Button>
-            </td>
-            <td>
-              <Button class="hover" theme="subdued">Button 1</Button>
-            </td>
-            <td>
-              <Button class="focus" theme="subdued">Button 1</Button>
-            </td>
-            <td>
-              <Button class="active" theme="subdued">Button 1</Button>
-            </td>
-            <td>
-              <Button disabled theme="subdued">Button 1</Button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-      </section>
-    </div>
+            <Route component={ PageNotFound } />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </Router>
   );
 }
 
