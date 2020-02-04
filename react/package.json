@@ -2,6 +2,7 @@
   "name": "yidhra-react",
   "version": "0.1.0",
   "private": true,
+  "main": "lib/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -20,7 +21,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "dist": "babel src/api -d dist/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +40,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "@storybook/addon-actions": "^5.3.10",
     "@storybook/addon-docs": "^5.3.10",
     "@storybook/addon-knobs": "^5.3.10",
@@ -47,6 +54,12 @@
     "@storybook/addons": "^5.3.10",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.10",
-    "@storybook/storybook-deployer": "^2.8.1"
+    "@storybook/storybook-deployer": "^2.8.1",
+    "babel-plugin-dev-expression": "^0.2.2",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-dynamic-import": "^2.1.0",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-minify": "^0.5.1"
   }
 }
