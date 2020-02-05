@@ -1,7 +1,7 @@
 $font-folder: '../fonts/';
-@import "reset";
-@import "fonts/open-sans";
-@import "variables/colors";
+@import "lib/reset";
+@import "lib/fonts/open-sans";
+@import "lib/variables/colors";
 
 html {
     font-size: 62.5%;
