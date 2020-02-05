@@ -1,0 +1,56 @@
+
+.tpl-program-console-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    .col-half {
+        width: 50%;
+    }
+
+    .col-half:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+
+        .atom-image-circle {
+            margin-right: px(20);
+            height: px(90);
+            width: px(90);
+        }
+
+        .atom-page-title {
+            margin-top: px(15);
+        }
+    }
+}
+
+.tpl-program-console-portals {
+    @include sectionBox();
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: px(30);
+    min-height: px(400);
+
+    header {
+        @extend h2;
+        position: absolute;
+        top: px(-30);
+    }
+
+    .body {
+        flex: 1 1 auto;
+        padding-top: px(20);
+    }
+
+    footer {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: px(25);
+        border-top: px(1) solid $color-light-grey;
+        flex: 0 0 auto;
+    }
+}

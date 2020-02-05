@@ -1,0 +1,33 @@
+@import "../mixins/basics";
+
+.page-program-console-home {
+    /** These Properties need to be figured out on how we want to import
+     *  them so we have a consistent layout.
+     */
+    padding: px(0, 110);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    nav {
+        margin: px(20, -90);
+
+        select {
+            min-width: px(200);
+        }
+    }
+
+    .tpl-program-console-header {
+        margin-bottom: px(50);
+    }
+
+    .page-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .tpl-program-console-portals {
+            width: 70%;
+        }
+    }
+}
