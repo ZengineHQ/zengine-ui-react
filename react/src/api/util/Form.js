@@ -8,10 +8,10 @@ import Button from '../atoms/Button/Button';
 function YidhraForm(props) {
   const {
     initialValues,
-    fields,
     onSubmit,
     labelReset,
     labelSubmit,
+    showReset,
     validate
   } = props;
 
@@ -41,14 +41,6 @@ function YidhraForm(props) {
       {({ dirty, isValid, isSubmitting }) => (
         <Form noValidate>
           <div className="form-body">
-            { fields.map((def, i) => {
-              return '';
-              // const [Element, fieldProps] = renderField(def);
-              // return (
-              //   <Element { ...fieldProps } key={ i } />
-              // );
-            })}
-
             { props.children }
           </div>
 
@@ -62,7 +54,7 @@ function YidhraForm(props) {
               { labelSubmit }
             </Button>
 
-            { dirty && (
+            { showReset && dirty && (
               <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
                 { labelReset }
               </Button>
@@ -100,6 +92,10 @@ YidhraForm.propTypes = {
    **/
   labelSubmit: PropTypes.string,
   /**
+   * Whether or not to display the reset button.
+   **/
+  showReset: PropTypes.bool,
+  /**
    * Additional custom form-level validation function.
    **/
   validate: PropTypes.func,
@@ -109,6 +105,7 @@ YidhraForm.defaultProps = {
   initialData: {},
   labelReset: 'Reset Form',
   labelSubmit: 'Save Form',
+  showReset: true
 };
 
 export default YidhraForm;

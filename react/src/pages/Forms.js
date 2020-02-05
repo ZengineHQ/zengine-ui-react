@@ -1,17 +1,22 @@
 import React from 'react';
 
 import { Form, NumberInput, TextInput } from '../api';
+import SimpleSearch from '../api/organisms/forms/SimpleSearch';
 
 const FormsDemo = () => (
   <div>
-    <h2>Forms Demo</h2>
+    <h1>Forms Demo</h1>
 
-    <Form fields={[]} onSubmit={data => console.warn('submit', data)}>
+    <h2>Manually</h2>
+    <Form onSubmit={data => console.warn('submit', data)}>
 
       <TextInput label="Name" name="name" required />
 
       <NumberInput label="Age" name="age" required />
     </Form>
+
+    <h2>Using SimpleSearch Organism</h2>
+    <SimpleSearch onSubmit={data => console.warn('submit', data)} />
   </div>
 );
 
