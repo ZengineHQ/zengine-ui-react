@@ -1,34 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ErrorMessage, useField } from 'formik';
 
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
+import withForwardRef from '../../../util/withForwardRef';
 
 function TextInput(props) {
-  const id = props.id || 'text-input';
+  const name = props.name || 'text';
+  const [field, meta] = useField(name);
 
   return (
     <div className="form-input">
       { props.label && (
-        <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
+        <Label required={ props.required } for={ name } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
       <Input
         type="text"
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
-        id={ id }
         classes={ props.classes }
+        ref={ props.innerRef }
+        { ...field }
       />
+
+      <ErrorMessage name={ props.name } />
     </div>
   );
 }
 
 TextInput.propTypes = {
   /**
-   * HTML element id.
+   * HTML element name (also used as id).
    **/
-  id: PropTypes.string,
+  name: PropTypes.string,
   /**
    * Input label.
    **/
@@ -53,6 +59,10 @@ TextInput.propTypes = {
    * HTML classes to be added as-is to the label.
    **/
   labelClasses: PropTypes.string,
+  /**
+   * Optionally pass a ref to be attached to the actual HTML input element.
+   **/
+  innerRef: PropTypes.object,
 };
 
 TextInput.defaultProps = {
@@ -61,4 +71,4 @@ TextInput.defaultProps = {
   required: false,
 };
 
-export default TextInput;
+export default withForwardRef(TextInput);

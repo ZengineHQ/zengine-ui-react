@@ -1,24 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ErrorMessage, useField } from 'formik';
 
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
+import withForwardRef from '../../../util/withForwardRef';
 
 function NumberInput (props) {
-  const id = props.id || 'number-input';
+  const name = props.name || 'number';
+  const [field, meta] = useField(name);
 
   return (
     <div className="form-input">
       { props.label && (
-        <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
+        <Label required={ props.required } for={ name } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
       <Input
         type="number"
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
-        id={ id }
         classes={ props.classes }
+        ref={ props.innerRef }
+        { ...field }
       />
     </div>
   );
@@ -26,9 +30,9 @@ function NumberInput (props) {
 
 NumberInput.propTypes = {
   /**
-   * HTML element id.
+   * HTML element name (also used as id).
    **/
-  id: PropTypes.string,
+  name: PropTypes.string,
   /**
    * Input label.
    **/
@@ -53,6 +57,10 @@ NumberInput.propTypes = {
    * HTML classes to be added as-is to the label.
    **/
   labelClasses: PropTypes.string,
+  /**
+   * Optionally pass a ref to be attached to the actual HTML input element.
+   **/
+  innerRef: PropTypes.object,
 };
 
 NumberInput.defaultProps = {
@@ -61,4 +69,4 @@ NumberInput.defaultProps = {
   required: false,
 };
 
-export default NumberInput;
+export default withForwardRef(NumberInput);

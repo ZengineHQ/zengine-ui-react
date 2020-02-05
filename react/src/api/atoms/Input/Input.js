@@ -5,13 +5,17 @@ function Input(props) {
   return (
     <input
       type={ props.type }
-      id={ props.id }
+      id={ props.name }
+      name={ props.name }
       required={ props.required }
+      // value={ props.value }
       aria-required={ props.required === true ? true : null }
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
       placeholder={ props.placeholder }
       className={ props.classes }
+      onChange={ props.onChange }
+      onBlur={ props.onBlur }
     />
   );
 }
@@ -22,9 +26,9 @@ Input.propTypes = {
    **/
   type: PropTypes.string.isRequired,
   /**
-   * HTML element id.
+   * HTML element name (also used as id).
    **/
-  id: PropTypes.string,
+  name: PropTypes.string,
   /**
    * Marks the input as required.
    **/
