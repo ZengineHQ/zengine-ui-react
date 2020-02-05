@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = function (props) {
+function Input(props) {
   return (
     <input
       type={ props.type }
-      required={ props.required }
-      aria-required={ props.required && props.required }
-      placeholder={ props.placeholder }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled && props.disabled }
       id={ props.id }
+      required={ props.required }
+      aria-required={ props.required === true ? true : null }
+      disabled={ props.disabled }
+      aria-disabled={ props.disabled === true ? true : null }
+      placeholder={ props.placeholder }
+      className={ props.classes }
     />
   );
-};
+}
 
 Input.propTypes = {
   /**
-   * Disables the input.
+   * HTML input type.
    **/
-  disabled: PropTypes.bool,
+  type: PropTypes.string.isRequired,
   /**
    * HTML element id.
    **/
@@ -29,13 +30,17 @@ Input.propTypes = {
    **/
   required: PropTypes.bool,
   /**
+   * Marks the input as disabled.
+   **/
+  disabled: PropTypes.bool,
+  /**
    * HTML placeholder.
    **/
   placeholder: PropTypes.string,
   /**
-   * HTML input type.
+   * HTML classes to be added as-is to the input.
    **/
-  type: PropTypes.string,
+  classes: PropTypes.string,
 };
 
 Input.defaultProps = {

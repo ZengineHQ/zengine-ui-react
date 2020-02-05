@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cc from 'classcat';
 
-const Button = function (props) {
+function Button(props) {
   return (
     <button
       type={ props.type }
@@ -12,12 +12,12 @@ const Button = function (props) {
         slim: props.theme === 'subdued',
       })}
       disabled={ props.disabled }
-      aria-disabled={ props.disabled }
+      aria-disabled={ props.disabled === true ? true : null }
     >
       { props.children }
     </button>
   );
-};
+}
 
 Button.propTypes = {
   /**

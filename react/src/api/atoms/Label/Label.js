@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Label = props => (
-  <label htmlFor={ props.for } className={ props.classes }>
-    { props.required && '*' }
-    { props.children }
-  </label>
-);
+function Label(props) {
+  return (
+    <label htmlFor={ props.for } className={ props.classes }>
+      { props.required && '*' }
+      { props.children }
+    </label>
+  );
+}
 
 Label.propTypes = {
   /**

@@ -56,3 +56,13 @@ test('Omits label element when not specified', () => {
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(0);
 });
+
+test('Adds custom classes to the input when specified', () => {
+  const { container } = render(<NumberInput classes="foo bar baz">Hello</NumberInput>);
+  expect(container.getElementsByTagName('input')[0]).toHaveClass('foo bar baz');
+});
+
+test('Adds custom classes to the label when specified', () => {
+  const { container } = render(<NumberInput label="Foo" id={ 'foo' } labelClasses="foo bar baz" />);
+  expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar baz');
+});

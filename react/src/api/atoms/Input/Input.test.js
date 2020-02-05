@@ -37,3 +37,8 @@ test('Sets input id when specified', () => {
   const { container } = render(<Input id={ 'foo' }/>);
   expect(container.firstChild).toHaveAttribute('id', 'foo');
 });
+
+test('Adds custom classes when specified', () => {
+  const { container } = render(<Input classes="foo bar baz">Hello</Input>);
+  expect(container.firstChild).toHaveClass('foo bar baz');
+});
