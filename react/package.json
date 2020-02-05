@@ -22,7 +22,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
-    "dist": "babel src/api -d dist/ && cp public/style.css dist/yihdra.css"
+    "dist": "babel src/api -d dist/"
   },
   "eslintConfig": {
     "extends": "react-app"
