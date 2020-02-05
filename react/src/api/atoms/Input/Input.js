@@ -8,7 +8,7 @@ function Input(props) {
       id={ props.name }
       name={ props.name }
       required={ props.required }
-      // value={ props.value }
+      value={ props.value || '' }
       aria-required={ props.required === true ? true : null }
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
@@ -48,9 +48,12 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  type: 'text',
+  name: '',
   disabled: false,
   required: false,
-  type: 'text',
+  placeholder: '',
+  classes: '',
 };
 
 export default Input;

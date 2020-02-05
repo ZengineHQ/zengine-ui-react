@@ -5,10 +5,19 @@ import { ErrorMessage, useField } from 'formik';
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
 import withForwardRef from '../../../util/withForwardRef';
+import { getFieldClasses } from '../../../util/getFieldClasses';
+import { isEmpty } from '../../../util/validation';
 
 function TextInput(props) {
   const name = props.name || 'text';
-  const [field, meta] = useField(name);
+
+  const validate = value => {
+    if (props.required && isEmpty(value)) {
+      return 'Required';
+    }
+  };
+
+  const [field, meta] = useField({name, validate});
 
   return (
     <div className="form-input">
@@ -20,12 +29,12 @@ function TextInput(props) {
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
-        classes={ props.classes }
+        classes={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
         { ...field }
       />
 
-      <ErrorMessage name={ props.name } />
+      <ErrorMessage name={ field.name } />
     </div>
   );
 }
@@ -68,7 +77,9 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   disabled: false,
   label: '',
+  placeholder: '',
   required: false,
+  classes: '',
 };
 
 export default withForwardRef(TextInput);

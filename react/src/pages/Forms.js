@@ -6,7 +6,7 @@ const FormsDemo = () => (
   <div>
     <h2>Forms Demo</h2>
 
-    <Form fields={[]} onSubmit={(data) => console.warn('submit', data)}>
+    <Form fields={[]} onSubmit={data => console.warn('submit', data)}>
 
       <TextInput label="Name" name="name" required />
 

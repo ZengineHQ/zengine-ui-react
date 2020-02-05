@@ -7,10 +7,10 @@ function Button(props) {
     <button
       type={ props.type }
       onClick={ props.onClick }
-      className={cc({
+      className={cc([{
         primary: props.theme === 'primary',
         slim: props.theme === 'subdued',
-      })}
+      }, props.classes])}
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
     >
@@ -41,6 +41,10 @@ Button.propTypes = {
     'subdued',
   ]),
   /**
+   * HTML classes to be added as-is to the button.
+   **/
+  classes: PropTypes.string,
+  /**
    * HTML button type.
    **/
   type: PropTypes.oneOf([
@@ -55,6 +59,7 @@ Button.defaultProps = {
   onClick: () => null,
   theme: '',
   type: 'button',
+  classes: '',
 };
 
 export default Button;

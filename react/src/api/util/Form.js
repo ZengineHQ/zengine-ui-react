@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 
-import FieldDefinitionShape from './shapes';
+// import FieldDefinitionShape from './shapes';
 import Button from '../atoms/Button/Button';
 
 function YidhraForm(props) {
@@ -34,15 +34,15 @@ function YidhraForm(props) {
       onSubmit={ (values, actions) => {
         actions.setSubmitting(false);
         onSubmit(values);
-        actions.resetForm(values);
+        actions.resetForm();
       } }
       validate={ validateForm }
     >
-      {({ dirty, errors, isSubmitting }) => (
+      {({ dirty, isValid, isSubmitting }) => (
         <Form noValidate>
           <div className="form-body">
             { fields.map((def, i) => {
-              console.warn(errors)
+              return '';
               // const [Element, fieldProps] = renderField(def);
               // return (
               //   <Element { ...fieldProps } key={ i } />
@@ -52,12 +52,13 @@ function YidhraForm(props) {
             { props.children }
           </div>
 
-          { Object.keys(errors).length > 0 && (<div className="form-errors">
-            @TODO display errors
-          </div>) }
-
           <div className="form-actions">
-            <Button type="submit" theme="primary" aria-label={ labelSubmit } disabled={ !dirty || isSubmitting }>
+            <Button
+              type="submit"
+              theme="primary"
+              aria-label={ labelSubmit }
+              disabled={ isSubmitting || !dirty || !isValid }
+            >
               { labelSubmit }
             </Button>
 
@@ -81,7 +82,7 @@ YidhraForm.propTypes = {
   /**
    * Array of field definitions that make up the form.
    **/
-  fields: PropTypes.arrayOf(PropTypes.shape(FieldDefinitionShape)),
+  // fields: PropTypes.arrayOf(PropTypes.shape(FieldDefinitionShape)),
   /**
    * Callback that will receive valid, submitted form values.
    **/

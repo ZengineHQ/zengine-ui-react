@@ -5,10 +5,19 @@ import { ErrorMessage, useField } from 'formik';
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
 import withForwardRef from '../../../util/withForwardRef';
+import { getFieldClasses } from '../../../util/getFieldClasses';
+import { isEmpty } from '../../../util/validation';
 
 function NumberInput (props) {
   const name = props.name || 'number';
-  const [field, meta] = useField(name);
+
+  const validate = value => {
+    if (props.required && isEmpty(value)) {
+      return 'Required';
+    }
+  };
+
+  const [field, meta] = useField({name, validate});
 
   return (
     <div className="form-input">
@@ -20,10 +29,12 @@ function NumberInput (props) {
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
-        classes={ props.classes }
+        classes={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
         { ...field }
       />
+
+      <ErrorMessage name={ field.name } />
     </div>
   );
 }
@@ -66,7 +77,9 @@ NumberInput.propTypes = {
 NumberInput.defaultProps = {
   disabled: false,
   label: '',
+  placeholder: '',
   required: false,
+  classes: '',
 };
 
 export default withForwardRef(NumberInput);
