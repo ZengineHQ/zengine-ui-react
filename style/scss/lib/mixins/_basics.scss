@@ -1,8 +1,3 @@
-//@function px($size) {
-//    $remSize: $size / 10;
-//    @return #{$remSize}rem;
-//}
-
 @function px($values...) {
     $max: length($values);
     $remValues: '';
@@ -22,34 +17,19 @@
 
 
 @mixin hover() {
-    @if $style-guide {
-        &.hover {
-            @content
-        }
-    }
-    &:hover {
+    &.hover, &:hover {
         @content
     }
 }
 
 @mixin disabled() {
-    @if $style-guide {
-        &.disabled {
-            @content
-        }
-    }
-    &:disabled {
+    &:disabled, &.disabled {
         @content
     }
 }
 
 @mixin active() {
-    @if $style-guide {
-        &.active {
-            @content
-        }
-    }
-    &:active {
+    &:active, &.active {
         @content
     }
 }
@@ -63,4 +43,10 @@
     &:focus {
         @content
     }
+}
+
+@mixin sectionBox() {
+    border: px(1) solid $color-light-grey;
+    border-radius: px(5);
+    background: $color-white;
 }

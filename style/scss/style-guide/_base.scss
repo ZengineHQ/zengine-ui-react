@@ -1,0 +1,60 @@
+@mixin colors($name, $color, $dark: false) {
+    &.#{$name} {
+        @if $dark {
+            color: $color-dark-grey;
+        } @else {
+            color: $color-white;
+        }
+
+
+        &:after {
+            content: "#{$name}:";
+            position: absolute;
+            bottom: px(25);
+            left: px(10);
+            font-weight: bold;
+        }
+
+        &:before {
+            content: "#{$color}";
+            position: absolute;
+            bottom: px(5);
+            left: px(10);
+        }
+
+        background: $color;
+    }
+}
+
+
+.guide-colors {
+
+    .guide-group {
+        @include sectionBox();
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.color {
+    border-radius: px(10);
+    border: 1px solid $color-dark-grey;
+    height: px(100);
+    width: px(250);
+    position: relative;
+    font-size: px(12);
+    margin: px(5);
+
+    @include colors('dark-grey', $color-dark-grey);
+    @include colors('dark-grey-disabled', $color-dark-grey-disabled, true);
+    @include colors('light-grey', $color-light-grey, true);
+    @include colors('page-background', $color-page-background, true);
+    @include colors('white', $color-white, true);
+
+    @include colors('primary', $color-primary);
+    @include colors('primary-disabled', $color-primary-disabled, true);
+    @include colors('secondary', $color-secondary);
+    @include colors('secondary-light', $color-secondary-light, true);
+}
+

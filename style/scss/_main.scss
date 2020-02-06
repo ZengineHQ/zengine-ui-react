@@ -1,6 +1,15 @@
 $font-folder: '../fonts/';
-@import "reset";
-@import "fonts/open-sans";
+@import "lib/reset";
+@import "lib/fonts/open-sans";
+@import "lib/variables/colors";
 
-html { font-size: 62.5%; }
-body { font-family: "Open Sans"}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Open Sans";
+    background: $color-page-background;
+    color: $color-dark-grey;
+    font-size: px(14);
+}
