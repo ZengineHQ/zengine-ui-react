@@ -31,18 +31,23 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: px(30);
+    margin-top: px(35);
     min-height: px(400);
+    padding-top: px(10);
 
     header {
         @extend h2;
         position: absolute;
-        top: px(-30);
+        top: px(-35);
     }
 
     .body {
         flex: 1 1 auto;
-        padding-top: px(20);
+        //padding-top: px(20);
+        .org-table-dashboard {
+            border-radius: px(5);
+            overflow: hidden;
+        }
     }
 
     footer {

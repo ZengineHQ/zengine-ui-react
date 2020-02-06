@@ -6,6 +6,10 @@ section.org-kpi {
 
     .mol-counter-labeled {
         border-right: px(1) solid $color-light-grey;
-        flex: 1 1 0px
+        flex: 1 1 0px;
+
+        &:last-child {
+            border-right: none;
+        }
     }
 }

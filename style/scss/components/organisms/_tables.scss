@@ -3,7 +3,8 @@ table.org-table-dashboard {
 
     td, th {
         padding: px(10);
-        line-height: px(40);
+        line-height: px(20);
+        vertical-align: middle;
 
         &:first-child {
             padding-left: px(30);
@@ -15,13 +16,21 @@ table.org-table-dashboard {
     }
 
     thead th {
-        color: rgba(90, 88, 84, 0.7);
+        color: $color-light-grey;
         font-size: px(14);
+        height: px(60);
         text-align: left;
+        font-weight: 700;
+        line-height: px(14);
+        border-bottom: px(1) solid  $color-light-grey;
     }
 
     tbody {
         font-size: px(16);
+
+        tr td {
+            height: px(40);
+        }
 
         tr:hover td {
             background: $color-secondary-light;
