@@ -3,7 +3,7 @@ import { decorate } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
-import { Form, NumberInput, TextInput } from '../../index';
+import { NumberInput, TextInput } from '../../index';
 
 export default {
   title: 'Utility/YidhraForm',
