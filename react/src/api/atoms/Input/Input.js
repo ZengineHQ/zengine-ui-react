@@ -54,6 +54,7 @@ Input.defaultProps = {
   required: false,
   placeholder: '',
   classes: '',
+  onChange: () => null
 };
 
 export default Input;

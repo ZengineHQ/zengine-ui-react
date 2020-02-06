@@ -28,14 +28,19 @@ test('Sets aria-disabled attribute when disabled', () => {
   expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
 });
 
+test('Doesn\t set aria-disabled attribute when enabled', () => {
+  const { container } = render(<Input />);
+  expect(container.firstChild).not.toHaveAttribute('aria-disabled');
+});
+
 test('Sets input placeholder when specified', () => {
   const { container } = render(<Input placeholder={ 'foo' }/>);
   expect(container.firstChild).toHaveAttribute('placeholder', 'foo');
 });
 
-test('Sets input id when specified', () => {
-  const { container } = render(<Input id={ 'foo' }/>);
-  expect(container.firstChild).toHaveAttribute('id', 'foo');
+test('Sets input name when specified', () => {
+  const { container } = render(<Input name={ 'foo' }/>);
+  expect(container.firstChild).toHaveAttribute('name', 'foo');
 });
 
 test('Adds custom classes when specified', () => {

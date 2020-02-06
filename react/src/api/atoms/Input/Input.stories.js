@@ -19,7 +19,7 @@ export const Disabled = () => <Input disabled={ true }></Input>;
 
 export const Placeholder = () => <Input placeholder="placeholder text"></Input>;
 
-export const Number = () => <Input type="number"></Input>;
+export const Type = () => <Input type="number"></Input>;
 
 export const Playground = () => {
   const typeOpts = [
