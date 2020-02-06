@@ -2,16 +2,15 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import TextInput from './TextInput';
-import TestForm from '../../../util/testing';
-import Input from '../../../atoms/Input/Input';
+import { MockForm }  from '../../../util/testing';
 
 test('Renders a text input', () => {
-  const { container } = render(<TestForm><TextInput name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('type', 'text');
 });
 
 test('Sets label when specified', () => {
-  const { container, getByText } = render(<TestForm><TextInput label="foo" name="foo" /></TestForm>);
+  const { container, getByText } = render(<MockForm><TextInput label="foo" name="foo" /></MockForm>);
   expect(getByText('foo')).toBeTruthy();
 
   const labels = container.getElementsByTagName('label');
@@ -19,7 +18,7 @@ test('Sets label when specified', () => {
 });
 
 test('Marks input as required when specified', () => {
-  const { container } = render(<TestForm><TextInput name="foo" required={ true } /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" required={ true } /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('required');
 });
 
@@ -27,7 +26,7 @@ test('Marks input as required when specified', () => {
 // aria-attribute will be tested by the "Input" component which actually gets rendered.
 
 test('Marks input as disabled when specified', () => {
-  const { container } = render(<TestForm><TextInput name="foo" disabled={ true } /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" disabled={ true } /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('disabled');
 });
 
@@ -35,37 +34,37 @@ test('Marks input as disabled when specified', () => {
 // aria-attribute will be tested by the "Input" component which actually gets rendered.
 
 test('Sets input placeholder when specified', () => {
-  const { container } = render(<TestForm><TextInput name="foo" placeholder="foo"/></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" placeholder="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'foo');
 });
 
 test('Sets input id when specified', () => {
-  const { container } = render(<TestForm><TextInput name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'foo');
 });
 
 test('Sets label "for" attribute when id specified', () => {
-  const { container } = render(<TestForm><TextInput label="Foo" name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput label="Foo" name="foo" /></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'foo');
 });
 
 test('Omits label element when not specified', () => {
-  const { container } = render(<TestForm><TextInput name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(0);
 });
 
 test('Adds a default class to the input', () => {
-  const { container } = render(<TestForm><TextInput name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveClass('form-control');
 });
 
 test('Adds custom classes to the input when specified', () => {
-  const { container } = render(<TestForm><TextInput classes="foo bar" name="foo" /></TestForm>);
+  const { container } = render(<MockForm><TextInput classes="foo bar" name="foo" /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveClass('foo bar');
 });
 
 test('Adds custom classes to the label when specified', () => {
-  const { container } = render(<TestForm><TextInput label="Foo" name="foo" labelClasses="foo bar" /></TestForm>);
+  const { container } = render(<MockForm><TextInput label="Foo" name="foo" labelClasses="foo bar" /></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });

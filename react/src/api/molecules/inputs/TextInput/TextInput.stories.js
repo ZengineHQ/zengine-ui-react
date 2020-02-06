@@ -2,6 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import TextInput from './TextInput';
+import { MockForm } from '../../../util/testing';
 
 export default {
   title: 'Molecules/Inputs/TextInput',
@@ -11,19 +12,22 @@ export default {
   },
 };
 
-export const Default = () => <TextInput label="Text Input"></TextInput>;
+export const Default = () => <MockForm><TextInput label="Text Input" name="text" /></MockForm>;
 
-export const Required = () => <TextInput label="Required Text Input" required={true}></TextInput>;
+export const Required = () => <MockForm><TextInput label="Required Text Input" required={true} name="text" /></MockForm>;
 
-export const Disabled = () => <TextInput label="Disabled Text Input" disabled={true}></TextInput>;
+export const Disabled = () => <MockForm><TextInput label="Disabled Text Input" disabled={true} name="text" /></MockForm>;
 
-export const Placeholder = () => <TextInput label="Placeholder Text Input" placeholder="placeholder text"></TextInput>;
+export const Placeholder = () => <MockForm><TextInput label="Placeholder Text Input" placeholder="placeholder text" name="text" /></MockForm>;
 
 export const Playground = () => (
-  <TextInput
-    label={ text('Label', 'Input Label') }
-    disabled={ boolean('Disabled', false) }
-    required={ boolean('Required', false) }
-    placeholder={ text('Placeholder', 'placeholder')}
-  ></TextInput>
+  <MockForm>
+    <TextInput
+      label={ text('Label', 'Input Label') }
+      disabled={ boolean('Disabled', false) }
+      required={ boolean('Required', false) }
+      placeholder={ text('Placeholder', 'placeholder')}
+      name="text"
+    />
+  </MockForm>
 );

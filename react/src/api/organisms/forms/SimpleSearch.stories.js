@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+import { decorate } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 
 import SimpleSearch from './SimpleSearch';
@@ -12,13 +12,15 @@ export default {
   },
 };
 
-export const Default = () => <SimpleSearch onSubmit={s => action(`Searched for: ${s}`)}/>;
+const firstArg = decorate([args => args.slice(0, 1)]);
+
+export const Default = () => <SimpleSearch onSubmit={firstArg.action('Search form submitted')}/>;
 
 export const Playground = () => (
   <SimpleSearch
     label={ text('Label', 'Find stuff') }
     placeholder={ text('Placeholder', 'placeholder')}
     classes={ text('Form Classes', '')}
-    onSubmit={s => action(`Searched for: ${s}`)}
+    onSubmit={firstArg.action('Search form submitted')}
   />
 );
