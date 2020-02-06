@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
+import sinon from 'sinon';
 
 import Button from './Button';
 
@@ -31,4 +32,22 @@ test('Disables button when specified', () => {
 test('Displays aria-disabled attribute when disabled', () => {
   const { container } = render(<Button disabled={ true }>Hello</Button>);
   expect(container.firstChild).toHaveAttribute('aria-disabled',  'true');
+});
+
+test('Adds custom classes when specified', () => {
+  const { container } = render(<Button classes="foo bar baz">Hello</Button>);
+  expect(container.firstChild).toHaveClass('foo bar baz');
+});
+
+test('Executes on-click handler when triggered', () => {
+  const callback = sinon.fake();
+  const { getByText } = render(<Button onClick={callback}>Hello</Button>);
+
+  fireEvent(getByText('Hello'), new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    })
+  );
+
+  expect(callback.called).toBeTruthy();
 });
