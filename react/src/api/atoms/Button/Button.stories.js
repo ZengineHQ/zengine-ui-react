@@ -32,11 +32,23 @@ export const Disabled = () => (
   </Button>
 );
 
+export const CustomClasses = () => (
+  <Button classes="foo" onClick={action('clicked')}>
+    Custom classes button
+  </Button>
+);
+
 export const Playground = () => {
   const themeOpts = {
     Default: '',
     Primary: 'primary',
-    Subdued: 'subdued',
+    Subdued: 'subdued'
+  };
+
+  const typeOpts = {
+    Button: 'button',
+    Submit: 'submit',
+    Reset: 'reset',
   };
 
   return (
@@ -44,6 +56,8 @@ export const Playground = () => {
       disabled={boolean('Disabled', false)}
       theme={select('Theme', themeOpts, '')}
       onClick={action('clicked')}
+      type={select('Type', typeOpts, 'button')}
+      classes={text('Classes', 'foo bar')}
     >
       {text("Label", "Hello Friend")}
     </Button>

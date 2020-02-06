@@ -33,6 +33,7 @@ export const Playground = () => {
       disabled={ boolean('Disabled', false) }
       placeholder={ text('Placeholder', 'placeholder')}
       type={ select('Type', typeOpts, 'text') }
+      classes={text('Classes', 'foo bar')}
     ></Input>
   );
 };
