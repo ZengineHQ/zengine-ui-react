@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik';
 import _isEmpty from 'lodash/isEmpty';
 
 // import FieldDefinitionShape from './shapes';
-import Button from '../atoms/Button/Button';
+import Button from '../../atoms/Button/Button';
 
 function YidhraForm(props) {
   const {
