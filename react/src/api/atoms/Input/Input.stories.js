@@ -11,15 +11,15 @@ export default {
   },
 };
 
-export const Default = () => <Input></Input>;
+export const Default = () => <Input />;
 
-export const Required = () => <Input required={ true }></Input>;
+export const Required = () => <Input required={ true } />;
 
-export const Disabled = () => <Input disabled={ true }></Input>;
+export const Disabled = () => <Input disabled={ true } />;
 
-export const Placeholder = () => <Input placeholder="placeholder text"></Input>;
+export const Placeholder = () => <Input placeholder="placeholder text" />;
 
-export const Type = () => <Input type="number"></Input>;
+export const TypeNumber = () => <Input type="number" />;
 
 export const Playground = () => {
   const typeOpts = [
@@ -34,6 +34,6 @@ export const Playground = () => {
       placeholder={ text('Placeholder', 'placeholder')}
       type={ select('Type', typeOpts, 'text') }
       classes={text('Classes', 'foo bar')}
-    ></Input>
+    />
   );
 };

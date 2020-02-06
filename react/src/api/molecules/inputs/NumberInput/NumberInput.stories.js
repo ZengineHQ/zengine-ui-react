@@ -11,16 +11,17 @@ export default {
   },
 };
 
-export const Default = () => <NumberInput label="Number Input" />;
+export const Default = () => <NumberInput label="Number Input" name="number"/>;
 
-export const Required = () => <NumberInput label="Required Number Input" required={true} />;
+export const Required = () => <NumberInput label="Required Number Input" required={true} name="number" />;
 
-export const Disabled = () => <NumberInput label="Disabled Number Input" disabled={true} />;
+export const Disabled = () => <NumberInput label="Disabled Number Input" disabled={true} name="number" />;
 
-export const Placeholder = () => <NumberInput label="Placeholder Number Input" placeholder="placeholder number" />;
+export const Placeholder = () => <NumberInput label="Placeholder Number Input" placeholder="placeholder number" name="number" />;
 
 export const Playground = () => (
   <NumberInput
+    name="foo"
     label={ text('Label', 'Input Label') }
     disabled={ boolean('Disabled', false) }
     required={ boolean('Required', false) }
