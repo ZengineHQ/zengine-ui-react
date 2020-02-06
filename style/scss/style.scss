@@ -1,4 +1,7 @@
 $style-guide: false !default;
-@import "mixins/basics";
+@import "lib/mixins/basics";
 @import "main";
-@import "atoms/all";
+@import "components/atoms/all";
+@import "components/molecules/all";
+@import "components/organisms/all";
+@import "components/templates/all";

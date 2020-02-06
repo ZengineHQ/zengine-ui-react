@@ -1,0 +1,15 @@
+section.org-kpi {
+    @include sectionBox();
+    display: flex;
+    flex-direction: row;
+    padding: px(14, 0);
+
+    .mol-counter-labeled {
+        border-right: px(1) solid $color-light-grey;
+        flex: 1 1 0px;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+h1 {
+    font-size: px(24);
+    line-height: px(30);
+    margin-bottom: px(10);
+    font-weight: 600;
+    color: $color-dark-grey;
+}
+
+h2 {
+    font-size: px(20);
+    line-height: px(24);
+    margin-bottom: px(10);
+    font-weight: 600;
+    color: $color-dark-grey;
+}
+
+h1.atom-page-title {
+    display: flex;
+}
