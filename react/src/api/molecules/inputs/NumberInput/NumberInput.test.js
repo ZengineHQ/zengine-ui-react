@@ -22,30 +22,16 @@ test('Marks input as required when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('required');
 });
 
-test('Sets aria-required attribute when required', () => {
-  const { container } = render(<TestForm><NumberInput required={ true } name="foo"/></TestForm>);
-  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('aria-required', 'true');
-});
-
-test('Doesn\'t set aria-required attribute when not required', () => {
-  const { container } = render(<TestForm><NumberInput name="foo" required={ false } /></TestForm>);
-  expect(container.getElementsByTagName('input')[0]).not.toHaveAttribute('aria-required');
-});
+// Testing for aria-required attribute not necessary here because if it's marked as required the presence of the
+// aria-attribute will be tested by the "Input" component which actually gets rendered.
 
 test('Marks input as disabled when specified', () => {
   const { container } = render(<TestForm><NumberInput disabled={ true } name="foo"/></TestForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('disabled');
 });
 
-test('Doesn\'t set aria-disabled attribute when not disabled', () => {
-  const { container } = render(<TestForm><NumberInput name="foo" disabled={ false } /></TestForm>);
-  expect(container.getElementsByTagName('input')[0]).not.toHaveAttribute('aria-disabled');
-});
-
-test('Sets aria-disabled attribute when disabled', () => {
-  const { container } = render(<TestForm><NumberInput disabled={ true } name="foo"/></TestForm>);
-  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('aria-disabled', 'true');
-});
+// Testing for aria-disabled attribute not necessary here because if it's marked as disabled the presence of the
+// aria-attribute will be tested by the "Input" component which actually gets rendered.
 
 test('Sets input placeholder when specified', () => {
   const { container } = render(<TestForm><NumberInput placeholder="foo" name="foo"/></TestForm>);
