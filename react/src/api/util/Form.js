@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
+import _isEmpty from 'lodash/isEmpty';
 
 // import FieldDefinitionShape from './shapes';
 import Button from '../atoms/Button/Button';
@@ -38,30 +39,36 @@ function YidhraForm(props) {
       } }
       validate={ validateForm }
     >
-      {({ dirty, isValid, isSubmitting }) => (
-        <Form noValidate>
-          <div className="form-body">
-            { props.children }
-          </div>
+      {({ dirty, isValid, isSubmitting, errors, touched }) => {
+        return (
+          <Form noValidate>
+            <div className="form-body">
+              { props.children }
+            </div>
 
-          <div className="form-actions">
-            <Button
-              type="submit"
-              theme="primary"
-              aria-label={ labelSubmit }
-              disabled={ isSubmitting || !dirty || !isValid }
-            >
-              { labelSubmit }
-            </Button>
+            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form errors">
+              Please fix errors and try again.
+            </div>) }
 
-            { showReset && dirty && (
-              <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
-                { labelReset }
+            <div className="form-actions">
+              <Button
+                type="submit"
+                theme="primary"
+                aria-label={ labelSubmit }
+                disabled={ isSubmitting || !dirty || !isValid }
+              >
+                { labelSubmit }
               </Button>
-            )}
-          </div>
-        </Form>
-      )}
+
+              { showReset && dirty && (
+                <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
+                  { labelReset }
+                </Button>
+              )}
+            </div>
+          </Form>
+        )
+      }}
     </Formik>
   );
 }
