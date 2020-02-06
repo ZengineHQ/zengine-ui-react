@@ -1,90 +1,273 @@
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,700,700i&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <link rel="stylesheet" href="css/style-guide.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('atomic').each(function(index) {
+                let html = $(this).html();
+                let title = $(this).attr('title');
+                let usage = $(this).attr('usage');
+                $(this).before("<div class='guide-component-name'>" + title + "</div>");
+                $(this).after($('<pre data-lang=\'html\' class=\'prettyprint \'></pre>').text(html));
+
+                if (usage !== undefined) {
+                    console.log(usage);
+                    $(this).after($('<div class="guide-usage"></div>').text(usage));
+                }
+            });
+        });
+    </script>
+    <title>Yidhra - The Wizehive Atomic Style Guide</title>
 </head>
 <body>
-<h1>
-    Wizehive V2 Style Guide
+<h1 class="guide-title">
+    Yidhra <small>The Wizehive Atomic Style Guide</small>
 </h1>
+
+<h1 class="guide-book">Atomic Components</h1>
+
+<h1 class="guide-chapter">Atoms</h1>
+
+<section class="guide">
+    <header>
+        <h2>Typography</h2>
+    </header>
+    <atomic title="atom-page-title">
+        <h1 class="atom-page-title">Page Title</h1>
+    </atomic>
+    <atomic title="atom-header-section">
+        <h2 class="">Section Header</h2>
+    </atomic>
+</section>
+
 <section class="guide">
     <header>
         <h2>Buttons</h2>
     </header>
-    <table class="guide">
-        <thead>
-        <tr>
-            <td></td>
-            <th>Default</th>
-            <th>Hover</th>
-            <th>Focus</th>
-            <th>Active</th>
-            <th>Disabled</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                Default
-            </td>
-            <td>
-                <button>Button 1</button>
-            </td>
-            <td>
-                <button class="hover">Button 1</button>
-            </td>
-            <td>
-                <button class="focus">Button 1</button>
-            </td>
-            <td>
-                <button class="active">Button 1</button>
-            </td>
-            <td>
-                <button disabled="disabled">Button 1</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Primary
-            </td>
-            <td>
-                <button class="primary">Button 1</button>
-            </td>
-            <td>
-                <button class="primary hover">Button 1</button>
-            </td>
-            <td>
-                <button class="primary focus">Button 1</button>
-            </td>
-            <td>
-                <button class="primary active">Button 1</button>
-            </td>
-            <td>
-                <button disabled="disabled" class="primary">Button 1</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                subdued
-            </td>
-            <td>
-                <button class="subdued">Button 1</button>
-            </td>
-            <td>
-                <button class="subdued hover">Button 1</button>
-            </td>
-            <td>
-                <button class="subdued focus">Button 1</button>
-            </td>
-            <td>
-                <button class="subdued active">Button 1</button>
-            </td>
-            <td>
-                <button disabled="disabled" class="subdued">Button 1</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <atomic title="atom-button-default">
+        <button>Default Button</button>
+        <button class="hover">Default Button Hovered</button>
+        <button class="focus">Default Button Focused</button>
+        <button class="active">Default Button Active</button>
+        <button disabled="disabled">Default Button Disabled</button>
+    </atomic>
+    <atomic title="atom-button-primary">
+        <button class="primary">Primary Button</button>
+        <button class="primary hover">Primary Button Hovered</button>
+        <button class="primary focus">Primary Button Focused</button>
+        <button class="primary active">Primary Button Active</button>
+        <button disabled="primary disabled">Primary Button Disabled</button>
+    </atomic>
+    <atomic title="atom-button-subdued">
+        <button class="subdued">Subdued Button</button>
+        <button class="subdued hover">Subdued Button Hovered</button>
+        <button class="subdued focus">Subdued Button Focused</button>
+        <button class="subdued active">Subdued Button Active</button>
+        <button disabled="subdued disabled">Subdued Button Disabled</button>
+    </atomic>
 </section>
 
+<section class="guide">
+    <header>
+        <h2>Images</h2>
+    </header>
+    <atomic title="atom-image-circle" usage="Height and Width must be set on the element">
+        <img class="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 40px; width:40px;">
+        <img class="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 70px; width:70px;">
+        <img class="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 120px; width:120px;">
+    </atomic>
+</section>
+
+<section class="guide">
+    <header>
+        <h2>Inputs</h2>
+    </header>
+    <atomic title="atom-input-select">
+        <select>
+            <option>Something</option>
+            <option>Something More</option>
+        </select>
+    </atomic>
+</section>
+
+<h1 class="guide-chapter">Molecules</h1>
+
+<section class="guide">
+    <header>
+        <h2>Counter Labeled</h2>
+    </header>
+    <atomic title="mol-counter-labeled">
+        <article class="mol-counter-labeled" title="1,358 Submissions">
+            <span>1,358</span>
+            <small>Submissions</small>
+        </article>
+    </atomic>
+</section>
+
+<h1 class="guide-chapter">Organisms</h1>
+
+<section class="guide">
+    <header>
+        <h2>Tables</h2>
+    </header>
+
+    <h3>Dashboard</h3>
+
+    <atomic title="org-table-dashboard">
+        <table class="org-table-dashboard">
+            <thead>
+            <tr>
+                <th>Title 1</th>
+                <th>Something else</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Icon</td>
+                <td>Some Info</td>
+                <td>March 2020</td>
+                <td>
+                    <button class="subdued">View Data</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Icon</td>
+                <td>Some Info</td>
+                <td>March 2020</td>
+                <td>
+                    <button class="subdued">View Data</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </atomic>
+</section>
+
+<section class="guide">
+    <header>
+        <h2>KPI</h2>
+    </header>
+    <atomic title="org-kpi">
+        <section class="org-kpi">
+            <article class="mol-counter-labeled" title="1,358 Submissions">
+                <span>1,358</span>
+                <small>Submissions</small>
+            </article>
+            <article class="mol-counter-labeled" title="158 Ready for Review">
+                <span>158</span>
+                <small>Ready for Review</small>
+            </article>
+            <article class="mol-counter-labeled" title="45 Reviewed">
+                <span>45</span>
+                <small>Reviewed</small>
+            </article>
+        </section>
+    </atomic>
+</section>
+
+<h1 class="guide-chapter">Templates</h1>
+<section class="guide">
+    <header>
+        <h2>Program Console</h2>
+    </header>
+
+    <h3>Header</h3>
+
+    <atomic title="tpl-program-console-header">
+        <header class="tpl-program-console-header">
+            <div class="col-half">
+                <img class="atom-image-circle" src="img/Yidhra-face.jpg">
+                <h1 class="atom-page-title">Program Console</h1>
+            </div>
+            <div class="col-half">
+                <section class="org-kpi">
+                    <article class="mol-counter-labeled" title="1,358 Submissions">
+                        <span>1,358</span>
+                        <small>Submissions</small>
+                    </article>
+                    <article class="mol-counter-labeled" title="158 Ready for Review">
+                        <span>158</span>
+                        <small>Ready for Review</small>
+                    </article>
+                    <article class="mol-counter-labeled" title="45 Reviewed">
+                        <span>45</span>
+                        <small>Reviewed</small>
+                    </article>
+                </section>
+            </div>
+        </header>
+    </atomic>
+
+    <h3>Portals</h3>
+    <atomic title="tpl-program-console-portals">
+        <article class="tpl-program-console-portals">
+            <header>Process: Scholarship Award</header>
+            <div class="body">
+                <table class="org-table-dashboard">
+                    <thead>
+                    <tr>
+                        <th>Title 1</th>
+                        <th>Something else</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Icon</td>
+                        <td>Some Info</td>
+                        <td>March 2020</td>
+                        <td>
+                            <button class="subdued">View Data</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Icon</td>
+                        <td>Some Info</td>
+                        <td>March 2020</td>
+                        <td>
+                            <button class="subdued">View Data</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
+                <button class="primary">Set Assignments</button>
+            </footer>
+        </article>
+    </atomic>
+
+</section>
+
+<h1 class="guide-book">Misc Information</h1>
+<section class="guide guide-colors">
+    <header>
+        <h2>Colors</h2>
+    </header>
+    <div class="guide-group">
+        <div class="color dark-grey"></div>
+        <div class="color dark-grey-disabled"></div>
+        <div class="color light-grey"></div>
+        <div class="color page-background"></div>
+        <div class="color white"></div>
+    </div>
+    <div class="guide-group">
+        <div class="color primary"></div>
+        <div class="color primary-disabled"></div>
+    </div>
+    <div class="guide-group">
+        <div class="color secondary"></div>
+        <div class="color secondary-light"></div>
+    </div>
+</section>
 </body>
 </html>
