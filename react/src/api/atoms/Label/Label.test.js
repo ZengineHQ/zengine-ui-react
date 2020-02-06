@@ -18,7 +18,7 @@ test('Adds custom classes when specified', () => {
   expect(container.firstChild).toHaveClass('foo bar baz');
 });
 
-test('Specifies which input element it\s for', () => {
+test('Adds "for" attribute when specified.', () => {
   const { container } = render(<Label for="foo-element">Hello</Label>);
   expect(container.firstChild).toHaveAttribute('for', 'foo-element');
 });

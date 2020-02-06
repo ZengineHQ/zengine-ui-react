@@ -7,14 +7,14 @@
  * @returns {string}
  */
 export const getFieldClasses = (meta, extra) => {
-  const classes = ['form-control'];
+  let classes = ['form-control'];
 
   if (meta.touched) {
     classes.push(meta.error ? 'is-invalid' : 'is-valid');
   }
 
   if (extra) {
-    classes.concat(extra.split(' '));
+    classes = classes.concat(extra.split(' '));
   }
 
   return classes.join(' ');

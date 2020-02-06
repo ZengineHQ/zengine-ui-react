@@ -55,7 +55,7 @@ function YidhraForm(props) {
                 type="submit"
                 theme="primary"
                 aria-label={ labelSubmit }
-                disabled={ isSubmitting || !dirty || !isValid }
+                disabled={ isSubmitting || !isValid }
               >
                 { labelSubmit }
               </Button>

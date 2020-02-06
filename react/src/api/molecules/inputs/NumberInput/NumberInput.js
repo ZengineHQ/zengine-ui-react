@@ -43,7 +43,7 @@ NumberInput.propTypes = {
   /**
    * HTML element name (also used as id).
    **/
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   /**
    * Input label.
    **/

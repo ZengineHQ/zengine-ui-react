@@ -3,9 +3,14 @@ import { render } from '@testing-library/react';
 
 import Input from './Input';
 
-test('Renders input with specified type', () => {
+test('Renders a type text input by default', () => {
   const { container } = render(<Input />);
   expect(container.firstChild).toHaveAttribute('type', 'text');
+});
+
+test('Renders correct input type when specified', () => {
+  const { container } = render(<Input type="number"/>);
+  expect(container.firstChild).toHaveAttribute('type', 'number');
 });
 
 test('Marks input as required when specified', () => {
@@ -18,19 +23,19 @@ test('Sets aria-required attribute when required', () => {
   expect(container.firstChild).toHaveAttribute('aria-required', 'true');
 });
 
+test('Doesn\'t set aria-required attribute when not required', () => {
+  const { container } = render(<Input required={ false }/>);
+  expect(container.firstChild).not.toHaveAttribute('aria-required');
+});
+
 test('Marks input as disabled when specified', () => {
-  const { container } = render(<Input disabled={ true }/>);
+  const { container } = render(<Input disabled={ true } />);
   expect(container.firstChild).toHaveAttribute('disabled');
 });
 
 test('Sets aria-disabled attribute when disabled', () => {
-  const { container } = render(<Input disabled={ true }/>);
+  const { container } = render(<Input disabled={ true } />);
   expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
-});
-
-test('Doesn\t set aria-disabled attribute when enabled', () => {
-  const { container } = render(<Input />);
-  expect(container.firstChild).not.toHaveAttribute('aria-disabled');
 });
 
 test('Sets input placeholder when specified', () => {
