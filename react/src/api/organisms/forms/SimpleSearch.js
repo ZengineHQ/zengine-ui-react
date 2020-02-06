@@ -6,7 +6,7 @@ import { Form, TextInput } from '../../index';
 function SimpleSearch(props) {
   return (
     <Form onSubmit={props.onSubmit} labelSubmit="Search" showReset={false}>
-      <TextInput label="Search" name="search" placeholder="Type here..." required />
+      <TextInput label="Search" name="search" placeholder="Type here..." />
     </Form>
   );
 }
