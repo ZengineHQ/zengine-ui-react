@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, TextInput } from '../../index';
+import { Form, TextInput } from '../../../index';
 
 function SimpleSearch(props) {
   return (
-    <Form onSubmit={props.onSubmit} labelSubmit="Search" showReset={false}>
-      <TextInput label={props.label} name="search" placeholder={props.placeholder} />
+    <Form onSubmit={props.onSubmit} labelSubmit={props.labelSubmit} showReset={false} classes={props.classes}>
+      <TextInput label={props.labelInput} name="search" placeholder={props.placeholder} />
     </Form>
   );
 }
@@ -17,9 +17,13 @@ SimpleSearch.propTypes = {
    **/
   onSubmit: PropTypes.func.isRequired,
   /**
-   * The search button label.
+   * The search input label.
    **/
-  label: PropTypes.string,
+  labelInput: PropTypes.string,
+  /**
+   * The submit button label.
+   **/
+  labelSubmit: PropTypes.string,
   /**
    * The search input placeholder.
    **/
@@ -32,7 +36,8 @@ SimpleSearch.propTypes = {
 
 SimpleSearch.defaultProps = {
   classes: '',
-  label: 'Search',
+  labelInput: 'Search',
+  labelSubmit: 'Search',
   placeholder: 'Type here...'
 };
 

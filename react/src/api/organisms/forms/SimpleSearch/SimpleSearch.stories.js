@@ -16,9 +16,26 @@ const firstArg = decorate([args => args.slice(0, 1)]);
 
 export const Default = () => <SimpleSearch onSubmit={firstArg.action('Search form submitted')}/>;
 
+export const ButtonLabel = () => (
+  <SimpleSearch
+    onSubmit={firstArg.action('Search form submitted')}
+    labelInput="Button Label Search"
+    labelSubmit="Execute Action!"
+  />
+);
+
+export const CustomClasses = () => (
+  <SimpleSearch
+    onSubmit={firstArg.action('Search form submitted')}
+    classes="foo bar"
+    labelInput="Custom Classes Search"
+  />
+);
+
 export const Playground = () => (
   <SimpleSearch
-    label={ text('Label', 'Find stuff') }
+    labelInput={ text('Input Label', 'Find stuff') }
+    labelSubmit={ text('Button Label', 'GO!') }
     placeholder={ text('Placeholder', 'placeholder')}
     classes={ text('Form Classes', '')}
     onSubmit={firstArg.action('Search form submitted')}

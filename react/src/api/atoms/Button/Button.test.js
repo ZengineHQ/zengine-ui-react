@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import sinon from 'sinon';
 
 import Button from './Button';
 
@@ -40,14 +39,8 @@ test('Adds custom classes when specified', () => {
 });
 
 test('Executes on-click handler when triggered', () => {
-  const callback = sinon.fake();
-  const { getByText } = render(<Button onClick={callback}>Hello</Button>);
-
-  fireEvent(getByText('Hello'), new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true,
-    })
-  );
-
-  expect(callback.called).toBeTruthy();
+  const mock = jest.fn();
+  const { getByText } = render(<Button onClick={mock}>Hello</Button>);
+  fireEvent.click(getByText('Hello'));
+  expect(mock).toBeCalled();
 });

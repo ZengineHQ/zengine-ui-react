@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, NumberInput, TextInput } from '../api';
-import SimpleSearch from '../api/organisms/forms/SimpleSearch';
+import SimpleSearch from '../api/organisms/forms/SimpleSearch/SimpleSearch';
 
 const FormsDemo = () => (
   <div>

@@ -8,7 +8,7 @@ export { default as NumberInput } from './molecules/inputs/NumberInput/NumberInp
 export { default as TextInput } from './molecules/inputs/TextInput/TextInput';
 
 // Organisms.
-export { default as SimpleSearch } from './organisms/forms/SimpleSearch';
+export { default as SimpleSearch } from './organisms/forms/SimpleSearch/SimpleSearch';
 
 // Utils.
 export { default as Form } from './util/Form';

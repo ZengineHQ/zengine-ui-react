@@ -13,7 +13,8 @@ function YidhraForm(props) {
     labelReset,
     labelSubmit,
     showReset,
-    validate
+    validate,
+    classes
   } = props;
 
   const validateForm = values => {
@@ -41,7 +42,7 @@ function YidhraForm(props) {
     >
       {({ dirty, isValid, isSubmitting, errors, touched }) => {
         return (
-          <Form noValidate>
+          <Form noValidate className={classes}>
             <div className="form-body">
               { props.children }
             </div>
@@ -106,13 +107,18 @@ YidhraForm.propTypes = {
    * Additional custom form-level validation function.
    **/
   validate: PropTypes.func,
+  /**
+   * HTML classes to be added as-is to the form.
+   **/
+  classes: PropTypes.string,
 };
 
 YidhraForm.defaultProps = {
   initialData: {},
   labelReset: 'Reset Form',
   labelSubmit: 'Save Form',
-  showReset: true
+  showReset: true,
+  classes: ''
 };
 
 export default YidhraForm;
