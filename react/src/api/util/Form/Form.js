@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import _isEmpty from 'lodash/isEmpty';
 
-// import FieldDefinitionShape from './shapes';
 import Button from '../../atoms/Button/Button';
 
 /**
@@ -88,10 +87,6 @@ YidhraForm.propTypes = {
    **/
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   /**
-   * Array of field definitions that make up the form.
-   **/
-  // fields: PropTypes.arrayOf(PropTypes.shape(FieldDefinitionShape)),
-  /**
    * Callback that will receive valid, submitted form values.
    **/
   onSubmit: PropTypes.func.isRequired,
@@ -127,8 +122,8 @@ YidhraForm.propTypes = {
 
 YidhraForm.defaultProps = {
   initialData: {},
-  labelReset: 'Reset Form',
-  labelSubmit: 'Save Form',
+  labelReset: 'Reset',
+  labelSubmit: 'Save',
   showReset: true,
   showSubmit: true,
   classes: ''

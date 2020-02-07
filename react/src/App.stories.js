@@ -56,6 +56,7 @@ export const Development = () => (
 
     <h2>Writing Code</h2>
     <p>Components should be functional and exported in `/src/api/index.js` if public-facing.</p>
+    <p>Components should have a comprehensive docblock with a textual description which will appear in the Storybook Docs page.</p>
 
     <h2>Writing Stories</h2>
     <p>Stories should have the "parameters.jest" option to specify which file to pull in test results from.</p>
@@ -69,6 +70,7 @@ export const Development = () => (
 
     <h2>Writing Tests</h2>
     <p>Tests are written using `@testing-library/react` and mocks/spies are provided by `jest`.</p>
+    <p>Be sure to always wrap your `fireEvent()` calls with `act()`</p>
     <p>The more the merrier, try to be as exhaustive as possible when writing tests to make sure all bases are covered.</p>
   </article>
 );

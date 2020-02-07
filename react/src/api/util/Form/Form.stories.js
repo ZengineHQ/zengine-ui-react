@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
 import { NumberInput, TextInput } from '../../index';
@@ -23,11 +23,39 @@ export const Default = () => (
 export const HideReset = () => (
   <YidhraForm onSubmit={ action('Form submitted') } showReset={ false }>
     <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
+  </YidhraForm>
+);
+
+export const ResetLabel = () => (
+  <YidhraForm onSubmit={ action('Form submitted') } labelReset="Nuke it!">
+    <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
+  </YidhraForm>
+);
+
+export const HideSubmit = () => (
+  <YidhraForm onSubmit={ action('Form submitted') } showSubmit={ false }>
+    <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const SubmitLabel = () => (
-  <YidhraForm onSubmit={ action('Form submitted') } labelSubmit="Do Stuff!">
+  <YidhraForm onSubmit={ action('Form submitted') } labelSubmit="Perform exciting action!">
+    <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
+  </YidhraForm>
+);
+
+export const Playground = () => (
+  <YidhraForm
+    showReset={ boolean('Show Reset', true) }
+    showSubmit={ boolean('Show Submit', true) }
+    onSubmit={ action('Form submitted') }
+    labelReset={ text('Reset Label', 'Reset')}
+    labelSubmit={ text('Submit Label', 'Save')}
+  >
     <TextInput label="Name" name="name" required/>
     <NumberInput label="Age" name="age" required/>
   </YidhraForm>

@@ -32,12 +32,30 @@ test('Form has no submit button by default', () => {
 
 test('Form adds a submit button when specified', () => {
   const { container } = render(<SimpleSearch onSubmit={() => null} showSubmit={ true }/>);
-  expect(container.getElementsByTagName('button')[0]).toHaveTextContent('Search');
+  const button = container.getElementsByTagName('button')[0];
+  expect(button).toHaveAttribute('type', 'submit');
+  expect(button).toHaveTextContent('Search');
 });
 
 test('Form changes submit button label when specified', () => {
   const { container } = render(<SimpleSearch onSubmit={() => null} showSubmit={ true } labelSubmit="Foo"/>);
   expect(container.getElementsByTagName('button')[0]).toHaveTextContent('Foo');
+});
+
+test('Form has no reset button', async () => {
+  const { container } = render(<SimpleSearch onSubmit={() => null} showSubmit={false} />);
+  const input = container.getElementsByTagName('input')[0];
+
+  // Add something to the input to trigger reset button if it exists.
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Testing',
+      },
+    });
+  });
+
+  expect(container.getElementsByTagName('button')).toHaveProperty('length', 0);
 });
 
 test('Form input has a placeholder by default', () => {

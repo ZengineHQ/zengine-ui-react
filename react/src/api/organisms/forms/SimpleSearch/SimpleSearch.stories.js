@@ -27,7 +27,7 @@ export const ButtonLabel = () => (
     onSubmit={ action('Search form submitted') }
     labelInput="Custom Button Label Search"
     showSubmit={ true }
-    labelSubmit="Execute Action!"
+    labelSubmit="Go!"
   />
 );
 
@@ -43,7 +43,7 @@ export const Playground = () => (
   <SimpleSearch
     labelInput={ text('Input Label', 'Find stuff') }
     showSubmit={ boolean('Show Submit', false) }
-    labelSubmit={ text('Button Label', 'GO!') }
+    labelSubmit={ text('Button Label', 'Search') }
     placeholder={ text('Placeholder', 'placeholder') }
     classes={ text('Form Classes', '') }
     onSubmit={ action('Search form submitted') }
