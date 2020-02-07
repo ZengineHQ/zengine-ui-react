@@ -20,8 +20,10 @@ export const Usage = () => (
 
     <h2>Canvas & Docs</h2>
     <p>
-      Switch between <strong>Canvas</strong> and <strong>Docs</strong> view using the tabs at the top of the page;
-      the <em>canvas</em> contains a live example and the <em>docs</em> breaks down property configurations and code.
+      Switch between <strong>Canvas</strong> and <strong>Docs</strong> view using the tabs at the top of the page.
+      The <em>Canvas</em> contains a live example of the component and info panels at the bottom of the screen whereas
+      the <em>Docs</em> page provides comprehensive documentation of every configuration prop accepted by the component
+      as well as display the source code for each story.
     </p>
 
     <h2>Info Panels</h2>
@@ -31,12 +33,6 @@ export const Usage = () => (
     <dl>
       <dt><strong>Actions</strong></dt>
       <dd>A log of actions that occurred, try clicking buttons that appear in stories.</dd>
-
-      <dt><strong>Story</strong></dt>
-      <dd>The full story source code, for curious folks.</dd>
-
-      <dt><strong>Notes</strong></dt>
-      <dd>Read any additional notes that might be included with a story.</dd>
 
       <dt><strong>Knobs</strong></dt>
       <dd>
