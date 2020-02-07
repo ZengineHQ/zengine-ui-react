@@ -1,14 +1,19 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../../../.test-results.json';
 
 import Button from './Button';
 
 export default {
   title: 'Atoms/Button',
   component: Button,
+  decorators: [withTests({ results })],
   parameters: {
     notes: 'This is a standard HTML button',
+    jest: ['Button.test.js'],
   },
 };
 
