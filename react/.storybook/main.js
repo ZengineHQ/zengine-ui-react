@@ -8,6 +8,7 @@ module.exports = {
     '@storybook/addon-notes/register-panel',
     '@storybook/addon-knobs/register',
     '@storybook/addon-docs',
-    '@storybook/addon-jest/register'
+    '@storybook/addon-jest/register',
+    '@storybook/addon-viewport/register',
   ],
 };
