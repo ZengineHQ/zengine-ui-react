@@ -1,16 +1,13 @@
 import React from 'react';
 import { decorate } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
-import { withTests } from '@storybook/addon-jest';
 
-import results from '../../../.test-results.json';
 import YidhraForm from './Form';
 import { NumberInput, TextInput } from '../../index';
 
 export default {
   title: 'Utility/YidhraForm',
   component: YidhraForm,
-  decorators: [withTests({ results })],
   parameters: {
     notes: 'Use this to generate a full-fledged form.',
     jest: ['Form.test.js'],

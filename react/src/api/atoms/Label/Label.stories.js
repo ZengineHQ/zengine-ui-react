@@ -1,14 +1,11 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
-import { withTests } from '@storybook/addon-jest';
 
-import results from '../../../.test-results.json';
 import Label from './Label';
 
 export default {
   title: 'Atoms/Label',
   component: Label,
-  decorators: [withTests({ results })],
   parameters: {
     notes: 'This is a standard HTML label. You probably will use this more often indirectly via Input molecules.',
     jest: ['Label.test.js'],

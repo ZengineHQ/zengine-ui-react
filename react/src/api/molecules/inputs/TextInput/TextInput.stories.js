@@ -1,15 +1,12 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
-import { withTests } from '@storybook/addon-jest';
 
-import results from '../../../../.test-results.json';
 import TextInput from './TextInput';
 import { MockForm } from '../../../util/testing';
 
 export default {
   title: 'Molecules/Inputs/TextInput',
   component: TextInput,
-  decorators: [withTests({ results })],
   parameters: {
     notes: 'Use this to generate an HTML input with type set to text',
     jest: ['TextInput.test.js'],
