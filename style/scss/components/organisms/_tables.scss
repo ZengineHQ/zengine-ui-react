@@ -5,6 +5,7 @@ table.org-table-dashboard {
         padding: px(10);
         line-height: px(20);
         vertical-align: middle;
+        @include transition();
 
         &:first-child {
             padding-left: px(30);
@@ -16,13 +17,13 @@ table.org-table-dashboard {
     }
 
     thead th {
-        color: $color-light-grey;
+        color: $color-text-light;
         font-size: px(14);
         height: px(60);
         text-align: left;
         font-weight: 700;
         line-height: px(14);
-        border-bottom: px(1) solid  $color-light-grey;
+        border-bottom: px(1) solid $color-section-border;
     }
 
     tbody {
@@ -34,7 +35,10 @@ table.org-table-dashboard {
 
         tr:hover td {
             background: $color-secondary-light;
-            color: $color-secondary;
+
+            &.highlight {
+                color: $color-secondary;
+            }
 
             button {
                 @extend button.subdued.hover

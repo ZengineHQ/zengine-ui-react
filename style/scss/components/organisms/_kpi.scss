@@ -5,7 +5,7 @@ section.org-kpi {
     padding: px(14, 0);
 
     .mol-counter-labeled {
-        border-right: px(1) solid $color-light-grey;
+        border-right: px(1) solid $color-section-border;
         flex: 1 1 0px;
 
         &:last-child {
