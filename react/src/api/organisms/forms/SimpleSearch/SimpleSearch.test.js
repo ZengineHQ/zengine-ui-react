@@ -25,17 +25,22 @@ test('Form changes input label when specified', () => {
   expect(container.getElementsByTagName('label')[0]).toHaveTextContent('Foo');
 });
 
-test('Form have a button label by default', () => {
+test('Form has no submit button by default', () => {
   const { container } = render(<SimpleSearch onSubmit={() => null}/>);
+  expect(container.getElementsByTagName('button')).toHaveProperty('length', 0);
+});
+
+test('Form adds a submit button when specified', () => {
+  const { container } = render(<SimpleSearch onSubmit={() => null} showSubmit={ true }/>);
   expect(container.getElementsByTagName('button')[0]).toHaveTextContent('Search');
 });
 
-test('Form changes button label when specified', () => {
-  const { container } = render(<SimpleSearch onSubmit={() => null} labelSubmit="Foo"/>);
+test('Form changes submit button label when specified', () => {
+  const { container } = render(<SimpleSearch onSubmit={() => null} showSubmit={ true } labelSubmit="Foo"/>);
   expect(container.getElementsByTagName('button')[0]).toHaveTextContent('Foo');
 });
 
-test('Form have a placeholder by default', () => {
+test('Form input has a placeholder by default', () => {
   const { container } = render(<SimpleSearch onSubmit={() => null}/>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'Type here...');
 });
@@ -45,7 +50,7 @@ test('Form changes input placeholder when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'Foo');
 });
 
-test('Adds classes when specified', () => {
+test('Adds form classes when specified', () => {
   const { container } = render(<SimpleSearch onSubmit={() => null} classes="foo bar" />);
   expect(container.firstChild).toHaveClass('foo bar');
 });
@@ -53,7 +58,7 @@ test('Adds classes when specified', () => {
 test('Calls submit handler with proper value when submitted', async () => {
   const mock = jest.fn();
   const { container } = render(<SimpleSearch onSubmit={mock} />);
-  const button = container.getElementsByTagName('button')[0];
+  const form = container.getElementsByTagName('form')[0];
   const input = container.getElementsByTagName('input')[0];
 
   await act(async () => {
@@ -65,7 +70,7 @@ test('Calls submit handler with proper value when submitted', async () => {
   });
 
   await act(async () => {
-    fireEvent.click(button);
+    fireEvent.submit(form);
   });
 
   expect(mock).toBeCalled();

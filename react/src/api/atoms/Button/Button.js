@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cc from 'classcat';
 
+/**
+ * A Button is one of the simplest components available, it will render an HTML `<button>` element.
+ *
+ * Use it to trigger an action from users.
+ */
 function Button(props) {
   return (
     <button
@@ -9,7 +14,7 @@ function Button(props) {
       onClick={ props.onClick }
       className={cc([{
         primary: props.theme === 'primary',
-        slim: props.theme === 'subdued',
+        subdued: props.theme === 'subdued',
       }, props.classes])}
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }

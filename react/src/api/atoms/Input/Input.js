@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Inputs are a fundamental building block in receiving any kind of information from users.
+ *
+ * This will generate an HTML `<input>` element.
+ *
+ * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
+ */
 function Input(props) {
   return (
     <input
@@ -45,6 +52,14 @@ Input.propTypes = {
    * HTML classes to be added as-is to the input.
    **/
   classes: PropTypes.string,
+  /**
+   * Callback for when the input's value changes.
+   **/
+  onChange: PropTypes.func,
+  /**
+   * Callback for when the user leaves this input.
+   **/
+  onBlur: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -54,7 +69,8 @@ Input.defaultProps = {
   required: false,
   placeholder: '',
   classes: '',
-  onChange: () => null
+  onChange: () => null,
+  onBlur: () => null
 };
 
 export default Input;

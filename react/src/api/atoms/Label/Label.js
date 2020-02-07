@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * A Label is used to annotate form inputs by including an HTML `label` element.
+ *
+ * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
+ */
 function Label(props) {
   return (
     <label htmlFor={ props.for } className={ props.classes }>

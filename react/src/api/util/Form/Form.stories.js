@@ -1,5 +1,5 @@
 import React from 'react';
-import { decorate } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
@@ -13,24 +13,22 @@ export default {
   },
 };
 
-const firstArg = decorate([args => args.slice(0, 1)]);
-
 export const Default = () => (
-  <YidhraForm onSubmit={firstArg.action('Form submitted')}>
-    <TextInput label="Name" name="name" required />
-    <NumberInput label="Age" name="age" required />
+  <YidhraForm onSubmit={ action('Form submitted') }>
+    <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const HideReset = () => (
-  <YidhraForm onSubmit={firstArg.action('Form submitted')} showReset={false}>
-    <TextInput label="Name" name="name" required />
+  <YidhraForm onSubmit={ action('Form submitted') } showReset={ false }>
+    <TextInput label="Name" name="name" required/>
   </YidhraForm>
 );
 
 export const SubmitLabel = () => (
-  <YidhraForm onSubmit={firstArg.action('Form submitted')} labelSubmit="Do Stuff!">
-    <TextInput label="Name" name="name" required />
-    <NumberInput label="Age" name="age" required />
+  <YidhraForm onSubmit={ action('Form submitted') } labelSubmit="Do Stuff!">
+    <TextInput label="Name" name="name" required/>
+    <NumberInput label="Age" name="age" required/>
   </YidhraForm>
 );

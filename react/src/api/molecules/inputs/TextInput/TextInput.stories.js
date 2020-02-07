@@ -1,7 +1,8 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-import TextInput from './TextInput';
+// Use named export instead to get the Docs generated properly.
+import { TextInput } from './TextInput';
 import { MockForm } from '../../../util/testing';
 
 export default {

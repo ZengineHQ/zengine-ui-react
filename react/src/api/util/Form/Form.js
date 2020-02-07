@@ -6,6 +6,9 @@ import _isEmpty from 'lodash/isEmpty';
 // import FieldDefinitionShape from './shapes';
 import Button from '../../atoms/Button/Button';
 
+/**
+ * YidhraForm is an advanced
+ */
 function YidhraForm(props) {
   const {
     initialValues,
@@ -13,6 +16,7 @@ function YidhraForm(props) {
     labelReset,
     labelSubmit,
     showReset,
+    showSubmit,
     validate,
     classes
   } = props;
@@ -40,36 +44,40 @@ function YidhraForm(props) {
       } }
       validate={ validateForm }
     >
-      {({ dirty, isValid, isSubmitting, errors, touched }) => {
+      { ({ dirty, isValid, isSubmitting, errors, touched }) => {
         return (
-          <Form noValidate className={classes}>
+          <Form noValidate className={ classes }>
             <div className="form-body">
               { props.children }
             </div>
 
+            {/* If the form has been touched and we have errors, display a message above buttons. */}
             { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form errors">
               Please fix errors and try again.
             </div>) }
 
-            <div className="form-actions">
-              <Button
-                type="submit"
-                theme="primary"
-                aria-label={ labelSubmit }
-                disabled={ isSubmitting || !isValid }
-              >
-                { labelSubmit }
-              </Button>
+            {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
+            { (showSubmit || showReset) && (<div className="form-actions">
+                { showSubmit && (<Button
+                    type="submit"
+                    theme="primary"
+                    aria-label={ labelSubmit }
+                    disabled={ isSubmitting || !isValid }
+                  >
+                    { labelSubmit }
+                  </Button>
+                ) }
 
-              { showReset && dirty && (
-                <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
-                  { labelReset }
-                </Button>
-              )}
-            </div>
+                { showReset && dirty && (
+                  <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
+                    { labelReset }
+                  </Button>
+                ) }
+              </div>
+            ) }
           </Form>
         )
-      }}
+      } }
     </Formik>
   );
 }
@@ -104,6 +112,10 @@ YidhraForm.propTypes = {
    **/
   showReset: PropTypes.bool,
   /**
+   * Whether or not to display the submit button.
+   **/
+  showSubmit: PropTypes.bool,
+  /**
    * Additional custom form-level validation function.
    **/
   validate: PropTypes.func,
@@ -118,6 +130,7 @@ YidhraForm.defaultProps = {
   labelReset: 'Reset Form',
   labelSubmit: 'Save Form',
   showReset: true,
+  showSubmit: true,
   classes: ''
 };
 

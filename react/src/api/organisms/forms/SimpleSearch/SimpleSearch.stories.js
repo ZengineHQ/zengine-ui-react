@@ -1,6 +1,6 @@
 import React from 'react';
-import { decorate } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { text, boolean } from '@storybook/addon-knobs';
 
 import SimpleSearch from './SimpleSearch';
 
@@ -12,21 +12,28 @@ export default {
   },
 };
 
-const firstArg = decorate([args => args.slice(0, 1)]);
+export const Default = () => <SimpleSearch onSubmit={ action('Search form submitted') }/>;
 
-export const Default = () => <SimpleSearch onSubmit={firstArg.action('Search form submitted')}/>;
+export const WithButton = () => (
+  <SimpleSearch
+    onSubmit={ action('Search form submitted') }
+    labelInput="Button Search"
+    showSubmit={ true }
+  />
+);
 
 export const ButtonLabel = () => (
   <SimpleSearch
-    onSubmit={firstArg.action('Search form submitted')}
-    labelInput="Button Label Search"
+    onSubmit={ action('Search form submitted') }
+    labelInput="Custom Button Label Search"
+    showSubmit={ true }
     labelSubmit="Execute Action!"
   />
 );
 
 export const CustomClasses = () => (
   <SimpleSearch
-    onSubmit={firstArg.action('Search form submitted')}
+    onSubmit={ action('Search form submitted') }
     classes="foo bar"
     labelInput="Custom Classes Search"
   />
@@ -35,9 +42,10 @@ export const CustomClasses = () => (
 export const Playground = () => (
   <SimpleSearch
     labelInput={ text('Input Label', 'Find stuff') }
+    showSubmit={ boolean('Show Submit', false) }
     labelSubmit={ text('Button Label', 'GO!') }
-    placeholder={ text('Placeholder', 'placeholder')}
-    classes={ text('Form Classes', '')}
-    onSubmit={firstArg.action('Search form submitted')}
+    placeholder={ text('Placeholder', 'placeholder') }
+    classes={ text('Form Classes', '') }
+    onSubmit={ action('Search form submitted') }
   />
 );

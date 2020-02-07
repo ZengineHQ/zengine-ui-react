@@ -8,6 +8,11 @@ import withForwardRef from '../../../util/withForwardRef';
 import { getFieldClasses } from '../../../util/getFieldClasses';
 import { isEmpty } from '../../../util/validation';
 
+/**
+ * A NumberInput molecule consists of an `Input` atom paired with a `Label` atom.
+ *
+ * Use it to collect numeric data from users.
+ */
 function TextInput(props) {
   const name = props.name || 'text';
 
@@ -81,5 +86,8 @@ TextInput.defaultProps = {
   required: false,
   classes: '',
 };
+
+// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
+export { TextInput };
 
 export default withForwardRef(TextInput);
