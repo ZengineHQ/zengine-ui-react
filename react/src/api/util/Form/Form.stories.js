@@ -9,7 +9,6 @@ export default {
   title: 'Utility/YidhraForm',
   component: YidhraForm,
   parameters: {
-    notes: 'Use this to generate a full-fledged form.',
     jest: ['Form.test.js'],
   },
 };

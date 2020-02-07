@@ -7,7 +7,6 @@ export default {
   title: 'Atoms/Input',
   component: Input,
   parameters: {
-    notes: 'This is a standard HTML input',
     jest: ['Input.test.js'],
   },
 };

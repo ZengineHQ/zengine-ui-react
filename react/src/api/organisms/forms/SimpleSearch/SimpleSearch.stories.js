@@ -8,7 +8,6 @@ export default {
   title: 'Organisms/Forms/SimpleSearch',
   component: SimpleSearch,
   parameters: {
-    notes: 'Use this to generate an a simple search form.',
     jest: ['SimpleSearch.test.js'],
   },
 };

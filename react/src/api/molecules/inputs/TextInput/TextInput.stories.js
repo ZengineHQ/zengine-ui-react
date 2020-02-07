@@ -8,7 +8,6 @@ export default {
   title: 'Molecules/Inputs/TextInput',
   component: TextInput,
   parameters: {
-    notes: 'Use this to generate an HTML input with type set to text',
     jest: ['TextInput.test.js'],
   },
 };

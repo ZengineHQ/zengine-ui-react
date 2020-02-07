@@ -8,7 +8,6 @@ export default {
   title: 'Molecules/Inputs/NumberInput',
   component: NumberInput,
   parameters: {
-    notes: 'Use this to generate an HTML input with type set to number',
     jest: ['NumberInput.test.js'],
   },
 };

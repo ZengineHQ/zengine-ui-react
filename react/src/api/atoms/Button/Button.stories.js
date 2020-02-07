@@ -8,7 +8,6 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
-    notes: 'This is a standard HTML button',
     jest: ['Button.test.js'],
   },
 };

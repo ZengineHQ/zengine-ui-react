@@ -62,7 +62,7 @@ export const Development = () => (
     <p>Components should be functional and exported in `/src/api/index.js` if public-facing.</p>
 
     <h2>Writing Stories</h2>
-    <p>Stories should have the "parameters" option specified so as to add any applicable notes and specify which file to pull in test results from.</p>
+    <p>Stories should have the "parameters.jest" option to specify which file to pull in test results from.</p>
     <p>Stories should use `action()` from `@storybook/addon-actions` wherever possible to log events to the panel</p>
     <p>All stories should include:</p>
     <ul>

@@ -7,7 +7,6 @@ export default {
   title: 'Atoms/Label',
   component: Label,
   parameters: {
-    notes: 'This is a standard HTML label. You probably will use this more often indirectly via Input molecules.',
     jest: ['Label.test.js'],
   },
 };
