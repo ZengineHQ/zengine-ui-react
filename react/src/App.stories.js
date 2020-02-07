@@ -3,6 +3,11 @@ import { linkTo } from '@storybook/addon-links';
 
 export default {
   title: 'Welcome',
+  parameters: {
+    options: {
+      showPanel: false
+    }
+  }
 };
 
 export const Usage = () => {
