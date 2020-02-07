@@ -1,4 +1,5 @@
 import React from 'react';
+import { linkTo } from '@storybook/addon-links';
 
 export default {
   title: 'Welcome',
@@ -44,6 +45,8 @@ export const Usage = () => {
           with them and watch the component update in real-time!
         </dd>
       </dl>
+
+      <button onClick={linkTo('Atoms/Button')}>Go to "Button"</button>
     </article>
   );
 };
