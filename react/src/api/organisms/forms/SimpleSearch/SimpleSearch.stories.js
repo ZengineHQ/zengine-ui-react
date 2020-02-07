@@ -1,14 +1,19 @@
 import React from 'react';
 import { decorate } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../../../../.test-results.json';
 
 import SimpleSearch from './SimpleSearch';
 
 export default {
   title: 'Organisms/Forms/SimpleSearch',
   component: SimpleSearch,
+  decorators: [withTests({ results })],
   parameters: {
     notes: 'Use this to generate an a simple search form.',
+    jest: ['SimpleSearch.test.js'],
   },
 };
 

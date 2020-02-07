@@ -1,13 +1,17 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { withTests } from '@storybook/addon-jest';
 
+import results from '../../../.test-results.json';
 import Input from './Input';
 
 export default {
   title: 'Atoms/Input',
   component: Input,
+  decorators: [withTests({ results })],
   parameters: {
     notes: 'This is a standard HTML input',
+    jest: ['Input.test.js'],
   },
 };
 
