@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
 
 /**
- * A Page Title displays an `h1` HTML element.
+ * A Section Header displays an `h2` HTML element.
  *
  * It's really up to you whether you want to use this component or just copy the 1 liner that is it's markup.
  */
-function PageTitle(props) {
+function SectionHeader(props) {
   return (
-    <h1 className={cc(['atom-page-title', props.classes])}>{ props.children }</h1>
+    <h2 className={ props.classes }>{ props.children }</h2>
   );
 }
 
-PageTitle.propTypes = {
+SectionHeader.propTypes = {
   /**
-   * Only text may be passed as a child to be used as the page title.
+   * Only text may be passed as a child to be used as the section title.
    **/
   children: PropTypes.string,
   /**
@@ -24,8 +23,8 @@ PageTitle.propTypes = {
   classes: PropTypes.string,
 };
 
-PageTitle.defaultProps = {
+SectionHeader.defaultProps = {
   classes: ''
 };
 
-export default PageTitle;
+export default SectionHeader;
