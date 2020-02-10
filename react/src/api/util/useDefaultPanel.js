@@ -14,7 +14,7 @@ const useDefaultPanel = name => {
     if (el) {
       el.click();
     }
-  }, []);
+  }, [name]);
 };
 
 export default useDefaultPanel;
