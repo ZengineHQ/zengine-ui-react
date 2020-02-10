@@ -5,10 +5,10 @@ $style-guide: true;
 
 body {
     padding-left: px(20);
-    background: $color-dark-grey;
+    background: #5A5854;
 
     > h1, > section > header > h2, > section > h3 {
-        color: $color-white
+        color: #fff
     }
 
     > h1 {
@@ -39,7 +39,7 @@ body {
         &:before {
             display: block;
             width: calc(100%);
-            color: $color-white;
+            color: $color-text-white;
             padding: 5px;
             text-transform: uppercase;
             content: attr(data-lang);
@@ -69,7 +69,7 @@ section.guide {
     }
 
     .guide-component-name {
-        color: $color-dark-grey;
+        color: $color-text-body;
         font-size: px(16);
         display: inline-block;
         padding: px(15, 25);
@@ -78,7 +78,8 @@ section.guide {
     }
 
     > atomic {
-        border: px(1) dashed $color-light-grey;
+        position: relative;
+        border: px(1) dashed $color-section-border;
         padding: px(30);
         display: block;
         background: $color-page-background;
@@ -91,6 +92,6 @@ section.guide {
     .guide-usage {
         padding: px(20, 10);
         display: block;
-        background: $color-page-background;
+        background: #d6d6d6;
     }
 }

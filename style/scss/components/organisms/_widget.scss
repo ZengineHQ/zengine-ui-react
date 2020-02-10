@@ -1,0 +1,32 @@
+.org-widget {
+    @include sectionBox();
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: px(35);
+    padding-top: px(20);
+
+    > header {
+        @extend h2;
+        position: absolute;
+        top: px(-35);
+    }
+
+    > nav {
+        display: none;
+    }
+
+    .body {
+        flex: 1 1 auto;
+        padding-bottom: px(10);
+    }
+
+    footer {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: px(25);
+        border-top: px(1) solid $color-section-border;
+        flex: 0 0 auto;
+    }
+}
