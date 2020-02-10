@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import NumberInput from './NumberInput';
-import { MockForm }  from '../../../../../test/MockForm';
+import { MockForm }  from '../../../../test/MockForm';
 
 test('Renders a number input', () => {
   const { container } = render(<MockForm><NumberInput name="test"/></MockForm>);

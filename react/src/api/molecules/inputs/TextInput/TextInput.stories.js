@@ -3,7 +3,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 // Use named export instead to get the Docs generated properly.
 import { TextInput } from './TextInput';
-import { MockForm } from '../../../../../test/MockForm';
+import { MockForm } from '../../../../test/MockForm';
 
 export default {
   title: 'Molecules/Inputs/TextInput',
