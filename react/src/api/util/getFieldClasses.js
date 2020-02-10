@@ -6,7 +6,7 @@
  *
  * @returns {string}
  */
-export const getFieldClasses = (meta, extra) => {
+const getFieldClasses = (meta, extra) => {
   let classes = ['form-control'];
 
   if (meta.touched) {
@@ -19,3 +19,5 @@ export const getFieldClasses = (meta, extra) => {
 
   return classes.join(' ');
 };
+
+export default getFieldClasses;

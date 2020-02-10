@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import TextInput from './TextInput';
-import { MockForm }  from '../../../util/testing';
+import { MockForm }  from '../../../../../test/MockForm';
 
 test('Renders a text input', () => {
   const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);

@@ -11,7 +11,7 @@ function Button(props) {
   return (
     <button
       type={ props.type }
-      onClick={ props.onClick }
+      onClick={ props.onClick && props.onClick }
       className={cc([{
         primary: props.theme === 'primary',
         subdued: props.theme === 'subdued',
@@ -61,7 +61,6 @@ Button.propTypes = {
 
 Button.defaultProps = {
   disabled: false,
-  onClick: () => null,
   theme: '',
   type: 'button',
   classes: '',

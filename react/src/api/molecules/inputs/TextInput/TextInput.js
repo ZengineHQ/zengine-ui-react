@@ -5,7 +5,7 @@ import { ErrorMessage, useField } from 'formik';
 import Input from '../../../atoms/Input/Input';
 import Label from "../../../atoms/Label/Label";
 import withForwardRef from '../../../util/withForwardRef';
-import { getFieldClasses } from '../../../util/getFieldClasses';
+import getFieldClasses from '../../../util/getFieldClasses';
 import { isEmpty } from '../../../util/validation';
 
 /**
@@ -14,20 +14,18 @@ import { isEmpty } from '../../../util/validation';
  * Use it to collect numeric data from users.
  */
 function TextInput(props) {
-  const name = props.name || 'text';
-
   const validate = value => {
     if (props.required && isEmpty(value)) {
       return 'Required';
     }
   };
 
-  const [field, meta] = useField({name, validate});
+  const [field, meta] = useField({name: props.name, validate});
 
   return (
     <div className="form-input">
       { props.label && (
-        <Label required={ props.required } for={ name } classes={ props.labelClasses }>{ props.label }</Label>
+        <Label required={ props.required } for={ props.name } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
       <Input
         type="text"
@@ -48,7 +46,7 @@ TextInput.propTypes = {
   /**
    * HTML element name (also used as id).
    **/
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   /**
    * Input label.
    **/
