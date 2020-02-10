@@ -1,7 +1,18 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../css/style-guide.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages/page-program-console-home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.subdued').on('click', function() {
+                $('.org-menu-slide-out').show();
+            })
+            $('.close').on('click', function() {
+                $('.org-menu-slide-out').hide();
+            })
+        });
+    </script>
 </head>
 <body>
 
@@ -37,13 +48,13 @@
         </div>
     </header>
     <section class="page-body">
-        <article class="tpl-program-console-portals">
+        <article class="tpl-program-console-portals org-widget">
             <header>Process: Scholarship Award</header>
             <div class="body">
                 <table class="org-table-dashboard">
                     <thead>
                     <tr>
-                        <th>Title 1</th>
+                        <th>Title</th>
                         <th>Something else</th>
                         <th>Date</th>
                         <th></th>
@@ -51,7 +62,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Icon</td>
+                        <td class="highlight">Title information</td>
                         <td>Some Info</td>
                         <td>March 2020</td>
                         <td>
@@ -59,7 +70,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Icon</td>
+                        <td class="highlight">Title information</td>
                         <td>Some Info</td>
                         <td>March 2020</td>
                         <td>
@@ -68,6 +79,17 @@
                     </tr>
                     </tbody>
                 </table>
+                <aside style="display: none" class="org-menu-slide-out">
+                    <div class="body">
+                        <i class="close icon">&#127875;</i>
+                        <header><i class="icon">&#127875;</i>Associated Data</header>
+                        <div class="nav">
+                            <span class="group">Form Name</span>
+                            <a href="#">Form Name 01</a>
+                            <a href="#">Form Name 02</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
             <footer>
                 <button class="primary">Set Assignments</button>
@@ -75,5 +97,6 @@
         </article>
     </section>
 </div>
+<script> </script>
 </body>
 </html>

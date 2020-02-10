@@ -3,7 +3,7 @@ h1 {
     line-height: px(30);
     margin-bottom: px(10);
     font-weight: 600;
-    color: $color-dark-grey;
+    color: $color-text-headline;
 }
 
 h2 {
@@ -11,9 +11,22 @@ h2 {
     line-height: px(24);
     margin-bottom: px(10);
     font-weight: 600;
-    color: $color-dark-grey;
+    color: $color-text-headline;
 }
 
 h1.atom-page-title {
     display: flex;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover{
+        color: $color-secondary;
+    }
+}
+
+.icon {
+
 }
