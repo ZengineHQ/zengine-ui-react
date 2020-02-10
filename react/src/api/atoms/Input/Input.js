@@ -15,12 +15,13 @@ function Input(props) {
       id={ props.name }
       name={ props.name }
       required={ props.required }
-      value={ props.onChange ? props.value || '' : undefined }
       aria-required={ props.required === true ? true : null }
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
       placeholder={ props.placeholder }
       className={ props.classes }
+      // Coming from `useField()`.
+      value={ props.onChange ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }
     />

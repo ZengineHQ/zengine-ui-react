@@ -51,7 +51,7 @@ function YidhraForm(props) {
             </div>
 
             {/* If the form has been touched and we have errors, display a message above buttons. */}
-            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form errors">
+            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form-errors">
               Please fix errors and try again.
             </div>) }
 

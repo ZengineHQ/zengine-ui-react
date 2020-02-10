@@ -85,9 +85,6 @@ test('Calls submit handler with proper value when submitted', async () => {
         value: 'Testing',
       },
     });
-  });
-
-  await act(async () => {
     fireEvent.submit(form);
   });
 

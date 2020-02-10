@@ -5,7 +5,7 @@ import Button from './Button';
 
 test('Renders with specified text', () => {
   const { getByText } = render(<Button>Hello</Button>);
-  expect(getByText('Hello')).toBeTruthy()
+  expect(getByText('Hello')).toBeTruthy();
 });
 
 test('Adds type attribute by default', () => {

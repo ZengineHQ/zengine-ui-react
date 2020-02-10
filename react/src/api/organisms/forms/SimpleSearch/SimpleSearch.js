@@ -17,7 +17,8 @@ function SimpleSearch(props) {
       labelSubmit={ props.labelSubmit }
       showReset={ false }
       showSubmit={ props.showSubmit }
-      classes={ props.classes }>
+      classes={ props.classes }
+    >
       <TextInput label={ props.labelInput } name="search" placeholder={ props.placeholder }/>
     </Form>
   );
