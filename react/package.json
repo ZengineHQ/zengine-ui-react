@@ -20,8 +20,9 @@
     "test:save": "npm run test -- --json --outputFile=./src/.test-results.json",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "npm run test:save && build-storybook -s public",
+    "build-storybook": "CI=true npm run test:save && build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
+    "cover": "CI=true npm test -- --collect-coverage",
     "dist": "babel src/api -d dist/"
   },
   "eslintConfig": {
@@ -65,5 +66,12 @@
     "babel-preset-minify": "^0.5.1",
     "react-scripts": "^3.3.1",
     "sinon": "^8.1.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*js",
+      "!src/**/*.stories.js"
+    ],
+    "coverageReporters": ["text"]
   }
 }
