@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Button } from '../api';
 import Atomic from '../components/Atomic';
 
 const StyleGuide = () => (
@@ -58,9 +57,9 @@ const StyleGuide = () => (
         <h2>Images</h2>
       </header>
       <Atomic title="atom-image-circle" usage="Height and Width must be set on the element">
-        <img className="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 40px; width:40px;" />
-          <img className="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 70px; width:70px;" />
-            <img className="atom-image-circle" src="img/Yidhra-face.jpg" style="height: 120px; width:120px;" />
+        <img className="atom-image-circle" src="img/Yidhra-face.jpg" style={{height: '40px', width: '40px'}} alt=""/>
+          <img className="atom-image-circle" src="img/Yidhra-face.jpg" style={{height: '70px', width: '70px'}} alt="" />
+            <img className="atom-image-circle" src="img/Yidhra-face.jpg" style={{height: '120px', width: '120px'}} alt="" />
       </Atomic>
     </section>
 
@@ -164,7 +163,7 @@ const StyleGuide = () => (
       <Atomic title="tpl-program-console-header">
         <header className="tpl-program-console-header">
           <div className="col-half">
-            <img className="atom-image-circle" src="img/Yidhra-face.jpg" />
+            <img className="atom-image-circle" src="img/Yidhra-face.jpg" alt="" />
               <h1 className="atom-page-title">Program Console</h1>
           </div>
           <div className="col-half">

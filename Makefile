@@ -5,7 +5,7 @@ install: prereq
 	cd style; npm install; cd ../react; npm install;
 
 run: prereq
-	cd style; npm run scss-compile; cp assets/css/style.css ../react/public; cd ../react; npm run dist;
+	cd style; npm run scss-compile; cp assets/css/style*.css ../react/public; cd ../react; npm run dist;
 
 watch: prereq
 	cd style; npm run scss-compile; npm run watch;
