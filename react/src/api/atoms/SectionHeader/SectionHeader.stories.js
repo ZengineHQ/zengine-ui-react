@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { text } from '@storybook/addon-knobs';
 
 import SectionHeader from './SectionHeader';
+import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
   title: 'Atoms/SectionHeader',
@@ -13,8 +14,12 @@ export default {
 
 export const Default = () => <SectionHeader>Section Header</SectionHeader>;
 
-export const Playground = () => (
-  <SectionHeader classes={ text('Classes', 'class-two') }>
-    { text('Text', 'Interesting Section') }
-  </SectionHeader>
-);
+export const Playground = () => {
+  useDefaultPanel('Knobs');
+
+  return (
+    <SectionHeader classes={ text('Classes', 'class-two') }>
+      { text('Text', 'Interesting Section') }
+    </SectionHeader>
+  );
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Input from './Input';
+import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
   title: 'Atoms/Input',
@@ -22,6 +23,8 @@ export const Placeholder = () => <Input placeholder="placeholder text" />;
 export const TypeNumber = () => <Input type="number" />;
 
 export const Playground = () => {
+  useDefaultPanel('Knobs');
+
   const typeOpts = [
     'text',
     'number',

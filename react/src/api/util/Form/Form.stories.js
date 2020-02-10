@@ -4,6 +4,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
 import { NumberInput, TextInput } from '../../index';
+import useDefaultPanel from '../useDefaultPanel';
 
 export default {
   title: 'Utility/YidhraForm',
@@ -48,15 +49,19 @@ export const SubmitLabel = () => (
   </YidhraForm>
 );
 
-export const Playground = () => (
-  <YidhraForm
-    showReset={ boolean('Show Reset', true) }
-    showSubmit={ boolean('Show Submit', true) }
-    onSubmit={ action('Form submitted') }
-    labelReset={ text('Reset Label', 'Reset')}
-    labelSubmit={ text('Submit Label', 'Save')}
-  >
-    <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
-  </YidhraForm>
-);
+export const Playground = () => {
+  useDefaultPanel('Knobs');
+
+  return (
+    <YidhraForm
+      showReset={ boolean('Show Reset', true) }
+      showSubmit={ boolean('Show Submit', true) }
+      onSubmit={ action('Form submitted') }
+      labelReset={ text('Reset Label', 'Reset')}
+      labelSubmit={ text('Submit Label', 'Save')}
+    >
+      <TextInput label="Name" name="name" required/>
+      <NumberInput label="Age" name="age" required/>
+    </YidhraForm>
+  );
+};

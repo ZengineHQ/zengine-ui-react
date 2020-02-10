@@ -4,6 +4,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 // Use named export instead to get the Docs generated properly.
 import { TextInput } from './TextInput';
 import { MockForm } from '../../../../test/MockForm';
+import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
   title: 'Molecules/Inputs/TextInput',
@@ -21,14 +22,18 @@ export const Disabled = () => <MockForm><TextInput label="Disabled Text Input" d
 
 export const Placeholder = () => <MockForm><TextInput label="Placeholder Text Input" placeholder="placeholder text" name="text" /></MockForm>;
 
-export const Playground = () => (
-  <MockForm>
-    <TextInput
-      label={ text('Label', 'Input Label') }
-      disabled={ boolean('Disabled', false) }
-      required={ boolean('Required', false) }
-      placeholder={ text('Placeholder', 'placeholder')}
-      name="text"
-    />
-  </MockForm>
-);
+export const Playground = () => {
+  useDefaultPanel('Knobs');
+
+  return (
+    <MockForm>
+      <TextInput
+        label={ text('Label', 'Input Label') }
+        disabled={ boolean('Disabled', false) }
+        required={ boolean('Required', false) }
+        placeholder={ text('Placeholder', 'placeholder')}
+        name="text"
+      />
+    </MockForm>
+  );
+};

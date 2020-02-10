@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 
 import SimpleSearch from './SimpleSearch';
+import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
   title: 'Organisms/Forms/SimpleSearch',
@@ -39,13 +40,17 @@ export const CustomClasses = () => (
   />
 );
 
-export const Playground = () => (
-  <SimpleSearch
-    labelInput={ text('Input Label', 'Find stuff') }
-    showSubmit={ boolean('Show Submit', false) }
-    labelSubmit={ text('Button Label', 'Search') }
-    placeholder={ text('Placeholder', 'placeholder') }
-    classes={ text('Form Classes', '') }
-    onSubmit={ action('Search form submitted') }
-  />
-);
+export const Playground = () => {
+  useDefaultPanel('Knobs');
+
+  return (
+    <SimpleSearch
+      labelInput={ text('Input Label', 'Find stuff') }
+      showSubmit={ boolean('Show Submit', false) }
+      labelSubmit={ text('Button Label', 'Search') }
+      placeholder={ text('Placeholder', 'placeholder') }
+      classes={ text('Form Classes', '') }
+      onSubmit={ action('Search form submitted') }
+    />
+  );
+};
