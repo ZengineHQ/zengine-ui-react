@@ -1,0 +1,82 @@
+{
+  "name": "@zenginehq/yidhra-react",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "dependencies": {
+    "@testing-library/react": "^9.4.0",
+    "classcat": "^4.0.2",
+    "formik": "^2.1.4",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:save": "CI=true npm run test -- --json --outputFile=./src/.test-results.json",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "npm run test:save && build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages",
+    "cover": "CI=true npm test -- --collect-coverage",
+    "dist": "babel src/api -d dist/"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@storybook/addon-actions": "^5.3.12",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-docs": "^5.3.12",
+    "@storybook/addon-jest": "^5.3.12",
+    "@storybook/addon-knobs": "^5.3.12",
+    "@storybook/addon-links": "^5.3.12",
+    "@storybook/addon-viewport": "^5.3.12",
+    "@storybook/addons": "^5.3.12",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.12",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/user-event": "^8.1.0",
+    "babel-plugin-dev-expression": "^0.2.2",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-dynamic-import": "^2.1.0",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-minify": "^0.5.1",
+    "react-scripts": "^3.3.1",
+    "sinon": "^8.1.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/api/**/*js",
+      "!src/**/*.stories.js",
+      "!src/App.js",
+      "!src/index.js",
+      "!src/serviceWorker.js",
+      "!src/serviceWorker.js"
+    ],
+    "coverageReporters": ["text"]
+  }
+}

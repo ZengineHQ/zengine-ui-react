@@ -1,0 +1,102 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/page-program-console-home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.subdued').on('click', function() {
+                $('.org-menu-slide-out').show();
+            })
+            $('.close').on('click', function() {
+                $('.org-menu-slide-out').hide();
+            })
+        });
+    </script>
+</head>
+<body>
+
+
+<div class="page-program-console-home">
+    <nav>
+        Select the program you wish to view:
+        <select>
+            <option>Something</option>
+            <option>Something More</option>
+        </select>
+    </nav>
+    <header class="tpl-program-console-header">
+        <div class="col-half">
+            <img class="atom-image-circle" src="../img/Yidhra-face.jpg">
+            <h1 class="atom-page-title">Program Console</h1>
+        </div>
+        <div class="col-half">
+            <section class="org-kpi">
+                <article class="mol-counter-labeled" title="1,358 Submissions">
+                    <span>1,358</span>
+                    <small>Submissions</small>
+                </article>
+                <article class="mol-counter-labeled" title="158 Ready for Review">
+                    <span>158</span>
+                    <small>Ready for Review</small>
+                </article>
+                <article class="mol-counter-labeled" title="45 Reviewed">
+                    <span>45</span>
+                    <small>Reviewed</small>
+                </article>
+            </section>
+        </div>
+    </header>
+    <section class="page-body">
+        <article class="tpl-program-console-portals org-widget">
+            <header>Process: Scholarship Award</header>
+            <div class="body">
+                <table class="org-table-dashboard">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Something else</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="highlight">Title information</td>
+                        <td>Some Info</td>
+                        <td>March 2020</td>
+                        <td>
+                            <button class="subdued">View Data</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Title information</td>
+                        <td>Some Info</td>
+                        <td>March 2020</td>
+                        <td>
+                            <button class="subdued">View Data</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside style="display: none" class="org-menu-slide-out">
+                    <div class="body">
+                        <i class="close icon">&#127875;</i>
+                        <header><i class="icon">&#127875;</i>Associated Data</header>
+                        <div class="nav">
+                            <span class="group">Form Name</span>
+                            <a href="#">Form Name 01</a>
+                            <a href="#">Form Name 02</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <footer>
+                <button class="primary">Set Assignments</button>
+            </footer>
+        </article>
+    </section>
+</div>
+<script> </script>
+</body>
+</html>

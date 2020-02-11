@@ -1,0 +1,48 @@
+table.org-table-dashboard {
+    width: 100%;
+
+    td, th {
+        padding: px(10);
+        line-height: px(20);
+        vertical-align: middle;
+        @include transition();
+
+        &:first-child {
+            padding-left: px(30);
+        }
+
+        &:last-child {
+            padding-right: px(30);
+        }
+    }
+
+    thead th {
+        color: $color-text-light;
+        font-size: px(14);
+        height: px(60);
+        text-align: left;
+        font-weight: 700;
+        line-height: px(14);
+        border-bottom: px(1) solid $color-section-border;
+    }
+
+    tbody {
+        font-size: px(16);
+
+        tr td {
+            height: px(40);
+        }
+
+        tr:hover td {
+            background: $color-secondary-light;
+
+            &.highlight {
+                color: $color-secondary;
+            }
+
+            button {
+                @extend button.subdued.hover
+            }
+        }
+    }
+}

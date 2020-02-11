@@ -1,0 +1,38 @@
+
+.tpl-program-console-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    .col-half {
+        width: 50%;
+    }
+
+    .col-half:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+
+        .atom-image-circle {
+            margin-right: px(20);
+            height: px(90);
+            width: px(90);
+        }
+
+        .atom-page-title {
+            margin-top: px(15);
+        }
+    }
+}
+
+.tpl-program-console-portals {
+    min-height: px(400);
+
+    .body {
+        .org-table-dashboard {
+            border-radius: px(5);
+            overflow: hidden;
+        }
+    }
+}

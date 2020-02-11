@@ -1,20 +1,97 @@
 $style-guide: true;
 @import "style";
+@import "style-guide/base";
+@import "style-guide/code-pretty";
+
+body {
+    padding-left: px(20);
+    background: #5A5854;
+
+    > h1, > section > header > h2, > section > h3 {
+        color: #fff
+    }
+
+    > h1 {
+        background: #333;
+        padding: px(20);
+        margin: 0;
+        margin-left: px(-20);
+
+        small {
+            display: block;
+            font-size: px(14);
+        }
+    }
+
+    .guide-book {
+        background: $color-primary;
+    }
+
+    code,
+    .code,
+    pre {
+        display: block;
+        position: relative;
+        font-family: 'Source Code Pro';
+        font-size: px(15);
+        padding: 10px;
+
+        &:before {
+            display: block;
+            width: calc(100%);
+            color: $color-text-white;
+            padding: 5px;
+            text-transform: uppercase;
+            content: attr(data-lang);
+            background: $color-primary;
+        }
+
+    }
+}
 
 section.guide {
     padding: px(10);
-}
+    margin-bottom: px(30);
+    padding-left: px(50);
 
-table.guide {
-    thead th {
-        font-size: px(16);
-        font-weight: 600;
-        border-bottom: 1px solid $color-dark-grey;
-        padding: px(10);
+    > header {
+        margin-bottom: px(20);
+
+        h2 {
+            margin-left: px(-50);
+        }
     }
 
-    td {
-        padding: px(10, 20);
-        border-bottom: 1px solid $color-dark-grey;
+    > h3 {
+        font-size: 18px;
+        font-weight: 500;
+        padding: px(20, 0);
+    }
+
+    .guide-component-name {
+        color: $color-text-body;
+        font-size: px(16);
+        display: inline-block;
+        padding: px(15, 25);
+        background: $color-page-background;
+        border-radius: px(5, 5, 0, 0);
+    }
+
+    > atomic {
+        position: relative;
+        border: px(1) dashed $color-section-border;
+        padding: px(30);
+        display: block;
+        background: $color-page-background;
+
+        & + pre {
+            margin-bottom: px(30);
+        }
+    }
+
+    .guide-usage {
+        padding: px(20, 10);
+        display: block;
+        background: #d6d6d6;
     }
 }

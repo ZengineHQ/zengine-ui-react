@@ -1,0 +1,88 @@
+button {
+    background-color: $color-text-white;
+    border-radius: px(6);
+    padding: px(10, 30);
+    border: $color-text-body solid px(2);
+    color: $color-text-body;
+    font-size: px(14);
+    cursor: pointer;
+    white-space: nowrap;
+    margin: px(2);
+    @include transition();
+
+    @include hover() {
+        border-color: $color-primary;
+        color: $color-primary;
+    }
+
+    @include focus() {
+        border-color: $color-primary;
+        color: $color-primary;
+        outline: none;
+    }
+
+    @include active() {
+        background: $color-primary;
+        border-color: $color-primary;
+        color: $color-text-white;
+    }
+
+    @include disabled() {
+        &:hover {
+            box-shadow: none;
+        }
+        border-color: $color-primary-disabled;
+        color: $color-primary-disabled;
+        cursor: default;
+    }
+
+    &.primary {
+        background-color: $color-primary;
+        color: $color-text-white;
+        border: $color-primary solid px(2);
+
+        @include hover() {
+            box-shadow: px(0, 4, 4, 0) rgba(0, 0, 0, 0.25);
+        }
+
+        @include focus() {
+            box-shadow: px(0, 4, 4, 0) rgba(0, 0, 0, 0.25);
+        }
+
+        @include active() {
+            box-shadow: inset px(0, 4, 4, 0) rgba(0, 0, 0, 0.5);
+        }
+
+        @include disabled() {
+            &:hover {
+                box-shadow: none;
+            }
+            border: solid px(2) $color-primary-disabled;
+            background: $color-primary-disabled;
+        }
+    }
+
+    &.subdued {
+        background-color: transparent;
+        color: $color-secondary;
+        border: transparent solid px(1);
+
+        @include hover() {
+            border-color: $color-secondary;
+            //   box-shadow: none;
+        }
+        @include focus() {
+            border-color: $color-secondary;
+        }
+        @include active() {
+            background: $color-secondary;
+            border-color: $color-secondary;
+            color: $color-text-white;
+        }
+
+        @include disabled() {
+            border-color: $color-text-body-disabled;
+            color: $color-text-body-disabled;
+        }
+    }
+}
