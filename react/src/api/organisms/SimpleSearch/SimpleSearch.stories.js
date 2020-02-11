@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 
 import SimpleSearch from './SimpleSearch';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
   title: 'Organisms/Forms/SimpleSearch',

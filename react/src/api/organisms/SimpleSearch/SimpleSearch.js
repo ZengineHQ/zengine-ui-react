@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, TextInput } from '../../../index';
+import { Form, TextInput } from '../../index';
 
 /**
  * The SimpleSearch organism displays a simple search form.
