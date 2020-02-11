@@ -11,7 +11,7 @@ export { default as TextInput } from './molecules/TextInput/TextInput';
 export { default as Select } from './molecules/Select/Select';
 
 // Organisms.
-export { default as SimpleSearch } from './organisms/SimpleSearch/SimpleSearch';
+export { default as QuickSearch } from './organisms/QuickSearch/QuickSearch';
 
 // Utils.
 export { default as Form } from './util/Form/Form';

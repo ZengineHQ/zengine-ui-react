@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, NumberInput, TextInput } from '../api';
-import SimpleSearch from '../api/organisms/SimpleSearch/SimpleSearch';
+import QuickSearch from '../api/organisms/QuickSearch/QuickSearch';
 
 const FormsDemo = () => (
   <div style={{color: 'white'}}>
@@ -16,8 +16,8 @@ const FormsDemo = () => (
     </Form>
 
     <br /><br />
-    <h2 style={{color: 'white'}}>Using SimpleSearch Organism</h2>
-    <SimpleSearch onSubmit={data => console.warn('submit', data)} />
+    <h2 style={{color: 'white'}}>Using QuickSearch Organism</h2>
+    <QuickSearch onSubmit={ data => console.warn('submit', data)} />
   </div>
 );
 
