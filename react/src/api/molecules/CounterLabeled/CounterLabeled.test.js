@@ -13,18 +13,10 @@ test('Adds a default class', () => {
   expect(container.firstChild).toHaveClass('mol-counter-labeled');
 });
 
-test('Renders with specified count and text', () => {
-  const { container } = render(<CounterLabeled count={1} word={'monkey'} />);
+test('Renders with specified count and label', () => {
+  const { container } = render(<CounterLabeled count={1234} label={'something'} />);
   const count = container.getElementsByTagName('span')[0];
   const text = container.getElementsByTagName('small')[0];
-  expect(count).toHaveTextContent('1');
-  expect(text).toHaveTextContent('monkey');
-});
-
-test('Formats plural words', () => {
-  const { container } = render(<CounterLabeled count={33} word={'monkey'} />);
-  const count = container.getElementsByTagName('span')[0];
-  const text = container.getElementsByTagName('small')[0];
-  expect(count).toHaveTextContent('33');
-  expect(text).toHaveTextContent('monkeys');
+  expect(count).toHaveTextContent('1234');
+  expect(text).toHaveTextContent('something');
 });

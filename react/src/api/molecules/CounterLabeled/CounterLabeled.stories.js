@@ -12,7 +12,7 @@ export default {
   },
 };
 
-export const Default = () => <CounterLabeled />;
+export const Default = () => <CounterLabeled/>;
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
@@ -20,9 +20,8 @@ export const Playground = () => {
   return (
     <CounterLabeled
       classes={ text('Classes', 'class-one') }
-      count={number('Count', 10)}
-      word={text('Word', 'Fox')}
-      suffix={text('Suffix', 'es')}
+      count={ number('Count', 182) }
+      label={ text('Label', 'Reviewed') }
     />
   );
 };
