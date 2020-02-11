@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, useField } from 'formik';
 
-import Input from '../../../atoms/Input/Input';
-import Label from "../../../atoms/Label/Label";
-import withForwardRef from '../../../util/withForwardRef';
-import getFieldClasses from '../../../util/getFieldClasses';
-import { isEmpty } from '../../../util/validation';
+import Input from '../../atoms/Input/Input';
+import Label from "../../atoms/Label/Label";
+import withForwardRef from '../../util/withForwardRef';
+import getFieldClasses from '../../util/getFieldClasses';
+import { isEmpty } from '../../util/validation';
 
 /**
  * A NumberInput molecule consists of an `Input` atom paired with a `Label` atom.

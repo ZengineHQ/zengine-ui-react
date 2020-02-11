@@ -3,8 +3,8 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 // Use named export instead of default to get the Storybooks Docs generated properly.
 import { Select } from './Select';
-import { MockForm } from '../../../../test/MockForm';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import { MockForm } from '../../../test/MockForm';
+import useDefaultPanel from '../../util/useDefaultPanel';
 import { NumberInput } from '../NumberInput/NumberInput';
 
 export default {

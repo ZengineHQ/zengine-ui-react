@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { MockForm }  from '../../../../test/MockForm';
+import { MockForm }  from '../../../test/MockForm';
 import { Select } from './Select';
 
 /**
