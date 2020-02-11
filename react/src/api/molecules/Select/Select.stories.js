@@ -5,10 +5,9 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { Select } from './Select';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../util/useDefaultPanel';
-import { NumberInput } from '../NumberInput/NumberInput';
 
 export default {
-  title: 'Molecules/Inputs/Select',
+  title: 'Molecules/Select',
   component: Select,
   parameters: {
     jest: ['Select.test.js'],

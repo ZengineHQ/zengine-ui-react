@@ -1,5 +1,3 @@
-import React from 'react';
-
 import getFieldClasses from './getFieldClasses';
 
 test('Adds a default class', () => {

@@ -6,7 +6,7 @@ import SimpleSearch from './SimpleSearch';
 import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
-  title: 'Organisms/Forms/SimpleSearch',
+  title: 'Organisms/SimpleSearch',
   component: SimpleSearch,
   parameters: {
     jest: ['SimpleSearch.test.js'],

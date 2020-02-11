@@ -7,7 +7,7 @@ import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
-  title: 'Molecules/Inputs/TextInput',
+  title: 'Molecules/TextInput',
   component: TextInput,
   parameters: {
     jest: ['TextInput.test.js'],

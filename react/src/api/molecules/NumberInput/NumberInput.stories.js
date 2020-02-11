@@ -7,7 +7,7 @@ import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
-  title: 'Molecules/Inputs/NumberInput',
+  title: 'Molecules/NumberInput',
   component: NumberInput,
   parameters: {
     jest: ['NumberInput.test.js'],
