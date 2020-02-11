@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CounterLabeled from '../../molecules/CounterLabeled/CounterLabeled';
 
 /**
- * KPI will display a group of Counter Labeled elements.
+ * KPI displays a group of Counter Labeled elements in containing box.
  */
 function KPI(props) {
   return (

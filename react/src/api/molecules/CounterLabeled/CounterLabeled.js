@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Counted Labeled will display a large numeric text with a smaller label below it.
+ * Counted Labeled displays a large numeric text with a smaller label below it.
  *
  * Use this to display summary info such as KPIs.
  */
