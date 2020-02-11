@@ -9,9 +9,9 @@ import CounterLabeled from '../../molecules/CounterLabeled/CounterLabeled';
 function KPI(props) {
   return (
     <section className="org-kpi">
-      { props.items.map(item => (
-        <CounterLabeled { ...item } />
-      ))}
+      { props.items.map((item, index) => (
+        <CounterLabeled { ...item } key={ index }/>
+      )) }
     </section>
   );
 }
