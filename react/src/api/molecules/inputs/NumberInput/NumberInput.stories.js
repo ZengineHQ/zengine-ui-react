@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-// Use named export instead to get the Docs generated properly.
+// Use named export instead of default to get the Storybooks Docs generated properly.
 import { NumberInput } from './NumberInput';
 import { MockForm } from '../../../../test/MockForm';
 import useDefaultPanel from '../../../util/useDefaultPanel';
