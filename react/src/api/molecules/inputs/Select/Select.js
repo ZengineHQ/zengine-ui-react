@@ -48,6 +48,7 @@ function Select (props) {
         multiple={ props.multiple }
         className={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
+        id={ props.name }
         // value, onChange and onBlur are being added here directly from `useField()`.
         { ...field }
       >

@@ -38,12 +38,17 @@ test('Sets input placeholder when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'foo');
 });
 
-test('Sets input id when specified', () => {
+test('Sets input id same as name', () => {
   const { container } = render(<MockForm><TextInput name="foo" /></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'foo');
 });
 
-test('Sets label "for" attribute when id specified', () => {
+test('Changes input name when specified', () => {
+  const { container } = render(<MockForm><TextInput name="test" /></MockForm>);
+  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('name', 'test');
+});
+
+test('Sets label "for" attribute when there\'s a label' , () => {
   const { container } = render(<MockForm><TextInput label="Foo" name="foo" /></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'foo');
 });
