@@ -1,6 +1,8 @@
 import React from 'react';
-import { number, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
+import { Button } from '../../index';
 import TableDashboard from './TableDashboard';
 import useDefaultPanel from '../../util/useDefaultPanel';
 
@@ -22,6 +24,23 @@ export const Default = () => {
         ['Highlander', 'one@therecanonlybe.com', 'Infinte']]
       }
     />
+  );
+};
+
+export const ActionButton = () => {
+  return (
+    <TableDashboard
+      headers={ ['Name', 'Email ', 'Age'] }
+      rows={ [
+        ['John Smith', 'john@smith.com', '25'],
+        ['Jane Doe', 'janedoe@hotmail.com', '25'],
+        ['Highlander', 'one@therecanonlybe.com', 'Infinte']]
+      }
+    >
+      { ({ row, index }) => (
+        <Button onClick={ action(`Button clicked for row ${ index }`) }>Do Something</Button>
+      ) }
+    </TableDashboard>
   );
 };
 
@@ -47,5 +66,13 @@ export const Playground = () => {
     ],
   ];
 
-  return <TableDashboard headers={headers} rows={rows} />;
+  return (
+    <TableDashboard headers={ headers } rows={ rows }>
+      { ({ row, index }) => (
+      <Button onClick={ action(`Button clicked for row ${ index }`) }>
+        { text('Button Label', 'Edit') }
+      </Button>
+      ) }
+    </TableDashboard>
+  );
 };
