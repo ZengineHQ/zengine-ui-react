@@ -30,49 +30,45 @@ export const Default = () => {
 export const ActionButton = () => {
   return (
     <TableDashboard
-      headers={ ['Name', 'Email ', 'Age'] }
+      headers={ ['Name', 'Email ', 'Age', 'Actions'] }
       rows={ [
-        ['John Smith', 'john@smith.com', '25'],
-        ['Jane Doe', 'janedoe@hotmail.com', '25'],
-        ['Highlander', 'one@therecanonlybe.com', 'Infinte']]
+        ['John Smith', 'john@smith.com', '25', <Button onClick={ action('Button clicked for row 1') }>Do Something</Button>],
+        ['Jane Doe', 'janedoe@hotmail.com', '25', <Button onClick={ action('Button clicked for row 2') }>Do Something</Button>],
+        ['Highlander', 'one@therecanonlybe.com', 'Infinte', <Button onClick={ action('Button clicked for row 3') }>Do Something</Button>]]
       }
-    >
-      { ({ row, index }) => (
-        <Button onClick={ action(`Button clicked for row ${ index }`) }>Do Something</Button>
-      ) }
-    </TableDashboard>
+    />
   );
 };
 
-export const Playground = () => {
-  useDefaultPanel('Knobs');
-
-  const headers = [
-    text('Header Col 1', 'Title'),
-    text('Header Col 2', 'Email'),
-    text('Header Col 3', 'Age'),
-  ];
-
-  const rows = [
-    [
-      text('Row 1 Col 1', 'John Smith'),
-      text('Row 1 Col 2', 'john@smith.com'),
-      text('Row 1 Col 3', '25'),
-    ],
-    [
-      text('Row 2 Col 1', 'Jane Doe'),
-      text('Row 2 Col 2', 'janedoe@hotmail.com'),
-      text('Row 2 Col 3', '25'),
-    ],
-  ];
-
-  return (
-    <TableDashboard headers={ headers } rows={ rows }>
-      { ({ row, index }) => (
-      <Button onClick={ action(`Button clicked for row ${ index }`) }>
-        { text('Button Label', 'Edit') }
-      </Button>
-      ) }
-    </TableDashboard>
-  );
-};
+// export const Playground = () => {
+//   useDefaultPanel('Knobs');
+//
+//   const headers = [
+//     text('Header Col 1', 'Title'),
+//     text('Header Col 2', 'Email'),
+//     text('Header Col 3', 'Age'),
+//   ];
+//
+//   const rows = [
+//     [
+//       text('Row 1 Col 1', 'John Smith'),
+//       text('Row 1 Col 2', 'john@smith.com'),
+//       text('Row 1 Col 3', '25'),
+//     ],
+//     [
+//       text('Row 2 Col 1', 'Jane Doe'),
+//       text('Row 2 Col 2', 'janedoe@hotmail.com'),
+//       text('Row 2 Col 3', '25'),
+//     ],
+//   ];
+//
+//   return (
+//     <TableDashboard headers={ headers } rows={ rows }>
+//       { ({ row, index }) => (
+//       <Button onClick={ action(`Button clicked for row ${ index }`) }>
+//         { text('Button Label', 'Edit') }
+//       </Button>
+//       ) }
+//     </TableDashboard>
+//   );
+// };
