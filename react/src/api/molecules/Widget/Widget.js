@@ -4,6 +4,8 @@ import cc from 'classcat';
 
 /**
  * A Widget wraps arbitrary content in a box with header, body and footer sections.
+ *
+ * The content for each of these 3 sections may be either a string or a React component.
  */
 function Widget(props) {
   return (
