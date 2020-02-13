@@ -22,7 +22,7 @@ CounterLabeled.propTypes = {
 
 CounterLabeled.defaultProps = {
   count: 0,
-  label: 'Item',
+  label: 'Items',
 };
 
 export default CounterLabeled;
