@@ -37,3 +37,17 @@ export const ActionButton = () => {
     />
   );
 };
+
+export const CustomClasses = () => {
+  return (
+    <TableDashboard
+      classes="table-dark"
+      headers={ ['Name', 'Email ', 'Age'] }
+      rows={ [
+        ['John Smith', 'john@smith.com', '25'],
+        ['Jane Doe', 'janedoe@hotmail.com', '25'],
+        ['Highlander', 'one@therecanonlybe.com', 'Infinte']]
+      }
+    />
+  );
+};

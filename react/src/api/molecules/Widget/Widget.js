@@ -9,21 +9,23 @@ import cc from 'classcat';
  */
 function Widget(props) {
   return (
-    <article className={cc(['org-widget', props.classes])}>
-      <header>{props.header}</header>
+    <div className={cc(['card', props.classes])}>
+      { props.header && (
+        <div className="card-header">
+          { props.header}
+        </div>
+      )}
 
-      <nav></nav>
-
-      <div className="body">
+      <div className="card-body">
         { props.body }
       </div>
 
       { props.footer && (
-        <footer>
+        <div className="card-footer">
           { props.footer}
-        </footer>
+        </div>
       )}
-    </article>
+    </div>
   );
 }
 

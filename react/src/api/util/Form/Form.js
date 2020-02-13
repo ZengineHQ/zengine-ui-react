@@ -46,9 +46,7 @@ function YidhraForm(props) {
       { ({ dirty, isValid, isSubmitting, errors, touched }) => {
         return (
           <Form noValidate className={ classes }>
-            <div className="form-body">
-              { props.children }
-            </div>
+            { props.children }
 
             {/* If the form has been touched and we have errors, display a message above buttons. */}
             { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form-errors">
@@ -68,7 +66,7 @@ function YidhraForm(props) {
                 ) }
 
                 { showReset && dirty && (
-                  <Button type="reset" theme="subdued" aria-label={ labelReset } disabled={ isSubmitting }>
+                  <Button type="reset" theme="link" aria-label={ labelReset } disabled={ isSubmitting }>
                     { labelReset }
                   </Button>
                 ) }

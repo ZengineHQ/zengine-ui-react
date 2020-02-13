@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cc from 'classcat';
 
 /**
  * Table Dashboard displays tabular data in an HTML table.
@@ -20,7 +21,7 @@ import PropTypes from 'prop-types';
  */
 function TableDashboard(props) {
   return (
-    <table className="org-table-dashboard">
+    <table className={cc(['table', props.classes])}>
       <thead>
       <tr>
         { props.headers.map((name, index) => (
@@ -50,11 +51,16 @@ TableDashboard.propTypes = {
    * Table contents; an array of rows where each row is an array of columns containing either a string or a React component.
    **/
   rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node]))),
+  /**
+   * HTML classes to be added as-is to the table.
+   **/
+  classes: PropTypes.string,
 };
 
 TableDashboard.defaultProps = {
   headers: [],
-  rows: []
+  rows: [],
+  classes: ''
 };
 
 export default TableDashboard;

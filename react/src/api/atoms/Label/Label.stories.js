@@ -16,7 +16,7 @@ export const Default = () => <Label>Default Label</Label>;
 
 export const Required = () => <Label required={ true }>Required Label</Label>;
 
-export const CustomClasses = () => <Label classes="class-one class-two">Custom Classes Label</Label>;
+export const CustomClasses = () => <Label classes="text-info">Custom Classes Label</Label>;
 
 export const ForElement = () => <Label for="foo-element">For Element Label</Label>;
 
@@ -27,7 +27,7 @@ export const Playground = () => {
     <Label
       for={ text('For', 'foo-element') }
       required={ boolean('Required', false) }
-      classes={ text('Classes', 'class-one') }
+      classes={ text('Classes', 'text-success') }
     >
       { text('Label', 'Compelling Label') }
     </Label>

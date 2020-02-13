@@ -15,15 +15,9 @@ export default {
 
 export const Default = () => <Button onClick={ action('clicked') }>Default Button</Button>;
 
-export const Primary = () => (
-  <Button theme="primary" onClick={ action('clicked') }>
-    Primary Button
-  </Button>
-);
-
-export const Subdued = () => (
-  <Button theme="subdued" onClick={ action('clicked') }>
-    Subdued Button
+export const Secondary = () => (
+  <Button theme="secondary" onClick={ action('clicked') }>
+    Secondary Button
   </Button>
 );
 
@@ -33,49 +27,41 @@ export const Disabled = () => (
   </Button>
 );
 
-export const CustomClasses = () => (
-  <Button classes="foo" onClick={ action('clicked') }>
-    Custom classes button
-  </Button>
-);
-
 export const StyleGuide = () => (
-  <>
-    <table>
-      <tbody>
-      <tr>
-        <td><Button>Default Button</Button></td>
-        <td><Button classes="hover">Default Button Hovered</Button></td>
-        <td><Button classes="focus">Default Button Focused</Button></td>
-        <td><Button classes="active">Default Button Active</Button></td>
-        <td><Button disabled>Default Button Disabled</Button></td>
-      </tr>
-      <tr>
-        <td><Button theme="primary">Primary Button</Button></td>
-        <td><Button theme="primary" classes="hover">Primary Button Hovered</Button></td>
-        <td><Button theme="primary" classes="focus">Primary Button Focused</Button></td>
-        <td><Button theme="primary" classes="active">Primary Button Active</Button></td>
-        <td><Button theme="primary" disabled>Primary Button Disabled</Button></td>
-      </tr>
-      <tr>
-        <td><Button theme="subdued">Subdued Button</Button></td>
-        <td><Button theme="subdued" classes="hover">Subdued Button Hovered</Button></td>
-        <td><Button theme="subdued" classes="focus">Subdued Button Focused</Button></td>
-        <td><Button theme="subdued" classes="active">Subdued Button Active</Button></td>
-        <td><Button theme="subdued" disabled>Subdued Button Disabled</Button></td>
-      </tr>
-      </tbody>
-    </table>
-  </>
+  <table>
+    <tbody>
+    <tr>
+      <td><Button>Primary</Button></td>
+      <td><Button theme="secondary">Secondary</Button></td>
+    {/*</tr>*/}
+    {/*<tr>*/}
+      <td><Button theme="success">Success</Button></td>
+      <td><Button theme="danger">Danger</Button></td>
+      <td><Button theme="warning">Warning</Button></td>
+      <td><Button theme="info">Info</Button></td>
+    {/*</tr>*/}
+    {/*<tr>*/}
+      <td><Button theme="light">Light</Button></td>
+      <td><Button theme="dark">Dark</Button></td>
+      <td><Button theme="link">Link</Button></td>
+    </tr>
+    </tbody>
+  </table>
 );
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
   const themeOpts = {
-    Default: '',
-    Primary: 'primary',
-    Subdued: 'subdued'
+    'Primary (default)': 'primary',
+    Secondary: 'secondary',
+    Success: 'success',
+    Danger: 'danger',
+    Warning: 'warning',
+    Info: 'info',
+    Light: 'light',
+    Dark: 'dark',
+    Link: 'link',
   };
 
   const typeOpts = {
@@ -87,7 +73,7 @@ export const Playground = () => {
   return (
     <Button
       disabled={ boolean('Disabled', false) }
-      theme={ select('Theme', themeOpts, '') }
+      theme={ select('Theme', themeOpts, 'primary') }
       onClick={ action('clicked') }
       type={ select('Type', typeOpts, 'button') }
       classes={ text('Classes', 'foo bar') }

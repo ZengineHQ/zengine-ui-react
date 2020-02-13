@@ -19,8 +19,8 @@ test('Sets type attribute when specified', () => {
 });
 
 test('Sets theme attribute when specified', () => {
-  const { container } = render(<Button theme="primary">Hello</Button>);
-  expect(container.firstChild).toHaveClass('primary');
+  const { container } = render(<Button theme="success">Hello</Button>);
+  expect(container.firstChild).toHaveClass('btn-success');
 });
 
 test('Disables button when specified', () => {

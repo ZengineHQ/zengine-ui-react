@@ -14,6 +14,8 @@ export default {
 
 export const Default = () => <Widget header="Header" body="Body" footer="Footer"/>;
 
+export const NoHeader = () => <Widget body="Look ma, no header!" footer="Footer"/>;
+
 export const NoFooter = () => <Widget header="Header" body="Look ma, no footer!"/>;
 
 export const Playground = () => {

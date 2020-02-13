@@ -10,6 +10,7 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2"
   },
@@ -77,6 +78,8 @@
       "!src/serviceWorker.js",
       "!src/serviceWorker.js"
     ],
-    "coverageReporters": ["text"]
+    "coverageReporters": [
+      "text"
+    ]
   }
 }

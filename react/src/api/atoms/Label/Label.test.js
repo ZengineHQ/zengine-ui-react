@@ -10,7 +10,7 @@ test('Renders with specified text', () => {
 
 test('Adds an asterisk when required', () => {
   const { getByText } = render(<Label required={ true }>Hello</Label>);
-  expect(getByText('*Hello')).toBeTruthy();
+  expect(getByText('*')).toBeTruthy();
 });
 
 test('Adds custom classes when specified', () => {
