@@ -47,9 +47,9 @@ TableDashboard.propTypes = {
    **/
   headers: PropTypes.arrayOf(PropTypes.string),
   /**
-   * Table contents; an array of rows where each row is an array of columns.
+   * Table contents; an array of rows where each row is an array of columns containing either a string or a React component.
    **/
-  rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node]))),
 };
 
 TableDashboard.defaultProps = {
