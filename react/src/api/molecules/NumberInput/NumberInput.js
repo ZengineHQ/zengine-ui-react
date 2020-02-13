@@ -9,7 +9,9 @@ import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
 
 /**
- * A NumberInput molecule consists of an `Input` atom paired with a `Label` atom.
+ * The NumberInput molecule is a full-fledged number input Formik field with validation and error messages.
+ *
+ * It consists of an `Input` atom, a `Label` atom and some additional markup.
  *
  * Use it to collect numeric data from users.
  */
@@ -23,7 +25,7 @@ function NumberInput (props) {
   const [field, meta] = useField({name: props.name, validate});
 
   return (
-    <div className="form-input">
+    <div className="form-group">
       { props.label && (
         <Label required={ props.required } for={ props.name } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
