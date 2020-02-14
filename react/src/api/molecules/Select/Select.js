@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ErrorMessage, useField } from 'formik';
+import { useField } from 'formik';
 
 import Label from "../../atoms/Label/Label";
 import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
+import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 
 /**
- * A Select molecule consists of an HTML select element paired with a `Label` atom.
+ * The select is a full-fledged select input Formik field with validation, help text and error messages.
+ *
+ * A Select molecule consists of an HTML select element paired with a `Label` atom and some etra markup.
  *
  * Use it to have users pick one or more items from a pre-defined list.
  *
@@ -23,6 +26,9 @@ function Select (props) {
 
   const [field, meta] = useField({name: props.name, validate});
 
+  const id = props.id || `select-${ props.name }`;
+  const helpId = props.help ? `${ id }-help` : null;
+
   /**
    * Return `option` elements for the select.
    * This handles accepting options as an object keyed by values or as an array of strings.
@@ -36,11 +42,12 @@ function Select (props) {
   };
 
   return (
-    <div className="form-input">
+    <div className="form-group">
       { props.label && (
-        <Label required={ props.required } for={ props.name } classes={ props.labelClasses }>{ props.label }</Label>
+        <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
       <select
+        id={ id }
         disabled={ props.disabled }
         aria-disabled={ props.disabled === true ? true : null }
         required={ props.required }
@@ -48,7 +55,6 @@ function Select (props) {
         multiple={ props.multiple }
         className={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
-        id={ props.name }
         // value, onChange and onBlur are being added here directly from `useField()`.
         { ...field }
       >
@@ -56,7 +62,9 @@ function Select (props) {
         { getOptions() }
       </select>
 
-      <ErrorMessage name={ field.name } />
+      { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
+
+      <ErrorMessage meta={ meta }/>
     </div>
   );
 }
@@ -99,6 +107,10 @@ Select.propTypes = {
    * HTML classes to be added as-is to the label.
    **/
   labelClasses: PropTypes.string,
+  /**
+   * Optional help text to display below the select.
+   **/
+  help: PropTypes.string,
   /**
    * Optionally pass a ref to be attached to the actual HTML select element.
    **/

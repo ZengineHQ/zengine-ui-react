@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ErrorMessage, useField } from 'formik';
+import { useField } from 'formik';
 
 import Input from '../../atoms/Input/Input';
-import Label from "../../atoms/Label/Label";
+import Label from '../../atoms/Label/Label';
 import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
+import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 
 /**
- * The TextInput molecule is a full-fledged text input Formik field with validation and error messages.
+ * The TextInput molecule is a full-fledged text input Formik field with validation, help text and error messages.
  *
  * It consists of an `Input` atom, a `Label` atom and some additional markup.
  *
@@ -22,24 +23,31 @@ function TextInput(props) {
     }
   };
 
-  const [field, meta] = useField({name: props.name, validate});
+  const [field, meta] = useField({ name: props.name, validate });
+
+  const id = props.id || `text-${ props.name }`;
+  const helpId = props.help ? `${ id }-help` : null;
 
   return (
     <div className="form-group">
       { props.label && (
-        <Label required={ props.required } for={ props.name } classes={ props.labelClasses }>{ props.label }</Label>
+        <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
       <Input
         type="text"
+        id={ id }
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
         classes={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
+        describedby={ helpId }
         { ...field }
       />
 
-      <ErrorMessage name={ field.name } />
+      { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
+
+      <ErrorMessage meta={ meta }/>
     </div>
   );
 }
@@ -73,6 +81,10 @@ TextInput.propTypes = {
    * HTML classes to be added as-is to the label.
    **/
   labelClasses: PropTypes.string,
+  /**
+   * Optional help text to display below the input.
+   **/
+  help: PropTypes.string,
   /**
    * Optionally pass a ref to be attached to the actual HTML input element.
    **/

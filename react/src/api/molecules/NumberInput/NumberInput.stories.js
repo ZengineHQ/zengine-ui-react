@@ -20,6 +20,8 @@ export const Required = () => <MockForm><NumberInput label="Required Number Inpu
 
 export const Disabled = () => <MockForm><NumberInput label="Disabled Number Input" disabled={true} name="number" /></MockForm>;
 
+export const HelpText = () => <MockForm><NumberInput label="Number" help="This is some help text" name="number" /></MockForm>;
+
 export const Placeholder = () => <MockForm><NumberInput label="Placeholder Number Input" placeholder="placeholder number" name="number" /></MockForm>;
 
 export const Playground = () => {
@@ -30,6 +32,7 @@ export const Playground = () => {
       <NumberInput
         name="foo"
         label={ text('Label', 'Input Label') }
+        help={ text('Help Text', 'Follow these instructions wisely') }
         disabled={ boolean('Disabled', false) }
         required={ boolean('Required', false) }
         placeholder={ text('Placeholder', 'placeholder')}
