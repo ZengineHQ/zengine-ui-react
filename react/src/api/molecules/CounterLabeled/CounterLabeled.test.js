@@ -8,9 +8,10 @@ test('Renders an article HTML tag', () => {
   expect(container.getElementsByTagName('article')).toHaveProperty('length', 1);
 });
 
-test('Adds a default class', () => {
+test('Adds default classes', () => {
   const { container } = render(<CounterLabeled />);
-  expect(container.firstChild).toHaveClass('mol-counter-labeled');
+  expect(container.firstChild).toHaveClass('d-flex flex-column align-items-center');
+  expect(container.getElementsByTagName('span')[0]).toHaveClass('counter-labeled');
 });
 
 test('Renders with specified count and label', () => {

@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 
 import QuickSearch from './QuickSearch';
-import useDefaultPanel from '../../util/useDefaultPanel';
+import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
   title: 'Organisms/QuickSearch',

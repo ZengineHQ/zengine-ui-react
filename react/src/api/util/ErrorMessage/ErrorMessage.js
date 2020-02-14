@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 /**
  * Utility to display an error message for a Formik field.
  * The message will only be displayed if the field has been touched and has an error.
+ *
+ * This is used primarily by the input Molecules and unless you are writing your own custom input molecules
+ * you will probably not have no use for it.
  */
 function ErrorMessage(props) {
   // We add display block inline here because the default Bootstrap styles require a container to have certain classes

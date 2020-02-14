@@ -2,7 +2,7 @@ import React from 'react';
 import { text } from '@storybook/addon-knobs';
 
 import SectionHeader from './SectionHeader';
-import useDefaultPanel from '../../util/useDefaultPanel';
+import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
   title: 'Atoms/SectionHeader',

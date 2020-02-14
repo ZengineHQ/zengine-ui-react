@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import ErrorMessage from './ErrorMessage';
-import useDefaultPanel from '../../util/useDefaultPanel';
+import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
   title: 'Utility/ErrorMessage',

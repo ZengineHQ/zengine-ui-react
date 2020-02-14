@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
  */
 function CounterLabeled(props) {
   return (
-    <article className="mol-counter-labeled" title={`${props.count} ${props.label}`}>
-      <span>{ props.count }</span>
+    <article className="d-flex flex-column align-items-center" title={`${props.count} ${props.label}`}>
+      <span className="counter-labeled">{ props.count }</span>
       <small>{ props.label }</small>
     </article>
   );

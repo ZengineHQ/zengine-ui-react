@@ -31,3 +31,4 @@ yarn-error.log*
 # build artifants.
 dist
 dist.zip
+/storybook-static
