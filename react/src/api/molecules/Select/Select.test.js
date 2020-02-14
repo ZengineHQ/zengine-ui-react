@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 
 import { MockForm }  from '../../../test/MockForm';
 import { Select } from './Select';
+import NumberInput from '../NumberInput/NumberInput';
 
 /**
  * Dummy options to be re-used across tests.
@@ -62,9 +63,9 @@ test('Changes default placeholder when specified', () => {
   expect(container.getElementsByTagName('select')[0].firstChild).toHaveTextContent('foo');
 });
 
-test('Sets select id same as name', () => {
-  const { container } = render(<MockForm><Select name="foo" options={opts} /></MockForm>);
-  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('id', 'foo');
+test('Sets select id automatically', () => {
+  const { container } = render(<MockForm><Select name="foo" options={opts}/></MockForm>);
+  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('id', 'select-foo');
 });
 
 test('Changes select name when specified', () => {
@@ -72,9 +73,14 @@ test('Changes select name when specified', () => {
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'test');
 });
 
+test('Changes select id when specified', () => {
+  const { container } = render(<MockForm><Select name="foo" options={opts} id="whoathere"/></MockForm>);
+  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('id', 'whoathere');
+});
+
 test('Sets label "for" attribute when there\'s a label' , () => {
   const { container } = render(<MockForm><Select options={opts} label="Foo" name="foo" /></MockForm>);
-  expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'foo');
+  expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'select-foo');
 });
 
 test('Omits label element when not specified', () => {
