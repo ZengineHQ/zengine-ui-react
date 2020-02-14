@@ -7,3 +7,7 @@
 
 Therefore, nothing outside of `api` really matters at all for using Yidhra. This entire React app is really just where
 we develop and test the components as well as where we generate the storybook from, it's not meant to ever be run non-locally.
+
+## Bro, what's a molecule?
+
+[RTFM](http://atomicdesign.bradfrost.com/)
