@@ -16,8 +16,8 @@ export const Usage = () => (
   <article>
     <PageTitle>Usage</PageTitle>
     <p>
-      Use the nested menu below to navigate between different all of the available Yidhra components, grouped by
-      their atomic design categorization.
+      Use the nested menu below to navigate between all of the available Yidhra components, grouped by
+      their atomic design categorization, as well as some additional Utility components you may find useful.
     </p>
 
     <SectionHeader>Canvas & Docs</SectionHeader>
@@ -30,11 +30,11 @@ export const Usage = () => (
 
     <SectionHeader>Info Panels</SectionHeader>
     <p>
-      In Canvas mode you also have access to a couple different info panels at the bottom:
+      In Canvas mode you also have access to a couple different info panels along the bottom of the screen:
     </p>
     <dl>
       <dt><strong>Actions</strong></dt>
-      <dd>A log of actions that occurred, try clicking buttons that appear in stories.</dd>
+      <dd>A log of actions that occurred, try clicking buttons and otherwise interacting with elements in the stories!</dd>
 
       <dt><strong>Knobs</strong></dt>
       <dd>
@@ -44,13 +44,13 @@ export const Usage = () => (
       </dd>
 
       <dt><strong>Tests</strong></dt>
-      <dd>Displays any relevant test results for the component.</dd>
+      <dd>Displays any relevant test results for the component, best make sure all bases are covered!</dd>
     </dl>
 
     <hr/>
 
     <p>
-      Oh PS icons work:&nbsp;&nbsp;&nbsp;
+      Oh PS Font Awesome SVG icons work:&nbsp;&nbsp;&nbsp;
       <i className="fas fa-camera"></i>&nbsp;&nbsp;&nbsp;
       <i className="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;
       <i className="fas fa-dog"></i>
