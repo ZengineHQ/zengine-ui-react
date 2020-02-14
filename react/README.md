@@ -13,8 +13,13 @@ npm install @zenginehq/yidhra-react
 ## Usage
 
 ```
-// Make sure to add Yihdra `styles.css` from a CDN or locally.   
+// Add `yidhra.css` from a CDN or locally.
+import 'yidhra.css';
 
+// Add Font Awesome icons.
+<script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
+
+// Use components.
 import { Button, TextInput, NumberInput, YidhraForm } from '@zenginehq/yidhra-react';
 
 function MyComponent() {

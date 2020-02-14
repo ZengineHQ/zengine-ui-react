@@ -49,6 +49,15 @@ export const Usage = () => (
 
     <hr/>
 
+    <p>
+      Oh PS icons work:&nbsp;&nbsp;&nbsp;
+      <i className="fas fa-camera"></i>&nbsp;&nbsp;&nbsp;
+      <i className="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;
+      <i className="fas fa-dog"></i>
+    </p>
+
+    <hr/>
+
     <Button onClick={linkTo('Atoms/Button')}>Go to "Button"</Button>
   </article>
 );
