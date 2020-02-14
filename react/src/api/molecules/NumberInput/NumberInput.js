@@ -8,6 +8,7 @@ import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
+import InputHelp from '../../util/InputHelp/InputHelp';
 
 /**
  * The NumberInput molecule is a full-fledged number input Formik field with validation, help text and error messages.
@@ -46,7 +47,6 @@ function NumberInput(props) {
       />
 
       { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
-
       <ErrorMessage meta={ meta }/>
     </div>
   );
