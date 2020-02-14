@@ -10,7 +10,7 @@ export { default as SectionHeader } from './atoms/SectionHeader/SectionHeader';
 export { default as CounterLabeled } from './molecules/CounterLabeled/CounterLabeled';
 export { default as NumberInput } from './molecules/NumberInput/NumberInput';
 export { default as Select } from './molecules/Select/Select';
-export { default as TableDashboard } from './molecules/TableDashboard/TableDashboard';
+export { default as TableDashboard } from './organisms/TableDashboard/TableDashboard';
 export { default as TextInput } from './molecules/TextInput/TextInput';
 
 // Organisms.
