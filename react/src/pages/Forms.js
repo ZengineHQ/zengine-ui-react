@@ -4,10 +4,10 @@ import { Form, NumberInput, TextInput } from '../api';
 import QuickSearch from '../api/organisms/QuickSearch/QuickSearch';
 
 const FormsDemo = () => (
-  <div style={{color: 'white'}}>
-    <h1 style={{color: 'white'}}>Forms Demo</h1>
+  <div>
+    <h1>Forms Demo</h1>
 
-    <h2 style={{color: 'white'}}>Manually</h2>
+    <h2>Manually</h2>
     <Form onSubmit={data => console.warn('submit', data)}>
 
       <TextInput label="Name" name="name" required />
@@ -16,7 +16,7 @@ const FormsDemo = () => (
     </Form>
 
     <br /><br />
-    <h2 style={{color: 'white'}}>Using QuickSearch Organism</h2>
+    <h2>Using QuickSearch Organism</h2>
     <QuickSearch onSubmit={ data => console.warn('submit', data)} />
   </div>
 );
