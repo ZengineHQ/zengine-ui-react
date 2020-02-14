@@ -4,23 +4,23 @@ import { render } from '@testing-library/react';
 import Widget from './Widget';
 import { Button } from '../../index';
 
-test('Renders an article HTML tag', () => {
+test('Renders a div HTML tag', () => {
   const { container } = render(<Widget />);
-  expect(container.getElementsByTagName('article')).toHaveProperty('length', 1);
+  expect(container.getElementsByTagName('div')[0]).toHaveClass('card');
 });
 
 test('Adds a default class to the article', () => {
   const { container } = render(<Widget />);
-  expect(container.firstChild).toHaveClass('org-widget');
+  expect(container.firstChild).toHaveClass('card');
 });
 
 test('Adds all content if specified', () => {
   const { container, getByText } = render(<Widget header="WidgetHeader" body="WidgetBody" footer="WidgetFooter" />);
-  expect(container.getElementsByTagName('header')).toHaveProperty('length', 1);
-  expect(container.getElementsByTagName('footer')).toHaveProperty('length', 1);
   const div = container.getElementsByTagName('div');
-  expect(div).toHaveProperty('length', 1);
-  expect(div[0]).toHaveClass('body');
+  expect(div).toHaveProperty('length', 4);
+  expect(div[1]).toHaveClass('card-header');
+  expect(div[2]).toHaveClass('card-body');
+  expect(div[3]).toHaveClass('card-footer');
   expect(getByText('WidgetHeader')).toBeTruthy();
   expect(getByText('WidgetBody')).toBeTruthy();
   expect(getByText('WidgetFooter')).toBeTruthy();

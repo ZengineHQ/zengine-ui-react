@@ -38,9 +38,9 @@ test('Sets input placeholder when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'foo');
 });
 
-test('Sets input id same as name', () => {
+test('Sets input id automatically', () => {
   const { container } = render(<MockForm><NumberInput name="foo" /></MockForm>);
-  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'foo');
+  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'number-foo');
 });
 
 test('Changes input name when specified', () => {
@@ -48,9 +48,14 @@ test('Changes input name when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('name', 'test');
 });
 
+test('Changes input id when specified', () => {
+  const { container } = render(<MockForm><NumberInput name="test" id="whoathere"/></MockForm>);
+  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'whoathere');
+});
+
 test('Sets label "for" attribute when there\'s a label' , () => {
   const { container } = render(<MockForm><NumberInput label="Foo" name="foo" /></MockForm>);
-  expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'foo');
+  expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'number-foo');
 });
 
 test('Omits label element when not specified', () => {

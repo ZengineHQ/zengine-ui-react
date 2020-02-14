@@ -11,7 +11,7 @@ test('Renders a table HTML tag', () => {
 
 test('Adds a default class to the table', () => {
   const { container } = render(<TableDashboard />);
-  expect(container.firstChild).toHaveClass('org-table-dashboard');
+  expect(container.firstChild).toHaveClass('table');
 });
 
 const headers = ['HeaderOne', 'HeaderTwo', 'HeaderThree'];
