@@ -58,7 +58,7 @@ export const Usage = () => (
 
     <hr/>
 
-    <Button onClick={linkTo('Atoms/Button')}>Go to "Button"</Button>
+    <Button onClick={linkTo('Atoms/Button')}>Check out the first Atom</Button>
   </article>
 );
 
