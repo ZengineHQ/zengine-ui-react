@@ -12,7 +12,7 @@ function Input(props) {
   return (
     <input
       type={ props.type }
-      id={ props.name }
+      id={ props.id }
       name={ props.name }
       required={ props.required }
       aria-required={ props.required === true ? true : null }
@@ -20,6 +20,7 @@ function Input(props) {
       aria-disabled={ props.disabled === true ? true : null }
       placeholder={ props.placeholder }
       className={ props.classes }
+      aria-describedby={ props.describedby }
       // Coming from `useField()`.
       value={ props.onChange ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
@@ -34,9 +35,13 @@ Input.propTypes = {
    **/
   type: PropTypes.string.isRequired,
   /**
-   * HTML element name (also used as id).
+   * HTML element name.
    **/
   name: PropTypes.string,
+  /**
+   * HTML element id.
+   **/
+  id: PropTypes.string,
   /**
    * Marks the input as required.
    **/
@@ -49,6 +54,10 @@ Input.propTypes = {
    * HTML placeholder.
    **/
   placeholder: PropTypes.string,
+  /**
+   * The element id of any associated help text, used for accessibility.
+   **/
+  describedby: PropTypes.string,
   /**
    * HTML classes to be added as-is to the input.
    **/
