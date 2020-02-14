@@ -7,7 +7,7 @@ import { withTests } from '@storybook/addon-jest';
 // import { withConsole } from '@storybook/addon-console';
 // addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
-import results from '../src/.test-results.json';
+import results from '../src/test/.results.json';
 
 addDecorator(withKnobs);
 addDecorator(withTests({ results }));
