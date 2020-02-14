@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:save": "CI=true npm run test -- --json --outputFile=./src/.test-results.json",
+    "test:save": "CI=true npm run test -- --json --outputFile=./src/test/.results.json",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "npm run test:save && build-storybook -s public",
