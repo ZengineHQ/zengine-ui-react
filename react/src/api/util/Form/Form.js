@@ -49,7 +49,7 @@ function YidhraForm(props) {
             { props.children }
 
             {/* If the form has been touched and we have errors, display a message above buttons. */}
-            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="form-errors">
+            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="invalid-feedback">
               Please fix errors and try again.
             </div>) }
 
