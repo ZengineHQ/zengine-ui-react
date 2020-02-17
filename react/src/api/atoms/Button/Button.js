@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
+import classNames from 'classnames';
 
 /**
  * A Button is one of the simplest components available, it will render an HTML `<button>` element.
@@ -12,7 +12,7 @@ function Button(props) {
     <button
       type={ props.type }
       onClick={ props.onClick && props.onClick }
-      className={cc([`btn btn-${props.theme}`, props.classes])}
+      className={classNames([`btn btn-${props.theme}`, props.classes])}
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
     >

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
+import classNames from 'classnames';
 
 /**
  * A Widget wraps arbitrary content in a box with header, body and footer sections.
@@ -9,7 +9,7 @@ import cc from 'classcat';
  */
 function Widget(props) {
   return (
-    <div className={cc(['card', props.classes])}>
+    <div className={classNames(['card', props.classes])}>
       { props.header && (
         <div className="card-header">
           { props.header}

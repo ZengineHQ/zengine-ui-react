@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
+import classNames from 'classnames';
 
 /**
  * A Page Title displays an `h1` HTML element.
@@ -9,7 +9,7 @@ import cc from 'classcat';
  */
 function PageTitle(props) {
   return (
-    <h1 className={cc(['atom-page-title', props.classes])}>{ props.children }</h1>
+    <h1 className={classNames(['atom-page-title', props.classes])}>{ props.children }</h1>
   );
 }
 

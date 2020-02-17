@@ -10,7 +10,7 @@ test('Renders a section HTML tag', () => {
 
 test('Adds a default class', () => {
   const { container } = render(<KPI />);
-  expect(container.firstChild).toHaveClass('row');
+  expect(container.firstChild).toHaveClass('org-kpi');
 });
 
 test('Renders CounterLabeled elements', () => {

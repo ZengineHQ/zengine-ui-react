@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
+import classNames from 'classnames';
 
 /**
  * Table Dashboard displays tabular data in an HTML table.
@@ -21,7 +21,7 @@ import cc from 'classcat';
  */
 function TableDashboard(props) {
   return (
-    <table className={cc(['table', props.classes])}>
+    <table className={classNames(['table', props.classes])}>
       <thead>
       <tr>
         { props.headers.map((name, index) => (

@@ -10,8 +10,7 @@ test('Renders an article HTML tag', () => {
 
 test('Adds default classes', () => {
   const { container } = render(<CounterLabeled />);
-  expect(container.firstChild).toHaveClass('d-flex flex-column align-items-center');
-  expect(container.getElementsByTagName('span')[0]).toHaveClass('counter-labeled');
+  expect(container.firstChild).toHaveClass('mol-counter-labeled');
 });
 
 test('Renders with specified count and label', () => {

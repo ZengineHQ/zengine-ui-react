@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cc from 'classcat';
+import classNames from 'classnames';
 
 import { Form, TextInput } from '../../index';
 
@@ -18,7 +18,7 @@ function QuickSearch(props) {
       labelSubmit={ props.labelSubmit }
       showReset={ false }
       showSubmit={ props.showSubmit }
-      classes={ cc(['form-inline', props.classes]) }
+      classes={ classNames(['form-inline', props.classes]) }
     >
       <TextInput label={ props.labelInput } name="search" placeholder={ props.placeholder }/>
     </Form>

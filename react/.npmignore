@@ -1,5 +1,8 @@
 .babelrc
+.cache
+.storybook
+storybook-static
+.nvmrc
+public
 README.md
 CHANGELOG.md
-.storybook
-public
