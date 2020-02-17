@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Input from './Input';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Atoms/Input',

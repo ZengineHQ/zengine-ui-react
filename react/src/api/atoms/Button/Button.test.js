@@ -3,6 +3,11 @@ import { render, fireEvent } from '@testing-library/react';
 
 import Button from './Button';
 
+test('Renders a button HTML tag', () => {
+  const { container } = render(<Button>sup</Button>);
+  expect(container.getElementsByTagName('button')).toHaveProperty('length', 1);
+});
+
 test('Renders with specified text', () => {
   const { getByText } = render(<Button>Hello</Button>);
   expect(getByText('Hello')).toBeTruthy();

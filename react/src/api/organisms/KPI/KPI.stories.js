@@ -2,7 +2,7 @@ import React from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
 import KPI from './KPI';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Organisms/KPI',

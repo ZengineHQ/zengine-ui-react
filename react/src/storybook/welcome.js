@@ -1,7 +1,7 @@
 import React from 'react';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, PageTitle, SectionHeader } from './api';
+import { Button, PageTitle, SectionHeader } from '../api';
 
 export default {
   title: 'Welcome',
@@ -16,7 +16,7 @@ export const Usage = () => (
   <article>
     <PageTitle>Usage</PageTitle>
     <p>
-      Use the nested menu below to navigate between all of the available Yidhra components, grouped by
+      Use the nested menu on the left to navigate between all of the available Yidhra components, grouped by
       their atomic design categorization, as well as some additional Utility components you may find useful.
     </p>
 
@@ -78,11 +78,11 @@ export const Development = () => (
       <li>Stories should have the <code>parameters.jest</code> option to specify which file to pull in test results from.</li>
       <li>Stories should use <code>action()</code> from <code>@storybook/addon-actions</code> wherever possible to log events to the panel</li>
       <li>All stories should include:</li>
-        <ul>
-          <li>A first "Default" story with minimum or no parameters</li>
-          <li>A last "Playground" story using _Knobs_ to customize as many props as possible</li>
-          <li>As many different stories as necessary to cover demonstrating all configurations of a component</li>
-        </ul>
+      <ul>
+        <li>A first "Default" story with minimum or no parameters</li>
+        <li>A last "Playground" story using _Knobs_ to customize as many props as possible</li>
+        <li>As many different stories as necessary to cover demonstrating all configurations of a component</li>
+      </ul>
     </ul>
 
     <SectionHeader>Writing Tests</SectionHeader>

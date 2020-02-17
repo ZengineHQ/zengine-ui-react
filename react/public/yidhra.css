@@ -7280,6 +7280,13 @@ a.text-dark:hover, a.text-dark:focus {
   .modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus {
     color: #000; }
 
+img.atom-image-circle {
+  border-radius: 50%;
+  object-fit: cover;
+  width: px(30);
+  height: px(30);
+  border: px(1) solid #ecf0f1; }
+
 .mol-counter-labeled span {
   font-weight: 500;
   font-size: 2.5rem;

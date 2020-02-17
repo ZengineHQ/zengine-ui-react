@@ -4,7 +4,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
 import { NumberInput, TextInput } from '../../index';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Utility/YidhraForm',

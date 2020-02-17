@@ -3,8 +3,13 @@ import { render } from '@testing-library/react';
 
 import Input from './Input';
 
-test('Renders a type text input by default', () => {
+test('Renders a input HTML tag', () => {
   const { container } = render(<Input />);
+  expect(container.getElementsByTagName('input')).toHaveProperty('length', 1);
+});
+
+test('Renders a type text input by default', () => {
+  const { container } = render(<Input/>);
   expect(container.firstChild).toHaveAttribute('type', 'text');
 });
 
@@ -29,26 +34,26 @@ test('Doesn\'t set aria-required attribute when not required', () => {
 });
 
 test('Marks input as disabled when specified', () => {
-  const { container } = render(<Input disabled={ true } />);
+  const { container } = render(<Input disabled={ true }/>);
   expect(container.firstChild).toHaveAttribute('disabled');
 });
 
 test('Sets aria-disabled attribute when disabled', () => {
-  const { container } = render(<Input disabled={ true } />);
+  const { container } = render(<Input disabled={ true }/>);
   expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
 });
 
 test('Sets input placeholder when specified', () => {
-  const { container } = render(<Input placeholder={ 'foo' }/>);
+  const { container } = render(<Input placeholder="foo"/>);
   expect(container.firstChild).toHaveAttribute('placeholder', 'foo');
 });
 
 test('Sets input name when specified', () => {
-  const { container } = render(<Input name={ 'foo' }/>);
+  const { container } = render(<Input name="foo"/>);
   expect(container.firstChild).toHaveAttribute('name', 'foo');
 });
 
 test('Adds custom classes when specified', () => {
-  const { container } = render(<Input classes="foo bar baz">Hello</Input>);
+  const { container } = render(<Input classes="foo bar baz"/>);
   expect(container.firstChild).toHaveClass('foo bar baz');
 });

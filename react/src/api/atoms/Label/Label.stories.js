@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import Label from './Label';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Atoms/Label',

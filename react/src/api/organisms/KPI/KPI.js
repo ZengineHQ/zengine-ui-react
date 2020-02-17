@@ -20,7 +20,7 @@ KPI.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     count: PropTypes.number,
     label: PropTypes.string,
-  }))
+  })),
 };
 
 KPI.defaultProps = {

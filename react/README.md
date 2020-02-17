@@ -2,7 +2,7 @@
 
 > React atomic design Components for Yidhra.
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://github.com/Wizehive/yidhra) 
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](http://wizehive.github.io/yidhra/) 
 
 ## Installation
 
@@ -36,13 +36,14 @@ function MyComponent() {
 }
 ```
 
-## Explanation of NPM scripts
+## Explanation of NPM scripts 
 
-- `start`: starts the local version of the sandbox app
-- `test`: runs the Jest interactive test runner
+- `start`: starts the local dev version of the Storybook
+- `test`: starts the Jest interactive test runner
 - `test:save`: runs tests in CI mode (non-interactive just run all tests once) and logs output to a file
-- `storybook`: starts the local dev version of the Storybook
+- `test:cover`: runs tests in CI mode (see test:save) and generates code a coverage report (only considers `api` folder) 
 - `build-storybook`: runs tests to generate the log output and builds the Storybook
 - `deploy-storybook`: deploys the Storybook to Github Pages
-- `cover`: runs tests in CI mode (see test:save) and generates code a coverage report (only considers `api` folder) 
-- `dist`: builds the redistributable output for Yidhra; this is what people will get when they `npm install`
+- `scss`: compiles SCSS from the `style` folder
+- `scss:watch`: watches the `style` folder and recompiles SCSS when files change
+- `build`: builds the redistributable output for Yidhra; this is what people will get when they `npm install` this in their projects

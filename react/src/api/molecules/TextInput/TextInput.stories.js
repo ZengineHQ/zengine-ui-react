@@ -4,7 +4,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 // Use named export instead of default to get the Storybooks Docs generated properly.
 import { TextInput } from './TextInput';
 import { MockForm } from '../../../test/MockForm';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Molecules/TextInput',

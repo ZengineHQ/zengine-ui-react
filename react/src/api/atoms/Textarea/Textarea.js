@@ -17,7 +17,6 @@ function Textarea(props) {
       aria-required={ props.required === true ? true : null }
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
-      spellCheck={ props.spellcheck }
       placeholder={ props.placeholder }
       className={ props.classes }
       aria-describedby={ props.describedby }
@@ -25,8 +24,8 @@ function Textarea(props) {
       value={ props.onChange ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }
-      // This inline style hacky thing allows us to control whether the textbox should be resizable via props.
-      style={ props.resizable ? { resize: 'none' } : {} }
+      // This inline style hacky thing allows us to control whether the textarea should be resizable via props.
+      style={ props.resizable ? {} : { resize: 'none' } }
     />
   );
 }
@@ -72,10 +71,6 @@ Textarea.propTypes = {
    * Whether the textarea should be resizable; uses native HTML functionality.
    **/
   resizable: PropTypes.bool,
-  /**
-   * Whether the textarea should have spell-check enabled; uses native HTML functionality.
-   **/
-  spellcheck: PropTypes.bool,
 };
 
 Textarea.defaultProps = {
@@ -84,8 +79,7 @@ Textarea.defaultProps = {
   required: false,
   placeholder: '',
   classes: '',
-  resizable: false,
-  spellcheck: false,
+  resizable: true,
 };
 
 export default Textarea;

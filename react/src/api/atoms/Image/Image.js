@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 
 /**
  * Displays an image.
+ *
+ * This atom supports the following classes to customize it:
+ *
+ * - `atom-image-circle`: display the image as a circle with very rounded borders
+ * - `img-fluid`: make the image responsive so it scales with it's parent element
+ * - `img-thumbnail`: give the image a subtle framed border appearance
+ * - `rounded`: make the images borders slightly rounded
  */
 function Image(props) {
   return (
