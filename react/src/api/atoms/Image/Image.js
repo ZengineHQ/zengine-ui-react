@@ -28,11 +28,11 @@ Image.propTypes = {
   /**
    * Image height.
    **/
-  height: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Image width.
    **/
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * HTML classes to be added as-is to the button.
    **/
