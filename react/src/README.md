@@ -2,7 +2,9 @@
 
 - `api` is where the actual Yidhra distributable components live and are exported from, see `npm run dist` for more info
 - `components` is where misc components used only in this sandbox app live
+- `dist` is where the generated package code goes when `npm run dist` is executed 
 - `pages` ditto above for misc pages used only in this sandbox React app
+- `style` contains the SCSS source code for our custom bootstrap theme
 - `test` contains test helpers used by the `*.test.js` files in the `api` directory
 - `util` contains misc helpers used by the Storybook
 
