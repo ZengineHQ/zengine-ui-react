@@ -2,15 +2,15 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 // Use named export instead of default to get the Storybooks Docs generated properly.
-import { Select } from './Select';
+import { SelectField } from './SelectField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
-  title: 'Molecules/Select',
-  component: Select,
+  title: 'Molecules/SelectField',
+  component: SelectField,
   parameters: {
-    jest: ['Select.test.js'],
+    jest: ['SelectField.test.js'],
   },
 };
 
@@ -19,22 +19,22 @@ export default {
  */
 const opts = ['one', 'two', 'three', 'four'];
 
-export const Default = () => <MockForm><Select label="Select Input" name="select" options={opts}/></MockForm>;
+export const Default = () => <MockForm><SelectField label="SelectField Input" name="select" options={opts}/></MockForm>;
 
 export const Required = () => (
-  <MockForm><Select label="Select Input" name="select" options={opts} required/></MockForm>
+  <MockForm><SelectField label="SelectField Input" name="select" options={opts} required/></MockForm>
 );
 
 export const Disabled = () => (
-  <MockForm><Select label="Select Input" name="select" options={opts} disabled/></MockForm>
+  <MockForm><SelectField label="SelectField Input" name="select" options={opts} disabled/></MockForm>
 );
 
 export const Placeholder = () => (
-  <MockForm><Select label="Select Input" name="select" options={opts} placeholder="Holding the place"/></MockForm>
+  <MockForm><SelectField label="SelectField Input" name="select" options={opts} placeholder="Holding the place"/></MockForm>
 );
 
 export const Multiple = () => (
-  <MockForm><Select label="Select Input" name="select" options={opts} multiple={true}/></MockForm>
+  <MockForm><SelectField label="SelectField Input" name="select" options={opts} multiple={true}/></MockForm>
 );
 
 export const Playground = () => {
@@ -42,7 +42,7 @@ export const Playground = () => {
 
   return (
     <MockForm>
-      <Select
+      <SelectField
         label={ text('Label', 'Input Label') }
         disabled={ boolean('Disabled', false) }
         required={ boolean('Required', false) }

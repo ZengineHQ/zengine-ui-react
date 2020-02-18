@@ -10,8 +10,9 @@ export { default as Textarea } from './atoms/Textarea/Textarea';
 // Molecules.
 export { default as CounterLabeled } from './molecules/CounterLabeled/CounterLabeled';
 export { default as NumberInput } from './molecules/NumberInput/NumberInput';
-export { default as Select } from './molecules/Select/Select';
+export { default as SelectField } from './molecules/SelectField/SelectField';
 export { default as TextInput } from './molecules/TextInput/TextInput';
+export { default as TextAreaInput } from './molecules/TextAreaInput/TextAreaInput';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI/KPI';

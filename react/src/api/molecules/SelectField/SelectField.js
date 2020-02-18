@@ -11,13 +11,13 @@ import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 /**
  * The select is a full-fledged select input Formik field with validation, help text and error messages.
  *
- * A Select molecule consists of an HTML select element paired with a `Label` atom and some etra markup.
+ * A SelectField molecule consists of an HTML select element paired with a `Label` atom and some etra markup.
  *
  * Use it to have users pick one or more items from a pre-defined list.
  *
  * Why is there no `select` atom you may ask?  Good question!  If there's a need for one we can revisit...
  */
-function Select (props) {
+function SelectField (props) {
   const validate = value => {
     if (props.required && isEmpty(value)) {
       return 'Required';
@@ -70,17 +70,17 @@ function Select (props) {
 }
 
 
-Select.propTypes = {
+SelectField.propTypes = {
   /**
    * HTML element name (also used as id).
    **/
   name: PropTypes.string.isRequired,
   /**
-   * Select label.
+   * SelectField label.
    **/
   label: PropTypes.string,
   /**
-   * Select options; either an object keyed by values or an array of strings.
+   * SelectField options; either an object keyed by values or an array of strings.
    **/
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]),
   /**
@@ -117,16 +117,16 @@ Select.propTypes = {
   innerRef: PropTypes.object,
 };
 
-Select.defaultProps = {
+SelectField.defaultProps = {
   disabled: false,
   label: '',
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-Select-'
+  placeholder: '-SelectField-'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
-export { Select };
+export { SelectField };
 
-export default withForwardRef(Select);
+export default withForwardRef(SelectField);
