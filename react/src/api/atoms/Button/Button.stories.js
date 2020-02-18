@@ -70,7 +70,7 @@ export const Playground = () => {
   return (
     <Button
       disabled={ boolean('Disabled', false) }
-      theme={ select('Theme', themeOpts, 'primary') }
+      theme={ select('Theme', themeOpts, 'info') }
       onClick={ action('clicked') }
       type={ select('Type', typeOpts, 'button') }
       classes={ text('Classes', 'foo bar') }
