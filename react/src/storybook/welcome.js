@@ -87,7 +87,7 @@ import 'yidhra.css';
 
   const code3 = `
 // Use components.
-import { Button, TextInput, NumberInput, YidhraForm, KPI } from '@zenginehq/yidhra-react';
+import { Button, TextInput, NumberField, YidhraForm, KPI } from '@zenginehq/yidhra-react';
 
 function MyComponent() {
     const myCallback = values => {
@@ -106,7 +106,7 @@ function MyComponent() {
 
           <YidhraForm onSubmit={myCallback}>
               <TextInput name="firstName" label="First Name" required />
-              <NumberInput name="age" label="Age" required />
+              <NumberField name="age" label="Age" required />
           </YidhraForm>
         </>
     );

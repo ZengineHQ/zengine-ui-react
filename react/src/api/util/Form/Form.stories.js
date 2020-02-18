@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import YidhraForm from './Form';
-import { NumberInput, TextInput } from '../../index';
+import { NumberField, TextInput } from '../../index';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
@@ -17,35 +17,35 @@ export default {
 export const Default = () => (
   <YidhraForm onSubmit={ action('Form submitted') }>
     <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
+    <NumberField label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const HideReset = () => (
   <YidhraForm onSubmit={ action('Form submitted') } showReset={ false }>
     <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
+    <NumberField label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const ResetLabel = () => (
   <YidhraForm onSubmit={ action('Form submitted') } labelReset="Nuke it!">
     <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
+    <NumberField label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const HideSubmit = () => (
   <YidhraForm onSubmit={ action('Form submitted') } showSubmit={ false }>
     <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
+    <NumberField label="Age" name="age" required/>
   </YidhraForm>
 );
 
 export const SubmitLabel = () => (
   <YidhraForm onSubmit={ action('Form submitted') } labelSubmit="Perform exciting action!">
     <TextInput label="Name" name="name" required/>
-    <NumberInput label="Age" name="age" required/>
+    <NumberField label="Age" name="age" required/>
   </YidhraForm>
 );
 
@@ -61,7 +61,7 @@ export const Playground = () => {
       labelSubmit={ text('Submit Label', 'Save')}
     >
       <TextInput label="Name" name="name" required/>
-      <NumberInput label="Age" name="age" required/>
+      <NumberField label="Age" name="age" required/>
     </YidhraForm>
   );
 };

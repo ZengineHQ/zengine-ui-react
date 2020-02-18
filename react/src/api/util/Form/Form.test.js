@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { TextInput, Form, NumberInput } from '../../index';
+import { TextInput, Form, NumberField } from '../../index';
 
 test('Renders a form', () => {
   const { container } = render(<Form onSubmit={() => null}/>);
@@ -98,7 +98,7 @@ test('Calls submit handler with proper value when submitted', async () => {
   const { container } = render(
     <Form onSubmit={mock}>
       <TextInput label="Name" name="name" required/>
-      <NumberInput label="Age" name="age" required/>
+      <NumberField label="Age" name="age" required/>
     </Form>
   );
   const form = container.getElementsByTagName('form')[0];

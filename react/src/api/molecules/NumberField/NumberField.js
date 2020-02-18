@@ -10,13 +10,13 @@ import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 
 /**
- * The NumberInput molecule is a full-fledged number input Formik field with validation, help text and error messages.
+ * The NumberField molecule is a full-fledged number input Formik field with validation, help text and error messages.
  *
  * It consists of an `Input` atom, a `Label` atom and some additional markup.
  *
  * Use it to collect numeric data from users.
  */
-function NumberInput(props) {
+function NumberField(props) {
   const validate = value => {
     if (props.required && isEmpty(value)) {
       return 'Required';
@@ -52,7 +52,7 @@ function NumberInput(props) {
   );
 }
 
-NumberInput.propTypes = {
+NumberField.propTypes = {
   /**
    * HTML element name (also used as id).
    **/
@@ -91,7 +91,7 @@ NumberInput.propTypes = {
   innerRef: PropTypes.object,
 };
 
-NumberInput.defaultProps = {
+NumberField.defaultProps = {
   disabled: false,
   label: '',
   placeholder: '',
@@ -100,7 +100,7 @@ NumberInput.defaultProps = {
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
-export { NumberInput };
+export { NumberField };
 
-export default withForwardRef(NumberInput);
+export default withForwardRef(NumberField);
 

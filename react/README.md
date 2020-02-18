@@ -20,7 +20,7 @@ import 'yidhra.css';
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
 
 // Use components.
-import { Button, TextInput, NumberInput, YidhraForm } from '@zenginehq/yidhra-react';
+import { Button, TextInput, NumberField, YidhraForm } from '@zenginehq/yidhra-react';
 
 function MyComponent() {
     const myCallback = values => {
@@ -30,7 +30,7 @@ function MyComponent() {
     return (
         <YidhraForm onSubmit={myCallback}>
             <TextInput name="firstName" label="First Name" required />
-            <NumberInput name="age" label="Age" required />
+            <NumberField name="age" label="Age" required />
         </YidhraForm>
     );
 }

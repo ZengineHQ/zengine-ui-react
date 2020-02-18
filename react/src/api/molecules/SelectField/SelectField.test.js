@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import { MockForm }  from '../../../test/MockForm';
 import { SelectField } from './SelectField';
-import NumberInput from '../NumberInput/NumberInput';
+import NumberField from '../NumberField/NumberField';
 
 /**
  * Dummy options to be re-used across tests.
