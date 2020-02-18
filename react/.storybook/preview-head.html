@@ -1,18 +1,18 @@
-<!-- Add themed Bootstrap styles -->
-<!--<link type="text/css" href="/bootstrap.min.css" rel="stylesheet" />-->
-
-<!-- Add Yidhra complementary styles -->
-<!--<link type="text/css" href="/yidhra-bootstrap.css" rel="stylesheet" />-->
-
-<!-- Add full Yidhra styles -->
+<!-- Add Yidhra styles -->
 <link type="text/css" href="/yidhra.css" rel="stylesheet" />
-
-<!-- This is just to give the Storybook Canvas a little more breathing room and make the components look better -->
-<style type="text/css">
-  div#root {
-    padding: 1rem;
-  }
-</style>
 
 <!-- Include Font Awesome kit -->
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
+
+<!-- Storybook Theming Tweaks -->
+<style type="text/css">
+  /* Give the Storybook Canvas a little more breathing room and make the components look better */
+  div#root {
+    padding: 1rem;
+  }
+
+  /* Fix an issue with plain text rendering black with the dark-themed source code viewer in Docs tab */
+  div.simplebar-content span.token.plain-text {
+    color: #EDEDED;
+  }
+</style>

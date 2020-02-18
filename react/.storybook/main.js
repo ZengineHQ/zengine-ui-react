@@ -1,9 +1,9 @@
 module.exports = {
   stories: [
-    '../src/storybook/welcome.js',
+    '../src/storybook/welcome.(js|mdx)',
     '../src/**/*.stories.js',
-    '../src/storybook/templates/intro.js',
-    '../src/storybook/templates/*.js',
+    '../src/storybook/templates/intro.(js|mdx)',
+    '../src/storybook/templates/*.(js|mdx)',
   ],
   addons: [
     '@storybook/preset-create-react-app',

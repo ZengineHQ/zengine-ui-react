@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Image, KPI, PageTitle } from '../../api';
 
 export default {
