@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 /**
  * A Label is used to annotate form inputs by including an HTML `label` element.
  *
+ * See most `*Input` molecules for example usages.
+ *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
 function Label(props) {

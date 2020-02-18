@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Inputs are a fundamental building block in receiving any kind of information from users.
+ * Inputs are a fundamental building block in collecting any kind of information from users.
  *
  * This will generate an HTML `<input>` element.
+ *
+ * See the `NumberInput` and `TextInput` molecules for example usages.
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */

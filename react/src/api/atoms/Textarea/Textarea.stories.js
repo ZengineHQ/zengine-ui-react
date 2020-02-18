@@ -1,8 +1,9 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import Textarea from './Textarea';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
+import { TextInput } from '../../molecules/TextInput/TextInput';
 
 export default {
   title: 'Atoms/Textarea',
@@ -28,6 +29,9 @@ export const Playground = () => {
   return (
     <Textarea
       classes={ text('Classes', 'class-one') }
+      disabled={ boolean('Disabled', false) }
+      required={ boolean('Required', false) }
+      resizable={ boolean('Resizable', true) }
     />
   );
 };

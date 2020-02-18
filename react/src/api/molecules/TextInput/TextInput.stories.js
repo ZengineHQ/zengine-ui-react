@@ -18,9 +18,9 @@ export const Default = () => <MockForm><TextInput label="Text Input" name="text"
 
 export const Required = () => <MockForm><TextInput label="Required Text Input" required={true} name="text" /></MockForm>;
 
-export const HelpText = () => <MockForm><TextInput label="Disabled Text Input" disabled={true} name="text" /></MockForm>;
+export const Disabled = () => <MockForm><TextInput label="Disabled Text Input" disabled={true} name="text" /></MockForm>;
 
-export const Disabled = () => <MockForm><TextInput label="Text" help="This is some help text" name="text" /></MockForm>;
+export const HelpText = () => <MockForm><TextInput label="Text" help="This is some help text" name="text" /></MockForm>;
 
 export const Placeholder = () => <MockForm><TextInput label="Placeholder Text Input" placeholder="placeholder text" name="text" /></MockForm>;
 

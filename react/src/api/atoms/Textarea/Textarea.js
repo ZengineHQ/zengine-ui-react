@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
  *
  * This will generate an HTML `<textarea>` element.
  *
+ * See the `TextAreaInput` for an example usage.
+ *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
 function Textarea(props) {
