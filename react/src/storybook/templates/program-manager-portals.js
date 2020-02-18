@@ -56,9 +56,9 @@ export const Portals = () => {
         This template utilizes the following components:
 
         <ul>
-          <li><a href="javascript:" onClick={linkTo('Organisms/Widget')}>Widget</a></li>
-          <li><a href="javascript:" onClick={linkTo('Organisms/TableDashboard')}>TableDashboard</a></li>
-          <li><a href="javascript:" onClick={linkTo('Atoms/Button')}>Button</a></li>
+          <li><Button theme="link" onClick={linkTo('Organisms/Widget')} classes="p-0">Widget</Button></li>
+          <li><Button theme="link" onClick={linkTo('Organisms/TableDashboard')} classes="p-0">TableDashboard</Button></li>
+          <li><Button theme="link" onClick={linkTo('Atoms/Button')} classes="p-0">Button</Button></li>
         </ul>
       </p>
 

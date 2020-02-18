@@ -2,6 +2,7 @@ import React from 'react';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, PageTitle, SectionHeader } from '../api';
+import useSyntaxHighlighter from './useSyntaxHighlighter';
 
 export default {
   title: 'Welcome',
@@ -15,9 +16,9 @@ export default {
   }
 };
 
-export const Usage = () => (
+export const Introduction = () => (
   <article>
-    <PageTitle>Usage</PageTitle>
+    <PageTitle>Introduction</PageTitle>
     <p>
       Use the nested menu on the left to navigate between all of the available Yidhra components, grouped by
       their atomic design categorization, as well as some additional Utility components you may find useful.
@@ -37,7 +38,8 @@ export const Usage = () => (
     </p>
     <dl>
       <dt><strong>Actions</strong></dt>
-      <dd>A log of actions that occurred, try clicking buttons and otherwise interacting with elements in the stories!</dd>
+      <dd>A log of actions that occurred, try clicking buttons and otherwise interacting with elements in the stories!
+      </dd>
 
       <dt><strong>Knobs</strong></dt>
       <dd>
@@ -61,9 +63,60 @@ export const Usage = () => (
 
     <hr/>
 
-    <Button onClick={linkTo('Atoms/Button')}>Check out the first Atom</Button>
+    <Button onClick={ linkTo('Atoms/Button') }>Check out the first Atom</Button>
   </article>
 );
+
+export const Usage = () => {
+  const code = `
+// Add \`yidhra.css\` from a CDN or locally.
+import 'yidhra.css';
+
+// Add Font Awesome icons.
+<script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
+
+// Use components.
+import { Button, TextInput, NumberInput, YidhraForm, KPI } from '@zenginehq/yidhra-react';
+
+function MyComponent() {
+    const myCallback = values => {
+        console.warn('submitted values', values);
+    };
+
+    const items = [
+      { count: 1358, label: 'Submissions'},
+      { count: 158, label: 'Ready for Review'},
+      { count: 45, label: 'Reviewed'}
+    ];
+
+    return (
+        <>
+          <KPI items={items}/>
+
+          <YidhraForm onSubmit={myCallback}>
+              <TextInput name="firstName" label="First Name" required />
+              <NumberInput name="age" label="Age" required />
+          </YidhraForm>
+        </>
+    );
+}
+  `;
+
+  return (
+    <article>
+      <PageTitle>Using Yidhra</PageTitle>
+      <p>Using Yidhra is not only simple but it's FUN! :)</p>
+
+      <SectionHeader>Installation</SectionHeader>
+
+      <code>npm install @zenginehq/yidhra-react</code>
+
+      <SectionHeader>Usage</SectionHeader>
+
+      { useSyntaxHighlighter(code) }
+    </article>
+  );
+}
 
 export const Development = () => (
   <article>
@@ -72,14 +125,20 @@ export const Development = () => (
 
     <SectionHeader>Writing Code</SectionHeader>
     <ul>
-      <li>Components should be functional and exported in <code>/src/api/index.js</code> if public-facing.</li>
-      <li>Components should have a comprehensive docblock with a textual description which will appear in the Storybook Docs page.</li>
+      <li>Components should be functional and exported from <code>/src/api/index.js</code> if public-facing.</li>
+      <li>Components should have a comprehensive docblock with a textual description which will appear in the Storybook
+        Docs page.
+      </li>
     </ul>
 
     <SectionHeader>Writing Stories</SectionHeader>
     <ul>
-      <li>Stories should have the <code>parameters.jest</code> option to specify which file to pull in test results from.</li>
-      <li>Stories should use <code>action()</code> from <code>@storybook/addon-actions</code> wherever possible to log events to the panel</li>
+      <li>Stories should have the <code>parameters.jest</code> option to specify which file to pull in test results
+        from.
+      </li>
+      <li>Stories should use <code>action()</code> from <code>@storybook/addon-actions</code> wherever possible to log
+        events to the panel
+      </li>
       <li>All stories should include:</li>
       <ul>
         <li>A first "Default" story with minimum or no parameters</li>
@@ -91,9 +150,12 @@ export const Development = () => (
 
     <SectionHeader>Writing Tests</SectionHeader>
     <ul>
-      <li>Tests are written using <code>@testing-library/react</code> and mocks/spies are provided by <code>jest</code></li>
+      <li>Tests are written using <code>@testing-library/react</code> and mocks/spies are provided by <code>jest</code>
+      </li>
       <li>Be sure to always wrap your <code>fireEvent()</code> calls with <code>act()</code></li>
-      <li>The more the merrier, try to be as exhaustive as possible when writing tests to make sure all bases are covered</li>
+      <li>The more the merrier, try to be as exhaustive as possible when writing tests to make sure all bases are
+        covered
+      </li>
       <li>Use <code>npm run test:cover</code> to check code coverage, let's keep it 100</li>
     </ul>
   </article>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { linkTo } from '@storybook/addon-links';
 
-import { Image, KPI, PageTitle } from '../../api';
+import { Button, Image, KPI, PageTitle } from '../../api';
 import useSyntaxHighlighter from '../useSyntaxHighlighter';
 
 export default {
@@ -65,9 +65,9 @@ export const Header = () => {
         This template utilizes the following components:
 
         <ul>
-          <li><a href="javascript:" onClick={linkTo('Atoms/Image')}>Image</a></li>
-          <li><a href="javascript:" onClick={linkTo('Atoms/PageTitle')}>PageTitle</a></li>
-          <li><a href="javascript:" onClick={linkTo('Organisms/KPI')}>KPI</a></li>
+          <li><Button theme="link" onClick={linkTo('Atoms/Image')} classes="p-0">Image</Button></li>
+          <li><Button theme="link" onClick={linkTo('Atoms/PageTitle')} classes="p-0">PageTitle</Button></li>
+          <li><Button theme="link" onClick={linkTo('Organisms/KPI')} classes="p-0">KPI</Button></li>
         </ul>
       </p>
 
