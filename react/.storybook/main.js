@@ -10,8 +10,15 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-links/register',
     '@storybook/addon-knobs/register',
-    '@storybook/addon-docs',
     '@storybook/addon-jest/register',
     '@storybook/addon-viewport/register',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: {},
+      },
+    },
   ],
 };
