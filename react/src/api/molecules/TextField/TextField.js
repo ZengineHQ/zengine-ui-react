@@ -10,13 +10,13 @@ import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 
 /**
- * The TextInput molecule is a full-fledged text input Formik field with validation, help text and error messages.
+ * The TextField molecule is a full-fledged text input Formik field with validation, help text and error messages.
  *
  * It consists of an `Input` atom, a `Label` atom and some additional markup.
  *
  * Use it to collect short textual data from users.
  */
-function TextInput(props) {
+function TextField(props) {
   const validate = value => {
     if (props.required && isEmpty(value)) {
       return 'Required';
@@ -52,7 +52,7 @@ function TextInput(props) {
   );
 }
 
-TextInput.propTypes = {
+TextField.propTypes = {
   /**
    * HTML element name (also used as id).
    **/
@@ -91,7 +91,7 @@ TextInput.propTypes = {
   innerRef: PropTypes.object,
 };
 
-TextInput.defaultProps = {
+TextField.defaultProps = {
   disabled: false,
   label: '',
   placeholder: '',
@@ -100,6 +100,6 @@ TextInput.defaultProps = {
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
-export { TextInput };
+export { TextField };
 
-export default withForwardRef(TextInput);
+export default withForwardRef(TextField);

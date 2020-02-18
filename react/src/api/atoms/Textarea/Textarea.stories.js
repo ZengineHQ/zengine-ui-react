@@ -3,7 +3,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 import Textarea from './Textarea';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
-import { TextInput } from '../../molecules/TextInput/TextInput';
+import { TextField } from '../../molecules/TextField/TextField';
 
 export default {
   title: 'Atoms/Textarea',

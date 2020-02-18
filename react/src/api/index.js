@@ -11,7 +11,7 @@ export { default as Textarea } from './atoms/Textarea/Textarea';
 export { default as CounterLabeled } from './molecules/CounterLabeled/CounterLabeled';
 export { default as NumberField } from './molecules/NumberField/NumberField';
 export { default as SelectField } from './molecules/SelectField/SelectField';
-export { default as TextInput } from './molecules/TextInput/TextInput';
+export { default as TextField } from './molecules/TextField/TextField';
 export { default as TextAreaInput } from './molecules/TextAreaInput/TextAreaInput';
 
 // Organisms.

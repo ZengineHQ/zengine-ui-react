@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  *
  * This will generate an HTML `<input>` element.
  *
- * See the `NumberField` and `TextInput` molecules for example usages.
+ * See the `NumberField` and `TextField` molecules for example usages.
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */

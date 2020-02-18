@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Form, TextInput } from '../../index';
+import { Form, TextField } from '../../index';
 
 /**
  * The QuickSearch organism displays a simple search form.
  *
- * It consists of a `YidhraForm` utility wrapping a `TextInput` molecule.
+ * It consists of a `YidhraForm` utility wrapping a `TextField` molecule.
  *
  * This exists mostly as a contrived example but it might come in handy one day...
  */
@@ -20,7 +20,7 @@ function QuickSearch(props) {
       showSubmit={ props.showSubmit }
       classes={ classNames(['form-inline', props.classes]) }
     >
-      <TextInput label={ props.labelInput } name="search" placeholder={ props.placeholder }/>
+      <TextField label={ props.labelInput } name="search" placeholder={ props.placeholder }/>
     </Form>
   );
 }
