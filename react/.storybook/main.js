@@ -1,17 +1,21 @@
 module.exports = {
   stories: [
-    '../src/storybook/welcome.(js|mdx)',
+    // Top-level intro story.
+    '../src/storybook/welcome.js',
+    // Component stories.
     '../src/**/*.stories.js',
-    '../src/storybook/templates/intro.(js|mdx)',
-    '../src/storybook/templates/*.(js|mdx)',
+    // Template section intro story.
+    '../src/storybook/templates/intro.js',
+    // Template stories, given a different suffix so we can load them separately.
+    '../src/storybook/templates/**/*.js',
   ],
   addons: [
     '@storybook/preset-create-react-app',
+    '@storybook/addon-docs',
     '@storybook/addon-actions',
     '@storybook/addon-links/register',
     '@storybook/addon-knobs/register',
-    '@storybook/addon-docs',
     '@storybook/addon-jest/register',
-    '@storybook/addon-viewport/register',
+    '@storybook/addon-viewport/register'
   ],
 };

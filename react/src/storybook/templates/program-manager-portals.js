@@ -1,13 +1,18 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 
 import { Button, TableDashboard, Widget } from '../../api';
+import useSyntaxHighlighter from '../useSyntaxHighlighter';
 
 export default {
   title: 'Templates/ProgramManager',
   parameters: {
     options: {
-      showPanel: false
+      showPanel: false,
+    },
+    docs: {
+      disable: true,
     }
   }
 };
@@ -29,11 +34,35 @@ export const Portals = () => {
     ],
   ];
 
-  return (
+  const story = `
     <Widget
       header="Process: Scholarship Award"
       body={ <TableDashboard headers={ headers } rows={ rows }/> }
       footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
     />
+  `;
+
+  return (
+    <>
+      <Widget
+        header="Process: Scholarship Award"
+        body={ <TableDashboard headers={ headers } rows={ rows }/> }
+        footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
+      />
+
+      <hr className="mt-5 mb-3"/>
+
+      <p>
+        This template utilizes the following components:
+
+        <ul>
+          <li><a href="javascript:" onClick={linkTo('Organisms/Widget')}>Widget</a></li>
+          <li><a href="javascript:" onClick={linkTo('Organisms/TableDashboard')}>TableDashboard</a></li>
+          <li><a href="javascript:" onClick={linkTo('Atoms/Button')}>Button</a></li>
+        </ul>
+      </p>
+
+      { useSyntaxHighlighter(story) }
+    </>
   );
 };

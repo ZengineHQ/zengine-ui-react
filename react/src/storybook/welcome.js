@@ -83,16 +83,18 @@ export const Development = () => (
       <li>All stories should include:</li>
       <ul>
         <li>A first "Default" story with minimum or no parameters</li>
-        <li>A last "Playground" story using _Knobs_ to customize as many props as possible</li>
-        <li>As many different stories as necessary to cover demonstrating all configurations of a component</li>
+        <li>If applicable, a "Style Guide" story displaying different configurations side by side</li>
+        <li>If applicable, a last "Playground" story using _Knobs_ to customize as many props as possible</li>
+        <li>As many different stories as necessary to cover demonstrating key configurations of a component</li>
       </ul>
     </ul>
 
     <SectionHeader>Writing Tests</SectionHeader>
     <ul>
-      <li>Tests are written using <code>@testing-library/react</code> and mocks/spies are provided by <code>jest</code>.</li>
+      <li>Tests are written using <code>@testing-library/react</code> and mocks/spies are provided by <code>jest</code></li>
       <li>Be sure to always wrap your <code>fireEvent()</code> calls with <code>act()</code></li>
-      <li>The more the merrier, try to be as exhaustive as possible when writing tests to make sure all bases are covered.</li>
+      <li>The more the merrier, try to be as exhaustive as possible when writing tests to make sure all bases are covered</li>
+      <li>Use <code>npm run test:cover</code> to check code coverage, let's keep it 100</li>
     </ul>
   </article>
 );
