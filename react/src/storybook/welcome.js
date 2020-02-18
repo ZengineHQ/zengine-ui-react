@@ -68,13 +68,24 @@ export const Introduction = () => (
 );
 
 export const Usage = () => {
-  const code = `
+  const code1 = `
+// Latest stable version.
+npm install @zenginehq/yidhra-react
+
+// Development version.
+npm install git+ssh://git@github.com/Wizehive/yidhra
+`;
+
+  const code2 = `
 // Add \`yidhra.css\` from a CDN or locally.
 import 'yidhra.css';
+<link rel="stylesheet" type="text/css" href="https://awesome-cdn.com/yidhra.css">
 
 // Add Font Awesome icons.
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
+`;
 
+  const code3 = `
 // Use components.
 import { Button, TextInput, NumberInput, YidhraForm, KPI } from '@zenginehq/yidhra-react';
 
@@ -100,7 +111,7 @@ function MyComponent() {
         </>
     );
 }
-  `;
+`;
 
   return (
     <article>
@@ -109,11 +120,15 @@ function MyComponent() {
 
       <SectionHeader>Installation</SectionHeader>
 
-      <code>npm install @zenginehq/yidhra-react</code>
+      { useSyntaxHighlighter(code1) }
 
-      <SectionHeader>Usage</SectionHeader>
+      <SectionHeader>Adding Fonts & Theme</SectionHeader>
 
-      { useSyntaxHighlighter(code) }
+      { useSyntaxHighlighter(code2) }
+
+      <SectionHeader>Using the components</SectionHeader>
+
+      { useSyntaxHighlighter(code3) }
     </article>
   );
 }
