@@ -55,7 +55,7 @@ test('Doesn\'t set aria-disabled attribute when not disabled', () => {
 
 test('Sets a default placeholder as the first option', () => {
   const { container } = render(<MockForm><SelectField name="foo" options={opts}/></MockForm>);
-  expect(container.getElementsByTagName('select')[0].firstChild).toHaveTextContent('-SelectField-');
+  expect(container.getElementsByTagName('select')[0].firstChild).toHaveTextContent('-Select-');
 });
 
 test('Changes default placeholder when specified', () => {

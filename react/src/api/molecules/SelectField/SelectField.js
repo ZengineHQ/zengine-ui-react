@@ -72,15 +72,19 @@ function SelectField (props) {
 
 SelectField.propTypes = {
   /**
-   * HTML element name (also used as id).
+   * HTML element name.
    **/
   name: PropTypes.string.isRequired,
   /**
-   * SelectField label.
+   * HTML element id.
+   **/
+  id: PropTypes.string,
+  /**
+   * Field label.
    **/
   label: PropTypes.string,
   /**
-   * SelectField options; either an object keyed by values or an array of strings.
+   * Select options; either an object keyed by values or an array of strings.
    **/
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]),
   /**
@@ -123,7 +127,7 @@ SelectField.defaultProps = {
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-SelectField-'
+  placeholder: '-Select-'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

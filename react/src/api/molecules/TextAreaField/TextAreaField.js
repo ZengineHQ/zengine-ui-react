@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
-import Input from '../../atoms/Input/Input';
-import Label from '../../atoms/Label/Label';
-import withForwardRef from '../../util/withForwardRef';
-import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
+import Label from '../../atoms/Label/Label';
+import getFieldClasses from '../../util/getFieldClasses';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
+import { Textarea } from '../../index';
+import withForwardRef from '../../util/withForwardRef';
 
 /**
- * The TextField molecule is a full-fledged text input Formik field with validation, help text and error messages.
+ * The TextAreaField molecule is a full-fledged textarea input Formik field with validation, help text and error messages.
  *
- * It consists of an `Input` atom, a `Label` atom and some additional markup.
+ * It consists of a `Textarea` atom, a `Label` atom and some additional markup.
  *
- * Use it to collect short textual data from users.
+ * Use it to collect long-form textual data from users.
  */
-function TextField(props) {
+function TextAreaField(props) {
   const validate = value => {
     if (props.required && isEmpty(value)) {
       return 'Required';
@@ -25,7 +25,7 @@ function TextField(props) {
 
   const [field, meta] = useField({ name: props.name, validate });
 
-  const id = props.id || `text-${ props.name }`;
+  const id = props.id || `textarea-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
 
   return (
@@ -33,8 +33,7 @@ function TextField(props) {
       { props.label && (
         <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
-      <Input
-        type="text"
+      <Textarea
         id={ id }
         disabled={ props.disabled }
         required={ props.required }
@@ -42,6 +41,7 @@ function TextField(props) {
         classes={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
         describedby={ helpId }
+        resizable={ props.resizable }
         { ...field }
       />
 
@@ -52,7 +52,7 @@ function TextField(props) {
   );
 }
 
-TextField.propTypes = {
+TextAreaField.propTypes = {
   /**
    * HTML element name.
    **/
@@ -74,10 +74,6 @@ TextField.propTypes = {
    **/
   disabled: PropTypes.bool,
   /**
-   * Marks the input as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
    * HTML placeholder.
    **/
   placeholder: PropTypes.string,
@@ -94,21 +90,25 @@ TextField.propTypes = {
    **/
   help: PropTypes.string,
   /**
+   * Whether the textarea should be resizable; uses native HTML functionality.
+   **/
+  resizable: PropTypes.bool,
+  /**
    * Optionally pass a ref to be attached to the actual HTML input element.
    **/
   innerRef: PropTypes.object,
 };
 
-TextField.defaultProps = {
+TextAreaField.defaultProps = {
   disabled: false,
   label: '',
   placeholder: '',
   required: false,
-  readonly: false,
   classes: '',
+  resizable: true,
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
-export { TextField };
+export { TextAreaField };
 
-export default withForwardRef(TextField);
+export default withForwardRef(TextAreaField);

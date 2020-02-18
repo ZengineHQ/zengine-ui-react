@@ -28,6 +28,10 @@ export const Playground = () => {
   const typeOpts = [
     'text',
     'number',
+    'checkbox',
+    'radio',
+    // 'email',
+    // 'tel',
   ];
 
   return (

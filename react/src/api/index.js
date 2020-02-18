@@ -8,11 +8,12 @@ export { default as SectionHeader } from './atoms/SectionHeader/SectionHeader';
 export { default as Textarea } from './atoms/Textarea/Textarea';
 
 // Molecules.
+export { default as CheckboxField } from './molecules/CheckboxField/CheckboxField';
 export { default as CounterLabeled } from './molecules/CounterLabeled/CounterLabeled';
 export { default as NumberField } from './molecules/NumberField/NumberField';
 export { default as SelectField } from './molecules/SelectField/SelectField';
 export { default as TextField } from './molecules/TextField/TextField';
-export { default as TextAreaInput } from './molecules/TextAreaInput/TextAreaInput';
+export { default as TextAreaField } from './molecules/TextAreaField/TextAreaField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI/KPI';

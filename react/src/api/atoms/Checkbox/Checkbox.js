@@ -2,18 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Inputs are a fundamental building block in collecting any kind of information from users.
+ * A checkbox is used to collect binary information from users.
  *
- * This will generate an HTML `<input>` element.
+ * This will generate an HTML `<input type="text">` element. Checkboxes are sufficiently different from other inputs
+ * that they warrant their own atom.
  *
- * See the `NumberField` and `TextField` molecules for example usages.
+ * See the `CheckboxField` and `CheckboxesField` molecules for example usages.
  *
- * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
+ * Unless you are building custom Checkbox molecules or something along those lines you will probably never use this directly.
  */
-function Input(props) {
+function Checkbox(props) {
   return (
     <input
-      type={ props.type }
+      type="checkbox"
       id={ props.id }
       name={ props.name }
       required={ props.required }
@@ -22,22 +23,19 @@ function Input(props) {
       aria-disabled={ props.disabled === true ? true : null }
       readOnly={ props.readonly }
       aria-readonly={ props.readonly === true ? true : null }
-      placeholder={ props.placeholder }
       className={ props.classes }
       aria-describedby={ props.describedby }
+      checked={ !!props.value }
+      aria-checked={ !!props.value }
       // Coming from `useField()` if implemented.
-      value={ props.onChange ? props.value || '' : undefined }
+      value={ props.value || true }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }
     />
   );
 }
 
-Input.propTypes = {
-  /**
-   * HTML input type.
-   **/
-  type: PropTypes.string.isRequired,
+Checkbox.propTypes = {
   /**
    * HTML element name.
    **/
@@ -59,10 +57,6 @@ Input.propTypes = {
    **/
   readonly: PropTypes.bool,
   /**
-   * HTML placeholder.
-   **/
-  placeholder: PropTypes.string,
-  /**
    * The element id of any associated help text, used for accessibility.
    **/
   describedby: PropTypes.string,
@@ -80,14 +74,12 @@ Input.propTypes = {
   onBlur: PropTypes.func,
 };
 
-Input.defaultProps = {
-  type: 'text',
+Checkbox.defaultProps = {
   name: '',
   disabled: false,
   required: false,
   readonly: false,
-  placeholder: '',
   classes: '',
 };
 
-export default Input;
+export default Checkbox;

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 function Label(props) {
   return (
-    <label htmlFor={ props.for } className={ props.classes }>
+    <label htmlFor={ props.for } className={ props.classes } onClick={props.onClick && props.onClick}>
       { props.required && <span className="text-danger">*</span> }
       { props.children }
     </label>

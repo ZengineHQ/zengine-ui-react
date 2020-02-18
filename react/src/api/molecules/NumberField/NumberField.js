@@ -54,11 +54,15 @@ function NumberField(props) {
 
 NumberField.propTypes = {
   /**
-   * HTML element name (also used as id).
+   * HTML element name.
    **/
   name: PropTypes.string.isRequired,
   /**
-   * Input label.
+   * HTML element id.
+   **/
+  id: PropTypes.string,
+  /**
+   * Field label.
    **/
   label: PropTypes.string,
   /**
@@ -69,6 +73,10 @@ NumberField.propTypes = {
    * Marks the input as disabled.
    **/
   disabled: PropTypes.bool,
+  /**
+   * Marks the input as read-only.
+   **/
+  readonly: PropTypes.bool,
   /**
    * HTML placeholder.
    **/
@@ -96,6 +104,7 @@ NumberField.defaultProps = {
   label: '',
   placeholder: '',
   required: false,
+  readonly: false,
   classes: '',
 };
 

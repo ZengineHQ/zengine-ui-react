@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Textareas are useful for collecting long-form written input from users.
+ * Textareas are useful for collecting long-form written information from users.
  *
  * This will generate an HTML `<textarea>` element.
  *
- * See the `TextAreaInput` for an example usage.
+ * See the `TextAreaField` for an example usage.
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
