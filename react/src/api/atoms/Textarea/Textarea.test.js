@@ -47,3 +47,13 @@ test('Adds custom classes when specified', () => {
   const { container } = render(<Textarea classes="foo bar baz" />);
   expect(container.firstChild).toHaveClass('foo bar baz');
 });
+
+test('Allows textarea resizing by default', () => {
+  const { container } = render(<Textarea />);
+  expect(container.firstChild).not.toHaveStyle('resize: none');
+});
+
+test('Disables textarea resizing when specified', () => {
+  const { container } = render(<Textarea resizable={false} />);
+  expect(container.firstChild).toHaveStyle('resize: none');
+});

@@ -87,6 +87,12 @@ test('Adds form classes when specified', () => {
   expect(container.firstChild).toHaveClass('foo bar');
 });
 
+test('Performs custom validation when specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Form onSubmit={() => null} validate={mock} />);
+  expect(mock).toBeCalled();
+});
+
 test('Calls submit handler with proper value when submitted', async () => {
   const mock = jest.fn();
   const { container } = render(

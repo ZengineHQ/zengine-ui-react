@@ -78,3 +78,11 @@ test('Adds custom classes to the label when specified', () => {
   const { container } = render(<MockForm><NumberInput label="Foo" name="foo" labelClasses="foo bar" /></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });
+
+test('Displays custom help when specified', () => {
+  const { container } = render(<MockForm><NumberInput label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const help = container.getElementsByTagName('small')[0];
+  expect(help).toBeTruthy();
+  expect(help).toHaveTextContent('foo bar');
+  expect(help).toHaveAttribute('id','number-foo-help');
+});
