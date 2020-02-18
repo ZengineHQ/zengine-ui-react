@@ -2,21 +2,21 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import SimpleSearch from './SimpleSearch';
-import useDefaultPanel from '../../../util/useDefaultPanel';
+import QuickSearch from './QuickSearch';
+import useDefaultPanel from '../../util/useDefaultPanel';
 
 export default {
-  title: 'Organisms/Forms/SimpleSearch',
-  component: SimpleSearch,
+  title: 'Organisms/QuickSearch',
+  component: QuickSearch,
   parameters: {
-    jest: ['SimpleSearch.test.js'],
+    jest: ['QuickSearch.test.js'],
   },
 };
 
-export const Default = () => <SimpleSearch onSubmit={ action('Search form submitted') }/>;
+export const Default = () => <QuickSearch onSubmit={ action('Search form submitted') }/>;
 
 export const WithButton = () => (
-  <SimpleSearch
+  <QuickSearch
     onSubmit={ action('Search form submitted') }
     labelInput="Button Search"
     showSubmit={ true }
@@ -24,7 +24,7 @@ export const WithButton = () => (
 );
 
 export const ButtonLabel = () => (
-  <SimpleSearch
+  <QuickSearch
     onSubmit={ action('Search form submitted') }
     labelInput="Custom Button Label Search"
     showSubmit={ true }
@@ -33,7 +33,7 @@ export const ButtonLabel = () => (
 );
 
 export const CustomClasses = () => (
-  <SimpleSearch
+  <QuickSearch
     onSubmit={ action('Search form submitted') }
     classes="foo bar"
     labelInput="Custom Classes Search"
@@ -44,7 +44,7 @@ export const Playground = () => {
   useDefaultPanel('Knobs');
 
   return (
-    <SimpleSearch
+    <QuickSearch
       labelInput={ text('Input Label', 'Find stuff') }
       showSubmit={ boolean('Show Submit', false) }
       labelSubmit={ text('Button Label', 'Search') }

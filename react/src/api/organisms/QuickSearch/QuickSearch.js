@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, TextInput } from '../../../index';
+import { Form, TextInput } from '../../index';
 
 /**
- * The SimpleSearch organism displays a simple search form.
+ * The QuickSearch organism displays a simple search form.
  *
  * It consists of a `YidhraForm` utility wrapping a `TextInput` molecule.
  *
  * This exists mostly as a contrived example but it might come in handy one day...
  */
-function SimpleSearch(props) {
+function QuickSearch(props) {
   return (
     <Form
       onSubmit={ props.onSubmit }
@@ -24,7 +24,7 @@ function SimpleSearch(props) {
   );
 }
 
-SimpleSearch.propTypes = {
+QuickSearch.propTypes = {
   /**
    * Submit handler.
    **/
@@ -51,7 +51,7 @@ SimpleSearch.propTypes = {
   showSubmit: PropTypes.bool,
 };
 
-SimpleSearch.defaultProps = {
+QuickSearch.defaultProps = {
   classes: '',
   labelInput: 'Search',
   labelSubmit: 'Search',
@@ -59,4 +59,4 @@ SimpleSearch.defaultProps = {
   showSubmit: false
 };
 
-export default SimpleSearch;
+export default QuickSearch;

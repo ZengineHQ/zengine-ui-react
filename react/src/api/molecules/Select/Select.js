@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, useField } from 'formik';
 
-import Label from "../../../atoms/Label/Label";
-import withForwardRef from '../../../util/withForwardRef';
-import getFieldClasses from '../../../util/getFieldClasses';
-import { isEmpty } from '../../../util/validation';
+import Label from "../../atoms/Label/Label";
+import withForwardRef from '../../util/withForwardRef';
+import getFieldClasses from '../../util/getFieldClasses';
+import { isEmpty } from '../../util/validation';
 
 /**
  * A Select molecule consists of an HTML select element paired with a `Label` atom.
@@ -48,6 +48,7 @@ function Select (props) {
         multiple={ props.multiple }
         className={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
+        id={ props.name }
         // value, onChange and onBlur are being added here directly from `useField()`.
         { ...field }
       >

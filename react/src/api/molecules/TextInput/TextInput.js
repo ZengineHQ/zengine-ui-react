@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, useField } from 'formik';
 
-import Input from '../../../atoms/Input/Input';
-import Label from "../../../atoms/Label/Label";
-import withForwardRef from '../../../util/withForwardRef';
-import getFieldClasses from '../../../util/getFieldClasses';
-import { isEmpty } from '../../../util/validation';
+import Input from '../../atoms/Input/Input';
+import Label from "../../atoms/Label/Label";
+import withForwardRef from '../../util/withForwardRef';
+import getFieldClasses from '../../util/getFieldClasses';
+import { isEmpty } from '../../util/validation';
 
 /**
- * A NumberInput molecule consists of an `Input` atom paired with a `Label` atom.
+ * The TextInput molecule is a full-fledged text input Formik field with validation and error messages.
  *
- * Use it to collect numeric data from users.
+ * It consists of an `Input` atom, a `Label` atom and some additional markup.
+ *
+ * Use it to collect short textual data from users.
  */
 function TextInput(props) {
   const validate = value => {
@@ -23,7 +25,7 @@ function TextInput(props) {
   const [field, meta] = useField({name: props.name, validate});
 
   return (
-    <div className="form-input">
+    <div className="form-group">
       { props.label && (
         <Label required={ props.required } for={ props.name } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
