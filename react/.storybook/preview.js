@@ -6,4 +6,7 @@ import results from '../src/test/.results.json';
 
 addDecorator(withKnobs);
 addDecorator(withTests({ results }));
-addParameters({ options: { showPanel: true }});
+addParameters({
+  options: { showPanel: true },
+  viewMode: 'story',
+});

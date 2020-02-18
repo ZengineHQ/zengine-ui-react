@@ -10,6 +10,9 @@ export default {
   component: Button,
   parameters: {
     jest: ['Button.test.js'],
+    docs: {
+      inlineStories: true,
+    },
   },
 };
 

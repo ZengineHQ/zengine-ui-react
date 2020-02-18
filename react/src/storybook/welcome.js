@@ -7,8 +7,11 @@ export default {
   title: 'Welcome',
   parameters: {
     options: {
-      showPanel: false
-    }
+      showPanel: false,
+    },
+    docs: {
+      disable: true,
+    },
   }
 };
 
