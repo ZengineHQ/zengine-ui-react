@@ -61,15 +61,13 @@ export const Header = () => {
 
       <hr className="mt-5 mb-3"/>
 
-      <p>
-        This template utilizes the following components:
+      This template utilizes the following components:
 
-        <ul>
-          <li><Button theme="link" onClick={linkTo('Atoms/Image')} classes="p-0">Image</Button></li>
-          <li><Button theme="link" onClick={linkTo('Atoms/PageTitle')} classes="p-0">PageTitle</Button></li>
-          <li><Button theme="link" onClick={linkTo('Organisms/KPI')} classes="p-0">KPI</Button></li>
-        </ul>
-      </p>
+      <ul>
+        <li><Button theme="link" onClick={linkTo('Atoms/Image')} classes="p-0">Image</Button></li>
+        <li><Button theme="link" onClick={linkTo('Atoms/PageTitle')} classes="p-0">PageTitle</Button></li>
+        <li><Button theme="link" onClick={linkTo('Organisms/KPI')} classes="p-0">KPI</Button></li>
+      </ul>
 
       { useSyntaxHighlighter(story) }
     </>

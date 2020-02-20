@@ -7,7 +7,7 @@ import _isObject from 'lodash/isObject';
  *
  * This will generate an HTML `<select>` element.
  *
- * See the `SelectField` and `WorkspaceSwitcher` molecules for example usages.
+ * See the `SelectField` molecule for an example usage.
  *
  * Unless you are building custom Select molecules or something along those lines you will probably never use this
  * directly.

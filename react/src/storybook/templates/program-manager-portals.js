@@ -52,15 +52,13 @@ export const Portals = () => {
 
       <hr className="mt-5 mb-3"/>
 
-      <p>
-        This template utilizes the following components:
+      This template utilizes the following components:
 
-        <ul>
-          <li><Button theme="link" onClick={linkTo('Organisms/Widget')} classes="p-0">Widget</Button></li>
-          <li><Button theme="link" onClick={linkTo('Organisms/TableDashboard')} classes="p-0">TableDashboard</Button></li>
-          <li><Button theme="link" onClick={linkTo('Atoms/Button')} classes="p-0">Button</Button></li>
-        </ul>
-      </p>
+      <ul>
+        <li><Button theme="link" onClick={linkTo('Organisms/Widget')} classes="p-0">Widget</Button></li>
+        <li><Button theme="link" onClick={linkTo('Organisms/TableDashboard')} classes="p-0">TableDashboard</Button></li>
+        <li><Button theme="link" onClick={linkTo('Atoms/Button')} classes="p-0">Button</Button></li>
+      </ul>
 
       { useSyntaxHighlighter(story) }
     </>
