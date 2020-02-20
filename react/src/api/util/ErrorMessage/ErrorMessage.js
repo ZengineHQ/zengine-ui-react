@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 function ErrorMessage(props) {
   // We add display block inline here because the default Bootstrap styles require a container to have certain classes
   // for this to appear, however we are controlling the visibility ourselves so this makes it fit our needs.
-  return props.meta.touched ? <div className="invalid-feedback" style={ { display: 'block' } }>
+  return props.meta.touched ? <div className="invalid-feedback d-block">
     { props.meta.error }
   </div> : null;
 }

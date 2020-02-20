@@ -17,6 +17,9 @@ function YidhraForm(props) {
     showReset,
     showSubmit,
     validate,
+    validateOnMount,
+    validateOnBlur,
+    validateOnChange,
     classes
   } = props;
 
@@ -33,9 +36,9 @@ function YidhraForm(props) {
   return (
     <Formik
       initialValues={ initialValues || {} }
-      validateOnMount={ true }
-      validateOnBlur={ true }
-      validateOnChange={ true }
+      validateOnMount={ validateOnMount }
+      validateOnBlur={ validateOnBlur }
+      validateOnChange={ validateOnChange }
       onSubmit={ (values, actions) => {
         actions.setSubmitting(false);
         onSubmit(values);
@@ -49,8 +52,8 @@ function YidhraForm(props) {
             { props.children }
 
             {/* If the form has been touched and we have errors, display a message above buttons. */}
-            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="invalid-feedback">
-              Please fix errors and try again.
+            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="invalid-feedback d-block">
+              Please fix the above errors and try again.
             </div>) }
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
@@ -113,6 +116,18 @@ YidhraForm.propTypes = {
    **/
   validate: PropTypes.func,
   /**
+   * Whether to validate the Form on first mount.
+   **/
+  validateOnMount: PropTypes.bool,
+  /**
+   * Whether to validate the Form on blur.
+   **/
+  validateOnBlur: PropTypes.bool,
+  /**
+   * Whether to validate the Form every time values change.
+   **/
+  validateOnChange: PropTypes.bool,
+  /**
    * HTML classes to be added as-is to the form.
    **/
   classes: PropTypes.string,
@@ -124,7 +139,10 @@ YidhraForm.defaultProps = {
   labelSubmit: 'Save',
   showReset: true,
   showSubmit: true,
-  classes: ''
+  classes: '',
+  validateOnMount: true,
+  validateOnBlur: true,
+  validateOnChange: true,
 };
 
 export default YidhraForm;

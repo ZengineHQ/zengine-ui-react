@@ -32,14 +32,6 @@ export const ButtonLabel = () => (
   />
 );
 
-export const CustomClasses = () => (
-  <QuickSearch
-    onSubmit={ action('Search form submitted') }
-    classes="foo bar"
-    labelInput="Custom Classes Search"
-  />
-);
-
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
