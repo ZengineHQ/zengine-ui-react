@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import { MockForm }  from '../../../test/MockForm';
 import { SelectField } from './SelectField';
@@ -37,6 +38,14 @@ test('Marks select as disabled when specified', () => {
 
 // Testing for aria-disabled attribute not necessary here because if it's marked as disabled the presence of the
 // aria-attribute will be tested by the "Select" atom component which actually gets rendered.
+
+test('Displays custom help when specified', () => {
+  const { container } = render(<MockForm><SelectField name="foo" help="foo bar" /></MockForm>);
+  const help = container.getElementsByTagName('small')[0];
+  expect(help).toBeTruthy();
+  expect(help).toHaveTextContent('foo bar');
+  expect(help).toHaveAttribute('id','select-foo-help');
+});
 
 test('Set aria-describedby attribute when help is specified', () => {
   const { container } = render(<MockForm><SelectField label="Foo" name="foo" help="foo bar" /></MockForm>);
@@ -94,3 +103,34 @@ test('Adds custom classes to the label when specified', () => {
   const { container } = render(<MockForm><SelectField options={opts} label="Foo" name="foo" labelClasses="foo bar" /></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });
+
+test('Validates correctly when required', async () => {
+  const { container, getByText } = render(<MockForm><SelectField options={opts} name="foo" required={ true }/></MockForm>);
+  const select = container.getElementsByTagName('select')[0];
+
+  expect(select.value).toEqual('');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(select, { target: { value: 'three' } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual('three');
+  expect(select).toHaveClass('form-control is-valid');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(select, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual('');
+  expect(select).toHaveClass('form-control is-invalid');
+  expect(getByText('Required')).toBeTruthy();
+});
+

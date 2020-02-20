@@ -84,7 +84,7 @@ test('Set aria-describedby attribute when help is specified', () => {
 });
 
 test('Validates correctly when required', async () => {
-  const { container } = render(<MockForm><CheckboxField label="Foo" name="foo" required={true} /></MockForm>);
+  const { container, getByText } = render(<MockForm><CheckboxField label="Foo" name="foo" required={true} /></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
   expect(input.checked).toEqual(false);
@@ -102,4 +102,5 @@ test('Validates correctly when required', async () => {
 
   expect(input.checked).toEqual(false);
   expect(input).toHaveClass('form-check-input is-invalid');
+  expect(getByText('Required')).toBeTruthy();
 });
