@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 
 import { MockForm }  from '../../../test/MockForm';
 import { SelectField } from './SelectField';
-import NumberField from '../NumberField/NumberField';
 
 /**
  * Dummy options to be re-used across tests.
@@ -28,29 +27,21 @@ test('Marks select as required when specified', () => {
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('required');
 });
 
-test('Sets aria-required attribute when required', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} required={true}/></MockForm>);
-  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('aria-required', 'true');
-});
-
-test('Doesn\'t set aria-required attribute when not required', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} required={false}/></MockForm>);
-  expect(container.getElementsByTagName('select')[0]).not.toHaveAttribute('aria-required');
-});
+// Testing for aria-required attribute not necessary here because if it's marked as required the presence of the
+// aria-attribute will be tested by the "Select" atom component which actually gets rendered.
 
 test('Marks select as disabled when specified', () => {
   const { container } = render(<MockForm><SelectField name="foo" options={opts} disabled={true}/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('disabled');
 });
 
-test('Sets aria-disabled attribute when disabled', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} disabled={true}/></MockForm>);
-  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('aria-disabled', 'true');
-});
+// Testing for aria-disabled attribute not necessary here because if it's marked as disabled the presence of the
+// aria-attribute will be tested by the "Select" atom component which actually gets rendered.
 
-test('Doesn\'t set aria-disabled attribute when not disabled', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} disabled={false}/></MockForm>);
-  expect(container.getElementsByTagName('select')[0]).not.toHaveAttribute('aria-disabled');
+test('Set aria-describedby attribute when help is specified', () => {
+  const { container } = render(<MockForm><SelectField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const select = container.getElementsByTagName('select')[0];
+  expect(select).toHaveAttribute('aria-describedby', 'select-foo-help');
 });
 
 test('Sets a default placeholder as the first option', () => {
@@ -89,7 +80,7 @@ test('Omits label element when not specified', () => {
   expect(labels.length).toEqual(0);
 });
 
-test('Adds a default class to the input', () => {
+test('Adds a default class to the select', () => {
   const { container } = render(<MockForm><SelectField options={opts} name="foo" /></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveClass('form-control');
 });
