@@ -30,6 +30,7 @@ export const Playground = () => {
     'number',
     'checkbox',
     'radio',
+    'date',
     // 'email',
     // 'tel',
   ];
