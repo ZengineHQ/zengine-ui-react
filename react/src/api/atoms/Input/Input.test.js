@@ -53,6 +53,11 @@ test('Sets input name when specified', () => {
   expect(container.firstChild).toHaveAttribute('name', 'foo');
 });
 
+test('Sets input id when specified', () => {
+  const { container } = render(<Input name="foo" id="bar"/>);
+  expect(container.firstChild).toHaveAttribute('id', 'bar');
+});
+
 test('Adds custom classes when specified', () => {
   const { container } = render(<Input classes="foo bar baz"/>);
   expect(container.firstChild).toHaveClass('foo bar baz');

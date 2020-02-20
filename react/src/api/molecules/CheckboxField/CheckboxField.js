@@ -35,7 +35,7 @@ function CheckboxField(props) {
         setTouched(true);
       }
     }
-  }, [meta]);
+  }, [meta, setTouched]);
 
   const id = props.id || `checkbox-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
