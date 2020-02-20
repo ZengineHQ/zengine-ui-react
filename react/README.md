@@ -36,6 +36,8 @@ function MyComponent() {
 }
 ```
 
+For more information see the Storybook
+
 ## Explanation of NPM scripts 
 
 - `start`: starts the local dev version of the Storybook
@@ -47,3 +49,12 @@ function MyComponent() {
 - `scss`: compiles SCSS from the `style` folder
 - `scss:watch`: watches the `style` folder and recompiles SCSS when files change
 - `build`: builds the redistributable output for Yidhra; this is what people will get when they `npm install` this in their projects
+
+## Directory Structure Guide
+
+- `.cache` is an internal directory used by React, ignore it
+- `.storybook` contains Storybook configuration
+- `dist` is where the generated package code goes when `npm run build` is executed; this directory won't exist unless you've run the command
+- `public` contains static assets to be served with the Storybook
+- `src` contains the actual Yidhra source code
+- `storybook-static` is where the generated Storybook code when `npm run build-storybook` is executed; this directory won't exist unless you've run the command
