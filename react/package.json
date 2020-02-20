@@ -74,12 +74,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/api/**/*js",
-      "!src/**/*.stories.js",
-      "!src/App.js",
-      "!src/index.js",
-      "!src/serviceWorker.js",
-      "!src/serviceWorker.js"
+      "src/api/**/*.js",
+      "!src/api/**/*.stories.js"
     ],
     "coverageReporters": [
       "text"
