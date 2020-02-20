@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import TextField from './TextField';
 import { MockForm }  from '../../../test/MockForm';
@@ -85,4 +86,33 @@ test('Displays custom help when specified', () => {
   expect(help).toBeTruthy();
   expect(help).toHaveTextContent('foo bar');
   expect(help).toHaveAttribute('id','text-foo-help');
+});
+
+test('Validates correctly when required', async () => {
+  const { container } = render(<MockForm><TextField name="foo" required={ true }/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  expect(input.value).toEqual('');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 'Testing' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('Testing');
+  expect(input).toHaveClass('form-control is-valid');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('');
+  expect(input).toHaveClass('form-control is-invalid');
 });

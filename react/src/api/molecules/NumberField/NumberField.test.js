@@ -1,8 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import NumberField from './NumberField';
-import { MockForm }  from '../../../test/MockForm';
+import { MockForm } from '../../../test/MockForm';
+import CheckboxField from '../CheckboxField/CheckboxField';
+import { act } from 'react-dom/test-utils';
 
 test('Renders a number input', () => {
   const { container } = render(<MockForm><NumberField name="test"/></MockForm>);
@@ -18,7 +20,7 @@ test('Sets label when specified', () => {
 });
 
 test('Marks input as required when specified', () => {
-  const { container } = render(<MockForm><NumberField required={ true } name="foo" /></MockForm>);
+  const { container } = render(<MockForm><NumberField required={ true } name="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('required');
 });
 
@@ -39,12 +41,12 @@ test('Sets input placeholder when specified', () => {
 });
 
 test('Sets input id automatically', () => {
-  const { container } = render(<MockForm><NumberField name="foo" /></MockForm>);
+  const { container } = render(<MockForm><NumberField name="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'number-foo');
 });
 
 test('Changes input name when specified', () => {
-  const { container } = render(<MockForm><NumberField name="test" /></MockForm>);
+  const { container } = render(<MockForm><NumberField name="test"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('name', 'test');
 });
 
@@ -53,8 +55,8 @@ test('Changes input id when specified', () => {
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('id', 'whoathere');
 });
 
-test('Sets label "for" attribute when there\'s a label' , () => {
-  const { container } = render(<MockForm><NumberField label="Foo" name="foo" /></MockForm>);
+test('Sets label "for" attribute when there\'s a label', () => {
+  const { container } = render(<MockForm><NumberField label="Foo" name="foo"/></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'number-foo');
 });
 
@@ -65,24 +67,53 @@ test('Omits label element when not specified', () => {
 });
 
 test('Adds a default class to the input', () => {
-  const { container } = render(<MockForm><NumberField name="foo" /></MockForm>);
+  const { container } = render(<MockForm><NumberField name="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveClass('form-control');
 });
 
 test('Adds custom classes to the input when specified', () => {
-  const { container } = render(<MockForm><NumberField classes="foo bar" name="foo" /></MockForm>);
+  const { container } = render(<MockForm><NumberField classes="foo bar" name="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveClass('foo bar');
 });
 
 test('Adds custom classes to the label when specified', () => {
-  const { container } = render(<MockForm><NumberField label="Foo" name="foo" labelClasses="foo bar" /></MockForm>);
+  const { container } = render(<MockForm><NumberField label="Foo" name="foo" labelClasses="foo bar"/></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });
 
 test('Displays custom help when specified', () => {
-  const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar"/></MockForm>);
   const help = container.getElementsByTagName('small')[0];
   expect(help).toBeTruthy();
   expect(help).toHaveTextContent('foo bar');
-  expect(help).toHaveAttribute('id','number-foo-help');
+  expect(help).toHaveAttribute('id', 'number-foo-help');
+});
+
+test('Validates correctly when required', async () => {
+  const { container } = render(<MockForm><NumberField name="foo" required={ true }/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  expect(input.value).toEqual('');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 123 } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('123');
+  expect(input).toHaveClass('form-control is-valid');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(input, { target: { value: null } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('');
+  expect(input).toHaveClass('form-control is-invalid');
 });
