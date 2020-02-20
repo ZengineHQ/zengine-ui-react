@@ -1,10 +1,9 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import CheckboxField from './CheckboxField';
 import { MockForm }  from '../../../test/MockForm';
-import NumberField from '../NumberField/NumberField';
-import { act } from 'react-dom/test-utils';
 
 test('Renders a checkbox input', () => {
   const { container } = render(<MockForm><CheckboxField name="foo" /></MockForm>);
@@ -76,6 +75,12 @@ test('Displays custom help when specified', () => {
   expect(help).toBeTruthy();
   expect(help).toHaveTextContent('foo bar');
   expect(help).toHaveAttribute('id','checkbox-foo-help');
+});
+
+test('Set aria-describedby attribute when help is specified', () => {
+  const { container } = render(<MockForm><CheckboxField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+  expect(input).toHaveAttribute('aria-describedby', 'checkbox-foo-help');
 });
 
 test('Validates correctly when required', async () => {

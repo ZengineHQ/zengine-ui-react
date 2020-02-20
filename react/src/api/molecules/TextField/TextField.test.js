@@ -34,6 +34,12 @@ test('Marks input as disabled when specified', () => {
 // Testing for aria-disabled attribute not necessary here because if it's marked as disabled the presence of the
 // aria-attribute will be tested by the "Input" component which actually gets rendered.
 
+test('Set aria-describedby attribute when help is specified', () => {
+  const { container } = render(<MockForm><TextField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+  expect(input).toHaveAttribute('aria-describedby', 'text-foo-help');
+});
+
 test('Sets input placeholder when specified', () => {
   const { container } = render(<MockForm><TextField name="foo" placeholder="foo"/></MockForm>);
   expect(container.getElementsByTagName('input')[0]).toHaveAttribute('placeholder', 'foo');

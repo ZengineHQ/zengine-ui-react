@@ -19,6 +19,8 @@ function Textarea(props) {
       aria-required={ props.required === true ? true : null }
       disabled={ props.disabled }
       aria-disabled={ props.disabled === true ? true : null }
+      readOnly={ props.readonly }
+      aria-readonly={ props.readonly === true ? true : null }
       placeholder={ props.placeholder }
       className={ props.classes }
       aria-describedby={ props.describedby }
@@ -50,6 +52,10 @@ Textarea.propTypes = {
    **/
   disabled: PropTypes.bool,
   /**
+   * Marks the textarea as read-only.
+   **/
+  readonly: PropTypes.bool,
+  /**
    * HTML placeholder.
    **/
   placeholder: PropTypes.string,
@@ -66,7 +72,7 @@ Textarea.propTypes = {
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the user leaves this textarea.
+   * Callback for when the textarea loses focus.
    **/
   onBlur: PropTypes.func,
   /**
@@ -79,6 +85,7 @@ Textarea.defaultProps = {
   name: '',
   disabled: false,
   required: false,
+  readonly: false,
   placeholder: '',
   classes: '',
   resizable: true,

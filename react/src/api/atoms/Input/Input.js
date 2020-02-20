@@ -75,7 +75,7 @@ Input.propTypes = {
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the user leaves this input.
+   * Callback for when the input loses focus.
    **/
   onBlur: PropTypes.func,
 };

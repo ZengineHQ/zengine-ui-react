@@ -3,7 +3,6 @@ import { fireEvent, render } from '@testing-library/react';
 
 import NumberField from './NumberField';
 import { MockForm } from '../../../test/MockForm';
-import CheckboxField from '../CheckboxField/CheckboxField';
 import { act } from 'react-dom/test-utils';
 
 test('Renders a number input', () => {
@@ -87,6 +86,12 @@ test('Displays custom help when specified', () => {
   expect(help).toBeTruthy();
   expect(help).toHaveTextContent('foo bar');
   expect(help).toHaveAttribute('id', 'number-foo-help');
+});
+
+test('Set aria-describedby attribute when help is specified', () => {
+  const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+  expect(input).toHaveAttribute('aria-describedby', 'number-foo-help');
 });
 
 test('Validates correctly when required', async () => {

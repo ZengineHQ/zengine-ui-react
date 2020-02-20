@@ -43,6 +43,16 @@ test('Sets aria-disabled attribute when disabled', () => {
   expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
 });
 
+test('Marks input as readonly when specified', () => {
+  const { container } = render(<Input readonly={ true }/>);
+  expect(container.firstChild).toHaveAttribute('readonly');
+});
+
+test('Sets aria-readonly attribute when readonly', () => {
+  const { container } = render(<Input readonly={ true }/>);
+  expect(container.firstChild).toHaveAttribute('aria-readonly', 'true');
+});
+
 test('Sets input placeholder when specified', () => {
   const { container } = render(<Input placeholder="foo"/>);
   expect(container.firstChild).toHaveAttribute('placeholder', 'foo');

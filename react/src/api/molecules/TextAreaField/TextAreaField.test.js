@@ -24,7 +24,7 @@ test('Marks textarea as required when specified', () => {
 });
 
 // Testing for aria-required attribute not necessary here because if it's marked as required the presence of the
-// aria-attribute will be tested by the "Input" component which actually gets rendered.
+// aria-attribute will be tested by the "Textarea" component which actually gets rendered.
 
 test('Marks textarea as disabled when specified', () => {
   const { container } = render(<MockForm><TextAreaField name="foo" disabled={ true } /></MockForm>);
@@ -32,7 +32,13 @@ test('Marks textarea as disabled when specified', () => {
 });
 
 // Testing for aria-disabled attribute not necessary here because if it's marked as disabled the presence of the
-// aria-attribute will be tested by the "Input" component which actually gets rendered.
+// aria-attribute will be tested by the "Textarea" component which actually gets rendered.
+
+test('Set aria-describedby attribute when help is specified', () => {
+  const { container } = render(<MockForm><TextAreaField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const input = container.getElementsByTagName('textarea')[0];
+  expect(input).toHaveAttribute('aria-describedby', 'textarea-foo-help');
+});
 
 test('Sets textarea placeholder when specified', () => {
   const { container } = render(<MockForm><TextAreaField name="foo" placeholder="foo"/></MockForm>);

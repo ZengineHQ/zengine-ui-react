@@ -47,15 +47,15 @@ Checkbox.propTypes = {
    **/
   id: PropTypes.string,
   /**
-   * Marks the input as required.
+   * Marks the checkbox as required.
    **/
   required: PropTypes.bool,
   /**
-   * Marks the input as disabled.
+   * Marks the checkbox as disabled.
    **/
   disabled: PropTypes.bool,
   /**
-   * Marks the input as read-only.
+   * Marks the checkbox as read-only.
    **/
   readonly: PropTypes.bool,
   /**
@@ -63,15 +63,15 @@ Checkbox.propTypes = {
    **/
   describedby: PropTypes.string,
   /**
-   * HTML classes to be added as-is to the input.
+   * HTML classes to be added as-is to the checkbox.
    **/
   classes: PropTypes.string,
   /**
-   * Callback for when the input's value changes.
+   * Callback for when the checkbox's value changes.
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the user leaves this input.
+   * Callback for when the checkbox loses focus.
    **/
   onBlur: PropTypes.func,
 };

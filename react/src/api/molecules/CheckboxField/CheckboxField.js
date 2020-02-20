@@ -50,7 +50,6 @@ function CheckboxField(props) {
         ref={ props.innerRef }
         describedby={ helpId }
         { ...field }
-
       />
 
       { props.label && (
