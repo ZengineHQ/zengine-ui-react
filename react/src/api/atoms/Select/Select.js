@@ -43,6 +43,7 @@ function Select(props) {
       multiple={ props.multiple }
       className={ props.classes }
       aria-describedby={ props.describedby }
+      defaultValue={ props.defaultValue }
       // Coming from `useField()` if implemented.
       value={ props.onChange ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
@@ -99,6 +100,10 @@ Select.propTypes = {
    * Callback for when the select loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * Default value for the select.
+   **/
+  defaultValue: PropTypes.string,
 };
 
 Select.defaultProps = {

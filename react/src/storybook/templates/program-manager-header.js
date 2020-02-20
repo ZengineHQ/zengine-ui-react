@@ -1,7 +1,7 @@
 import React from 'react';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Image, KPI, PageTitle } from '../../api';
+import { Button, Image, KPI, Label, PageTitle, Select } from '../../api';
 import useSyntaxHighlighter from '../useSyntaxHighlighter';
 
 export default {
@@ -49,6 +49,15 @@ export const Header = () => {
   return (
     <>
       <header className="tpl-program-console-header row">
+        <div className="col-12">
+          <Label for="program-selector">Select the program you wish to view:</Label>
+          <Select
+            id="program-selector"
+            options={ ['Scholarship Program G', 'Other Program', 'Irrelevant Program'] }
+            defaultValue="Scholarship Program G"
+          />
+        </div>
+
         <div className="col-md-6 col-sm-12 d-flex align-items-center">
           <Image src="Yidhra-face.jpg" alt="Program Console" classes="atom-image-circle" height="88"/>
           <PageTitle classes="ml-3">Program Console</PageTitle>
@@ -64,9 +73,9 @@ export const Header = () => {
       This template utilizes the following components:
 
       <ul>
-        <li><Button theme="link" onClick={linkTo('Atoms/Image')} classes="p-0">Image</Button></li>
-        <li><Button theme="link" onClick={linkTo('Atoms/PageTitle')} classes="p-0">PageTitle</Button></li>
-        <li><Button theme="link" onClick={linkTo('Organisms/KPI')} classes="p-0">KPI</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Atoms/Image') } classes="p-0">Image</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Atoms/PageTitle') } classes="p-0">PageTitle</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Organisms/KPI') } classes="p-0">KPI</Button></li>
       </ul>
 
       { useSyntaxHighlighter(story) }

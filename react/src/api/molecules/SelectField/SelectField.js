@@ -10,7 +10,7 @@ import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 
 /**
- * The select is a full-fledged select input Formik field with validation, help text and error messages.
+ * The SelectField is a full-fledged select input Formik field with validation, help text and error messages.
  *
  * A SelectField molecule consists of a `Select` atom paired with a `Label` atom and some extra markup.
  *
