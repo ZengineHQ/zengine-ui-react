@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
 import classNames from 'classnames';
 
-import { isEmpty } from '../../util/validation';
 import Label from '../../atoms/Label/Label';
 import getFieldClasses from '../../util/getFieldClasses';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
@@ -26,11 +25,17 @@ function CheckboxField(props) {
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
 
-  const handleLabelClick = () => {
-    if (!meta.touched) {
-      setTouched(true);
+  /**
+   * This is a workaround for the fact that checkboxes don't seem to get marked as "touched" when the label or
+   * checkbox itself is clicked, despite being touched.
+   */
+  useEffect(() => {
+    if (meta.value && meta.value !== meta.initialValue) {
+      if (!meta.touched) {
+        setTouched(true);
+      }
     }
-  };
+  }, [meta]);
 
   const id = props.id || `checkbox-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
@@ -45,10 +50,11 @@ function CheckboxField(props) {
         ref={ props.innerRef }
         describedby={ helpId }
         { ...field }
+
       />
 
       { props.label && (
-        <Label required={ props.required } for={ id } onClick={handleLabelClick}
+        <Label required={ props.required } for={ id }
                classes={ classNames(['form-check-label', props.labelClasses]) }>{ props.label }</Label>
       ) }
 

@@ -82,13 +82,19 @@ test('Validates correctly when required', async () => {
   const { container } = render(<MockForm><CheckboxField label="Foo" name="foo" required={true} /></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
+  expect(input.checked).toEqual(false);
+
   await act(async () => {
-    fireEvent.change(input, {
-      target: {
-        checked: true,
-      },
-    });
+    fireEvent.click(input);
   });
 
+  expect(input.checked).toEqual(true);
   expect(input).toHaveClass('form-check-input is-valid');
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+
+  expect(input.checked).toEqual(false);
+  expect(input).toHaveClass('form-check-input is-invalid');
 });
