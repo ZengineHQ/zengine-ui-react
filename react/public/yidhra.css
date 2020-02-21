@@ -5864,10 +5864,11 @@ img.atom-image-circle {
   color: #5A5854; }
   .mol-counter-labeled span {
     font-size: 2.5rem;
-    font-weight: 600; }
+    font-weight: 600;
+    line-height: 3rem; }
   .mol-counter-labeled small {
     font-weight: 400;
-    font-size: 1.4rem; }
+    font-size: 1rem; }
 
 .org-kpi .mol-counter-labeled:last-child {
   border-right: 0 none; }
