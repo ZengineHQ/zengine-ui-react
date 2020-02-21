@@ -1,5 +1,18 @@
+// First import our variable overrides.
 @import "variables";
-//@import "~bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import "bootswatch";
+
+// Then import base Bootstrap theme variables.
+// This is done as a separate step so we can update the Bootswatch theme which consists of this and the bootswatch import.
+@import "vendor/variables";
+
+// The import actual Bootstrap styles.
+@import "vendor/bootstrap";
+
+// Then import Bootswatch variables.
+// Again, this is done as a separate step so we can update this import if and when an update comes out and keep our stuff.
+// These 3 bootstrap imports have to go in this order: theme vars -> bootstrap -> theme styles.
+@import "vendor/bootswatch";
+
+// Finally add our own custom styles.
+// These are additional styles for our atomic design elements that are not covered by Bootstrap.
 @import "custom";
