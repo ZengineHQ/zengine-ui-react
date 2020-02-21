@@ -9,9 +9,14 @@ test('Renders a table HTML tag', () => {
   expect(container.getElementsByTagName('table')).toHaveProperty('length', 1);
 });
 
+test('Adds responsive wrapper', () => {
+  const { container } = render(<Table />);
+  expect(container.firstChild).toHaveClass('table-responsive');
+});
+
 test('Adds a default class to the table', () => {
   const { container } = render(<Table />);
-  expect(container.firstChild).toHaveClass('table');
+  expect(container.getElementsByTagName('table')[0]).toHaveClass('table');
 });
 
 const headers = ['HeaderOne', 'HeaderTwo', 'HeaderThree'];
