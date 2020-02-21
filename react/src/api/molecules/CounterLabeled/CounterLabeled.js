@@ -8,11 +8,17 @@ import classNames from 'classnames';
  * Use this to display summary info such as KPIs.
  */
 function CounterLabeled(props) {
+  // Intl.NumberFormat is safe: https://caniuse.com/#search=NumberFormat
+  const formattedCount = new Intl.NumberFormat('en-US', {
+    style: 'decimal',
+  }).format(props.count);
+
   return (
     <article
       className={ classNames(['mol-counter-labeled d-flex flex-column align-items-center text-dark', props.classes]) }
       title={ `${ props.count } ${ props.label }` }
     >
+      <span>{ formattedCount }</span>
       <small>{ props.label }</small>
     </article>
   );
