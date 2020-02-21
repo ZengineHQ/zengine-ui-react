@@ -21,24 +21,26 @@ import classNames from 'classnames';
  */
 function TableDashboard(props) {
   return (
-    <table className={classNames(['table', props.classes])}>
-      <thead>
-      <tr>
-        { props.headers.map((name, index) => (
-          <th key={ index }>{ name }</th>
-        )) }
-      </tr>
-      </thead>
-      <tbody>
-      { props.rows.map((row, index) => (
-        <tr key={ index }>
-          { row.map((value, j) => (
-            <td key={ j }>{ value }</td>
+    <div className="table-responsive">
+      <table className={classNames(['table table-bordered table-hover', props.classes])}>
+        <thead>
+        <tr>
+          { props.headers.map((name, index) => (
+            <th key={ index }>{ name }</th>
           )) }
         </tr>
-      )) }
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        { props.rows.map((row, index) => (
+          <tr key={ index }>
+            { row.map((value, j) => (
+              <td key={ j }>{ value }</td>
+            )) }
+          </tr>
+        )) }
+        </tbody>
+      </table>
+    </div>
   );
 }
 
