@@ -19,9 +19,9 @@ export const Playground = () => {
 
   return (
     <CounterLabeled
-      classes={ text('Classes', 'class-one') }
       count={ number('Count', 182) }
       label={ text('Label', 'Reviewed') }
+      classes={ text('Classes', 'class-one') }
     />
   );
 };
