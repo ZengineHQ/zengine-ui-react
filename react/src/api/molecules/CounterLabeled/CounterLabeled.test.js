@@ -21,9 +21,15 @@ test('Adds custom classes when specified', () => {
 });
 
 test('Renders with specified count and label', () => {
-  const { container } = render(<CounterLabeled count={ 1234 } label="something"/>);
+  const { container } = render(<CounterLabeled count={ 123 } label="something"/>);
   const count = container.getElementsByTagName('span')[0];
   const text = container.getElementsByTagName('small')[0];
-  expect(count).toHaveTextContent('1234');
+  expect(count).toHaveTextContent('123');
   expect(text).toHaveTextContent('something');
+});
+
+test('Formats long numbers', () => {
+  const { container } = render(<CounterLabeled count={ 12345 }/>);
+  const count = container.getElementsByTagName('span')[0];
+  expect(count).toHaveTextContent('12,345');
 });
