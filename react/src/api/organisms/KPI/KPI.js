@@ -8,7 +8,7 @@ import CounterLabeled from '../../molecules/CounterLabeled/CounterLabeled';
  */
 function KPI(props) {
   return (
-    <section className="org-kpi">
+    <section className="org-kpi d-flex flex-row justify-content-around border pt-3 pb-3">
       { props.items.map((item, index) => (
         <CounterLabeled { ...item } key={ index } classes="border-right flex-grow-1"/>
       )) }
