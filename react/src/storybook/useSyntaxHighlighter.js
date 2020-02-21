@@ -1,6 +1,6 @@
 import React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
@@ -11,7 +11,7 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
  * @param code
  */
 const useSyntaxHighlighter = code => (
-  <SyntaxHighlighter language="jsx" style={vs} customStyle={{padding: 0}}>
+  <SyntaxHighlighter language="jsx" style={ atomDark } customStyle={ { paddingTop: 0 } }>
     { code }
   </SyntaxHighlighter>
 );

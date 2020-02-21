@@ -87,7 +87,7 @@ import 'yidhra.css';
 
   const code3 = `
 // Use components.
-import { Button, TextField, NumberField, YidhraForm, KPI } from '@zenginehq/yidhra-react';
+import { Button, TextField, NumberField, Form, KPI } from '@zenginehq/yidhra-react';
 
 function MyComponent() {
     const myCallback = values => {
@@ -104,10 +104,10 @@ function MyComponent() {
         <>
           <KPI items={items}/>
 
-          <YidhraForm onSubmit={myCallback}>
+          <Form onSubmit={myCallback}>
               <TextField name="firstName" label="First Name" required />
               <NumberField name="age" label="Age" required />
-          </YidhraForm>
+          </Form>
         </>
     );
 }
@@ -116,7 +116,11 @@ function MyComponent() {
   return (
     <article>
       <PageTitle>Using Yidhra</PageTitle>
-      <p>Using Yidhra is not only simple but it's FUN! :)</p>
+      <p>
+        Install the library, add the theme files yourself and profit! Use the menu on the left to navigate between
+        the different components available.  Don't forget to check out the Templates section at the end to see some
+        examples of what you can build.
+      </p>
 
       <SectionHeader>Installation</SectionHeader>
 
