@@ -13,9 +13,9 @@ test('Renders with specified text', () => {
   expect(getByText('Hello')).toBeTruthy();
 });
 
-test('Adds a default class', () => {
+test('Adds no default class', () => {
   const { container } = render(<PageTitle>Hello</PageTitle>);
-  expect(container.firstChild).toHaveClass('atom-page-title');
+  expect(container.firstChild).toHaveAttribute('class', '');
 });
 
 test('Adds custom classes when specified', () => {

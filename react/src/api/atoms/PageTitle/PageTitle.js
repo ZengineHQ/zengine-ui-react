@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 /**
  * A Page Title displays an `h1` HTML element.
+ *
+ * There should only be one Page Title per page :)
  *
  * It's really up to you whether you want to use this component or just copy the 1 liner that is it's markup.
  */
 function PageTitle(props) {
   return (
-    <h1 className={classNames(['atom-page-title', props.classes])}>{ props.children }</h1>
+    <h1 className={ props.classes }>{ props.children }</h1>
   );
 }
 

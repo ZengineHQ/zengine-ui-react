@@ -14,9 +14,9 @@ function SectionHeader(props) {
 
 SectionHeader.propTypes = {
   /**
-   * Only text may be passed as a child to be used as the section title.
+   * Plain text or a component may be passed as a child to be used as the section header text.
    **/
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /**
    * HTML classes to be added as-is to the HTML element.
    **/
