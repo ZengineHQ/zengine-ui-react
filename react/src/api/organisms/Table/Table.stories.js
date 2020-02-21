@@ -2,19 +2,19 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Button } from '../../index';
-import TableDashboard from './TableDashboard';
+import Table from './Table';
 
 export default {
-  title: 'Organisms/TableDashboard',
-  component: TableDashboard,
+  title: 'Organisms/Table',
+  component: Table,
   parameters: {
-    jest: ['TableDashboard.test.js'],
+    jest: ['Table.test.js'],
   },
 };
 
 export const Default = () => {
   return (
-    <TableDashboard
+    <Table
       headers={ ['Name', 'Email ', 'Age'] }
       rows={ [
         ['John Smith', 'john@smith.com', '25'],
@@ -27,7 +27,7 @@ export const Default = () => {
 
 export const ActionButton = () => {
   return (
-    <TableDashboard
+    <Table
       headers={ ['Name', 'Email ', 'Age', 'Actions'] }
       rows={ [
         ['John Smith', 'john@smith.com', '25', <Button onClick={ action('Button clicked for row 1') }>Do Something</Button>],
@@ -40,7 +40,7 @@ export const ActionButton = () => {
 
 export const CustomClasses = () => {
   return (
-    <TableDashboard
+    <Table
       classes="table-dark"
       headers={ ['Name', 'Email ', 'Age'] }
       rows={ [

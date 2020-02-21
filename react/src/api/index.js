@@ -19,7 +19,7 @@ export { default as TextField } from './molecules/TextField/TextField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI/KPI';
-export { default as TableDashboard } from './organisms/TableDashboard/TableDashboard';
+export { default as Table } from './organisms/Table/Table';
 export { default as Widget } from './organisms/Widget/Widget';
 
 export { default as ContactForm } from './organisms/ContactForm/ContactForm';

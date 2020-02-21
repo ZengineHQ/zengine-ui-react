@@ -11,7 +11,7 @@ import classNames from 'classnames';
  * You can add anything in columns, including React components!
  *
  * ```
- * <TableDashboard
+ * <Table
  *  headers={['Name', 'Age', 'Actions']}
  *  rows={[
  *    ['John Smith', '99', <Button onClick={ ... }>Do Something</Button>],
@@ -19,7 +19,7 @@ import classNames from 'classnames';
  *  ]} />.
  * ```
  */
-function TableDashboard(props) {
+function Table(props) {
   return (
     <div className="table-responsive">
       <table className={classNames(['table table-bordered table-hover', props.classes])}>
@@ -44,7 +44,7 @@ function TableDashboard(props) {
   );
 }
 
-TableDashboard.propTypes = {
+Table.propTypes = {
   /**
    * Table headers.
    **/
@@ -59,10 +59,10 @@ TableDashboard.propTypes = {
   classes: PropTypes.string,
 };
 
-TableDashboard.defaultProps = {
+Table.defaultProps = {
   headers: [],
   rows: [],
   classes: ''
 };
 
-export default TableDashboard;
+export default Table;

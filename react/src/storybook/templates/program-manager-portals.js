@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, TableDashboard, Widget } from '../../api';
+import { Button, Table, Widget } from '../../api';
 import useSyntaxHighlighter from '../useSyntaxHighlighter';
 
 export default {
@@ -37,7 +37,7 @@ export const Portals = () => {
   const story = `
     <Widget
       header="Process: Scholarship Award"
-      body={ <TableDashboard headers={ headers } rows={ rows }/> }
+      body={ <Table headers={ headers } rows={ rows }/> }
       footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
     />
   `;
@@ -46,7 +46,7 @@ export const Portals = () => {
     <>
       <Widget
         header="Process: Scholarship Award"
-        body={ <TableDashboard headers={ headers } rows={ rows }/> }
+        body={ <Table headers={ headers } rows={ rows }/> }
         footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
       />
 
@@ -56,7 +56,7 @@ export const Portals = () => {
 
       <ul>
         <li><Button theme="link" onClick={linkTo('Organisms/Widget')} classes="p-0">Widget</Button></li>
-        <li><Button theme="link" onClick={linkTo('Organisms/TableDashboard')} classes="p-0">TableDashboard</Button></li>
+        <li><Button theme="link" onClick={linkTo('Organisms/Table')} classes="p-0">Table</Button></li>
         <li><Button theme="link" onClick={linkTo('Atoms/Button')} classes="p-0">Button</Button></li>
       </ul>
 
