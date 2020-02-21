@@ -10,7 +10,7 @@ function KPI(props) {
   return (
     <section className="org-kpi">
       { props.items.map((item, index) => (
-        <CounterLabeled { ...item } key={ index }/>
+        <CounterLabeled { ...item } key={ index } classes="border-right flex-grow-1"/>
       )) }
     </section>
   );
