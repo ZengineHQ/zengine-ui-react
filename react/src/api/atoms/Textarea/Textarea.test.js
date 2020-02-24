@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import Textarea from './Textarea';
 
@@ -71,4 +72,42 @@ test('Allows textarea resizing by default', () => {
 test('Disables textarea resizing when specified', () => {
   const { container } = render(<Textarea resizable={ false }/>);
   expect(container.firstChild).toHaveStyle('resize: none');
+});
+
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Textarea onChange={ mock }/>);
+  const textarea = container.getElementsByTagName('textarea')[0];
+
+  await act(async () => {
+    fireEvent.change(textarea, {
+      target: {
+        value: 'test',
+      },
+    });
+  });
+
+  expect(textarea.value).toEqual('test');
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Textarea onBlur={ mock }/>);
+  const textarea = container.getElementsByTagName('textarea')[0];
+
+  await act(async () => {
+    fireEvent.change(textarea, {
+      target: {
+        value: 'greetings human',
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(textarea);
+  });
+
+  expect(textarea.value).toEqual('greetings human');
+  expect(mock).toBeCalled();
 });

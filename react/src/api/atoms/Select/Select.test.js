@@ -96,7 +96,6 @@ test('Fires custom onChange handler if specified', async () => {
   expect(mock).toBeCalled();
 });
 
-
 test('Fires custom onBlur handler if specified', async () => {
   const mock = jest.fn();
   const { container } = render(<Select options={ opts } onBlur={ mock }/>);

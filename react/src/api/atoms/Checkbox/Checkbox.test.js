@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import Checkbox from './Checkbox';
 
@@ -58,4 +59,28 @@ test('Sets input id when specified', () => {
 test('Adds custom classes when specified', () => {
   const { container } = render(<Checkbox classes="foo bar baz"/>);
   expect(container.firstChild).toHaveClass('foo bar baz');
+});
+
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Checkbox name="foo" onChange={ mock }/>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Checkbox name="foo" onBlur={ mock }/>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(mock).toBeCalled();
 });

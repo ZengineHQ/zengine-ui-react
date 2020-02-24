@@ -1,10 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import Input from './Input';
 
 test('Renders a input HTML tag', () => {
-  const { container } = render(<Input />);
+  const { container } = render(<Input/>);
   expect(container.getElementsByTagName('input')).toHaveProperty('length', 1);
 });
 
@@ -71,4 +72,42 @@ test('Sets input id when specified', () => {
 test('Adds custom classes when specified', () => {
   const { container } = render(<Input classes="foo bar baz"/>);
   expect(container.firstChild).toHaveClass('foo bar baz');
+});
+
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Input name="foo" onChange={ mock }/>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'hello',
+      },
+    });
+  });
+
+  expect(input.value).toEqual('hello');
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Input name="foo" onBlur={ mock }/>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'testing',
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('testing');
+  expect(mock).toBeCalled();
 });
