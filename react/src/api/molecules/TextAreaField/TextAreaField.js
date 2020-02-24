@@ -8,6 +8,7 @@ import getFieldClasses from '../../util/getFieldClasses';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 import { Textarea } from '../../index';
 import withForwardRef from '../../util/withForwardRef';
+import Select from '../../atoms/Select/Select';
 
 /**
  * The TextAreaField molecule is a full-fledged textarea input Formik field with validation, help text and error messages.
@@ -28,6 +29,17 @@ function TextAreaField(props) {
   const id = props.id || `textarea-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
 
+  const onChangeHelper = e => {
+    // Call custom callback.
+    props.onChange && props.onChange(e);
+    // Now delegate back to Formik to keep things working.
+    return field.onChange(e);
+  };
+  const onBlurHelper = e => {
+    props.onBlur && props.onBlur(e);
+    return field.onBlur(e);
+  };
+
   return (
     <div className="form-group">
       { props.label && (
@@ -43,6 +55,9 @@ function TextAreaField(props) {
         describedby={ helpId }
         resizable={ props.resizable }
         { ...field }
+        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+        onChange={ onChangeHelper }
+        onBlur={ onBlurHelper }
       />
 
       { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
@@ -97,6 +112,14 @@ TextAreaField.propTypes = {
    * Optionally pass a ref to be attached to the actual HTML input element.
    **/
   innerRef: PropTypes.object,
+  /**
+   * Callback for when the select's value changes.
+   **/
+  onChange: PropTypes.func,
+  /**
+   * Callback for when the select loses focus.
+   **/
+  onBlur: PropTypes.func,
 };
 
 TextAreaField.defaultProps = {

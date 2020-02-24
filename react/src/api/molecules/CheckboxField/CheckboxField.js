@@ -25,6 +25,17 @@ function CheckboxField(props) {
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
 
+  const onChangeHelper = e => {
+    // Call custom callback.
+    props.onChange && props.onChange(e);
+    // Now delegate back to Formik to keep things working.
+    return field.onChange(e);
+  };
+  const onBlurHelper = e => {
+    props.onBlur && props.onBlur(e);
+    return field.onBlur(e);
+  };
+
   /**
    * This is a workaround for the fact that checkboxes don't seem to get marked as "touched" when the label or
    * checkbox itself is clicked, despite being touched.
@@ -50,6 +61,9 @@ function CheckboxField(props) {
         ref={ props.innerRef }
         describedby={ helpId }
         { ...field }
+        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+        onChange={ onChangeHelper }
+        onBlur={ onBlurHelper }
       />
 
       { props.label && (
@@ -105,6 +119,14 @@ CheckboxField.propTypes = {
    * Optionally pass a ref to be attached to the actual HTML input element.
    **/
   innerRef: PropTypes.object,
+  /**
+   * Callback for when the select's value changes.
+   **/
+  onChange: PropTypes.func,
+  /**
+   * Callback for when the select loses focus.
+   **/
+  onBlur: PropTypes.func,
 };
 
 CheckboxField.defaultProps = {

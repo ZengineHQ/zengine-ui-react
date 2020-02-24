@@ -104,3 +104,27 @@ test('Validates correctly when required', async () => {
   expect(input).toHaveClass('form-check-input is-invalid');
   expect(getByText('Required')).toBeTruthy();
 });
+
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><CheckboxField name="foo" onChange={mock}/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><CheckboxField name="foo" onBlur={mock}/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(mock).toBeCalled();
+});

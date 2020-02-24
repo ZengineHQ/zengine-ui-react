@@ -8,6 +8,7 @@ import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
+import { Textarea } from '../../index';
 
 /**
  * The TextField molecule is a full-fledged text input Formik field with validation, help text and error messages.
@@ -28,6 +29,17 @@ function TextField(props) {
   const id = props.id || `text-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
 
+  const onChangeHelper = e => {
+    // Call custom callback.
+    props.onChange && props.onChange(e);
+    // Now delegate back to Formik to keep things working.
+    return field.onChange(e);
+  };
+  const onBlurHelper = e => {
+    props.onBlur && props.onBlur(e);
+    return field.onBlur(e);
+  };
+
   return (
     <div className="form-group">
       { props.label && (
@@ -43,6 +55,9 @@ function TextField(props) {
         ref={ props.innerRef }
         describedby={ helpId }
         { ...field }
+        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+        onChange={ onChangeHelper }
+        onBlur={ onBlurHelper }
       />
 
       { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
@@ -97,6 +112,14 @@ TextField.propTypes = {
    * Optionally pass a ref to be attached to the actual HTML input element.
    **/
   innerRef: PropTypes.object,
+  /**
+   * Callback for when the select's value changes.
+   **/
+  onChange: PropTypes.func,
+  /**
+   * Callback for when the select loses focus.
+   **/
+  onBlur: PropTypes.func,
 };
 
 TextField.defaultProps = {

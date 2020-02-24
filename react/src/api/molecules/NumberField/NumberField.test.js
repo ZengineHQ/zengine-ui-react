@@ -1,9 +1,9 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import NumberField from './NumberField';
 import { MockForm } from '../../../test/MockForm';
-import { act } from 'react-dom/test-utils';
 
 test('Renders a number input', () => {
   const { container } = render(<MockForm><NumberField name="test"/></MockForm>);
@@ -122,4 +122,42 @@ test('Validates correctly when required', async () => {
   expect(input.value).toEqual('');
   expect(input).toHaveClass('form-control is-invalid');
   expect(getByText('Required')).toBeTruthy();
+});
+
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><NumberField name="foo" onChange={mock}/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: '123',
+      },
+    });
+  });
+
+  expect(input.value).toEqual('123');
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><NumberField name="foo" onBlur={mock}/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: '456',
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('456');
+  expect(mock).toBeCalled();
 });
