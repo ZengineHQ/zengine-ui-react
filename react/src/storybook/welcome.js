@@ -52,10 +52,13 @@ export const Introduction = () => (
       <dd>Displays any relevant test results for the component, best make sure all bases are covered!</dd>
     </dl>
 
+    <SectionHeader>Responsive Preview</SectionHeader>
+      In the top toolbar, after the zoom in/out buttons there's a responsive helper button that will redimension the
+      Canvas so different screen size scenarios can be previewed.
     <hr/>
 
     <p>
-      Oh PS Font Awesome SVG icons work:&nbsp;&nbsp;&nbsp;
+      Oh, PS - Font Awesome SVG icons work:&nbsp;&nbsp;&nbsp;
       <i className="fas fa-camera"></i>&nbsp;&nbsp;&nbsp;
       <i className="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;
       <i className="fas fa-dog"></i>
@@ -135,7 +138,7 @@ function MyComponent() {
       { useSyntaxHighlighter(code3) }
     </article>
   );
-}
+};
 
 export const Development = () => (
   <article>
