@@ -9,7 +9,7 @@ test('Renders a div HTML tag', () => {
   expect(container.getElementsByTagName('div')[0]).toHaveClass('card');
 });
 
-test('Adds a default class to the article', () => {
+test('Adds a default class', () => {
   const { container } = render(<Widget />);
   expect(container.firstChild).toHaveClass('card');
 });

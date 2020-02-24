@@ -60,23 +60,33 @@ test('Adds custom classes when specified', () => {
 
 test('Adds array of options when specified', () => {
   const { container, getByText } = render(<Select options={ opts }/>);
-  expect(container.getElementsByTagName('option')).toHaveProperty('length', 4);
-  expect(getByText('optionOne')).toBeTruthy();
-  expect(getByText('optionTwo')).toBeTruthy();
-  expect(getByText('optionThree')).toBeTruthy();
-});
-
-test('Adds object of options when specified', () => {
-  const { container, getByText } = render(<Select options={ opts }/>);
   const options = container.getElementsByTagName('option');
   expect(options).toHaveProperty('length', 4);
   expect(getByText('optionOne')).toBeTruthy();
   expect(getByText('optionTwo')).toBeTruthy();
   expect(getByText('optionThree')).toBeTruthy();
 
-  expect(options[1]).toHaveAttribute('value', 'optionOne');
-  expect(options[2]).toHaveAttribute('value', 'optionTwo');
-  expect(options[3]).toHaveAttribute('value', 'optionThree');
+  expect(options[1]).toHaveProperty('value', 'optionOne');
+  expect(options[2]).toHaveProperty('value', 'optionTwo');
+  expect(options[3]).toHaveProperty('value', 'optionThree');
+});
+
+test('Adds object of options when specified', () => {
+  const objectOps = {
+    'optOne': 'option One',
+    'optTwo': 'option Two',
+    'optThree': 'option Three',
+  };
+  const { container, getByText } = render(<Select options={ objectOps }/>);
+  const options = container.getElementsByTagName('option');
+  expect(options).toHaveProperty('length', 4);
+  expect(getByText('option One')).toBeTruthy();
+  expect(getByText('option Two')).toBeTruthy();
+  expect(getByText('option Three')).toBeTruthy();
+
+  expect(options[1]).toHaveAttribute('value', 'optOne');
+  expect(options[2]).toHaveAttribute('value', 'optTwo');
+  expect(options[3]).toHaveAttribute('value', 'optThree');
 });
 
 test('Fires custom onChange handler if specified', async () => {

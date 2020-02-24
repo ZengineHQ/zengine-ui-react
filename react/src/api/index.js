@@ -19,11 +19,13 @@ export { default as TextField } from './molecules/TextField/TextField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI/KPI';
+export { default as MenuSlideOut } from './organisms/MenuSlideOut/MenuSlideOut';
 export { default as Table } from './organisms/Table/Table';
 export { default as Widget } from './organisms/Widget/Widget';
 
 export { default as ContactForm } from './organisms/ContactForm/ContactForm';
 export { default as QuickSearch } from './organisms/QuickSearch/QuickSearch';
 
-// Utils.
+// Utility.
 export { default as Form } from './util/Form/Form';
+export { default as ErrorMessage } from './util/ErrorMessage/ErrorMessage';
