@@ -45,6 +45,7 @@ function Select(props) {
       aria-describedby={ props.describedby }
       defaultValue={ props.defaultValue }
       // Coming from `useField()` if implemented.
+      // See `Input.js` for explanation.
       value={ props.onChange && props.onBlur ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }

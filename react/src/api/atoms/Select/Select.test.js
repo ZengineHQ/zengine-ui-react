@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import Select from './Select';
+import { act } from 'react-dom/test-utils';
 
 test('Renders a select HTML tag', () => {
   const { container } = render(<Select/>);
@@ -79,4 +80,22 @@ test('Adds object of options when specified', () => {
   expect(options[1]).toHaveAttribute('value', 'one');
   expect(options[2]).toHaveAttribute('value', 'two');
   expect(options[3]).toHaveAttribute('value', 'three');
+});
+
+test('Fires custom onChange handler if specified', async () => {
+  const opts = ['optionOne', 'optionTwo', 'optionThree'];
+  const mock = jest.fn();
+  const { container } = render(<Select options={ opts } onChange={mock}/>);
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, {
+      target: {
+        value: 'optionOne',
+      },
+    });
+  });
+
+  expect(select.value).toEqual('optionOne');
+  expect(mock).toBeCalled();
 });

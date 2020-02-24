@@ -25,7 +25,8 @@ function Textarea(props) {
       className={ props.classes }
       aria-describedby={ props.describedby }
       // Coming from `useField()` if implemented.
-      value={ props.onChange ? props.value || '' : undefined }
+      // See `Input.js` for explanation.
+      value={ props.onChange && props.onBlur ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }
       // This inline style hacky thing allows us to control whether the textarea should be resizable via props.

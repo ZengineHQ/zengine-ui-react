@@ -26,7 +26,12 @@ function Input(props) {
       className={ props.classes }
       aria-describedby={ props.describedby }
       // Coming from `useField()` if implemented.
-      value={ props.onChange ? props.value || '' : undefined }
+      // This value thing looks sketchy but basically we need to do one of two things here:
+      // - Make sure we only set `value` if this field's state is being managed
+      // - If not, leave value as undefined so the component is not controlled
+      // Short of creating another flag prop for whether the component is handling state the easiest way here is to
+      // simply check whether we have onChange and onBlur callbacks.
+      value={ props.onChange && props.onBlur ? props.value || '' : undefined }
       onChange={ props.onChange && props.onChange }
       onBlur={ props.onBlur && props.onBlur }
     />
