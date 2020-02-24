@@ -28,6 +28,17 @@ function SelectField(props) {
   const id = props.id || `select-${ props.name }`;
   const helpId = props.help ? `${ id }-help` : null;
 
+  const onChangeHelper = e => {
+    // Call custom callback.
+    props.onChange && props.onChange(e);
+    // Now delegate back to Formik to keep things working.
+    return field.onChange(e);
+  };
+  const onBlurHelper = e => {
+    props.onBlur && props.onBlur(e);
+    return field.onBlur(e);
+  };
+
   return (
     <div className="form-group">
       { props.label && (
@@ -45,6 +56,9 @@ function SelectField(props) {
         describedby={ helpId }
         // value, onChange and onBlur are being added here directly from `useField()`.
         { ...field }
+        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+        onChange={ onChangeHelper }
+        onBlur={ onBlurHelper }
       />
 
       { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
@@ -103,6 +117,14 @@ SelectField.propTypes = {
    * Optionally pass a ref to be attached to the actual HTML select element.
    **/
   innerRef: PropTypes.object,
+  /**
+   * Callback for when the select's value changes.
+   **/
+  onChange: PropTypes.func,
+  /**
+   * Callback for when the select loses focus.
+   **/
+  onBlur: PropTypes.func,
 };
 
 SelectField.defaultProps = {

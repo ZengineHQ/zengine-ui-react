@@ -4,6 +4,9 @@ import { fireEvent, render } from '@testing-library/react';
 import Select from './Select';
 import { act } from 'react-dom/test-utils';
 
+// Dummy options to be re-used across tests.
+const opts = ['optionOne', 'optionTwo', 'optionThree'];
+
 test('Renders a select HTML tag', () => {
   const { container } = render(<Select/>);
   const select = container.getElementsByTagName('select');
@@ -56,7 +59,6 @@ test('Adds custom classes when specified', () => {
 });
 
 test('Adds array of options when specified', () => {
-  const opts = ['optionOne', 'optionTwo', 'optionThree'];
   const { container, getByText } = render(<Select options={ opts }/>);
   expect(container.getElementsByTagName('option')).toHaveProperty('length', 4);
   expect(getByText('optionOne')).toBeTruthy();
@@ -65,37 +67,53 @@ test('Adds array of options when specified', () => {
 });
 
 test('Adds object of options when specified', () => {
-  const opts = {
-    one: 'optionUno',
-    two: 'optionDos',
-    three: 'optionTres',
-  };
   const { container, getByText } = render(<Select options={ opts }/>);
   const options = container.getElementsByTagName('option');
   expect(options).toHaveProperty('length', 4);
-  expect(getByText('optionUno')).toBeTruthy();
-  expect(getByText('optionDos')).toBeTruthy();
-  expect(getByText('optionTres')).toBeTruthy();
+  expect(getByText('optionOne')).toBeTruthy();
+  expect(getByText('optionTwo')).toBeTruthy();
+  expect(getByText('optionThree')).toBeTruthy();
 
-  expect(options[1]).toHaveAttribute('value', 'one');
-  expect(options[2]).toHaveAttribute('value', 'two');
-  expect(options[3]).toHaveAttribute('value', 'three');
+  expect(options[1]).toHaveAttribute('value', 'optionOne');
+  expect(options[2]).toHaveAttribute('value', 'optionTwo');
+  expect(options[3]).toHaveAttribute('value', 'optionThree');
 });
 
 test('Fires custom onChange handler if specified', async () => {
-  const opts = ['optionOne', 'optionTwo', 'optionThree'];
   const mock = jest.fn();
-  const { container } = render(<Select options={ opts } onChange={mock}/>);
+  const { container } = render(<Select options={ opts } onChange={ mock }/>);
   const select = container.getElementsByTagName('select')[0];
 
   await act(async () => {
     fireEvent.change(select, {
       target: {
-        value: 'optionOne',
+        value: opts[0],
       },
     });
   });
 
-  expect(select.value).toEqual('optionOne');
+  expect(select.value).toEqual(opts[0]);
+  expect(mock).toBeCalled();
+});
+
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<Select options={ opts } onBlur={ mock }/>);
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, {
+      target: {
+        value: opts[1],
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual(opts[1]);
   expect(mock).toBeCalled();
 });

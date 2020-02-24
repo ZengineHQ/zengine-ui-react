@@ -5,10 +5,8 @@ import { act } from 'react-dom/test-utils';
 import { MockForm }  from '../../../test/MockForm';
 import { SelectField } from './SelectField';
 
-/**
- * Dummy options to be re-used across tests.
- */
-const opts = ['one', 'two', 'three', 'four'];
+// Dummy options to be re-used across tests.
+const opts = ['optionOne', 'optionTwo', 'optionThree', 'optionFour'];
 
 test('Renders a select element', () => {
   const { container } = render(<MockForm><SelectField name="foo" options={opts}/></MockForm>);
@@ -112,13 +110,13 @@ test('Validates correctly when required', async () => {
 
   // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
-    fireEvent.change(select, { target: { value: 'three' } });
+    fireEvent.change(select, { target: { value: opts[2] } });
   });
   await act(async () => {
     fireEvent.blur(select);
   });
 
-  expect(select.value).toEqual('three');
+  expect(select.value).toEqual(opts[2]);
   expect(select).toHaveClass('form-control is-valid');
 
   // Having these calls in separate act() blocks was the only way to get it working consistently.
@@ -134,3 +132,40 @@ test('Validates correctly when required', async () => {
   expect(getByText('Required')).toBeTruthy();
 });
 
+test('Fires custom onChange handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><SelectField options={opts} name="foo" onChange={mock}/></MockForm>);
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, {
+      target: {
+        value: opts[0],
+      },
+    });
+  });
+
+  expect(select.value).toEqual(opts[0]);
+  expect(mock).toBeCalled();
+});
+
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><SelectField options={opts} name="foo" onBlur={mock}/></MockForm>);
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, {
+      target: {
+        value: opts[1],
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual(opts[1]);
+  expect(mock).toBeCalled();
+});

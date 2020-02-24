@@ -15,18 +15,33 @@ export default {
 
 const exampleOpts = ['Option One', 'Option Two', 'Option Three'];
 
-export const Default = () => <Select options={ exampleOpts } onChange={ action('Selected item!') }/>;
+export const Default = () => <Select options={ exampleOpts }/>;
 
 export const Required = () => (
-  <Select required={ true } options={ exampleOpts } onChange={ action('Selected item!') }/>
+  <Select
+    required={ true }
+    options={ exampleOpts }
+    onChange={ action('Selected item!') }
+    onBlur={ action('onBlur') }
+  />
 );
 
 export const Disabled = () => (
-  <Select disabled={ true } options={ exampleOpts } onChange={ action('Selected item!') }/>
+  <Select
+    disabled={ true }
+    options={ exampleOpts }
+    onChange={ action('Selected item!') }
+    onBlur={ action('onBlur') }
+  />
 );
 
 export const Placeholder = () => (
-  <Select options={ exampleOpts } placeholder="PICK ONE NOW!" onChange={ action('Selected item!') }/>
+  <Select
+    options={ exampleOpts }
+    placeholder="PICK ONE NOW!"
+    onChange={ action('Selected item!') }
+    onBlur={ action('onBlur') }
+  />
 );
 
 export const Playground = () => {
@@ -37,7 +52,8 @@ export const Playground = () => {
       required={ boolean('Required', false) }
       disabled={ boolean('Disabled', false) }
       classes={ text('Classes', 'foo bar') }
-      onChange={ action('Selected item!') }
+      onChange={ action('onChange called') }
+      onBlur={ action('onBlur called') }
     />
   );
 };
