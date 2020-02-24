@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
- * Table Dashboard displays tabular data in an HTML table.
+ * Table displays tabular data in, well, an HTML table.
  *
  * Accepts an array of table header names in the `headers` prop and an array of data to display, where each
  * item in the array represents a row and is itself an array where each item is a column in the row.
@@ -22,7 +22,7 @@ import classNames from 'classnames';
 function Table(props) {
   return (
     <div className="table-responsive">
-      <table className={classNames(['table table-bordered table-hover', props.classes])}>
+      <table className={classNames(['table table-borderless table-hover', props.classes])}>
         <thead>
         <tr>
           { props.headers.map((name, index) => (

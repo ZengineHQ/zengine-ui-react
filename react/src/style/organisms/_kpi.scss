@@ -13,7 +13,7 @@
     //@extend .flex-grow-1;
 
     &:last-child {
-      border-right: 0 none;
+      border-right: 0 none !important;
     }
   }
 }

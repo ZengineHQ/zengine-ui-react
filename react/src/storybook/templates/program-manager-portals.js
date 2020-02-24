@@ -4,6 +4,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Button, Table, Widget } from '../../api';
 import useSyntaxHighlighter from '../useSyntaxHighlighter';
+import SectionHeader from '../../api/atoms/SectionHeader/SectionHeader';
 
 export default {
   title: 'Templates/ProgramManager',
@@ -35,19 +36,23 @@ export const Portals = () => {
   ];
 
   const story = `
+  <>
+    <SectionHeader>Process: Scholarship Award</SectionHeader>
+
     <Widget
-      header="Process: Scholarship Award"
       body={ <Table headers={ headers } rows={ rows }/> }
       footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
     />
+  </>
   `;
 
   return (
     <>
+      <SectionHeader>Process: Scholarship Award</SectionHeader>
+
       <Widget
-        header="Process: Scholarship Award"
         body={ <Table headers={ headers } rows={ rows }/> }
-        footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
+        footer={ <div className="text-center"><Button onClick={ action('clicked footer button') }>Set Assignments</Button></div> }
       />
 
       <hr className="mt-5 mb-3"/>

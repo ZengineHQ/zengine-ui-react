@@ -28,22 +28,22 @@ export const Disabled = () => (
 );
 
 export const StyleGuide = () => (
-  <table>
-    <caption>Hover over and click on the buttons to see their <em>hovered</em> and <em>active</em> states.</caption>
-    <tbody>
-    <tr>
-      <td><Button>Primary</Button></td>
-      <td><Button theme="secondary">Secondary</Button></td>
-      <td><Button theme="success">Success</Button></td>
-      <td><Button theme="danger">Danger</Button></td>
-      <td><Button theme="warning">Warning</Button></td>
-      <td><Button theme="info">Info</Button></td>
-      <td><Button theme="light">Light</Button></td>
-      <td><Button theme="dark">Dark</Button></td>
-      <td><Button theme="link">Link</Button></td>
-    </tr>
-    </tbody>
-  </table>
+  <>
+    <ul className="list-inline">
+      <li className="list-inline-item"><Button>Primary</Button></li>
+      <li className="list-inline-item"><Button theme="secondary">Secondary</Button></li>
+      <li className="list-inline-item"><Button theme="success">Success</Button></li>
+      <li className="list-inline-item"><Button theme="danger">Danger</Button></li>
+      <li className="list-inline-item"><Button theme="warning">Warning</Button></li>
+      <li className="list-inline-item"><Button theme="info">Info</Button></li>
+      <li className="list-inline-item"><Button theme="light">Light</Button></li>
+      <li className="list-inline-item"><Button theme="dark">Dark</Button></li>
+      <li className="list-inline-item"><Button theme="link">Link</Button></li>
+    </ul>
+    <p className="text-muted">
+      Hover over and click on the buttons to see their <em>hovered</em> and <em>active</em> states.
+    </p>
+  </>
 );
 
 export const Playground = () => {

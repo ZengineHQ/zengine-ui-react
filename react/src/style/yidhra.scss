@@ -1,15 +1,19 @@
-// First import our variable overrides.
+//
+// Yidhra Styles
+//
+
+// First import our Bootstrap/Bootswatch variable overrides.
 @import "variables";
 
-// Then import base Bootstrap theme variables.
-// This is done as a separate step so we can update the Bootswatch theme which consists of this and the bootswatch import.
+// Then import the Bootswatch theme variables.
+// This is done as a separate step so we can switch/update the Bootswatch theme independently.
 @import "vendor/variables";
 
-// The import actual Bootstrap styles.
+// The import actual Bootstrap styles, we use a separate include for this to customize which components we want.
 @import "vendor/bootstrap";
 
 // Then import Bootswatch variables.
-// Again, this is done as a separate step so we can update this import if and when an update comes out and keep our stuff.
+// Again, this is done as a separate step so we can switch/update the Bootswatch theme independently.
 // These 3 bootstrap imports have to go in this order: theme vars -> bootstrap -> theme styles.
 @import "vendor/bootswatch";
 

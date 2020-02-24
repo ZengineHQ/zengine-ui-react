@@ -13,6 +13,10 @@ $yellow: #F39C12 !default;
 $info: $teal;
 $dark: $gray-800;
 
+// Buttons
+
+$btn-padding-y: .5rem;
+
 // Links
 
 $link-color: $teal;
@@ -29,4 +33,11 @@ $h2-font-size: 1.25rem;
 $h3-font-size: 1.1rem;
 $headings-font-weight: 600;
 
+// Cards.
 
+$card-cap-bg: transparent;
+
+// Tables.
+
+$table-hover-color: $teal;
+$table-hover-bg: rgba(58, 177, 189, 0.2);
