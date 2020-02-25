@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _isObject from 'lodash/isObject';
+
+import extractOptions from '../../util/extractOptions';
 
 /**
  * A select is used to have users select one or more options from a list.
@@ -13,25 +14,6 @@ import _isObject from 'lodash/isObject';
  * directly.
  */
 function Select(props) {
-
-  /**
-   * Return `option` elements for the select.
-   * This handles accepting options as an object keyed by values or as an array of strings.
-   */
-  const getOptions = () => {
-    if (Array.isArray(props.options)) {
-      return props.options.map(opt => (
-        <option key={ opt } value={ opt }>{ opt }</option>
-      ));
-    }
-    if (_isObject(props.options)) {
-      return Object.keys(props.options).map(key => (
-        <option key={ key } value={ key }>{ props.options[key] }</option>
-      ));
-    }
-    return [];
-  };
-
   return (
     <select
       id={ props.id }
@@ -51,7 +33,9 @@ function Select(props) {
       onBlur={ props.onBlur && props.onBlur }
     >
       <option value="">{ props.placeholder }</option>
-      { getOptions() }
+      { extractOptions(props.options).map((opt, i) => (
+        <option key={ i } value={ opt.key }>{ opt.val }</option>
+      )) }
     </select>
   );
 }
