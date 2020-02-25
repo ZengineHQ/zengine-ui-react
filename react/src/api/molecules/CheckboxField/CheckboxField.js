@@ -52,28 +52,30 @@ function CheckboxField(props) {
   const helpId = props.help ? `${ id }-help` : null;
 
   return (
-    <div className="form-check">
-      <Checkbox
-        id={ id }
-        disabled={ props.disabled }
-        required={ props.required }
-        classes={ getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input') }
-        ref={ props.innerRef }
-        describedby={ helpId }
-        { ...field }
-        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
-        onChange={ onChangeHelper }
-        onBlur={ onBlurHelper }
-      />
+    <div className="form-group">
+      <div className="form-check">
+        <Checkbox
+          id={ id }
+          disabled={ props.disabled }
+          required={ props.required }
+          classes={ getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input') }
+          ref={ props.innerRef }
+          describedby={ helpId }
+          { ...field }
+          // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+          onChange={ onChangeHelper }
+          onBlur={ onBlurHelper }
+        />
 
-      { props.label && (
-        <Label required={ props.required } for={ id }
-               classes={ classNames(['form-check-label', props.labelClasses]) }>{ props.label }</Label>
-      ) }
+        { props.label && (
+          <Label required={ props.required } for={ id }
+                 classes={ classNames(['form-check-label', props.labelClasses]) }>{ props.label }</Label>
+        ) }
 
-      { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
+        { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
 
-      <ErrorMessage meta={ meta }/>
+        <ErrorMessage meta={ meta }/>
+      </div>
     </div>
   );
 }
