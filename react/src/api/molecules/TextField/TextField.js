@@ -8,7 +8,6 @@ import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
-import { Textarea } from '../../index';
 
 /**
  * The TextField molecule is a full-fledged text input Formik field with validation, help text and error messages.

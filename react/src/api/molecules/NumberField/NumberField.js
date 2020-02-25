@@ -8,7 +8,6 @@ import withForwardRef from '../../util/withForwardRef';
 import getFieldClasses from '../../util/getFieldClasses';
 import { isEmpty } from '../../util/validation';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
-import Select from '../../atoms/Select/Select';
 
 /**
  * The NumberField molecule is a full-fledged number input Formik field with validation, help text and error messages.
