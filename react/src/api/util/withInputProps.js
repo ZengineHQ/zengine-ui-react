@@ -28,7 +28,7 @@ export default function withInputProps(Component) {
 
     // Only set value if controlled.
     if (props.onChange && props.onBlur) {
-      passProps.value = props.value || '';
+      passProps.value = props.value || props.defaultValue || '';
     }
 
     return <Component { ...passProps }/>;
