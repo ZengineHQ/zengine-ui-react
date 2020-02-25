@@ -51,6 +51,7 @@ function SelectField(props) {
         multiple={ props.multiple }
         options={ props.options }
         placeholder={ props.placeholder }
+        defaultValue={ props.defaultValue }
         classes={ getFieldClasses(meta, props.classes) }
         ref={ props.innerRef }
         describedby={ helpId }
@@ -125,6 +126,10 @@ SelectField.propTypes = {
    * Callback for when the select loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * A value to be used as the starting value if none already exists.
+   **/
+  defaultValue: PropTypes.string,
 };
 
 SelectField.defaultProps = {

@@ -78,7 +78,7 @@ Select.propTypes = {
    **/
   onBlur: PropTypes.func,
   /**
-   * Default value for the select.
+   * A value to be used as the starting value if none already exists.
    **/
   defaultValue: PropTypes.string,
 };

@@ -19,22 +19,48 @@ export default {
  */
 const opts = ['one', 'two', 'three', 'four'];
 
-export const Default = () => <MockForm><SelectField label="SelectField Input" name="select" options={opts}/></MockForm>;
+export const Default = () => (
+  <MockForm><SelectField label="SelectField Input" name="select" options={ opts }/></MockForm>
+);
 
 export const Required = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={opts} required/></MockForm>
+  <MockForm><SelectField label="Required SelectField Input" name="select" options={ opts } required/></MockForm>
 );
 
 export const Disabled = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={opts} disabled/></MockForm>
+  <MockForm><SelectField label="Disabled SelectField Input" name="select" options={ opts } disabled/></MockForm>
 );
 
-export const Placeholder = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={opts} placeholder="Holding the place"/></MockForm>
+export const CustomPlaceholder = () => (
+  <MockForm>
+    <SelectField
+      label="Custom placeholder SelectField Input"
+      name="select"
+      options={ opts }
+      placeholder="Holding the place"
+    />
+  </MockForm>
+);
+
+export const NoPlaceholder = () => (
+  <MockForm>
+    <SelectField
+      label="No placeholder SelectField Input"
+      name="select"
+      options={ opts }
+      placeholder=""
+    />
+  </MockForm>
+);
+
+export const DefaultValue = () => (
+  <MockForm>
+    <SelectField label="Default Value SelectField Input" name="select" options={ opts } defaultValue="three"/>
+  </MockForm>
 );
 
 export const Multiple = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={opts} multiple={true}/></MockForm>
+  <MockForm><SelectField label="SelectField Input" name="select" options={ opts } multiple={ true }/></MockForm>
 );
 
 export const Playground = () => {
@@ -47,9 +73,9 @@ export const Playground = () => {
         disabled={ boolean('Disabled', false) }
         required={ boolean('Required', false) }
         multiple={ boolean('Multiple', false) }
-        placeholder={ text('Placeholder', 'placeholder')}
+        placeholder={ text('Placeholder', 'placeholder') }
         name="select"
-        options={opts}
+        options={ opts }
       />
     </MockForm>
   );
