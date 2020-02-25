@@ -46,7 +46,7 @@ function RadioGroupField(props) {
       ) }
 
       { extractOptions(props.options).map((opt, i) => {
-        const id = `${ fieldId }-${ opt.val }`;
+        const id = `${ fieldId }-${ opt.value }`;
         return (
           <div className="form-check" key={ i }>
             <Radio
@@ -60,7 +60,7 @@ function RadioGroupField(props) {
               value={ opt.key }
             />
 
-            <Label required={ false } for={ id } classes="form-check-label">{ opt.val }</Label>
+            <Label required={ false } for={ id } classes="form-check-label">{ opt.value }</Label>
           </div>
         )
       }) }

@@ -2,20 +2,19 @@ import _isObject from 'lodash/isObject';
 
 /**
  * Return `option` elements for the select.
- * This handles accepting options as an object keyed by values or as an array of strings.
+ * This handles accepting options as an array of either strings or objects with a "key" and "value" properties.
 
- * @param {array|object} options
+ * @param {array} options
  *
  * @returns {array}
  */
 const extractOptions = options => {
-  if (Array.isArray(options)) {
-    return options.map(opt => ({ key: opt, val: opt }));
-  }
-  if (_isObject(options)) {
-    return Object.keys(options).map(key => ({ key, val: options[key] }));
-  }
-  return [];
+  return options.map(opt => {
+    if (_isObject(opt)) {
+      return opt;
+    }
+    return { key: `${ opt }`, value: `${ opt }` };
+  });
 };
 
 export default extractOptions;

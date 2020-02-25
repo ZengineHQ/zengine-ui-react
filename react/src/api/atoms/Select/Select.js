@@ -24,7 +24,7 @@ function Select(props) {
     >
       <option value="">{ props.placeholder }</option>
       { extractOptions(props.options).map((opt, i) => (
-        <option key={ i } value={ opt.key }>{ opt.val }</option>
+        <option key={ i } value={ opt.key }>{ opt.value }</option>
       )) }
     </select>
   );
@@ -40,9 +40,12 @@ Select.propTypes = {
    **/
   id: PropTypes.string,
   /**
-   * Select options; either an object keyed by values or an array of strings.
+   * Select options; an array of objects with a "key" and "value" properties.
    **/
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]),
+  options: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.shape({ key: PropTypes.string, value: PropTypes.string }),
+    PropTypes.string,
+  ])),
   /**
    * Marks the select as required.
    **/
@@ -86,7 +89,8 @@ Select.defaultProps = {
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-Select-'
+  placeholder: '-Select-',
+  options: []
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

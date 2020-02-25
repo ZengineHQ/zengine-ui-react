@@ -72,17 +72,17 @@ test('Adds array of options when specified', () => {
 });
 
 test('Adds object of options when specified', () => {
-  const objectOps = {
-    'optOne': 'option One',
-    'optTwo': 'option Two',
-    'optThree': 'option Three',
-  };
+  const objectOps = [
+    { key: 'optOne', value: 'Option One' },
+    { key: 'optTwo', value: 'Option Two' },
+    { key: 'optThree', value: 'Option Three' },
+  ];
   const { container, getByText } = render(<Select options={ objectOps }/>);
   const options = container.getElementsByTagName('option');
   expect(options).toHaveProperty('length', 4);
-  expect(getByText('option One')).toBeTruthy();
-  expect(getByText('option Two')).toBeTruthy();
-  expect(getByText('option Three')).toBeTruthy();
+  expect(getByText('Option One')).toBeTruthy();
+  expect(getByText('Option Two')).toBeTruthy();
+  expect(getByText('Option Three')).toBeTruthy();
 
   expect(options[1]).toHaveAttribute('value', 'optOne');
   expect(options[2]).toHaveAttribute('value', 'optTwo');
