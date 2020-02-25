@@ -2,12 +2,12 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import Select from './Select';
+import { Select as DocComponent, default as Select } from './Select';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Atoms/Select',
-  component: Select,
+  component: DocComponent,
   parameters: {
     jest: ['Select.test.js'],
   },

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import withInputProps from '../../util/withInputProps';
+import withAriaAttributes from '../../util/withAriaAttributes';
+
 /**
  * A Radio is used to collect binary information from users, they seldom appear alone and usually appear as part of
  * a "Radio Group" where users have to pick one item out of a list, much like a regular select element (with
@@ -15,27 +18,15 @@ import PropTypes from 'prop-types';
  * directly.
  */
 function Radio(props) {
-  const checked = !!props.value;
+  // const checked = !!props.value;
   return (
     <input
       type="radio"
-      id={ props.id }
-      name={ props.name }
-      required={ props.required }
-      aria-required={ props.required === true ? true : null }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled === true ? true : null }
-      readOnly={ props.readonly }
-      aria-readonly={ props.readonly === true ? true : null }
-      className={ props.classes }
-      aria-describedby={ props.describedby }
+      { ...props }
       // These are specific to checkbox/radio.
-      checked={ props.onChange && checked }
-      aria-checked={ props.onChange && checked }
-      // Coming from `useField()` if implemented.
-      value={ props.onChange && props.onBlur ? props.value || '' : undefined }
-      onChange={ props.onChange && props.onChange }
-      onBlur={ props.onBlur && props.onBlur }
+      // checked={ props.onChange && checked }
+      // aria-checked={ props.onChange && checked }
+      // value={ props.value || true }
     />
   );
 }
@@ -79,12 +70,7 @@ Radio.propTypes = {
   onBlur: PropTypes.func,
 };
 
-Radio.defaultProps = {
-  name: '',
-  disabled: false,
-  required: false,
-  readonly: false,
-  classes: '',
-};
+// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
+export { Radio };
 
-export default Radio;
+export default withAriaAttributes(withInputProps(Radio));

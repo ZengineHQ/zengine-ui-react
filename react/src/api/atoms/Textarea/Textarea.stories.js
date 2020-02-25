@@ -1,13 +1,12 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-import Textarea from './Textarea';
+import { Textarea as DocComponent, default as Textarea } from './Textarea';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
-import { TextField } from '../../molecules/TextField/TextField';
 
 export default {
   title: 'Atoms/Textarea',
-  component: Textarea,
+  component: DocComponent,
   parameters: {
     jest: ['Textarea.test.js'],
   },

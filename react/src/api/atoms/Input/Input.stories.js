@@ -1,26 +1,29 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import Input from './Input';
+// Use named export in order to get Storybook Docs working but actually use the default export when writing the stories.
+import { Input as DocComponent, default as Input } from './Input';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Atoms/Input',
-  component: Input,
+  component: DocComponent,
   parameters: {
     jest: ['Input.test.js'],
   },
 };
 
-export const Default = () => <Input />;
+export const Default = () => <Input/>;
 
-export const Required = () => <Input required={ true } />;
+export const Required = () => <Input required={ true }/>;
 
-export const Disabled = () => <Input disabled={ true } />;
+export const Disabled = () => <Input disabled={ true } required={ false }/>;
 
-export const Placeholder = () => <Input placeholder="placeholder text" />;
+export const Readonly = () => <Input readonly={ true }/>;
 
-export const TypeNumber = () => <Input type="number" />;
+export const Placeholder = () => <Input placeholder="placeholder text"/>;
+
+export const TypeNumber = () => <Input type="number"/>;
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
@@ -39,9 +42,9 @@ export const Playground = () => {
     <Input
       required={ boolean('Required', false) }
       disabled={ boolean('Disabled', false) }
-      placeholder={ text('Placeholder', 'placeholder')}
+      placeholder={ text('Placeholder', 'placeholder') }
       type={ select('Type', typeOpts, 'text') }
-      classes={text('Classes', 'foo bar')}
+      classes={ text('Classes', 'foo bar') }
     />
   );
 };

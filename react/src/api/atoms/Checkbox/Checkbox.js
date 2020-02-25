@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import withInputProps from '../../util/withInputProps';
+import withAriaAttributes from '../../util/withAriaAttributes';
+
 /**
  * A Checkbox is used to collect binary information from users.
  *
@@ -17,23 +20,11 @@ function Checkbox(props) {
   return (
     <input
       type="checkbox"
-      id={ props.id }
-      name={ props.name }
-      required={ props.required }
-      aria-required={ props.required === true ? true : null }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled === true ? true : null }
-      readOnly={ props.readonly }
-      aria-readonly={ props.readonly === true ? true : null }
-      className={ props.classes }
-      aria-describedby={ props.describedby }
-      // These are specific to checkbox/radio.
+      { ...props }
+      // These are specific to checkboxes.
       checked={ props.onChange && checked }
       aria-checked={ props.onChange && checked }
-      // Coming from `useField()` if implemented.
       value={ props.value || true }
-      onChange={ props.onChange && props.onChange }
-      onBlur={ props.onBlur && props.onBlur }
     />
   );
 }
@@ -77,12 +68,7 @@ Checkbox.propTypes = {
   onBlur: PropTypes.func,
 };
 
-Checkbox.defaultProps = {
-  name: '',
-  disabled: false,
-  required: false,
-  readonly: false,
-  classes: '',
-};
+// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
+export { Checkbox };
 
-export default Checkbox;
+export default withAriaAttributes(withInputProps(Checkbox));

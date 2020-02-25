@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import extractOptions from '../../util/extractOptions';
+import withAriaAttributes from '../../util/withAriaAttributes';
+import withInputProps from '../../util/withInputProps';
 
 /**
  * A select is used to have users select one or more options from a list.
@@ -16,21 +18,9 @@ import extractOptions from '../../util/extractOptions';
 function Select(props) {
   return (
     <select
-      id={ props.id }
-      name={ props.name }
-      required={ props.required }
-      aria-required={ props.required === true ? true : null }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled === true ? true : null }
+      { ...props }
       multiple={ props.multiple }
-      className={ props.classes }
-      aria-describedby={ props.describedby }
       defaultValue={ props.defaultValue }
-      // Coming from `useField()` if implemented.
-      // See `Input.js` for explanation.
-      value={ props.onChange && props.onBlur ? props.value || '' : undefined }
-      onChange={ props.onChange && props.onChange }
-      onBlur={ props.onBlur && props.onBlur }
     >
       <option value="">{ props.placeholder }</option>
       { extractOptions(props.options).map((opt, i) => (
@@ -99,4 +89,7 @@ Select.defaultProps = {
   placeholder: '-Select-'
 };
 
-export default Select;
+// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
+export { Select };
+
+export default withAriaAttributes(withInputProps(Select));

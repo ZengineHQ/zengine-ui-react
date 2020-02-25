@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import withAriaAttributes from '../../util/withAriaAttributes';
+import withInputProps from '../../util/withInputProps';
+
 /**
  * Inputs are a fundamental building block in collecting any kind of information from users.
  *
@@ -12,29 +15,7 @@ import PropTypes from 'prop-types';
  */
 function Input(props) {
   return (
-    <input
-      type={ props.type }
-      id={ props.id }
-      name={ props.name }
-      required={ props.required }
-      aria-required={ props.required === true ? true : null }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled === true ? true : null }
-      readOnly={ props.readonly }
-      aria-readonly={ props.readonly === true ? true : null }
-      placeholder={ props.placeholder }
-      className={ props.classes }
-      aria-describedby={ props.describedby }
-      // Coming from `useField()` if implemented.
-      // This value thing looks sketchy but basically we need to do one of two things here:
-      // - Make sure we only set `value` if this field's state is being managed
-      // - If not, leave value as undefined so the component is not controlled
-      // Short of creating another flag prop for whether the component is handling state the easiest way here is to
-      // simply check whether we have onChange and onBlur callbacks.
-      value={ props.onChange && props.onBlur ? props.value || '' : undefined }
-      onChange={ props.onChange && props.onChange }
-      onBlur={ props.onBlur && props.onBlur }
-    />
+    <input { ...props } />
   );
 }
 
@@ -87,12 +68,9 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
-  name: '',
-  disabled: false,
-  required: false,
-  readonly: false,
-  placeholder: '',
-  classes: '',
 };
 
-export default Input;
+// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
+export { Input };
+
+export default withAriaAttributes(withInputProps(Input));
