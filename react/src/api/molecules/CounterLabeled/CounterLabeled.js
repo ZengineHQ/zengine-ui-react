@@ -9,31 +9,33 @@ import classNames from 'classnames';
  */
 function CounterLabeled(props) {
   // Intl.NumberFormat is safe: https://caniuse.com/#search=NumberFormat
-  const formattedCount = new Intl.NumberFormat('en-US', {
+  const formattedCount = typeof props.count === 'number' ? new Intl.NumberFormat('en-US', {
     style: 'decimal',
-  }).format(props.count);
+  }).format(props.count) : props.count;
 
   return (
     <article
       className={ classNames(['mol-counter-labeled d-flex flex-column align-items-center text-dark', props.classes]) }
       title={ `${ props.count } ${ props.label }` }
     >
-      <span>{ formattedCount }</span>
+      <span>{ formattedCount }{ props.suffix }</span>
       <small>{ props.label }</small>
     </article>
   );
 }
 
 CounterLabeled.propTypes = {
-  count: PropTypes.number,
+  count: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
   classes: PropTypes.string,
+  suffix: PropTypes.string,
 };
 
 CounterLabeled.defaultProps = {
   count: 0,
   label: 'Items',
   classes: '',
+  suffix: '',
 };
 
 export default CounterLabeled;

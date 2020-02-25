@@ -14,6 +14,10 @@ export default {
 
 export const Default = () => <CounterLabeled/>;
 
+export const StringCount = () => <CounterLabeled count="Foo"/>;
+
+export const Suffix = () => <CounterLabeled count={ 85 } suffix="%"/>;
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
@@ -22,6 +26,7 @@ export const Playground = () => {
       count={ number('Count', 182) }
       label={ text('Label', 'Reviewed') }
       classes={ text('Classes', 'class-one') }
+      suffix={ text('Suffix', '%') }
     />
   );
 };

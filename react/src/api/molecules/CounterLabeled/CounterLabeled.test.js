@@ -33,3 +33,8 @@ test('Formats long numbers', () => {
   const count = container.getElementsByTagName('span')[0];
   expect(count).toHaveTextContent('12,345');
 });
+
+test('Adds a suffix if specified', () => {
+  const { container } = render(<CounterLabeled count="99" suffix="%"/>);
+  expect(container.firstChild).toHaveTextContent('99%');
+});
