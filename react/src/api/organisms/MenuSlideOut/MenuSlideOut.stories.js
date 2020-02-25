@@ -3,6 +3,7 @@ import { text } from '@storybook/addon-knobs';
 
 import MenuSlideOut from './MenuSlideOut';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
+import { Button } from '../../index';
 
 export default {
   title: 'Organisms/MenuSlideOut',
@@ -12,7 +13,24 @@ export default {
   },
 };
 
-export const Default = () => <MenuSlideOut/>;
+const DemoData = () => (
+  <ul>
+    <li>Form Name 01</li>
+    <li>Form Name 02</li>
+    <li>Form Name 03</li>
+    <li>Form Name 04</li>
+  </ul>
+);
+
+export const Default = () => {
+  
+  return (
+    <>
+      <Button>Toggle slide out</Button>
+      <MenuSlideOut title="Associated Data" contents={ <DemoData/> }/>
+    </>
+  );
+};
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
