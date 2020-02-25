@@ -8,7 +8,6 @@ import getFieldClasses from '../../util/getFieldClasses';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
 import { Textarea } from '../../index';
 import withForwardRef from '../../util/withForwardRef';
-import Select from '../../atoms/Select/Select';
 
 /**
  * The TextAreaField molecule is a full-fledged textarea input Formik field with validation, help text and error messages.
