@@ -1,8 +1,8 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 import Select from './Select';
-import { act } from 'react-dom/test-utils';
 
 // Dummy options to be re-used across tests.
 const opts = ['optionOne', 'optionTwo', 'optionThree'];

@@ -120,11 +120,11 @@ CheckboxField.propTypes = {
    **/
   innerRef: PropTypes.object,
   /**
-   * Callback for when the select's value changes.
+   * Callback for when the input's value changes.
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the select loses focus.
+   * Callback for when the input loses focus.
    **/
   onBlur: PropTypes.func,
 };

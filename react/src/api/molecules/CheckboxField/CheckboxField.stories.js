@@ -14,13 +14,19 @@ export default {
   },
 };
 
-export const Default = () => <MockForm><CheckboxField label="Checkbox Input" name="text" /></MockForm>;
+export const Default = () => <MockForm><CheckboxField label="Checkbox Input" name="text"/></MockForm>;
 
-export const Required = () => <MockForm><CheckboxField label="Required Checkbox Input" required={true} name="text" /></MockForm>;
+export const Required = () => (
+  <MockForm><CheckboxField label="Required Checkbox Input" required={ true } name="text"/></MockForm>
+);
 
-export const HelpText = () => <MockForm><CheckboxField label="Yes or No?" help="This is some help text" name="text" /></MockForm>;
+export const HelpText = () => (
+  <MockForm><CheckboxField label="Yes or No?" help="This is some help text" name="text"/></MockForm>
+);
 
-export const Disabled = () => <MockForm><CheckboxField label="Disabled Checkbox Input" disabled={true} name="text" /></MockForm>;
+export const Disabled = () => (
+  <MockForm><CheckboxField label="Disabled Checkbox Input" disabled={ true } name="text"/></MockForm>
+);
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
