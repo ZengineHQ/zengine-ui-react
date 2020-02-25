@@ -16,13 +16,12 @@ import withInputProps from '../../util/withInputProps';
  * directly.
  */
 function Select(props) {
+  const { placeholder, ...passProps } = props;
+
   return (
-    <select
-      { ...props }
-      multiple={ props.multiple }
-      defaultValue={ props.defaultValue }
-    >
-      <option value="">{ props.placeholder }</option>
+    <select { ...passProps }>
+      { placeholder && (<option value="">{ placeholder }</option>) }
+
       { extractOptions(props.options).map((opt, i) => (
         <option key={ i } value={ opt.key }>{ opt.value }</option>
       )) }
@@ -63,7 +62,7 @@ Select.propTypes = {
    **/
   multiple: PropTypes.bool,
   /**
-   * Value to be used as the empty option.
+   * Value to be used as the empty option or an empty string to omit it entirely.
    **/
   placeholder: PropTypes.string,
   /**
