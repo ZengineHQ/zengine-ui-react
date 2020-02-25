@@ -7,7 +7,7 @@ import React from 'react';
  */
 export default function withInputProps(Component) {
   function component(props) {
-    const { readonly, classes, ...passProps } = props;
+    const { readonly, classes, value, defaultValue, ...passProps } = props;
 
     if (readonly) {
       // React DOM requires it to be camelCased like this.
@@ -28,7 +28,7 @@ export default function withInputProps(Component) {
 
     // Only set value if controlled.
     if (props.onChange && props.onBlur) {
-      passProps.value = props.value || props.defaultValue || '';
+      passProps.value = value || defaultValue || '';
     }
 
     return <Component { ...passProps }/>;
