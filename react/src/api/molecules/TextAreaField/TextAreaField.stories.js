@@ -1,14 +1,14 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-// Use named export instead of default to get the Storybooks Docs generated properly.
-import { TextAreaField } from './TextAreaField';
+// Use named export in order to get Storybook Docs working but actually use the default export when writing the stories.
+import { TextAreaField as DocComponent, default as TextAreaField } from './TextAreaField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Molecules/TextAreaField',
-  component: TextAreaField,
+  component: DocComponent,
   parameters: {
     jest: ['TextAreaField.test.js'],
   },

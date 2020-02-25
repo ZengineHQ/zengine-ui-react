@@ -1,14 +1,14 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-// Use named export instead of default to get the Storybooks Docs generated properly.
-import { SelectField } from './SelectField';
+// Use named export in order to get Storybook Docs working but actually use the default export when writing the stories.
+import { SelectField as DocComponent, default as SelectField } from './SelectField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Molecules/SelectField',
-  component: SelectField,
+  component: DocComponent,
   parameters: {
     jest: ['SelectField.test.js'],
   },

@@ -1,14 +1,14 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-// Use named export instead of default to get the Storybooks Docs generated properly.
-import { CheckboxField } from './CheckboxField';
+// Use named export in order to get Storybook Docs working but actually use the default export when writing the stories.
+import { CheckboxField as DocComponent, default as CheckboxField } from './CheckboxField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Molecules/CheckboxField',
-  component: CheckboxField,
+  component: DocComponent,
   parameters: {
     jest: ['CheckboxField.test.js'],
   },
