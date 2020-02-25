@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * A checkbox is used to collect binary information from users.
+ * A Checkbox is used to collect binary information from users.
  *
  * This will generate an HTML `<input type="checkbox">` element. Checkboxes are sufficiently different from other inputs
  * that they warrant their own atom.
@@ -27,6 +27,7 @@ function Checkbox(props) {
       aria-readonly={ props.readonly === true ? true : null }
       className={ props.classes }
       aria-describedby={ props.describedby }
+      // These are specific to checkbox/radio.
       checked={ props.onChange && checked }
       aria-checked={ props.onChange && checked }
       // Coming from `useField()` if implemented.
