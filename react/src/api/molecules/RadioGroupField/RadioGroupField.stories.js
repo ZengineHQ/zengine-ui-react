@@ -24,19 +24,19 @@ export const Default = () => (
 
 export const Required = () => (
   <MockForm>
-    <RadioGroupField label="Required Radio Group Input" required={ true } name="required" options={ demoOptions }/>
+    <RadioGroupField label="Required Radio Group Field Input" required={ true } name="required" options={ demoOptions }/>
   </MockForm>
 );
 
 export const HelpText = () => (
   <MockForm>
-    <RadioGroupField label="Yes or No?" help="This is some help text" name="help" options={ demoOptions }/>
+    <RadioGroupField label="Pick One!" help="This is some help text" name="help" options={ demoOptions }/>
   </MockForm>
 );
 
 export const Disabled = () => (
   <MockForm>
-    <RadioGroupField label="Disabled Radio Group Input" disabled={ true } name="disabled" options={ demoOptions }/>
+    <RadioGroupField label="Disabled Radio Group Field" disabled={ true } name="disabled" options={ demoOptions }/>
   </MockForm>
 );
 
@@ -55,7 +55,7 @@ export const Playground = () => {
       <RadioGroupField
         name="planeteer"
         label={ text('Label', 'Favorite planeteer from Captain Planet and the aforementioned') }
-        help={ text('Help Text', 'There\'s really no right answer...') }
+        help={ text('Help Text', 'Theres really no right answer...') }
         disabled={ boolean('Disabled', false) }
         required={ boolean('Required', true) }
         options={ freshDemoOptions }
