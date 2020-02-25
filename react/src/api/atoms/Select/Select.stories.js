@@ -22,7 +22,6 @@ export const Required = () => (
     required={ true }
     options={ exampleOpts }
     onChange={ action('Selected item!') }
-    onBlur={ action('onBlur') }
   />
 );
 
@@ -31,16 +30,30 @@ export const Disabled = () => (
     disabled={ true }
     options={ exampleOpts }
     onChange={ action('Selected item!') }
-    onBlur={ action('onBlur') }
   />
 );
 
-export const Placeholder = () => (
+export const CustomPlaceholder = () => (
   <Select
     options={ exampleOpts }
     placeholder="PICK ONE NOW!"
     onChange={ action('Selected item!') }
-    onBlur={ action('onBlur') }
+  />
+);
+
+export const NoPlaceholder = () => (
+  <Select
+    options={ exampleOpts }
+    placeholder=""
+    onChange={ action('Selected item!') }
+  />
+);
+
+export const DefaultValue = () => (
+  <Select
+    options={ exampleOpts }
+    defaultValue="Option Two"
+    placeholder="-Default Selected-"
   />
 );
 
@@ -53,7 +66,6 @@ export const Playground = () => {
       disabled={ boolean('Disabled', false) }
       classes={ text('Classes', 'foo bar') }
       onChange={ action('onChange called') }
-      onBlur={ action('onBlur called') }
     />
   );
 };
