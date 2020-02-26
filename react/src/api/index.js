@@ -12,6 +12,7 @@ export { default as Textarea } from './atoms/Textarea/Textarea';
 
 // Molecules.
 export { default as CheckboxField } from './molecules/CheckboxField/CheckboxField';
+export { default as CheckboxGroupField } from './molecules/CheckboxGroupField/CheckboxGroupField';
 export { default as CounterLabeled } from './molecules/CounterLabeled/CounterLabeled';
 export { default as NumberField } from './molecules/NumberField/NumberField';
 export { default as RadioGroupField } from './molecules/RadioGroupField/RadioGroupField';
