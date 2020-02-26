@@ -24,7 +24,7 @@ export const Default = () => (
 
 export const Required = () => (
   <MockForm>
-    <RadioGroupField label="Required Radio Group Field Input" required={ true } name="required"
+    <RadioGroupField label="Required Radio Group" required={ true } name="required"
                      options={ demoOptions }/>
   </MockForm>
 );
@@ -37,7 +37,7 @@ export const HelpText = () => (
 
 export const Disabled = () => (
   <MockForm>
-    <RadioGroupField label="Disabled Radio Group Field" disabled={ true } name="disabled" options={ demoOptions }/>
+    <RadioGroupField label="Disabled Radio Field" disabled={ true } name="disabled" options={ demoOptions }/>
   </MockForm>
 );
 

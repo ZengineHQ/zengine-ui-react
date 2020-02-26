@@ -9,7 +9,8 @@ import Radio from '../../atoms/Radio/Radio';
 import extractOptions from '../../util/extractOptions';
 
 /**
- * The RadioGroupField molecule is a full-fledged radio input Formik field with validation, help text and error messages.
+ * The RadioGroupField molecule is a full-fledged radio group input Formik field with validation, help text and error
+ * messages.
  *
  * It consists of one or more `Radio` atoms, each paired with a `Label` atom and some additional markup.
  *
@@ -39,7 +40,7 @@ function RadioGroupField(props) {
   const helpId = props.help ? `${ fieldId }-help` : null;
 
   /**
-   * This is a workaround for the fact that checkboxes don't seem to get marked as "touched" when the label or
+   * This is a workaround for the fact that radios don't seem to get marked as "touched" when the label or
    * checkbox itself is clicked, despite being touched.
    */
   useEffect(() => {

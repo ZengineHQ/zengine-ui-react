@@ -10,7 +10,7 @@ import withAriaAttributes from '../../util/withAriaAttributes';
  * This will generate an HTML `<input type="checkbox">` element. Checkboxes are sufficiently different from other inputs
  * that they warrant their own atom.
  *
- * See the `CheckboxField` and `CheckboxesField` molecules for example usages.
+ * See the `CheckboxField` and `CheckboxGroupField` molecules for example usages.
  *
  * Unless you are building custom Checkbox/Toggle molecules or something along those lines you will probably never use
  * this directly.
