@@ -18,15 +18,15 @@ import withAriaAttributes from '../../util/withAriaAttributes';
  * directly.
  */
 function Radio(props) {
-  // const checked = !!props.value;
+  const checked = ('checked' in props && props.checked !== undefined) ? props.checked : false;
   return (
     <input
       type="radio"
       { ...props }
       // These are specific to checkbox/radio.
-      // checked={ props.onChange && checked }
-      // aria-checked={ props.onChange && checked }
-      // value={ props.value || true }
+      checked={ props.onChange && checked }
+      aria-checked={ props.onChange && checked }
+      value={ props.value }
     />
   );
 }

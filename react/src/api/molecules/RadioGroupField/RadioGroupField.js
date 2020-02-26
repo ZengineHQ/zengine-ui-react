@@ -71,6 +71,7 @@ function RadioGroupField(props) {
               onBlur={ onBlurHelper }
               onChange={ onChangeHelper }
               value={ opt.key }
+              checked={ meta.value === opt.key }
             />
 
             <Label required={ false } for={ id } classes="form-check-label">{ opt.value }</Label>

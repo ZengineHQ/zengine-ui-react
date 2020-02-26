@@ -16,7 +16,7 @@ import withAriaAttributes from '../../util/withAriaAttributes';
  * this directly.
  */
 function Checkbox(props) {
-  const checked = !!props.value;
+  const checked = ('checked' in props && props.checked !== undefined) ? props.checked : !!props.value;
   return (
     <input
       type="checkbox"
