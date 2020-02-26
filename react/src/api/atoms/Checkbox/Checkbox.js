@@ -66,6 +66,10 @@ Checkbox.propTypes = {
    * Callback for when the checkbox loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * Whether or not the checkbox is, well, checked.
+   **/
+  checked: PropTypes.bool,
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

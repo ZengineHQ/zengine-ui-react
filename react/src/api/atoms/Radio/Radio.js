@@ -68,6 +68,10 @@ Radio.propTypes = {
    * Callback for when the radio loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * Whether or not the radio is selected.
+   **/
+  checked: PropTypes.bool,
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
