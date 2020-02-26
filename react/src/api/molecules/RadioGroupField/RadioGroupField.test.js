@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 
 import RadioGroupField from './RadioGroupField';
 import { MockForm } from '../../../test/MockForm';
-import CheckboxField from '../CheckboxField/CheckboxField';
 
 const opts = ['one', 'two', 'three'];
 
@@ -118,28 +117,44 @@ test('Set aria-describedby attribute when help is specified', () => {
   expect(input).toHaveAttribute('aria-describedby', 'radiogroup-foo-help');
 });
 
-// test('Validates correctly when required', async () => {
-//   const { container, getByText } = render(<MockForm><RadioGroupField label="Foo" name="foo"
-//                                                                      required={ true }/></MockForm>);
-//   const input = container.getElementsByTagName('input')[0];
-//
-//   expect(input.checked).toEqual(false);
-//
-//   await act(async () => {
-//     fireEvent.click(input);
-//   });
-//
-//   expect(input.checked).toEqual(true);
-//   expect(input).toHaveClass('form-check-input is-valid');
-//
-//   await act(async () => {
-//     fireEvent.click(input);
-//   });
-//
-//   expect(input.checked).toEqual(false);
-//   expect(input).toHaveClass('form-check-input is-invalid');
-//   expect(getByText('Required')).toBeTruthy();
-// });
+test('Sets values and validates correctly when required', async () => {
+  const { container, getByText, queryByText } = render(
+    <MockForm><RadioGroupField label="Foo" name="foo" required={ true } options={ opts }/></MockForm>
+  );
+
+  let checkedInput = container.querySelector('input[name="foo"]:checked');
+  expect(checkedInput).toEqual(null);
+
+  const firstInput = container.getElementsByTagName('input')[0];
+
+  expect(firstInput).toHaveClass('form-check-input');
+  await act(async () => {
+    fireEvent.blur(firstInput);
+  });
+
+  expect(firstInput).toHaveClass('form-check-input is-invalid');
+  expect(getByText('Required')).toBeTruthy();
+
+  await act(async () => {
+    fireEvent.click(firstInput);
+  });
+
+  expect(firstInput.checked).toEqual(true);
+  expect(firstInput).toHaveClass('form-check-input is-valid');
+  expect(queryByText('Required')).toBeNull();
+
+  checkedInput = container.querySelector('input[name="foo"]:checked');
+  expect(checkedInput).toBeTruthy();
+  expect(checkedInput.value).toEqual('one');
+
+  const secondInput = container.getElementsByTagName('input')[1];
+  await act(async () => {
+    fireEvent.click(secondInput);
+  });
+
+  expect(secondInput.checked).toEqual(true);
+  expect(secondInput).toHaveClass('form-check-input is-valid');
+});
 
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
@@ -153,14 +168,14 @@ test('Fires custom onChange handler if specified', async () => {
   expect(mock).toBeCalled();
 });
 
-// test('Fires custom onBlur handler if specified', async () => {
-//   const mock = jest.fn();
-//   const { container } = render(<MockForm><RadioGroupField name="foo" onBlur={ mock } options={ opts }/></MockForm>);
-//   const input = container.getElementsByTagName('input')[0];
-//
-//   await act(async () => {
-//     fireEvent.blur(input);
-//   });
-//
-//   expect(mock).toBeCalled();
-// });
+test('Fires custom onBlur handler if specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(<MockForm><RadioGroupField name="foo" onBlur={ mock } options={ opts }/></MockForm>);
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(mock).toBeCalled();
+});

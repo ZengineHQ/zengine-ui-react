@@ -67,6 +67,8 @@ function RadioGroupField(props) {
               classes={ getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input') }
               describedby={ helpId }
               { ...field }
+              onBlur={ onBlurHelper }
+              onChange={ onChangeHelper }
               value={ opt.key }
             />
 
