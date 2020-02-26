@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
@@ -38,6 +38,18 @@ function RadioGroupField(props) {
 
   const fieldId = props.id || `radiogroup-${ props.name }`;
   const helpId = props.help ? `${ fieldId }-help` : null;
+
+  /**
+   * This is a workaround for the fact that checkboxes don't seem to get marked as "touched" when the label or
+   * checkbox itself is clicked, despite being touched.
+   */
+  useEffect(() => {
+    if (meta.value && meta.value !== meta.initialValue) {
+      if (!meta.touched) {
+        setTouched(true);
+      }
+    }
+  }, [meta, setTouched]);
 
   return (
     <div className="form-group">
