@@ -57,13 +57,24 @@ export const DefaultValue = () => (
   />
 );
 
+export const Multiple = () => (
+  <Select
+    options={ exampleOpts }
+    placeholder=""
+    multiple={ true }
+  />
+);
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
   return (
     <Select
+      options={ exampleOpts }
       required={ boolean('Required', false) }
       disabled={ boolean('Disabled', false) }
+      multiple={ boolean('Multiple', false) }
+      placeholder={ text('Placeholder', '-Select-') }
       classes={ text('Classes', 'foo bar') }
       onChange={ action('onChange called') }
     />
