@@ -23,11 +23,13 @@ const DemoData = () => (
 );
 
 export const Default = () => {
-  
+
   return (
     <>
       <Button>Toggle slide out</Button>
-      <MenuSlideOut title="Associated Data" contents={ <DemoData/> }/>
+      <MenuSlideOut title="Associated Data">
+        <DemoData/>
+      </MenuSlideOut>
     </>
   );
 };
@@ -37,7 +39,10 @@ export const Playground = () => {
 
   return (
     <MenuSlideOut
+      title={ text('Title', 'Associated Data') }
       classes={ text('Classes', 'class-two') }
-    />
+    >
+      <DemoData/>
+    </MenuSlideOut>
   );
 };

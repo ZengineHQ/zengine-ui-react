@@ -10,7 +10,7 @@ function MenuSlideOut(props) {
   return (
     <div className={ classNames(['org-menu-slideout', props.classes]) }>
       { props.title && (<h5>{ props.title }</h5>) }
-      { props.contents }
+      { props.children }
     </div>
   );
 }
@@ -23,7 +23,7 @@ MenuSlideOut.propTypes = {
   /**
    * The menu slide out contents; either a plain string or a React component.
    **/
-  contents: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.func]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.func]),
   /**
    * HTML classes to be added as-is to the HTML element.
    **/

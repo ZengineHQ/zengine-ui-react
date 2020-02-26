@@ -88,11 +88,11 @@ RadioGroupField.propTypes = {
    **/
   name: PropTypes.string.isRequired,
   /**
-   * HTML element id.
+   * HTML element id, used to build the ids for each individual radio input.
    **/
   id: PropTypes.string,
   /**
-   * Field label.
+   * Radio Group field label.
    **/
   label: PropTypes.string,
   /**
@@ -120,15 +120,11 @@ RadioGroupField.propTypes = {
    **/
   help: PropTypes.string,
   /**
-   * Optionally pass a ref to be attached to the actual HTML input element.
-   **/
-  innerRef: PropTypes.object,
-  /**
-   * Callback for when the input's value changes.
+   * Callback for when the radio group's value changes.
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the input loses focus.
+   * Callback for when the radio group loses focus.
    **/
   onBlur: PropTypes.func,
   /**
@@ -138,8 +134,6 @@ RadioGroupField.propTypes = {
 };
 
 RadioGroupField.defaultProps = {
-  label: '',
-  classes: '',
   disabled: false,
   required: false,
   readonly: false,
