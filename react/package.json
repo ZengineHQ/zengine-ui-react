@@ -25,7 +25,10 @@
     "scss:watch": "npm run scss -- -w",
     "build-storybook": "npm run test:save && build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
-    "build": "babel src/api -d dist/"
+    "build": "rm -rf dist; npm run build:js; npm run build:cssmin; npm run build:css",
+    "build:js": "babel src/api -d dist/",
+    "build:css": "node-sass src/style/yidhra.scss dist/yidhra.css",
+    "build:cssmin": "node-sass src/style/yidhra.scss dist/yidhra.min.css --output-style compressed"
   },
   "eslintConfig": {
     "extends": "react-app"
