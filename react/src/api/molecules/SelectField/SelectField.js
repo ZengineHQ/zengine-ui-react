@@ -85,7 +85,7 @@ SelectField.propTypes = {
   /**
    * Select options; either an object keyed by values or an array of strings.
    **/
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]),
+  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
   /**
    * Marks the select as required.
    **/
