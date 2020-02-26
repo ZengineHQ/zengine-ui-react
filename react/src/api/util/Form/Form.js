@@ -62,7 +62,7 @@ function YidhraForm(props) {
                     type="submit"
                     theme="primary"
                     aria-label={ labelSubmit }
-                    disabled={ isSubmitting || !isValid }
+                    disabled={ !touched || isSubmitting || !isValid }
                   >
                     { labelSubmit }
                   </Button>
