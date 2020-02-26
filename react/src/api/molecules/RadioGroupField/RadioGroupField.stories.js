@@ -2,13 +2,13 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 // Use named export in order to get Storybook Docs working but actually use the default export when writing the stories.
-import { RadioGroupField as DocComponent, default as RadioGroupField } from './RadioGroupField';
+import RadioGroupField from './RadioGroupField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 
 export default {
   title: 'Molecules/RadioGroupField',
-  component: DocComponent,
+  component: RadioGroupField,
   parameters: {
     jest: ['RadioGroupField.test.js'],
   },
@@ -24,7 +24,8 @@ export const Default = () => (
 
 export const Required = () => (
   <MockForm>
-    <RadioGroupField label="Required Radio Group Field Input" required={ true } name="required" options={ demoOptions }/>
+    <RadioGroupField label="Required Radio Group Field Input" required={ true } name="required"
+                     options={ demoOptions }/>
   </MockForm>
 );
 

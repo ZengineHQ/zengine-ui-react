@@ -5,7 +5,6 @@ import { useField } from 'formik';
 import Label from '../../atoms/Label/Label';
 import getFieldClasses from '../../util/getFieldClasses';
 import ErrorMessage from '../../util/ErrorMessage/ErrorMessage';
-import withForwardRef from '../../util/withForwardRef';
 import Radio from '../../atoms/Radio/Radio';
 import extractOptions from '../../util/extractOptions';
 
@@ -66,7 +65,6 @@ function RadioGroupField(props) {
               disabled={ props.disabled }
               required={ props.required }
               classes={ getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input') }
-              ref={ props.innerRef }
               describedby={ helpId }
               { ...field }
               value={ opt.key }
@@ -147,7 +145,4 @@ RadioGroupField.defaultProps = {
   readonly: false,
 };
 
-// Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
-export { RadioGroupField };
-
-export default withForwardRef(RadioGroupField);
+export default RadioGroupField;
