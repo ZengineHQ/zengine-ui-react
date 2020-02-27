@@ -2,19 +2,19 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { MockForm }  from '../../../test/MockForm';
+import { MockForm } from '../../../test/MockForm';
 import { SelectField } from './SelectField';
 
 // Dummy options to be re-used across tests.
 const opts = ['optionOne', 'optionTwo', 'optionThree', 'optionFour'];
 
 test('Renders a select element', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts}/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts }/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'foo');
 });
 
 test('Sets label when specified', () => {
-  const { container, getByText } = render(<MockForm><SelectField name="foo" label="test" options={opts}/></MockForm>);
+  const { container, getByText } = render(<MockForm><SelectField name="foo" label="test" options={ opts }/></MockForm>);
   expect(getByText('test')).toBeTruthy();
 
   const labels = container.getElementsByTagName('label');
@@ -22,7 +22,7 @@ test('Sets label when specified', () => {
 });
 
 test('Marks select as required when specified', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} required={true}/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts } required={ true }/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('required');
 });
 
@@ -30,7 +30,7 @@ test('Marks select as required when specified', () => {
 // aria-attribute will be tested by the "Select" atom component which actually gets rendered.
 
 test('Marks select as disabled when specified', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} disabled={true}/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts } disabled={ true }/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('disabled');
 });
 
@@ -38,72 +38,76 @@ test('Marks select as disabled when specified', () => {
 // aria-attribute will be tested by the "Select" atom component which actually gets rendered.
 
 test('Displays custom help when specified', () => {
-  const { container } = render(<MockForm><SelectField name="foo" help="foo bar" /></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" help="foo bar" options={ opts }/></MockForm>);
   const help = container.getElementsByTagName('small')[0];
   expect(help).toBeTruthy();
   expect(help).toHaveTextContent('foo bar');
-  expect(help).toHaveAttribute('id','select-foo-help');
+  expect(help).toHaveAttribute('id', 'select-foo-help');
 });
 
 test('Set aria-describedby attribute when help is specified', () => {
-  const { container } = render(<MockForm><SelectField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const { container } = render(
+    <MockForm><SelectField label="Foo" name="foo" help="foo bar" options={ opts }/></MockForm>
+  );
   const select = container.getElementsByTagName('select')[0];
   expect(select).toHaveAttribute('aria-describedby', 'select-foo-help');
 });
 
 test('Sets a default placeholder as the first option', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts}/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts }/></MockForm>);
   expect(container.getElementsByTagName('select')[0].firstChild).toHaveTextContent('-Select-');
 });
 
 test('Changes default placeholder when specified', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} placeholder="foo"/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts } placeholder="foo"/></MockForm>);
   expect(container.getElementsByTagName('select')[0].firstChild).toHaveTextContent('foo');
 });
 
 test('Sets select id automatically', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts}/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts }/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('id', 'select-foo');
 });
 
 test('Changes select name when specified', () => {
-  const { container } = render(<MockForm><SelectField options={opts} name="test" /></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } name="test"/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'test');
 });
 
 test('Changes select id when specified', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} id="whoathere"/></MockForm>);
+  const { container } = render(<MockForm><SelectField name="foo" options={ opts } id="whoathere"/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('id', 'whoathere');
 });
 
-test('Sets label "for" attribute when there\'s a label' , () => {
-  const { container } = render(<MockForm><SelectField options={opts} label="Foo" name="foo" /></MockForm>);
+test('Sets label "for" attribute when there\'s a label', () => {
+  const { container } = render(<MockForm><SelectField options={ opts } label="Foo" name="foo"/></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveAttribute('for', 'select-foo');
 });
 
 test('Omits label element when not specified', () => {
-  const { container } = render(<MockForm><SelectField options={opts} name="foo"/></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } name="foo"/></MockForm>);
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(0);
 });
 
 test('Adds a default class to the select', () => {
-  const { container } = render(<MockForm><SelectField options={opts} name="foo" /></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } name="foo"/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveClass('form-control');
 });
 
 test('Adds custom classes to the select when specified', () => {
-  const { container } = render(<MockForm><SelectField options={opts} classes="foo bar" name="foo" /></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } classes="foo bar" name="foo"/></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveClass('foo bar');
 });
 
 test('Adds custom classes to the label when specified', () => {
-  const { container } = render(<MockForm><SelectField options={opts} label="Foo" name="foo" labelClasses="foo bar" /></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } label="Foo" name="foo"
+                                                      labelClasses="foo bar"/></MockForm>);
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });
 
 test('Validates correctly when required', async () => {
-  const { container, getByText } = render(<MockForm><SelectField options={opts} name="foo" required={ true }/></MockForm>);
+  const { container, getByText } = render(<MockForm><SelectField options={ opts } name="foo"
+                                                                 required={ true }/></MockForm>);
   const select = container.getElementsByTagName('select')[0];
 
   expect(select.value).toEqual('');
@@ -134,7 +138,7 @@ test('Validates correctly when required', async () => {
 
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<MockForm><SelectField options={opts} name="foo" onChange={mock}/></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } name="foo" onChange={ mock }/></MockForm>);
   const select = container.getElementsByTagName('select')[0];
 
   await act(async () => {
@@ -151,7 +155,7 @@ test('Fires custom onChange handler if specified', async () => {
 
 test('Fires custom onBlur handler if specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<MockForm><SelectField options={opts} name="foo" onBlur={mock}/></MockForm>);
+  const { container } = render(<MockForm><SelectField options={ opts } name="foo" onBlur={ mock }/></MockForm>);
   const select = container.getElementsByTagName('select')[0];
 
   await act(async () => {
