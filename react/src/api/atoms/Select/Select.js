@@ -17,7 +17,6 @@ import withInputProps from '../../util/withInputProps';
  */
 function Select(props) {
   const { placeholder, ...passProps } = props;
-
   return (
     <select { ...passProps }>
       { placeholder && (<option value="">{ placeholder }</option>) }

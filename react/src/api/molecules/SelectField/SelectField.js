@@ -99,7 +99,7 @@ SelectField.propTypes = {
    **/
   multiple: PropTypes.bool,
   /**
-   * Value to be used as the empty option.
+   * String to be used as the empty option.
    **/
   placeholder: PropTypes.string,
   /**

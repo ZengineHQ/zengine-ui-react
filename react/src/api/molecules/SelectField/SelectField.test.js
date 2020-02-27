@@ -105,37 +105,6 @@ test('Adds custom classes to the label when specified', () => {
   expect(container.getElementsByTagName('label')[0]).toHaveClass('foo bar');
 });
 
-test('Validates correctly when required', async () => {
-  const { container, getByText } = render(<MockForm><SelectField options={ opts } name="foo"
-                                                                 required={ true }/></MockForm>);
-  const select = container.getElementsByTagName('select')[0];
-
-  expect(select.value).toEqual('');
-
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
-  await act(async () => {
-    fireEvent.change(select, { target: { value: opts[2] } });
-  });
-  await act(async () => {
-    fireEvent.blur(select);
-  });
-
-  expect(select.value).toEqual(opts[2]);
-  expect(select).toHaveClass('form-control is-valid');
-
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
-  await act(async () => {
-    fireEvent.change(select, { target: { value: '' } });
-  });
-  await act(async () => {
-    fireEvent.blur(select);
-  });
-
-  expect(select.value).toEqual('');
-  expect(select).toHaveClass('form-control is-invalid');
-  expect(getByText('Required')).toBeTruthy();
-});
-
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
   const { container } = render(<MockForm><SelectField options={ opts } name="foo" onChange={ mock }/></MockForm>);
@@ -172,4 +141,35 @@ test('Fires custom onBlur handler if specified', async () => {
 
   expect(select.value).toEqual(opts[1]);
   expect(mock).toBeCalled();
+});
+
+test('Validates correctly when required', async () => {
+  const { container, getByText } = render(
+    <MockForm><SelectField options={ opts } name="foo" required={ true }/></MockForm>
+  );
+  const select = container.getElementsByTagName('select')[0];
+
+  expect(select.value).toEqual('');
+
+  // Having these calls in separate act() blocks was the only way to get it working consistently.
+  await act(async () => {
+    fireEvent.change(select, { target: { value: opts[2] } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual(opts[2]);
+  expect(select).toHaveClass('form-control is-valid');
+
+  await act(async () => {
+    fireEvent.change(select, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual('');
+  expect(select).toHaveClass('form-control is-invalid');
+  expect(getByText('Required')).toBeTruthy();
 });

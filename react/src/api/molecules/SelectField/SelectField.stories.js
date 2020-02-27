@@ -20,21 +20,21 @@ export default {
 const opts = ['one', 'two', 'three', 'four'];
 
 export const Default = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={ opts }/></MockForm>
+  <MockForm><SelectField label="SelectField" name="select" options={ opts }/></MockForm>
 );
 
 export const Required = () => (
-  <MockForm><SelectField label="Required SelectField Input" name="select" options={ opts } required/></MockForm>
+  <MockForm><SelectField label="Required SelectField" name="select" options={ opts } required/></MockForm>
 );
 
 export const Disabled = () => (
-  <MockForm><SelectField label="Disabled SelectField Input" name="select" options={ opts } disabled/></MockForm>
+  <MockForm><SelectField label="Disabled SelectField" name="select" options={ opts } disabled/></MockForm>
 );
 
 export const CustomPlaceholder = () => (
   <MockForm>
     <SelectField
-      label="Custom placeholder SelectField Input"
+      label="Custom placeholder SelectField"
       name="select"
       options={ opts }
       placeholder="Holding the place"
@@ -45,7 +45,7 @@ export const CustomPlaceholder = () => (
 export const NoPlaceholder = () => (
   <MockForm>
     <SelectField
-      label="No placeholder SelectField Input"
+      label="No placeholder SelectField"
       name="select"
       options={ opts }
       placeholder=""
@@ -55,12 +55,14 @@ export const NoPlaceholder = () => (
 
 export const DefaultValue = () => (
   <MockForm>
-    <SelectField label="Default Value SelectField Input" name="select" options={ opts } defaultValue="three"/>
+    <SelectField label="Default Value SelectField" name="select" options={ opts } defaultValue="three"/>
   </MockForm>
 );
 
 export const Multiple = () => (
-  <MockForm><SelectField label="SelectField Input" name="select" options={ opts } multiple={ true }/></MockForm>
+  <MockForm>
+    <SelectField label="Multiple value SelectField" name="select" options={ opts } multiple={ true } placeholder=""/>
+  </MockForm>
 );
 
 export const Playground = () => {

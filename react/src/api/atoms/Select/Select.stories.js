@@ -1,6 +1,6 @@
 import React from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import { Select as DocComponent, default as Select } from './Select';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
