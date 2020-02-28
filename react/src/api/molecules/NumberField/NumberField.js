@@ -42,25 +42,42 @@ function NumberField(props) {
     return field.onBlur(e);
   };
 
+  const input = (
+    <Input
+      type="number"
+      id={ id }
+      disabled={ props.disabled }
+      required={ props.required }
+      placeholder={ props.placeholder }
+      classes={ getFieldClasses(meta, props.classes) }
+      ref={ props.innerRef }
+      describedby={ helpId }
+      { ...field }
+      // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
+      onChange={ onChangeHelper }
+      onBlur={ onBlurHelper }
+    />
+  );
+
   return (
     <div className="form-group">
       { props.label && (
         <Label required={ props.required } for={ id } classes={ props.labelClasses }>{ props.label }</Label>
       ) }
-      <Input
-        type="number"
-        id={ id }
-        disabled={ props.disabled }
-        required={ props.required }
-        placeholder={ props.placeholder }
-        classes={ getFieldClasses(meta, props.classes) }
-        ref={ props.innerRef }
-        describedby={ helpId }
-        { ...field }
-        // If we have custom onChange and onBlur callbacks we need to wrap them to keep from breaking Formik.
-        onChange={ onChangeHelper }
-        onBlur={ onBlurHelper }
-      />
+
+      { (props.prefix || props.suffix) ? (
+        <div className="input-group">
+          { props.prefix && (
+            <div className="input-group-append"><span className="input-group-text">{ props.prefix }</span></div>
+          ) }
+
+          { input }
+
+          { props.prefix && (
+            <div className="input-group-prepend"><span className="input-group-text">{ props.suffix }</span></div>
+          ) }
+        </div>
+      ) : input }
 
       { props.help && <small id={ helpId } className="form-text text-muted">{ props.help }</small> }
 
@@ -115,17 +132,25 @@ NumberField.propTypes = {
    **/
   innerRef: PropTypes.object,
   /**
-   * Callback for when the select's value changes.
+   * Callback for when the input's value changes.
    **/
   onChange: PropTypes.func,
   /**
-   * Callback for when the select loses focus.
+   * Callback for when the input loses focus.
    **/
   onBlur: PropTypes.func,
   /**
    * Custom validation callback. Only "required" is handled automatically. Should return a string.
    **/
   validate: PropTypes.func,
+  /**
+   * Display a prefix before the input. Useful for displaying currencies, for example.
+   **/
+  prefix: PropTypes.string,
+  /**
+   * Display a suffix after the input. Useful for displaying units, for example.
+   **/
+  suffix: PropTypes.string,
 };
 
 NumberField.defaultProps = {

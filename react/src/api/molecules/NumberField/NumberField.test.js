@@ -88,6 +88,14 @@ test('Displays custom help when specified', () => {
   expect(help).toHaveAttribute('id', 'number-foo-help');
 });
 
+test('Sets prefix and suffix when specified', () => {
+  const { getByText } = render(
+    <MockForm><NumberField label="Foo" name="foo" prefix="fooprefix" suffix="barsuffix"/></MockForm>
+  );
+  expect(getByText('fooprefix')).toBeTruthy();
+  expect(getByText('barsuffix')).toBeTruthy();
+});
+
 test('Set aria-describedby attribute when help is specified', () => {
   const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar"/></MockForm>);
   const input = container.getElementsByTagName('input')[0];

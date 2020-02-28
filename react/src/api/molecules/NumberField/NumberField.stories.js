@@ -33,6 +33,19 @@ export const Placeholder = () => (
   <MockForm><NumberField label="Placeholder Number Input" placeholder="placeholder number" name="number"/></MockForm>
 );
 
+export const PrefixAndSuffix = () => (
+  <MockForm>
+    <NumberField
+      label="Desired grant amount"
+      placeholder="All the benjamins"
+      name="number"
+      help="This some crucial information and shows amongst other things how greedy you are"
+      prefix="$"
+      suffix=".00"
+    />
+  </MockForm>
+);
+
 export const CustomValidation = () => {
   const validate = value => {
     if (!value) {
