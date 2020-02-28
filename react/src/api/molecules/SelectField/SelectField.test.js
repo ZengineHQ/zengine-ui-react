@@ -173,3 +173,72 @@ test('Validates correctly when required', async () => {
   expect(select).toHaveClass('form-control is-invalid');
   expect(getByText('Required')).toBeTruthy();
 });
+
+test('Adds a default value when specified', () => {
+  const { container } = render(
+    <MockForm><SelectField name="foo" options={ opts } defaultValue="optionTwo"/></MockForm>
+  );
+  const select = container.getElementsByTagName('select')[0];
+  expect(select.value).toEqual('optionTwo');
+});
+
+// @TODO figure this out: not sure why the tests dont work when the behavior does.
+// test('Handles selecting multiple values properly', async () => {
+//   // Crappy state.
+//   let lastValues = null;
+//
+//   const submit = values => {
+//     console.warn('vals', values);
+//     lastValues = values;
+//   };
+//   const { container } = render(
+//     <MockForm onSubmit={ submit }><SelectField options={ opts } name="foo" multiple={ true }/></MockForm>
+//   );
+//   const form = container.getElementsByTagName('form')[0];
+//
+//   await act(async () => {
+//     fireEvent.submit(form);
+//   });
+//
+//   expect(lastValues).toEqual({});
+//
+//   const select = container.getElementsByTagName('select')[0];
+//
+//   await act(async () => {
+//     fireEvent.change(select, {
+//       target: {
+//         value: opts[1],
+//       },
+//     });
+//   });
+//
+//   await act(async () => {
+//     fireEvent.submit(form);
+//   });
+//
+//   expect(lastValues).toEqual({ foo: [opts[1]] });
+//
+//   await act(async () => {
+//     fireEvent.change(select, {
+//       target: {
+//         value: opts[2],
+//       },
+//     });
+//   });
+//
+//   await act(async () => {
+//     fireEvent.submit(form);
+//   });
+//
+//   expect(lastValues).toEqual({ foo: [opts[2]] });
+//
+//   await act(async () => {
+//     userEvent.selectOptions(select, [opts[1], opts[2]])
+//   });
+//
+//   await act(async () => {
+//     fireEvent.submit(form);
+//   });
+//
+//   expect(lastValues).toEqual({ foo: [opts[1], opts[2]] });
+// });
