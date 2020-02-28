@@ -14,31 +14,50 @@ export default {
   },
 };
 
-const demoOptions = ['Cake', 'Pizza', 'Ice Cream', 'Candy', 'Mucus'];
+const opts = ['Cake', 'Pizza', 'Ice Cream', 'Candy', 'Mucus'];
 
 export const Default = () => (
   <MockForm>
-    <CheckboxGroupField label="Checkbox Group" name="foo" options={ demoOptions }/>
+    <CheckboxGroupField label="Checkbox Group" name="foo" options={ opts }/>
   </MockForm>
 );
 
 export const Required = () => (
   <MockForm>
-    <CheckboxGroupField label="Required Checkbox Group" required={ true } name="required" options={ demoOptions }/>
+    <CheckboxGroupField label="Required Checkbox Group" required={ true } name="required" options={ opts }/>
   </MockForm>
 );
 
 export const HelpText = () => (
   <MockForm>
-    <CheckboxGroupField label="Pick One!" help="This is some help text" name="help" options={ demoOptions }/>
+    <CheckboxGroupField label="Pick One!" help="This is some help text" name="help" options={ opts }/>
   </MockForm>
 );
 
 export const Disabled = () => (
   <MockForm>
-    <CheckboxGroupField label="Disabled Checkbox Group" disabled={ true } name="disabled" options={ demoOptions }/>
+    <CheckboxGroupField label="Disabled Checkbox Group" disabled={ true } name="disabled" options={ opts }/>
   </MockForm>
 );
+
+export const CustomValidation = () => {
+  const validate = value => {
+    if (!value.includes('Pizza')) {
+      return 'Bro, it\'s pizza what\'s wrong with you?';
+    }
+  };
+  return (
+    <MockForm>
+      <CheckboxGroupField
+        options={ opts }
+        label="Validation"
+        help="You can pick what you like as long as it includes Pizza"
+        name="foo"
+        validate={ validate }
+      />
+    </MockForm>
+  );
+};
 
 export const Playground = () => {
   useDefaultPanel('Knobs');

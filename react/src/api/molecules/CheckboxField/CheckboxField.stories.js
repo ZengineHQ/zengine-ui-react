@@ -28,6 +28,24 @@ export const Disabled = () => (
   <MockForm><CheckboxField label="Disabled Checkbox Input" disabled={ true } name="text"/></MockForm>
 );
 
+export const CustomValidation = () => {
+  const validate = value => {
+    if (value) {
+      return 'Sorry, can\'t pick yes on this one';
+    }
+  };
+  return (
+    <MockForm>
+      <CheckboxField
+        label="Yes or No?"
+        help="You must pick NO"
+        name="foo"
+        validate={ validate }
+      />
+    </MockForm>
+  );
+};
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 

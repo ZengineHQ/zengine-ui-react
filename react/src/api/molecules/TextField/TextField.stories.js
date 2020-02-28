@@ -5,6 +5,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { TextField as DocComponent, default as TextField } from './TextField';
 import { MockForm } from '../../../test/MockForm';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
+import { isEmail } from '../../util/validation';
 
 export default {
   title: 'Molecules/TextField',
@@ -24,7 +25,20 @@ export const Disabled = () => (
   <MockForm><TextField label="Disabled Text Input" disabled={ true } name="text"/></MockForm>
 );
 
-export const HelpText = () => <MockForm><TextField label="Text" help="This is some help text" name="text"/></MockForm>;
+export const HelpText = () => (
+  <MockForm><TextField label="Text" help="This is some help text" name="text"/></MockForm>
+);
+
+export const CustomValidation = () => {
+  const validate = value => {
+    if (!isEmail(value)) {
+      return 'Invalid email address';
+    }
+  };
+  return (
+    <MockForm><TextField label="Email" help="Enter your email address" name="text" validate={ validate }/></MockForm>
+  );
+};
 
 export const Placeholder = () => <MockForm>(
   <TextField label="Placeholder Text Input" placeholder="placeholder text" name="text"/></MockForm>;

@@ -65,6 +65,25 @@ export const Multiple = () => (
   </MockForm>
 );
 
+export const CustomValidation = () => {
+  const validate = value => {
+    if (value !== 'three') {
+      return 'You must pick "three"';
+    }
+  };
+  return (
+    <MockForm>
+      <SelectField
+        options={ opts }
+        label="Validation"
+        help="You must pick the right one"
+        name="foo"
+        validate={ validate }
+      />
+    </MockForm>
+  );
+};
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 

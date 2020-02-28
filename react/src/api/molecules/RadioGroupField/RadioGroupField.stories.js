@@ -14,32 +14,55 @@ export default {
   },
 };
 
-const demoOptions = ['Baseball', 'Basketball', 'Hockey', 'Football', 'Soccer'];
+const opts = ['Baseball', 'Basketball', 'Hockey', 'Football', 'Soccer'];
 
 export const Default = () => (
   <MockForm>
-    <RadioGroupField label="Radio Group Input" name="text" options={ demoOptions }/>
+    <RadioGroupField label="Radio Group Input" name="text" options={ opts }/>
   </MockForm>
 );
 
 export const Required = () => (
   <MockForm>
-    <RadioGroupField label="Required Radio Group" required={ true } name="required"
-                     options={ demoOptions }/>
+    <RadioGroupField
+      label="Required Radio Group"
+      required={ true }
+      name="required"
+      options={ opts }
+    />
   </MockForm>
 );
 
 export const HelpText = () => (
   <MockForm>
-    <RadioGroupField label="Pick One!" help="This is some help text" name="help" options={ demoOptions }/>
+    <RadioGroupField label="Pick One!" help="This is some help text" name="help" options={ opts }/>
   </MockForm>
 );
 
 export const Disabled = () => (
   <MockForm>
-    <RadioGroupField label="Disabled Radio Field" disabled={ true } name="disabled" options={ demoOptions }/>
+    <RadioGroupField label="Disabled Radio Field" disabled={ true } name="disabled" options={ opts }/>
   </MockForm>
 );
+
+export const CustomValidation = () => {
+  const validate = value => {
+    if (value !== 'Soccer') {
+      return 'You must pick "Soccer"';
+    }
+  };
+  return (
+    <MockForm>
+      <RadioGroupField
+        options={ opts }
+        label="Validation"
+        help="You must pick the right one"
+        name="foo"
+        validate={ validate }
+      />
+    </MockForm>
+  );
+};
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
