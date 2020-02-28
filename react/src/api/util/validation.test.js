@@ -54,6 +54,8 @@ test('matchesRegex() accepts a RegExp object as the regex param', () => {
 });
 
 test('isEmail() correctly determines whether a value is an email address', () => {
+  expect(isEmail(123)).toBe(false);
+  expect(isEmail('')).toBe(false);
   expect(isEmail('not an email')).toBe(false);
   expect(isEmail('without@domain')).toBe(false);
   expect(isEmail('withoutat.com')).toBe(false);
