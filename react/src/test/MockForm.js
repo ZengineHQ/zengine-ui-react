@@ -4,7 +4,13 @@ import { Formik, Form } from 'formik';
 
 export const MockForm = props => {
   return (
-    <Formik initialValues={ {} } onSubmit={ props.onSubmit }>
+    <Formik
+      initialValues={ {} }
+      onSubmit={ props.onSubmit }
+      validateOnBlur={ true }
+      validateOnMount={ false }
+      validateOnChange={ true }
+    >
       <Form noValidate>
         { props.children }
       </Form>
