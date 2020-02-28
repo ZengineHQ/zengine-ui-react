@@ -1,10 +1,21 @@
 import React from 'react';
-import { Formik } from 'formik';
+import PropTypes from 'prop-types';
+import { Formik, Form } from 'formik';
 
 export const MockForm = props => {
   return (
-    <Formik initialValues={{}} onSubmit={() => null}>
-      { props.children }
+    <Formik initialValues={ {} } onSubmit={ props.onSubmit }>
+      <Form noValidate>
+        { props.children }
+      </Form>
     </Formik>
   );
+};
+
+MockForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
+
+MockForm.defaultProps = {
+  onSubmit: () => null,
 };
