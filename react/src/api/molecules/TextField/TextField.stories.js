@@ -29,6 +29,19 @@ export const HelpText = () => (
   <MockForm><TextField label="Text" help="This is some help text" name="text"/></MockForm>
 );
 
+export const PrefixAndSuffix = () => (
+  <MockForm>
+    <TextField
+      label="Something that has a prefix and suffix"
+      placeholder="Cant think of anything"
+      name="foo"
+      help="Bla bla"
+      prefix="prefix"
+      suffix="suffix"
+    />
+  </MockForm>
+);
+
 export const CustomValidation = () => {
   const validate = value => {
     if (!isEmail(value)) {

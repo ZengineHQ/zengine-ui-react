@@ -95,6 +95,14 @@ test('Displays custom help when specified', () => {
   expect(help).toHaveAttribute('id', 'text-foo-help');
 });
 
+test('Sets prefix and suffix when specified', () => {
+  const { getByText } = render(
+    <MockForm><TextField label="Foo" name="foo" prefix="fooprefix" suffix="barsuffix"/></MockForm>
+  );
+  expect(getByText('fooprefix')).toBeTruthy();
+  expect(getByText('barsuffix')).toBeTruthy();
+});
+
 test('Validates field "required" correctly', async () => {
   const { container, getByText } = render(<MockForm><TextField name="foo" required={ true }/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
