@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
-import _isEmpty from 'lodash/isEmpty';
+import isEmpty from 'lodash/isEmpty';
 
 import Button from '../../atoms/Button/Button';
 
@@ -24,13 +24,10 @@ function YidhraForm(props) {
   } = props;
 
   const validateForm = values => {
-    let errors = {};
-
     if (validate && typeof validate === 'function') {
-      errors = { ...errors, ...validate(values) };
+      return validate(values);
     }
-
-    return errors;
+    return {};
   };
 
   return (
@@ -52,7 +49,7 @@ function YidhraForm(props) {
             { props.children }
 
             {/* If the form has been touched and we have errors, display a message above buttons. */}
-            { !_isEmpty(errors) && !_isEmpty(touched) && (<div className="invalid-feedback d-block">
+            { !isEmpty(errors) && !isEmpty(touched) && (<div className="invalid-feedback d-block">
               Please fix the above errors and try again.
             </div>) }
 
