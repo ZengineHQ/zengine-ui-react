@@ -21,6 +21,9 @@ function CheckboxField(props) {
     if (props.required && value === false) {
       return 'Required';
     }
+    if (props.validate && typeof props.validate === 'function') {
+      return props.validate(value);
+    }
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
@@ -129,6 +132,10 @@ CheckboxField.propTypes = {
    * Callback for when the input loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * Custom validation callback. Only "required" is handled automatically. Should return a string.
+   **/
+  validate: PropTypes.func,
 };
 
 CheckboxField.defaultProps = {

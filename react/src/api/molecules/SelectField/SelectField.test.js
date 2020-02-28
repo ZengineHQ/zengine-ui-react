@@ -1,9 +1,10 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+// import userEvent from '@testing-library/user-event';
 
 import { MockForm } from '../../../test/MockForm';
-import { SelectField } from './SelectField';
+import SelectField from './SelectField';
 
 // Dummy options to be re-used across tests.
 const opts = ['optionOne', 'optionTwo', 'optionThree', 'optionFour'];
@@ -143,7 +144,7 @@ test('Fires custom onBlur handler if specified', async () => {
   expect(mock).toBeCalled();
 });
 
-test('Validates correctly when required', async () => {
+test('Validates field "required" correctly', async () => {
   const { container, getByText } = render(
     <MockForm><SelectField options={ opts } name="foo" required={ true }/></MockForm>
   );
@@ -151,7 +152,6 @@ test('Validates correctly when required', async () => {
 
   expect(select.value).toEqual('');
 
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
     fireEvent.change(select, { target: { value: opts[2] } });
   });
@@ -242,3 +242,56 @@ test('Adds a default value when specified', () => {
 //
 //   expect(lastValues).toEqual({ foo: [opts[1], opts[2]] });
 // });
+
+test('Calls custom validation handler', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <MockForm><SelectField options={ opts } name="foo" required={ true } validate={ mock }/></MockForm>
+  );
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, {
+      target: {
+        value: opts[2],
+      },
+    });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select).toHaveClass('form-control is-valid');
+  expect(mock).toHaveBeenCalled();
+});
+
+test('Performs custom validation correctly when specified', async () => {
+  const validate = value => {
+    if (value !== opts[1]) {
+      return `Must pick ${opts[1]}`;
+    }
+  };
+  const { container, getByText } = render(
+    <MockForm><SelectField options={ opts } name="foo" required={ true } validate={ validate }/></MockForm>
+  );
+  const select = container.getElementsByTagName('select')[0];
+
+  await act(async () => {
+    fireEvent.change(select, { target: { value: opts[0] } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select).toHaveClass('form-control is-invalid');
+  expect(getByText(`Must pick ${opts[1]}`)).toBeTruthy();
+
+  await act(async () => {
+    fireEvent.change(select, { target: { value: opts[1] } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select).toHaveClass('form-control is-valid');
+});

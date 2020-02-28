@@ -89,18 +89,17 @@ test('Displays custom help when specified', () => {
 });
 
 test('Set aria-describedby attribute when help is specified', () => {
-  const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar" /></MockForm>);
+  const { container } = render(<MockForm><NumberField label="Foo" name="foo" help="foo bar"/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
   expect(input).toHaveAttribute('aria-describedby', 'number-foo-help');
 });
 
-test('Validates correctly when required', async () => {
+test('Validates field "required" correctly', async () => {
   const { container, getByText } = render(<MockForm><NumberField name="foo" required={ true }/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
   expect(input.value).toEqual('');
 
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
     fireEvent.change(input, { target: { value: 123 } });
   });
@@ -111,7 +110,6 @@ test('Validates correctly when required', async () => {
   expect(input.value).toEqual('123');
   expect(input).toHaveClass('form-control is-valid');
 
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
     fireEvent.change(input, { target: { value: null } });
   });
@@ -126,7 +124,7 @@ test('Validates correctly when required', async () => {
 
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<MockForm><NumberField name="foo" onChange={mock}/></MockForm>);
+  const { container } = render(<MockForm><NumberField name="foo" onChange={ mock }/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
   await act(async () => {
@@ -143,7 +141,7 @@ test('Fires custom onChange handler if specified', async () => {
 
 test('Fires custom onBlur handler if specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<MockForm><NumberField name="foo" onBlur={mock}/></MockForm>);
+  const { container } = render(<MockForm><NumberField name="foo" onBlur={ mock }/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
   await act(async () => {
@@ -160,4 +158,54 @@ test('Fires custom onBlur handler if specified', async () => {
 
   expect(input.value).toEqual('456');
   expect(mock).toBeCalled();
+});
+
+test('Calls custom validation handler', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <MockForm><NumberField name="foo" required={ true } validate={ mock }/></MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '99' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('99');
+  expect(input).toHaveClass('form-control is-valid');
+  expect(mock).toHaveBeenCalled();
+});
+
+test('Performs custom validation correctly when specified', async () => {
+  const validate = value => {
+    if (value < 10) {
+      return 'Must be larger than 10';
+    }
+  };
+  const { container, getByText } = render(
+    <MockForm><NumberField name="foo" required={ true } validate={ validate }/></MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '5' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input).toHaveClass('form-control is-invalid');
+  expect(getByText('Must be larger than 10')).toBeTruthy();
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '11' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input).toHaveClass('form-control is-valid');
 });

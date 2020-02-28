@@ -21,6 +21,9 @@ function RadioGroupField(props) {
     if (props.required && value === undefined) {
       return 'Required';
     }
+    if (props.validate && typeof props.validate === 'function') {
+      return props.validate(value);
+    }
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
@@ -135,6 +138,10 @@ RadioGroupField.propTypes = {
    * Radio group options; either an object keyed by values or an array of strings.
    **/
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  /**
+   * Custom validation callback. Only "required" is handled automatically. Should return a string.
+   **/
+  validate: PropTypes.func,
 };
 
 RadioGroupField.defaultProps = {

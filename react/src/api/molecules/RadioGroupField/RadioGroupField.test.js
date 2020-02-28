@@ -117,7 +117,7 @@ test('Set aria-describedby attribute when help is specified', () => {
   expect(input).toHaveAttribute('aria-describedby', 'radiogroup-foo-help');
 });
 
-test('Sets values and validates correctly when required', async () => {
+test('Sets values and Validates field "required" correctly', async () => {
   const { container, getByText, queryByText } = render(
     <MockForm><RadioGroupField label="Foo" name="foo" required={ true } options={ opts }/></MockForm>
   );
@@ -170,7 +170,7 @@ test('Fires custom onChange handler if specified', async () => {
 
 test('Fires custom onBlur handler if specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<MockForm><RadioGroupField name="foo" onBlur={ mock } options={ opts }/></MockForm>);
+  const { container } = render(<MockForm><RadioGroupField options={ opts } name="foo" onBlur={ mock }/></MockForm>);
   const input = container.getElementsByTagName('input')[0];
 
   await act(async () => {
@@ -178,4 +178,53 @@ test('Fires custom onBlur handler if specified', async () => {
   });
 
   expect(mock).toBeCalled();
+});
+
+test('Calls custom validation handler', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <MockForm><RadioGroupField options={ opts } name="foo" required={ true } validate={ mock }/></MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input).toHaveClass('form-check-input is-valid');
+  expect(mock).toHaveBeenCalled();
+});
+
+test('Performs custom validation correctly when specified', async () => {
+  const validate = value => {
+    if (value !== opts[1]) {
+      return `Must pick ${opts[1]}`;
+    }
+  };
+  const { container, getByText } = render(
+    <MockForm><RadioGroupField options={ opts } name="foo" required={ true } validate={ validate }/></MockForm>
+  );
+  const inputs = container.getElementsByTagName('input');
+
+  await act(async () => {
+    fireEvent.click(inputs[0]);
+  });
+  await act(async () => {
+    fireEvent.blur(inputs[0]);
+  });
+
+  expect(inputs[0]).toHaveClass('form-check-input is-invalid');
+  expect(getByText(`Must pick ${opts[1]}`)).toBeTruthy();
+
+  await act(async () => {
+    fireEvent.click(inputs[1]);
+  });
+  await act(async () => {
+    fireEvent.blur(inputs[1]);
+  });
+
+  expect(inputs[0]).toHaveClass('form-check-input is-valid');
 });

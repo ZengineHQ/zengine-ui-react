@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 
 import TextAreaField from './TextAreaField';
 import { MockForm }  from '../../../test/MockForm';
+import { isEmail } from '../../util/validation';
 
 test('Renders a textarea', () => {
   const { container } = render(<MockForm><TextAreaField name="foo" /></MockForm>);
@@ -94,13 +95,12 @@ test('Displays custom help when specified', () => {
   expect(help).toHaveAttribute('id','textarea-foo-help');
 });
 
-test('Validates correctly when required', async () => {
+test('Validates field "required" correctly', async () => {
   const { container, getByText } = render(<MockForm><TextAreaField name="foo" required={ true }/></MockForm>);
   const input = container.getElementsByTagName('textarea')[0];
 
   expect(input.value).toEqual('');
 
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
     fireEvent.change(input, { target: { value: 'Test' } });
   });
@@ -111,7 +111,6 @@ test('Validates correctly when required', async () => {
   expect(input.value).toEqual('Test');
   expect(input).toHaveClass('form-control is-valid');
 
-  // Having these calls in separate act() blocks was the only way to get it working consistently.
   await act(async () => {
     fireEvent.change(input, { target: { value: '' } });
   });
@@ -160,4 +159,58 @@ test('Fires custom onBlur handler if specified', async () => {
 
   expect(textarea.value).toEqual('foo');
   expect(mock).toBeCalled();
+});
+
+test('Calls custom validation handler', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <MockForm><TextAreaField name="foo" required={ true } validate={ mock }/></MockForm>
+  );
+  const textarea = container.getElementsByTagName('textarea')[0];
+
+  expect(textarea.value).toEqual('');
+
+  await act(async () => {
+    fireEvent.change(textarea, { target: { value: 'Testing' } });
+  });
+  await act(async () => {
+    fireEvent.blur(textarea);
+  });
+
+  expect(textarea.value).toEqual('Testing');
+  expect(textarea).toHaveClass('form-control is-valid');
+  expect(mock).toHaveBeenCalled();
+});
+
+test('Performs custom validation correctly when specified', async () => {
+  const validate = value => {
+    if (!isEmail(value)) {
+      return 'Invalid email address';
+    }
+  };
+  const { container, getByText } = render(
+    <MockForm><TextAreaField name="foo" required={ true } validate={ validate }/></MockForm>
+  );
+  const textarea = container.getElementsByTagName('textarea')[0];
+
+  await act(async () => {
+    fireEvent.change(textarea, { target: { value: 'foo@bar' } });
+  });
+  await act(async () => {
+    fireEvent.blur(textarea);
+  });
+
+  expect(textarea.value).toEqual('foo@bar');
+  expect(textarea).toHaveClass('form-control is-invalid');
+  expect(getByText('Invalid email address')).toBeTruthy();
+
+  await act(async () => {
+    fireEvent.change(textarea, { target: { value: 'foo@bar.com' } });
+  });
+  await act(async () => {
+    fireEvent.blur(textarea);
+  });
+
+  expect(textarea.value).toEqual('foo@bar.com');
+  expect(textarea).toHaveClass('form-control is-valid');
 });

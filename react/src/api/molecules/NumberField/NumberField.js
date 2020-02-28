@@ -21,6 +21,9 @@ function NumberField(props) {
     if (props.required && isEmpty(value)) {
       return 'Required';
     }
+    if (props.validate && typeof props.validate === 'function') {
+      return props.validate(value);
+    }
   };
 
   const [field, meta] = useField({ name: props.name, validate });
@@ -119,6 +122,10 @@ NumberField.propTypes = {
    * Callback for when the select loses focus.
    **/
   onBlur: PropTypes.func,
+  /**
+   * Custom validation callback. Only "required" is handled automatically. Should return a string.
+   **/
+  validate: PropTypes.func,
 };
 
 NumberField.defaultProps = {
