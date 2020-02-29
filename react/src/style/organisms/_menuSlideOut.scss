@@ -1,0 +1,11 @@
+.org-menu-slideout {
+  .close {
+    color: $black !important;
+
+    &:hover,
+    &:focus {
+      color: $black;
+    }
+  }
+
+}
