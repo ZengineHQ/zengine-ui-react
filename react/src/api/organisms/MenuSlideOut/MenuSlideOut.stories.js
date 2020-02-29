@@ -38,10 +38,10 @@ export const TableRow = () => {
     ['Jane Doe', 'janedoe@hotmail.com', '25'],
     ['Highlander', 'one@therecanonlybe.com', 'Infinte']
   ];
-  const getData = () => <DemoData/>;
+  const getData = row => <DemoData row={ row }/>;
   const addSlideOut = row => {
     const slideOut = (
-      <MenuSlideOut title="Associated Data" data={ getData }>
+      <MenuSlideOut title={ `Associated Data ${ row[0] }` } data={ () => getData(row) }>
         <Button>View Data</Button>
       </MenuSlideOut>
     );

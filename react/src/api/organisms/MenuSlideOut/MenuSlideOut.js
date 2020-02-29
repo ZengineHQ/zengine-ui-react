@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Overlay from 'react-bootstrap/Overlay';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 /**
  * A MenuSlideOut is a slide-out context menu for performing actions related to a selected item, usually from
@@ -12,11 +13,12 @@ function MenuSlideOut(props) {
   const [data, setData] = useState(null);
   const target = useRef(null);
 
-  const openSlideOut = () => {
-    if (props.data && typeof props.data === 'function') {
+  const toggleSlideOut = () => {
+    // Only fetch data once.
+    if (!data && props.data && typeof props.data === 'function') {
       setData(props.data());
     }
-    setOpen(true);
+    setOpen(!open);
   };
 
   const closeSlideOut = () => {
@@ -27,10 +29,10 @@ function MenuSlideOut(props) {
   // containing area. If convenient we can decide to require a component as children and then wrap it with the
   // onChange prop added instead... for now this is simple and works fine.
   return (
-    <>
+    <OutsideClickHandler onOutsideClick={ closeSlideOut }>
       <Overlay target={ target.current } show={ open } placement="left">
         { () => (
-          <div className="org-menu-slideout" tabIndex="-1" role="dialog">
+          <div className={ classNames(['org-menu-slideout', props.classes]) } tabIndex="-1" role="dialog">
             <div className="modal-content">
               <div className="modal-header">
                 { props.title && (<h5 className="modal-title">{ props.title }</h5>) }
@@ -46,10 +48,10 @@ function MenuSlideOut(props) {
         ) }
 
       </Overlay>
-      <div className="d-inline-block" onClick={ openSlideOut }>
+      <div className="d-inline-block" onClick={ toggleSlideOut }>
         { props.children }
       </div>
-    </>
+    </OutsideClickHandler>
   );
 }
 
