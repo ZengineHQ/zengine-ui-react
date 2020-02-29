@@ -23,7 +23,7 @@ import withForwardRef from '../../util/withForwardRef';
 function Table(props) {
   return (
     <div className="table-responsive" ref={ props.innerRef }>
-      <table className={ classNames(['table table-borderless table-hover', props.classes]) }>
+      <table className={ classNames(['table', props.classes]) }>
         <thead>
         <tr>
           { props.headers.map((name, index) => (
@@ -35,7 +35,7 @@ function Table(props) {
         { props.rows.map((row, index) => (
           <tr key={ index }>
             { row.map((value, j) => (
-              <td key={ j }>{ value }</td>
+              <td key={ j } className="align-middle">{ value }</td>
             )) }
           </tr>
         )) }

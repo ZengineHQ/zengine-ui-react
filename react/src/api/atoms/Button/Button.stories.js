@@ -27,6 +27,28 @@ export const Disabled = () => (
   </Button>
 );
 
+export const Sizes = () => (
+  <div className="d-flex justify-content-between w-50">
+    <div>
+      <Button classes="btn-sm" onClick={ action('clicked') }>
+        Small Button
+      </Button>
+    </div>
+
+    <div>
+      <Button onClick={ action('clicked') }>
+        Regular Button
+      </Button>
+    </div>
+
+    <div>
+      <Button classes="btn-lg" onClick={ action('clicked') }>
+        Large Button
+      </Button>
+    </div>
+  </div>
+);
+
 export const StyleGuide = () => (
   <>
     <ul className="list-inline">

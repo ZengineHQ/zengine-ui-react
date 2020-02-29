@@ -40,7 +40,7 @@ export const Portals = () => {
     <SectionHeader>Process: Scholarship Award</SectionHeader>
 
     <Widget
-      body={ <Table headers={ headers } rows={ rows }/> }
+      body={ <Table headers={ headers } rows={ rows } classes="table-borderless table-hover"/> }
       footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
     />
   </>
