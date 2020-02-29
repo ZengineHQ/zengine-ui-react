@@ -16,7 +16,13 @@ const exampleImage = 'sample-image.jpg';
 
 export const Default = () => <Image src={ exampleImage } alt="Alt Text"/>;
 
-export const CustomDimensions = () => <Image src={ exampleImage } alt="Alt Text" height="80" width="80"/>;
+export const CustomDimensions = () => (
+  <div className="d-flex justify-content-between w-50">
+    <Image src={ exampleImage } alt="Alt Text" height="80" width="80"/>
+    <Image src={ exampleImage } alt="Alt Text" height="120" width="120"/>
+    <Image src={ exampleImage } alt="Alt Text" height="160" width="160"/>
+  </div>
+);
 
 export const CustomClasses = () => (
   <>
