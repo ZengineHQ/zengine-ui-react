@@ -4,6 +4,8 @@ import { text } from '@storybook/addon-knobs';
 import MenuSlideOut from './MenuSlideOut';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
 import { Button } from '../../index';
+import Table from '../Table/Table';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Organisms/MenuSlideOut',
@@ -22,14 +24,37 @@ const DemoData = () => (
   </ul>
 );
 
-export const Default = () => {
+export const Default = () => (
+  <>
+    <MenuSlideOut title="Associated Data" data={ () => <DemoData/> }>
+      <Button>Toggle slide out</Button>
+    </MenuSlideOut>
+  </>
+);
+
+export const TableRow = () => {
+  const data = [
+    ['John Smith', 'john@smith.com', '25'],
+    ['Jane Doe', 'janedoe@hotmail.com', '25'],
+    ['Highlander', 'one@therecanonlybe.com', 'Infinte']
+  ];
+  const getData = () => <DemoData/>;
+  const addSlideOut = row => {
+    const slideOut = (
+      <MenuSlideOut title="Associated Data" data={ getData }>
+        <Button>View Data</Button>
+      </MenuSlideOut>
+    );
+    row.push(slideOut);
+    return row;
+  };
 
   return (
     <>
-      <Button>Toggle slide out</Button>
-      <MenuSlideOut title="Associated Data">
-        <DemoData/>
-      </MenuSlideOut>
+      <Table
+        headers={ ['Name', 'Email ', 'Age', 'Actions'] }
+        rows={ data.map(addSlideOut) }
+      />
     </>
   );
 };
