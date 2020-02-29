@@ -28,7 +28,8 @@
     "build": "rm -rf dist; npm run build:js; npm run build:cssmin; npm run build:css",
     "build:js": "babel src/api -d dist/",
     "build:css": "node-sass src/style/yidhra.scss dist/yidhra.css",
-    "build:cssmin": "node-sass src/style/yidhra.scss dist/yidhra.min.css --output-style compressed"
+    "build:cssmin": "node-sass src/style/yidhra.scss dist/yidhra.min.css --output-style compressed",
+    "postinstall": "npm run scss"
   },
   "eslintConfig": {
     "extends": "react-app"

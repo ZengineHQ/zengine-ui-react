@@ -32,3 +32,4 @@ yarn-error.log*
 dist
 dist.zip
 /storybook-static
+public/yidhra.css
