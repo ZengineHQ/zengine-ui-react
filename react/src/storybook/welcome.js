@@ -87,9 +87,9 @@ npm install git+ssh://git@github.com/Wizehive/yidhra
 `;
 
   const code2 = `
-// Add \`yidhra.css\` from a CDN or locally.
-import 'yidhra.css';
-<link rel="stylesheet" type="text/css" href="https://awesome-cdn.com/yidhra.css">
+// Add \`style.css\` from a CDN or locally.
+import 'style.css';
+<link rel="stylesheet" type="text/css" href="https://awesome-cdn.com/style.css">
 
 // Add Font Awesome icons.
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
