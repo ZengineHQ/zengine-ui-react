@@ -35,7 +35,7 @@ export const Header = () => {
   const story = `
     <header className="tpl-program-console-header row">
       <div className="col-md-6 col-sm-12 d-flex align-items-center">
-        <Image src="Yidhra-face.jpg" alt="Program Console" classes="atom-image-circle" height="88" />
+        <Image src="sample-image.jpg" alt="Program Console" classes="atom-image-circle" height="88" />
         <PageTitle classes="ml-3">Program Console</PageTitle>
       </div>
 
@@ -59,7 +59,7 @@ export const Header = () => {
         </div>
 
         <div className="col-md-6 col-sm-12 d-flex align-items-center">
-          <Image src="Yidhra-face.jpg" alt="Program Console" classes="atom-image-circle" height="88"/>
+          <Image src="sample-image.jpg" alt="Program Console" classes="atom-image-circle" height="88"/>
           <PageTitle classes="ml-3">Program Console</PageTitle>
         </div>
 

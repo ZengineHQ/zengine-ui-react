@@ -5,7 +5,7 @@ import logo from '../public/logo.svg';
 
 const theme = create({
   base: 'light',
-  brandTitle: 'WizeHive Yidhra',
+  brandTitle: 'Zengine UI',
   brandImage: logo,
 });
 

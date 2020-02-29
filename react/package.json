@@ -1,5 +1,5 @@
 {
-  "name": "@zenginehq/yidhra-react",
+  "name": "@zenginehq/zengine-ui-react",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
@@ -21,14 +21,14 @@
     "test": "react-scripts test",
     "test:save": "CI=true npm run test -- --json --outputFile=./src/test/.results.json",
     "test:cover": "CI=true npm test -- --collect-coverage",
-    "scss": "node-sass src/style/yidhra.scss public/style.css",
+    "scss": "node-sass src/style/style.scss public/style.css",
     "scss:watch": "npm run scss -- -w",
     "build-storybook": "npm run test:save && build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
     "build": "rm -rf dist; npm run build:js; npm run build:cssmin; npm run build:css",
     "build:js": "babel src/api -d dist/",
-    "build:css": "node-sass src/style/yidhra.scss dist/style.css",
-    "build:cssmin": "node-sass src/style/yidhra.scss dist/style.min.css --output-style compressed",
+    "build:css": "node-sass src/style/style.scss dist/style.css",
+    "build:cssmin": "node-sass src/style/style.scss dist/style.min.css --output-style compressed",
     "postinstall": "npm run scss"
   },
   "eslintConfig": {

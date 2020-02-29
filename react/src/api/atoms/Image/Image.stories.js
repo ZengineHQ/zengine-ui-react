@@ -12,7 +12,7 @@ export default {
   },
 };
 
-const exampleImage = 'Yidhra-face.jpg';
+const exampleImage = 'sample-image.jpg';
 
 export const Default = () => <Image src={ exampleImage } alt="Alt Text"/>;
 
@@ -31,10 +31,10 @@ export const Playground = () => {
   return (
     <>
       <div className="text-muted">
-        <p>The image "Yidhra-face.jpg" is hosted locally with this Storybook, use absolute URLs to change it.</p>
+        <p>The image "sample-image.jpg" is hosted locally with this Storybook, use absolute URLs to change it.</p>
       </div>
       <Image
-        src={ text('Source', 'Yidhra-face.jpg') }
+        src={ text('Source', 'sample-image.jpg') }
         height={ number('Height', 120) }
         width={ number('Width', 120) }
         alt={ text('Alt Text', 'This is an image of stuff') }

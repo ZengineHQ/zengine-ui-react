@@ -1,13 +1,13 @@
-# Yidhra React
+# Zengine UI React
 
-> React atomic design Components for Yidhra.
+> React atomic design Components for Zengine built in React.
 
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](http://wizehive.github.io/yidhra/) 
 
 ## Installation
 
 ```
-npm install @zenginehq/yidhra-react
+npm install @zenginehq/zengine-ui-react
 ```
 
 ## Usage
