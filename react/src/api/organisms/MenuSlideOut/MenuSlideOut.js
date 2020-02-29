@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Overlay from 'react-bootstrap/Overlay';
-import OutsideClickHandler from 'react-outside-click-handler';
 
 /**
  * A MenuSlideOut is a slide-out context menu for performing actions related to a selected item, usually from
@@ -11,7 +10,9 @@ import OutsideClickHandler from 'react-outside-click-handler';
 function MenuSlideOut(props) {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
-  const target = useRef(null);
+  // Hooks can't be called conditionally.
+  const fallbackRef = useRef(null);
+  const target = props.target || fallbackRef;
 
   const toggleSlideOut = () => {
     // Only fetch data once.
@@ -29,8 +30,13 @@ function MenuSlideOut(props) {
   // containing area. If convenient we can decide to require a component as children and then wrap it with the
   // onChange prop added instead... for now this is simple and works fine.
   return (
-    <OutsideClickHandler onOutsideClick={ closeSlideOut }>
-      <Overlay target={ target.current } show={ open } placement="left">
+    <>
+      <Overlay
+        container={ target.current }
+        target={ target.current }
+        show={ open }
+        placement="left"
+      >
         { () => (
           <div className={ classNames(['org-menu-slideout', props.classes]) } tabIndex="-1" role="dialog">
             <div className="modal-content">
@@ -51,7 +57,7 @@ function MenuSlideOut(props) {
       <div className="d-inline-block" onClick={ toggleSlideOut }>
         { props.children }
       </div>
-    </OutsideClickHandler>
+    </>
   );
 }
 
@@ -73,6 +79,13 @@ MenuSlideOut.propTypes = {
    * HTML classes to be added as-is to the slide out element.
    **/
   classes: PropTypes.string,
+  /**
+   * A ref for an HTML element where this should be attached. Overrides the default behavior.
+   **/
+  target: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
 };
 
 MenuSlideOut.defaultProps = {

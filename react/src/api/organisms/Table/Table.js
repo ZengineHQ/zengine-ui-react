@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import withForwardRef from '../../util/withForwardRef';
 
 /**
  * Table displays tabular data in, well, an HTML table.
@@ -21,8 +22,8 @@ import classNames from 'classnames';
  */
 function Table(props) {
   return (
-    <div className="table-responsive">
-      <table className={classNames(['table table-borderless table-hover', props.classes])}>
+    <div className="table-responsive" ref={ props.innerRef }>
+      <table className={ classNames(['table table-borderless table-hover', props.classes]) }>
         <thead>
         <tr>
           { props.headers.map((name, index) => (
@@ -65,4 +66,6 @@ Table.defaultProps = {
   classes: ''
 };
 
-export default Table;
+export { Table };
+
+export default withForwardRef(Table);
