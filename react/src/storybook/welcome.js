@@ -20,8 +20,8 @@ export const Introduction = () => (
   <article>
     <PageTitle>Introduction</PageTitle>
     <p>
-      Use the nested menu on the left to navigate between all of the available Yidhra components, grouped by
-      their atomic design categorization, as well as some additional Utility components you may find useful.
+      Use the nested menu on the left to navigate between all of the available components, grouped by their
+      atomic design categorization, as well as some additional Utility components you may find useful.
     </p>
 
     <p>
@@ -125,7 +125,7 @@ function MyComponent() {
 
   return (
     <article>
-      <PageTitle>Using Yidhra</PageTitle>
+      <PageTitle>Using Components</PageTitle>
       <p>
         Install the library, add the theme files yourself and profit! Use the menu on the left to navigate between
         the different components available.  Don't forget to check out the Templates section at the end to see some
@@ -149,7 +149,7 @@ function MyComponent() {
 
 export const Development = () => (
   <article>
-    <PageTitle>Developing Yidhra</PageTitle>
+    <PageTitle>Developing Components</PageTitle>
     <p>There's 3 mandatory parts for every component: code, stories and tests.</p>
 
     <SectionHeader>Writing Code</SectionHeader>

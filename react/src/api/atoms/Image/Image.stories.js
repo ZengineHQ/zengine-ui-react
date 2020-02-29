@@ -14,14 +14,14 @@ export default {
 
 const exampleImage = 'Yidhra-face.jpg';
 
-export const Default = () => <Image src={ exampleImage } alt="Yidhra Face"/>;
+export const Default = () => <Image src={ exampleImage } alt="Alt Text"/>;
 
-export const CustomDimensions = () => <Image src={ exampleImage } alt="Yidhra Face" height="80" width="80"/>;
+export const CustomDimensions = () => <Image src={ exampleImage } alt="Alt Text" height="80" width="80"/>;
 
 export const CustomClasses = () => (
   <>
-    <Image src={ exampleImage } alt="Yidhra Face" classes="atom-image-circle"/>
-    <Image src={ exampleImage } alt="Yidhra Face" classes="img-thumbnail"/>
+    <Image src={ exampleImage } alt="Alt Text" classes="atom-image-circle"/>
+    <Image src={ exampleImage } alt="Alt Text" classes="img-thumbnail"/>
   </>
 );
 

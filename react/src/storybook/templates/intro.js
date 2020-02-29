@@ -15,7 +15,7 @@ export const Intro = () => (
   <article>
     <PageTitle>Template Browser</PageTitle>
     <p>
-      Use the nested menu on the left to navigate between different Atom Design Templates built using Yidhra components.
+      Use the nested menu on the left to navigate between different Atom Design Templates built using these components.
     </p>
   </article>
 );
