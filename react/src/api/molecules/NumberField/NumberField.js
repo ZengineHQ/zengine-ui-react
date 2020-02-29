@@ -128,10 +128,6 @@ NumberField.propTypes = {
    **/
   help: PropTypes.string,
   /**
-   * Optionally pass a ref to be attached to the actual HTML input element.
-   **/
-  innerRef: PropTypes.object,
-  /**
    * Callback for when the input's value changes.
    **/
   onChange: PropTypes.func,

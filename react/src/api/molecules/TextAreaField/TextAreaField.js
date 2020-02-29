@@ -111,10 +111,6 @@ TextAreaField.propTypes = {
    **/
   resizable: PropTypes.bool,
   /**
-   * Optionally pass a ref to be attached to the actual HTML input element.
-   **/
-  innerRef: PropTypes.object,
-  /**
    * Callback for when the select's value changes.
    **/
   onChange: PropTypes.func,
