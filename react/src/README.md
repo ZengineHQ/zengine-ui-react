@@ -1,7 +1,7 @@
 # Directory Structure Guide
 
 - `api` is where the actual distributable components live and are exported from, see `npm run build` for more info
-- `storybook` contains top-level documentation stories, example template stories and also helpers used by the Storybook
+- `storybook` contains top-level documentation stories, example template stories and helpers used by the Storybook
 - `style` contains the SCSS source code for our custom Bootstrap theme
 - `test` contains test helpers used by the `*.test.js` files in the `api` directory
 
