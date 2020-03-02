@@ -2,10 +2,8 @@ import React, { useRef } from 'react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Table, Widget } from '../../api';
+import { Button, Table, Widget, MenuSlideOut, SectionHeader } from '../../api';
 import useSyntaxHighlighter from '../useSyntaxHighlighter';
-import SectionHeader from '../../api/atoms/SectionHeader/SectionHeader';
-import MenuSlideOut from '../../api/organisms/MenuSlideOut/MenuSlideOut';
 
 export default {
   title: 'Templates/ProgramManager',
@@ -60,12 +58,16 @@ export const Portals = () => {
   });
 
   const story = `
+  import { Button, Table, Widget, MenuSlideOut, SectionHeader } from '@zenginehq/zengine-ui-react';
+  const headers = ['Title', 'Something Else', 'Date', ''];
+  const rows = fetchDataFromAwesomeDatabase();
+
   <>
     <SectionHeader>Process: Scholarship Award</SectionHeader>
 
     <Widget
       body={ <Table headers={ headers } rows={ rows } classes="table-borderless table-hover"/> }
-      footer={ <Button onClick={ action('clicked footer button') }>Set Assignments</Button> }
+      footer={ <div className="text-center"><Button>Set Assignments</Button></div> }
     />
   </>
   `;

@@ -33,7 +33,19 @@ export const Header = () => {
   ];
 
   const story = `
+    import { Image, KPI, Label, PageTitle, Select } from '@zenginehq/zengine-ui-react';
+    const items = dataFromService();
+
     <header className="tpl-program-console-header row">
+      <div className="col-12">
+        <Label for="program-selector">Select the program you wish to view:</Label>
+        <Select
+          id="program-selector"
+          options={ ['Scholarship Program G', 'Other Program', 'Irrelevant Program'] }
+          defaultValue="Scholarship Program G"
+        />
+      </div>
+
       <div className="col-md-6 col-sm-12 d-flex align-items-center">
         <Image src="sample-image.jpg" alt="Program Console" classes="atom-image-circle" height="88" />
         <PageTitle classes="ml-3">Program Console</PageTitle>
