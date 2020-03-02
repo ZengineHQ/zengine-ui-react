@@ -25,15 +25,22 @@ export const Portals = () => {
       'Title Information',
       'Some Info',
       'March 2020',
-      <Button onClick={ action('clicked data button row 1') } theme="link">View Data</Button>,
     ],
     [
       'Other Title',
       'Other Info',
-      'April 2020',
-      <Button onClick={ action('clicked data button row 2') } theme="link">View Data</Button>,
+      'June 2020',
     ],
-  ];
+    [
+      'Third Title',
+      'Third Info',
+      'April 29 1992',
+    ],
+  ].map(row => {
+    const button = null;
+    row.push(button);
+    return row;
+  });
 
   const story = `
   <>
@@ -51,8 +58,12 @@ export const Portals = () => {
       <SectionHeader>Process: Scholarship Award</SectionHeader>
 
       <Widget
-        body={ <Table headers={ headers } rows={ rows }/> }
-        footer={ <div className="text-center"><Button onClick={ action('clicked footer button') }>Set Assignments</Button></div> }
+        body={ <Table headers={ headers } rows={ rows } classes="table-borderless table-hover"/> }
+        footer={ (
+          <div className="text-center">
+            <Button onClick={ action('clicked footer button') }>Set Assignments</Button>
+          </div>
+        ) }
       />
 
       <hr className="mt-5 mb-3"/>
@@ -60,9 +71,10 @@ export const Portals = () => {
       This template utilizes the following components:
 
       <ul>
-        <li><Button theme="link" onClick={linkTo('Organisms/Widget')} classes="p-0">Widget</Button></li>
-        <li><Button theme="link" onClick={linkTo('Organisms/Table')} classes="p-0">Table</Button></li>
-        <li><Button theme="link" onClick={linkTo('Atoms/Button')} classes="p-0">Button</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Organisms/Widget') } classes="p-0">Widget</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Organisms/Table') } classes="p-0">Table</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Atoms/Button') } classes="p-0">Button</Button></li>
+        <li><Button theme="link" onClick={ linkTo('Organisms/MenuSlideOut') } classes="p-0">Menu Slide Out</Button></li>
       </ul>
 
       { useSyntaxHighlighter(story) }
