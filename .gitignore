@@ -32,4 +32,4 @@ yarn-error.log*
 dist
 dist.zip
 /storybook-static
-public/style.css
+public/style.css*
