@@ -25,7 +25,15 @@ const DemoData = () => (
 
 export const Default = () => (
   <>
-    <MenuSlideOut title="Associated Data" data={ () => <DemoData/> }>
+    <MenuSlideOut title="Associated Data" data={ () => <DemoData /> }>
+      <Button>Toggle slide out</Button>
+    </MenuSlideOut>
+  </>
+);
+
+export const TitleIcon = () => (
+  <>
+    <MenuSlideOut title="Associated Data" data={ () => <DemoData /> } titleIcon="camera">
       <Button>Toggle slide out</Button>
     </MenuSlideOut>
   </>
@@ -44,7 +52,7 @@ export const TableRow = () => {
 
   // Data fetching callback we pass the MenuSlideOut, this is done like this so we lazy-load all data used.
   // It should return a component which displays the loaded data.
-  const getData = row => <DemoData row={ row }/>;
+  const getData = row => <DemoData row={ row } />;
 
   // This is just a way of attaching our slideOut to each row in the table. Presumably you will have a way of
   // iterating over your `externalData` and doing something similar.  We can then use each row's data to build
@@ -82,7 +90,8 @@ export const Playground = () => {
     <MenuSlideOut
       title={ text('Title', 'Associated Data') }
       classes={ text('Classes', 'class-two') }
-      data={ () => <DemoData/> }
+      data={ () => <DemoData /> }
+      titleIcon={ text('Title Icon', 'camera') }
     >
       <Button>Do the thing</Button>
     </MenuSlideOut>
