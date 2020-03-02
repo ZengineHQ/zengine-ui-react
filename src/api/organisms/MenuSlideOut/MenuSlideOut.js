@@ -24,6 +24,10 @@ function MenuSlideOut(props) {
 
   const closeSlideOut = () => {
     setOpen(false);
+    if (props.onClose && typeof props.onClose === 'function') {
+      props.onClose();
+    }
+  };
   };
 
   // We use an inline-block wrapper for the onClick event so we can attach it to just the contents and not the entire
@@ -96,6 +100,10 @@ MenuSlideOut.propTypes = {
    * Optional. A Font Awesome icon to add to the slideOut title.
    **/
   titleIcon: PropTypes.string,
+  /**
+   * Callback for when the slideOut is closed.
+   **/
+  onClose: PropTypes.func
 };
 
 MenuSlideOut.defaultProps = {
