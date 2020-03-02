@@ -1,9 +1,8 @@
 .babelrc
 .cache
+.idea
 .storybook
 storybook-static
 .nvmrc
 public
-README.md
-CHANGELOG.md
 src
