@@ -2,7 +2,7 @@
 
 > React atomic design Components for Zengine built in React.
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](http://wizehive.github.io/yidhra/) 
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://zenginehq.github.io/zengine-ui-react) 
 
 ## Installation
 
@@ -20,7 +20,7 @@ import 'style.css';
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
 
 // Use components.
-import { Button, TextField, NumberField, YidhraForm } from '@zenginehq/yidhra-react';
+import { Button, TextField, NumberField, Form } from '@zenginehq/zengine-ui-react';
 
 function MyComponent() {
     const myCallback = values => {
@@ -28,10 +28,10 @@ function MyComponent() {
     };
 
     return (
-        <YidhraForm onSubmit={myCallback}>
+        <Form onSubmit={myCallback}>
             <TextField name="firstName" label="First Name" required />
             <NumberField name="age" label="Age" required />
-        </YidhraForm>
+        </Form>
     );
 }
 ```
@@ -48,7 +48,7 @@ For more information see the Storybook
 - `deploy-storybook`: deploys the Storybook to Github Pages
 - `scss`: compiles SCSS from the `style` folder
 - `scss:watch`: watches the `style` folder and recompiles SCSS when files change
-- `build`: builds the redistributable output for Yidhra; this is what people will get when they `npm install` this in their projects
+- `build`: builds the redistributable output for Zengine UI React; this is what people will get when they `npm install` this in their projects
 
 ## Directory Structure Guide
 
@@ -56,5 +56,5 @@ For more information see the Storybook
 - `.storybook` contains Storybook configuration
 - `dist` is where the generated package code goes when `npm run build` is executed; this directory won't exist unless you've run the command
 - `public` contains static assets to be served with the Storybook
-- `src` contains the actual Yidhra source code
+- `src` contains the actual Zengie UI React source code
 - `storybook-static` is where the generated Storybook code when `npm run build-storybook` is executed; this directory won't exist unless you've run the command
