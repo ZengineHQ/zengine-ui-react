@@ -9,9 +9,6 @@
 /coverage
 /src/test/.results.json
 
-# production
-/build
-
 # misc
 .DS_Store
 .env.local
@@ -29,7 +26,6 @@ yarn-error.log*
 .idea
 
 # build artifants.
-dist
-dist.zip
+lib
 /storybook-static
 public/style.css*
