@@ -2,7 +2,7 @@
   "name": "@zenginehq/zengine-ui-react",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "sideEffects": false,
   "dependencies": {
     "bootstrap": "^4.4.1",
@@ -32,6 +32,10 @@
     "build:cssmin": "sass src/style/style.scss lib/style.min.css --style compressed",
     "release": "npm run build && standard-version -t ''"
   },
+  "files": [
+    "CHANGELOG.md",
+    "lib"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
