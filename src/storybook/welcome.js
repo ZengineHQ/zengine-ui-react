@@ -26,7 +26,7 @@ export const Introduction = () => (
 
     <p>
       Atoms are the base building blocks and tend to be underwhelmingly simple, however you can combine multiple atoms
-      together and sprinkle in some custom markup to get useful Molecules.  Repeat analogy for Organisms and Templates.
+      together and sprinkle in some custom markup to get useful Molecules. Repeat analogy for Organisms and Templates.
       <em>Note</em>: Templates are not "drop-in" components like the rest; they are merely usage guides and living
       examples which you can replicate in your own code.
     </p>
@@ -60,18 +60,18 @@ export const Introduction = () => (
     </dl>
 
     <SectionHeader>Responsive Preview</SectionHeader>
-      In the top toolbar, after the zoom in/out buttons there's a responsive helper button that will redimension the
-      Canvas so different screen size scenarios can be previewed.
-    <hr/>
+    In the top toolbar, after the zoom in/out buttons there's a responsive helper button that will redimension the
+    Canvas so different screen size scenarios can be previewed.
+    <hr />
 
     <p>
       Oh, PS - Font Awesome SVG icons work:&nbsp;&nbsp;&nbsp;
-      <i className="fas fa-camera"></i>&nbsp;&nbsp;&nbsp;
-      <i className="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;
-      <i className="fas fa-dog"></i>
+      <i className="fas fa-camera" />&nbsp;&nbsp;&nbsp;
+      <i className="fas fa-exclamation-triangle" />&nbsp;&nbsp;&nbsp;
+      <i className="fas fa-dog" />
     </p>
 
-    <hr/>
+    <hr />
 
     <Button onClick={ linkTo('Atoms/Button') }>Check out the first Atom</Button>
   </article>
@@ -128,7 +128,7 @@ function MyComponent() {
       <PageTitle>Using Components</PageTitle>
       <p>
         Install the library, add the theme files yourself and profit! Use the menu on the left to navigate between
-        the different components available.  Don't forget to check out the Templates section at the end to see some
+        the different components available. Don't forget to check out the Templates section at the end to see some
         examples of what you can build.
       </p>
 
@@ -150,7 +150,8 @@ function MyComponent() {
 export const Development = () => (
   <article>
     <PageTitle>Developing Components</PageTitle>
-    <p>Be sure to run <code>npm run scss</code> at least once so you have the generated stylesheet for the Storybook preview</p>
+    <p>Be sure to run <code>npm run scss</code> at least once so you have the generated stylesheet for the Storybook
+      preview</p>
 
     <p>There's 3 mandatory parts for every component: code, stories and tests.</p>
 

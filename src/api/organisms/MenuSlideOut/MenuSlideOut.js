@@ -41,7 +41,12 @@ function MenuSlideOut(props) {
           <div className={ classNames(['org-menu-slideout', props.classes]) } tabIndex="-1" role="dialog">
             <div className="modal-content">
               <div className="modal-header">
-                { props.title && (<h5 className="modal-title">{ props.title }</h5>) }
+                { props.title && (
+                  <h5 className="modal-title">
+                    { props.titleIcon && (<i className={ `fas fa-${ props.titleIcon } mr-3` } />) }
+                    { props.title }
+                  </h5>
+                ) }
                 <button type="button" className="close" aria-label="Close" onClick={ closeSlideOut }>
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -87,6 +92,10 @@ MenuSlideOut.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) })
   ]),
+  /**
+   * Optional. A Font Awesome icon to add to the slideOut title.
+   **/
+  titleIcon: PropTypes.string,
 };
 
 MenuSlideOut.defaultProps = {

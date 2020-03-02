@@ -20,12 +20,15 @@ export default {
 };
 
 const DemoData = ({ row }) => (
-  <ul>
-    <li>Form Name 01</li>
-    <li>Form Name 02</li>
-    <li>{ row[1] }</li>
-    <li>{ row[2] }</li>
-  </ul>
+  <>
+    <div className="text-dark">Form Data</div>
+    <ul>
+      <li>Form Name 01</li>
+      <li>Form Name 02</li>
+      <li>{ row[1] }</li>
+      <li>{ row[2] }</li>
+    </ul>
+  </>
 );
 
 export const Portals = () => {
@@ -45,7 +48,8 @@ export const Portals = () => {
     const slideOut = (
       <MenuSlideOut
         target={ ref }
-        title={ `Associated Data ${ row[0] }` }
+        title={ `Data: ${ row[0] }` }
+        titleIcon="database"
         data={ () => getData(row) }
       >
         <Button theme="link">View Data</Button>
