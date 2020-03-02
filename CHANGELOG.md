@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/ZengineHQ/zengine-ui-react/compare/0.1.0...0.1.1) (2020-03-02)
+
+
+### Features
+
+* add onClose callback to menu slide out ([0d6a53e](https://github.com/ZengineHQ/zengine-ui-react/commit/0d6a53e9942ac1d931a523614b808fb68d5cec87))
+
+
+### Bug Fixes
+
+* slide out data stale ([b988288](https://github.com/ZengineHQ/zengine-ui-react/commit/b9882888edf5b782ef21409e253421bc816b0ced))
+
 ## 0.1.0 (2020-03-02)
 
 
