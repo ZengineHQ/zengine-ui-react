@@ -26,10 +26,10 @@
     "sass:watch": "npm run sass -- --watch",
     "build-storybook": "npm run test:save && build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
-    "build": "rimraf dist; npm run build:js; npm run build:cssmin; npm run build:css",
-    "build:js": "BABEL_ENV=production babel src/api -d dist/",
-    "build:css": "sass src/style/style.scss dist/style.css",
-    "build:cssmin": "sass src/style/style.scss dist/style.min.css --style compressed",
+    "build": "rimraf lib; npm run build:js; npm run build:cssmin; npm run build:css",
+    "build:js": "BABEL_ENV=production babel src/api -d lib/",
+    "build:css": "sass src/style/style.scss lib/style.css",
+    "build:cssmin": "sass src/style/style.scss lib/style.min.css --style compressed",
     "release": "npm run build && standard-version -t ''"
   },
   "eslintConfig": {

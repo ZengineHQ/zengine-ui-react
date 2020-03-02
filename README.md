@@ -63,7 +63,7 @@ For more information see the Storybook
 
 - `.cache` is an internal directory used by React, ignore it
 - `.storybook` contains Storybook configuration
-- `dist` is where the generated package code goes when `npm run build` is executed; this directory won't exist unless you've run the command
+- `lib` is where the generated package code goes when `npm run build` is executed; this directory won't exist unless you've run the command
 - `public` contains static assets to be served with the Storybook
 - `src` contains the actual Zengie UI React source code
 - `storybook-static` is where the generated Storybook code when `npm run build-storybook` is executed; this directory won't exist unless you've run the command
