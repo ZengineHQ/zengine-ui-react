@@ -9,16 +9,11 @@ import Overlay from 'react-bootstrap/Overlay';
  */
 function MenuSlideOut(props) {
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState(null);
   // Hooks can't be called conditionally.
   const fallbackRef = useRef(null);
   const target = props.target || fallbackRef;
 
   const toggleSlideOut = () => {
-    // Only fetch data once.
-    if (!data && props.data && typeof props.data === 'function') {
-      setData(props.data());
-    }
     setOpen(!open);
   };
 
@@ -28,6 +23,9 @@ function MenuSlideOut(props) {
       props.onClose();
     }
   };
+
+  const getData = () => {
+    return props.data && typeof props.data === 'function' ? props.data() : null;
   };
 
   // We use an inline-block wrapper for the onClick event so we can attach it to just the contents and not the entire
@@ -56,7 +54,7 @@ function MenuSlideOut(props) {
                 </button>
               </div>
               <div className="modal-body">
-                { data }
+                { getData() }
               </div>
             </div>
           </div>
