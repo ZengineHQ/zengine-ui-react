@@ -7,17 +7,22 @@
 ## Installation
 
 ```
-npm install @zenginehq/zengine-ui-react
+npm i @zenginehq/zengine-ui-react
 ```
 
 ## Usage
 
+#### Add Font Awesome Icons
+In index.html or equivalent:
 ```
-// Add `style.css` from a CDN or locally.
-import 'style.css';
-
-// Add Font Awesome icons.
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
+```
+
+#### Import and Use
+In your component.js file:
+```
+// Add styles. In the future this might be available on a CDN, for now include it locally.
+import '@zenginehq/zengine-ui-react/dist/style.css';
 
 // Use components.
 import { Button, TextField, NumberField, Form } from '@zenginehq/zengine-ui-react';

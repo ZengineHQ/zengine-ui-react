@@ -79,25 +79,18 @@ export const Introduction = () => (
 
 export const Usage = () => {
   const code1 = `
-// Latest stable version.
-npm install @zenginehq/yidhra-react
-
-// Development version.
-npm install git+ssh://git@github.com/Wizehive/yidhra
+npm i @zenginehq/zengine-ui-react
 `;
 
   const code2 = `
-// Add \`style.css\` from a CDN or locally.
-import 'style.css';
-<link rel="stylesheet" type="text/css" href="https://awesome-cdn.com/style.css">
-
-// Add Font Awesome icons.
 <script src="https://kit.fontawesome.com/0cf0825a47.js" crossorigin="anonymous"></script>
 `;
-
   const code3 = `
+// Add styles. In the future this might be available on a CDN, for now include it locally.
+import '@zenginehq/zengine-ui-react/dist/style.css';
+
 // Use components.
-import { Button, TextField, NumberField, Form, KPI } from '@zenginehq/yidhra-react';
+import { Button, TextField, NumberField, Form, KPI } from '@zenginehq/zengine-ui-react';
 
 function MyComponent() {
     const myCallback = values => {
@@ -136,11 +129,11 @@ function MyComponent() {
 
       { useSyntaxHighlighter(code1) }
 
-      <SectionHeader>Adding Fonts & Theme</SectionHeader>
+      <SectionHeader>Adding Fonts</SectionHeader>
 
       { useSyntaxHighlighter(code2) }
 
-      <SectionHeader>Using the components</SectionHeader>
+      <SectionHeader>Importing styles and using the components</SectionHeader>
 
       { useSyntaxHighlighter(code3) }
     </article>
