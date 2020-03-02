@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
 import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
-import MenuSlideOut from './MenuSlideOut';
 import useDefaultPanel from '../../../storybook/useDefaultPanel';
-import { Button } from '../../index';
-import Table from '../Table/Table';
+import { Button, MenuSlideOut, Table } from '../../index';
 
 export default {
   title: 'Organisms/MenuSlideOut',
@@ -38,6 +37,18 @@ export const TitleIcon = () => (
     </MenuSlideOut>
   </>
 );
+
+export const CloseCallback = () => {
+  useDefaultPanel('Actions');
+
+  return (
+    <>
+      <MenuSlideOut title="Associated Data" data={ () => <DemoData /> } onClose={ action('goodbye!') }>
+        <Button>Toggle slide out</Button>
+      </MenuSlideOut>
+    </>
+  );
+}
 
 export const TableRow = () => {
   // Sample data set as one might receive from an API endpoint or database.
