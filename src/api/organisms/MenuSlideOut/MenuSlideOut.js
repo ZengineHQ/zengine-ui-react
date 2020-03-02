@@ -54,6 +54,7 @@ function MenuSlideOut(props) {
         ) }
 
       </Overlay>
+
       <div className="d-inline-block" onClick={ toggleSlideOut }>
         { props.children }
       </div>
