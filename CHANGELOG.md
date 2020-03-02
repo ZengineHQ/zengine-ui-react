@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/ZengineHQ/zengine-ui-react/compare/0.1.2...0.1.3) (2020-03-02)
+
+
+### Bug Fixes
+
+* menu slide out data again thx Ted ([fec742b](https://github.com/ZengineHQ/zengine-ui-react/commit/fec742b85987aaa57ed5deac0910199ba4944d80))
+
 ### [0.1.2](https://github.com/ZengineHQ/zengine-ui-react/compare/0.1.1...0.1.2) (2020-03-02)
 
 
