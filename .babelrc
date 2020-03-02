@@ -13,5 +13,13 @@
   "ignore": [
     "**/*.stories.js",
     "**/*.test.js"
-  ]
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "minify"
+      ],
+      "comments": false
+    }
+  }
 }
