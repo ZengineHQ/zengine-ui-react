@@ -28,7 +28,8 @@
     "build": "rimraf dist; npm run build:js; npm run build:cssmin; npm run build:css",
     "build:js": "BABEL_ENV=production babel src/api -d dist/",
     "build:css": "sass src/style/style.scss dist/style.css",
-    "build:cssmin": "sass src/style/style.scss dist/style.min.css --style compressed"
+    "build:cssmin": "sass src/style/style.scss dist/style.min.css --style compressed",
+    "release": "npm run build && standard-version -t ''"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -74,7 +75,8 @@
     "babel-preset-minify": "^0.5.1",
     "react-scripts": "^3.4.0",
     "rimraf": "^3.0.2",
-    "sinon": "^8.1.1"
+    "sinon": "^8.1.1",
+    "standard-version": "^7.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
