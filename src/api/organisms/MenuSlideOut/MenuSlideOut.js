@@ -24,9 +24,7 @@ function MenuSlideOut(props) {
     }
   };
 
-  const getData = () => {
-    return props.data && typeof props.data === 'function' ? props.data() : null;
-  };
+  const data = props.data && typeof props.data === 'function' ? props.data() : null;
 
   // We use an inline-block wrapper for the onClick event so we can attach it to just the contents and not the entire
   // containing area. If convenient we can decide to require a component as children and then wrap it with the
@@ -54,7 +52,7 @@ function MenuSlideOut(props) {
                 </button>
               </div>
               <div className="modal-body">
-                { getData() }
+                { data }
               </div>
             </div>
           </div>
