@@ -10,6 +10,7 @@ import Button from '../../atoms/Button/Button';
  */
 function ZengineUIForm(props) {
   const {
+    enableReinitialize,
     initialValues,
     onSubmit,
     labelReset,
@@ -32,6 +33,7 @@ function ZengineUIForm(props) {
 
   return (
     <Formik
+      enableReinitialize={enableReinitialize}
       initialValues={ initialValues || {} }
       validateOnMount={ validateOnMount }
       validateOnBlur={ validateOnBlur }
