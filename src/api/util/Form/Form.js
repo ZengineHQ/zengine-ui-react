@@ -6,9 +6,9 @@ import isEmpty from 'lodash/isEmpty';
 import Button from '../../atoms/Button/Button';
 
 /**
- * YidhraForm is an advanced
+ * ZengineUIForm is an advanced form wrapper built on top of Formik
  */
-function YidhraForm(props) {
+function ZengineUIForm(props) {
   const {
     initialValues,
     onSubmit,
@@ -79,7 +79,7 @@ function YidhraForm(props) {
   );
 }
 
-YidhraForm.propTypes = {
+ZengineUIForm.propTypes = {
   /**
    * Pass elements to be rendered into the form.
    **/
@@ -130,8 +130,8 @@ YidhraForm.propTypes = {
   classes: PropTypes.string,
 };
 
-YidhraForm.defaultProps = {
-  initialData: {},
+ZengineUIForm.defaultProps = {
+  initialValues: {},
   labelReset: 'Reset',
   labelSubmit: 'Save',
   showReset: true,
@@ -142,4 +142,4 @@ YidhraForm.defaultProps = {
   validateOnChange: true,
 };
 
-export default YidhraForm;
+export default ZengineUIForm;
