@@ -1,8 +1,8 @@
 # Zengine UI React
 
-> React atomic design Components for Zengine built in React.
+> Atomic design Components for Zengine Plugins built in React.
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://zenginehq.github.io/zengine-ui-react) 
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://zenginehq.github.io/zengine-ui-react)
 
 ## Installation
 
@@ -29,7 +29,7 @@ import { Button, TextField, NumberField, Form } from '@zenginehq/zengine-ui-reac
 
 function MyComponent() {
     const myCallback = values => {
-        console.warn('submitted values', values); 
+        console.warn('submitted values', values);
     };
 
     return (
@@ -43,12 +43,12 @@ function MyComponent() {
 
 For more information see the Storybook
 
-## Explanation of NPM scripts 
+## Explanation of NPM scripts
 
 - `start`: starts the local dev version of the Storybook
 - `test`: starts the Jest interactive test runner
 - `test:save`: runs tests in CI mode (non-interactive just run all tests once) and logs output to a file
-- `test:cover`: runs tests in CI mode (see test:save) and generates code a coverage report (only considers `api` folder) 
+- `test:cover`: runs tests in CI mode (see test:save) and generates code a coverage report (only considers `api` folder)
 - `build-storybook`: runs tests to generate the log output and builds the Storybook
 - `deploy-storybook`: deploys the Storybook to Github Pages
 - `sass`: compiles SCSS from the `style` folder
